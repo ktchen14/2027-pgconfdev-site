@@ -23,6 +23,10 @@
  */
 
 @import '@csstools/normalize.css' layer;
+@import "@fontsource/montserrat/400-italic.css" layer font;
+@import "@fontsource/montserrat/400.css" layer font;
+@import "@fontsource/montserrat/700-italic.css" layer font;
+@import "@fontsource/montserrat/700.css" layer font;
 
 @custom-selector :--link a:where(:not([role='button'])), [role='link'];
 @custom-selector :--button button, ::file-selector-button, [role='button'],
