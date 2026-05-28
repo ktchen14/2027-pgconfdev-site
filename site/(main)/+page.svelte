@@ -1,8 +1,42 @@
 <script lang="ts">
+  import { Circle } from "@lucide/svelte";
+  import { resolve } from "$app/paths";
   import banner from "./banner.svg";
+
+  const href =
+    "https://2026.pgconf.dev/svelte/immutable/assets/butcher.BRs9V-uj.avif";
 </script>
 
 <style>
+  .hero {
+    padding-block: clamp(4rem, 10vw, 8rem);
+
+    h1 {
+      font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
+      letter-spacing: -2%;
+      line-height: 1;
+    }
+
+    dl {
+      gap: 3rem;
+      margin-block-end: 3rem;
+
+      dt {
+        font-weight: inherit;
+        margin-block-end: 0.5rem;
+      }
+
+      dd {
+        line-height: 1.2;
+        margin-inline-start: 0;
+      }
+
+      small {
+        font-size: 87.5%;
+      }
+    }
+  }
+
   .banner {
     margin-block-end: 1.5rem;
     text-align: center;
@@ -12,6 +46,52 @@
       min-height: 34vh;
       object-fit: cover;
     }
+  }
+
+  @media (width >= 768px) {
+    .whatis {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  h2 {
+    font-family: var(--header-font);
+    font-size: clamp(1.625em, 1.5vw + 1em, 2.25em);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin-block: 0;
+    text-wrap: balance;
+  }
+
+  .cfp-card {
+    border: var(--border-width) solid var(--border);
+    border-left: calc(var(--border-width) * 4) solid var(--positive);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    padding: 3rem;
+
+    @media (min-width: 768px) {
+      align-items: center;
+      gap: 3rem;
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  .cfp-card h2 {
+    font-size: 1.625rem;
+  }
+
+  figcaption {
+    color: var(--fg-tint);
+    font-family: var(--mono-font);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
   }
 </style>
 
@@ -24,31 +104,169 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<div style:text-align="center" style:margin-block-end="1.5rem">
-  <h1>PGConf.dev 2027</h1>
-  <h2>
-    <time datetime="2027-05-11">May 11</time><sup>th</sup>
-    &ndash;
-    <time datetime="2027-05-14">14</time><sup>th</sup>, 2027
-  </h2>
-  <h3 style:margin-block-end="0">Plaza Centre-Ville</h3>
-  <h4>Montreal, QC, Canada</h4>
-</div>
+<section class="hero restrict-1280">
+  <hgroup>
+    <p class="action-fg">The PostgreSQL Developer Conference</p>
 
-<div class="banner">
+    <h1>
+      <span class="action-fg">PGConf</span>.dev
+      <br />
+      <span class="fg-mute">2027</span>
+    </h1>
+
+    <p class="lede" style:font-size="var(--h2-size)">
+      Where PostgreSQL is <em>made</em>
+    </p>
+  </hgroup>
+
+  <hr style:margin-block="3rem" />
+
+  <dl class="grid-1234">
+    <div>
+      <dt class="kicker">Time</dt>
+      <dd class="lede">
+        <time datetime="2027-05-11">May 11</time>
+        &ndash;
+        <time datetime="2027-05-14">14</time>, 2027
+      </dd>
+      <dd class="fg-mute"><small>Tuesday through Friday</small></dd>
+    </div>
+
+    <div>
+      <dt class="kicker">Location</dt>
+      <dd class="lede">Montréal, QC</dd>
+      <dd class="fg-mute"><small>Plaza Centre-Ville</small></dd>
+    </div>
+
+    <div>
+      <dt class="kicker">Format</dt>
+      <dd class="lede">3+ tracks × 4 days</dd>
+      <dd class="ft-mute"><small>~300 attendees</small></dd>
+    </div>
+
+    <div>
+      <dt class="kicker">Content</dt>
+      <dd class="lede">
+        Due <time datetime="2027-02-14">Feb 14</time>
+      </dd>
+      <dd class="fg-mute"><small>11:59pm UTC</small></dd>
+    </div>
+  </dl>
+
+  <div class="flex">
+    <a href={resolve("/")} role="button">Register</a>
+    <a href={resolve("/")} role="button">Submit a talk</a>
+  </div>
+</section>
+
+<div class="banner restrict-1280">
   <img src={banner} fetchpriority="high" alt="Banner with Vancouver Skyline" />
 </div>
 
-<p>We're headed back to Montreal in 2027!</p>
+<section class="bg-tint restrict-1280 whatis" style:padding-block="3rem">
+  <hgroup>
+    <p>About the Conference</p>
+    <h2>Built by and for PostgreSQL contributors.</h2>
+  </hgroup>
 
-<p>
-  PGConf.dev is where users, developers, and community organizers come together
-  to focus on
-  <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a>
-  development and community growth.
-</p>
+  <div style="grid-column: span 2">
+    <p class="lede">
+      PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
+      extension authors, and the developers who work with them. Four days of
+      unconference sessions, hallway-track conversations, and talks that go
+      deeper than the conference circuit usually allows — written by the people
+      actually shipping the database.
+    </p>
 
-<p>
-  Meet PostgreSQL contributors, learn about upcoming features, and discuss
-  development problems with PostgreSQL enthusiasts.
-</p>
+    <p>
+      Now in its fourth year, the conference moves between cities each spring to
+      keep the core team and contributor community in the same room at least
+      once a year.
+    </p>
+
+    <p><a href="About.html">Read more about who we are →</a></p>
+  </div>
+</section>
+
+<section class="restrict-1280" style:margin-block="3rem">
+  <div class="cfp-card">
+    <div style="font-size: 0.875rem">
+      <hgroup style:margin-bottom="1.25rem">
+        <p class="iconic insert-fg">
+          <Circle style="--size: 0.75em; fill: currentColor;" />
+          Call for Proposals — open through 14 Feb 2027
+        </p>
+        <h2>Submit a talk, unconference topic, or tutorial.</h2>
+      </hgroup>
+
+      <p class="fg-mute" style="max-width: 38rem;">
+        We're looking for technical talks from contributors at every level —
+        your first commit, your hardest debug, the extension you wish existed.
+        Three formats: 45-minute talks, 90-minute tutorials, and ad-hoc
+        unconference sessions.
+      </p>
+    </div>
+
+    <a role="button" href="#">Submit a proposal</a>
+  </div>
+</section>
+
+<section class="bg-tint restrict-1280" style:padding-block="3rem">
+  <hgroup style="margin-block-end: 1.25em;">
+    <p>Sponsors</p>
+    <h2>The companies underwriting 2027.</h2>
+    <p>
+      PGConf.dev is non-profit. Sponsors cover the venue, A/V, scholarships, and
+      the parts of the program that ticket revenue alone can't.
+    </p>
+  </hgroup>
+
+  <p class="small" style="margin-top: 2rem;;">
+    <a href="#">Sponsor PGConf.dev 2027 →</a>
+  </p>
+</section>
+
+<section class="restrict-1280" style:margin-block="3rem">
+  <hgroup style="margin-block-end: 3rem;">
+    <p>From past editions</p>
+    <h2>Three years of contributor conversation.</h2>
+    <p>
+      A look at the rooms, the hallway track, and the people who keep showing
+      up.
+    </p>
+  </hgroup>
+
+  <div class="grid-1234">
+    <figure>
+      <img src={href} alt="" />
+      <figcaption>
+        <strong>2026 · Vancouver</strong>
+        Day-one keynote
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src={href} alt="" />
+      <figcaption>
+        <strong>2025 · Montréal</strong>
+        Unconference scheduling
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src={href} alt="" />
+      <figcaption>
+        <strong>2024 · Vancouver</strong>
+        Hallway-track conversation
+      </figcaption>
+    </figure>
+
+    <figure>
+      <img src={href} alt="" />
+      <figcaption>
+        <strong>2025 · Montréal</strong>
+        Tutorial day
+      </figcaption>
+    </figure>
+  </div>
+</section>

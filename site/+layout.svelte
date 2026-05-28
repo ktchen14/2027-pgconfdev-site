@@ -1,6 +1,6 @@
 <script lang="ts">
-  import montserratLatin400NormalWoff2 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
-  import montserratLatin700NormalWoff2 from "@fontsource/montserrat/files/montserrat-latin-700-normal.woff2?url";
+  import newsreaderLatin400NormalWoff2 from "@fontsource/newsreader/files/newsreader-latin-400-normal.woff2?url";
+  import newsreaderLatin700NormalWoff2 from "@fontsource/newsreader/files/newsreader-latin-700-normal.woff2?url";
   import "./site.css";
 
   let { children } = $props();
@@ -11,14 +11,14 @@
     rel="preload"
     as="font"
     type="font/woff2"
-    href={montserratLatin400NormalWoff2}
+    href={newsreaderLatin400NormalWoff2}
     crossorigin="anonymous"
   />
   <link
     rel="preload"
     as="font"
     type="font/woff2"
-    href={montserratLatin700NormalWoff2}
+    href={newsreaderLatin700NormalWoff2}
     crossorigin="anonymous"
   />
 </svelte:head>
