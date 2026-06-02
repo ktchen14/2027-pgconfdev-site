@@ -9,7 +9,7 @@
 
 <style>
   .hero {
-    padding-block: clamp(4rem, 10vw, 8rem);
+    margin-block: calc(2 * var(--margin));
 
     h1 {
       font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
@@ -18,8 +18,8 @@
     }
 
     dl {
-      gap: 3rem;
-      margin-block-end: 3rem;
+      gap: var(--margin);
+      margin-block-end: var(--margin);
 
       dt {
         font-weight: inherit;
@@ -38,7 +38,7 @@
   }
 
   .banner {
-    margin-block-end: 1.5rem;
+    margin-block-end: var(--margin);
     text-align: center;
 
     > img {
@@ -72,11 +72,11 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr;
-    padding: 3rem;
+    padding: var(--margin);
 
     @media (min-width: 768px) {
       align-items: center;
-      gap: 3rem;
+      gap: var(--margin);
       grid-template-columns: 1fr auto;
     }
   }
@@ -119,7 +119,7 @@
     </p>
   </hgroup>
 
-  <hr style:margin-block="3rem" />
+  <hr style:margin-block="var(--margin)" />
 
   <dl class="grid-1234">
     <div>
@@ -163,7 +163,10 @@
   <img src={banner} fetchpriority="high" alt="Banner with Vancouver Skyline" />
 </div>
 
-<section class="bg-tint restrict-1280 whatis" style:padding-block="3rem">
+<section
+  class="bg-tint restrict-1280 whatis"
+  style:padding-block="var(--margin)"
+>
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -188,7 +191,7 @@
   </div>
 </section>
 
-<section class="restrict-1280" style:margin-block="3rem">
+<section class="restrict-1280" style:margin-block="var(--margin)">
   <div class="cfp-card">
     <div style="font-size: 0.875rem">
       <hgroup style:margin-bottom="1.25rem">
@@ -211,7 +214,7 @@
   </div>
 </section>
 
-<section class="bg-tint restrict-1280" style:padding-block="3rem">
+<section class="bg-tint restrict-1280" style:padding-block="var(--margin)">
   <hgroup style="margin-block-end: 1.25em;">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>
@@ -226,8 +229,8 @@
   </p>
 </section>
 
-<section class="restrict-1280" style:margin-block="3rem">
-  <hgroup style="margin-block-end: 3rem;">
+<section class="restrict-1280" style:margin-block="var(--margin)">
+  <hgroup style="margin-block-end: var(--margin);">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
     <p>

@@ -1,11 +1,8 @@
 <script lang="ts">
-  import { resolve } from "$app/paths";
   import { GitHub, Mastodon } from "$lib/icon";
   import Header from "./Header";
 
   const { children } = $props();
-
-  let search = $state();
 </script>
 
 <style>
@@ -38,16 +35,49 @@
   }
 </style>
 
-<Header bind:search class="restrict-1280">
-  <Header.Link href={resolve("/")}>Program</Header.Link>
+<Header class="restrict-1280">
+  <Header.Menu name="Program" triple>
+    <div>
+      <p class="kicker">Schedule</p>
+      <hr style:margin-block="0 0.75rem" />
+      <ul>
+        <li><a href="#">Full schedule</a></li>
+        <li><a href="#">Tue · Tutorials</a></li>
+        <li><a href="#">Wed · Talks</a></li>
+        <li><a href="#">Thu · Talks</a></li>
+        <li><a href="#">Fri · Unconference</a></li>
+      </ul>
+    </div>
 
-  <Header.Menu name="Attend">
-    <div style:margin-block-end="1.5rem">
+    <div>
+      <p class="kicker">Formats</p>
+      <hr style:margin-block="0 0.75rem" />
+      <ul>
+        <li><a href="#">Talks</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Keynotes</a></li>
+        <li><a href="#">Lightning talks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="kicker">More</p>
+      <hr style:margin-block="0 0.75rem" />
+      <ul>
+        <li><a href="#">Speakers</a></li>
+        <li><a href="#">Posters</a></li>
+        <li><a href="#">Office hours</a></li>
+        <li><a href="#">Call for proposals</a></li>
+      </ul>
+    </div>
+  </Header.Menu>
+
+  <Header.Menu name="Attend" triple>
+    <div>
       <p class="kicker">Getting there</p>
       <hr style:margin-block="0 0.75rem" />
       <ul>
-        <li><a href="#">Register <span class="tag tag--ext">ext</span></a></li>
-        <li><a href="#">Tickets &amp; pricing</a></li>
+        <li><a href="#">Register</a></li>
         <li><a href="#">Travel</a></li>
         <li><a href="#">Hotels</a></li>
         <li><a href="#">Visa letters</a></li>
@@ -55,7 +85,7 @@
       </ul>
     </div>
 
-    <div style:margin-block-end="1.5rem">
+    <div>
       <p class="kicker">At the venue</p>
       <hr style:margin-block="0 0.75rem" />
       <ul>
@@ -64,54 +94,39 @@
         <li><a href="#">Wi-Fi</a></li>
         <li><a href="#">Accessibility</a></li>
         <li><a href="#">Childcare</a></li>
-        <li><a href="#">Code of conduct</a></li>
       </ul>
     </div>
 
-    <div style:margin-block-end="1.5rem">
+    <div>
       <p class="kicker">Social &amp; community</p>
       <hr style:margin-block="0 0.75rem" />
       <ul>
         <li><a href="#">Welcome breakfast</a></li>
         <li><a href="#">Social run</a></li>
-        <li><a href="#">Meet &amp; Eat</a></li>
         <li><a href="#">Gala reception</a></li>
-        <li><a href="#">Karaoke</a></li>
         <li><a href="#">Conference pub</a></li>
-        <li><a href="#">Discord <span class="tag tag--ext">ext</span></a></li>
-        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Discord</a></li>
       </ul>
     </div>
+  </Header.Menu>
 
-    <div>
-      <span>Everything you need to show up</span>
-      <a href="#">New-attendee guide →</a>
-    </div>
+  <Header.Menu name="Sponsor">
+    <p class="kicker">Sponsor</p>
+    <hr style:margin-block="0 0.75rem" />
+    <ul>
+      <li><a href="#">Our 2027 sponsors</a></li>
+      <li><a href="#">Become a sponsor</a></li>
+      <li><a href="#">Prospectus</a></li>
+    </ul>
   </Header.Menu>
 
   <Header.Menu name="About">
     <p class="kicker">About the Conference</p>
     <hr style:margin-block="0 0.75rem" />
     <ul>
-      <Header.Link href="About.html">What PGConf.dev is</Header.Link>
+      <li><a href="About.html">What PGConf.dev is</a></li>
       <li><a href="About.html#committee">Organizing committee</a></li>
-      <li>
-        <a href="About.html#history">History &amp; past editions</a>
-      </li>
-      <li><a href="About.html#contact">Contact</a></li>
-      <li><a href="CoC.html">Code of conduct</a></li>
-    </ul>
-  </Header.Menu>
-
-  <Header.Menu name="About2">
-    <p class="kicker">About the Conference</p>
-    <hr style:margin-block="0 0.75rem" />
-    <ul>
-      <li><a href="/">What PGConf.dev is</a></li>
-      <li><a href="About.html#committee">Organizing committee</a></li>
-      <li>
-        <a href="About.html#history">History &amp; past editions</a>
-      </li>
+      <li><a href="About.html#history">History &amp; past editions</a></li>
       <li><a href="About.html#contact">Contact</a></li>
       <li><a href="CoC.html">Code of conduct</a></li>
     </ul>

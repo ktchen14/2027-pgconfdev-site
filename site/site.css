@@ -526,6 +526,8 @@
   --w-full:      100vw;
 
   --gutter: clamp(1rem, 4vw, 2rem);
+
+  --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
 }
 
 [role=button] {
@@ -549,11 +551,10 @@ body {
 }
 
 .restrict-1280 {
-  padding-inline: calc(max(3rem, (100vw - 1280px + 6rem) / 2));
-
-  @media (width < 480px) {
-    padding-inline: 1.5rem;
-  }
+  /* Fluid gutter: scales smoothly from 1.5rem at 320px to 3rem at 1280px,
+     where it meets the centering term continuously (both equal 3rem). Above
+     1280px the content stays centered. No step, no flat region. */
+  padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
 }
 
 hgroup > :is(h1, h2, h3, h4, h5, h6) {
@@ -647,6 +648,23 @@ hgroup > :is(:where(h1, h2, h3, h4, h5, h6) ~ p), .small {
   }
 }
 
+.menu {
+  @media (width >= 48rem) {
+    background-color: var(--bg);
+    border: var(--border-width) solid var(--border);
+    border-block-start: calc(3 * var(--border-width)) solid var(--action);
+    box-shadow: 0 24px 48px -24px
+      color-mix(in oklch, var(--ink) 45%, transparent);
+    overflow: auto;
+    padding: 1.5rem;
+    position: absolute;
+  }
+
+  &:not([data-open="true"]) {
+    display: none !important;
+  }
+}
+
 .flex {
   align-items: center;
   display: flex;
@@ -657,4 +675,3 @@ hgroup > :is(:where(h1, h2, h3, h4, h5, h6) ~ p), .small {
     margin-block: 0;
   }
 }
-

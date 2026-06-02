@@ -2,7 +2,7 @@
   import { ChevronDown } from "@lucide/svelte";
   import { getHeaderContext } from "./context.ts";
 
-  const { name, children, ...rest } = $props();
+  const { name, triple = false, children, ...rest } = $props();
   const id = $props.id();
 
   const header = getHeaderContext();
@@ -16,17 +16,19 @@
 </script>
 
 <style>
-  li {
+  li:not(:has(> [data-open="true"].triple)) {
     position: relative;
-
-    @media (width < 48rem) {
-      display: contents;
-    }
   }
 
   button {
     background-color: initial;
     color: inherit;
+    justify-content: space-between;
+    width: calc(100% + 1em);
+
+    &:hover {
+      background-color: var(--bg-tint);
+    }
 
     &:is(:hover, [aria-expanded="true"]) {
       color: var(--action);
@@ -41,31 +43,29 @@
     }
   }
 
-  div {
+  .menu {
     font-size: 0.875em;
-    order: 1;
-    width: 100%;
+    margin-block: 0.5rem calc(1.5rem - 0.25rem - 0.875 * 0.25rem);
 
     @media (width >= 48rem) {
-      background-color: var(--bg);
-      border: var(--border-width) solid var(--border);
-      border-block-start: calc(3 * var(--border-width)) solid var(--action);
-      box-shadow: 0 24px 48px -24px
-        color-mix(in oklch, var(--ink) 45%, transparent);
-      left: calc(-1.5rem - var(--border-width));
-      padding: 1.5rem;
-      position: absolute;
-      top: calc(100% + 0.5rem);
+      margin-left: calc(-1.5rem - var(--border-width));
       width: 16rem;
     }
+  }
 
-    [data-open]:not([data-open="true"]) > & {
-      display: none;
+  .triple {
+    @media (width >= 48rem) {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      left: calc(50% - min(45rem, calc(100% - 2 * var(--margin))) / 2);
+      margin-left: 0;
+      width: min(45rem, calc(100% - 2 * var(--margin)));
     }
   }
 </style>
 
-<li {...rest} data-open={open}>
+<li>
   <button
     aria-controls={id}
     aria-expanded={open}
@@ -76,7 +76,7 @@
     <ChevronDown />
   </button>
 
-  <div {id}>
+  <div class={["menu", { triple }]} {id} data-open={open} {...rest}>
     {@render children()}
   </div>
 </li>

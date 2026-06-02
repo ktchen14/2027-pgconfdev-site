@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { Search } from "@lucide/svelte";
+  import { Menu, UserPlus } from "@lucide/svelte";
   import { resolve } from "$app/paths";
-  import { PGConf } from "$lib/logo";
   import { setHeaderContext } from "./context.ts";
+  import Mark from "./Mark.svelte";
+  import Search from "./Search.svelte";
 
   let {
-    search = $bindable(),
     class: klass = undefined,
     children,
     ...rest
@@ -13,22 +13,43 @@
 
   let header = $state({ menu: null });
   setHeaderContext(header);
+
+  let search = $state();
+
+  let element: HTMLElement;
+  let expanded = $state(false);
 </script>
 
 <style>
   header {
     justify-content: space-between;
+    position: relative;
   }
 
   nav {
-    @media (width < 60rem) {
-      order: 1;
+    @media (width < 48rem) {
       width: 100%;
+
+      :not([data-expanded="true"]) > & {
+        display: none;
+      }
+    }
+
+    [data-search]:not([data-search=""]) > & {
+      display: none;
     }
   }
 
   menu {
-    flex: none;
+    @media (width >= 48rem) {
+      display: flex;
+      flex: none;
+      gap: 1.5rem;
+
+      > :global(*) {
+        margin-block: 0;
+      }
+    }
 
     :global(> li > a) {
       display: block;
@@ -42,79 +63,116 @@
     }
   }
 
-  search {
-    max-width: 16rem;
+  [role="button"] {
+    justify-content: center;
+
+    @media (width < 48rem) {
+      width: 100%;
+
+      :not([data-expanded="true"]) > & {
+        display: none;
+      }
+
+      [data-search]:not([data-search=""]) > & {
+        display: none;
+      }
+    }
+
+    @media (48rem <= width < 64rem) {
+      padding: 0.5em;
+
+      > span {
+        display: none;
+      }
+    }
   }
 
-  label {
-    border-radius: calc(infinity * 1px);
-    border: var(--border-width) solid var(--border);
-    color: var(--fg-mute);
-    cursor: text;
-    padding-block: calc(0.375em - var(--border-width));
-    padding-inline: 0.5em;
+  button {
+    background-color: initial;
+    border-radius: var(--border-radius);
+    color: inherit;
+    margin: -0.5em;
+    padding: 0.5em;
 
-    &:has([type="search"]:focus) {
-      border-color: var(--action);
+    &:hover {
+      background-color: var(--bg-tint);
       color: var(--action);
     }
-  }
 
-  [type="search"] {
-    background-color: initial;
-    border: 0;
-    color: var(--fg-mute);
-    flex: 1 1 0;
-    font-size: 0.875em;
-    min-width: 6em;
-    outline: 0;
-    padding: 0;
-    width: 6em;
-  }
+    @media (width < 30rem) {
+      order: 1;
+    }
 
-  .w {
-    @media (width < 64rem) {
+    @media (width >= 30rem) and (width < 48rem) {
+      order: 2;
+
+      [data-search]:not([data-search=""]) > & {
+        display: none;
+      }
+    }
+
+    @media (width >= 48rem) {
       display: none;
     }
   }
 
-  .n {
-    @media (width >= 64rem) {
-      display: none;
-    }
-  }
+  /* ============================================================
+     Search focused state
+     ============================================================ */
+
+  /* ≥768px (single row): hide nav so search expands into its space */
 </style>
 
 <svelte:window
   onclick={(e) => {
-    if ((e.target as Element)?.closest("[data-open=true]") === null)
-      header.menu = null;
+    const target = e.target as Element | null;
+    if (target?.closest("[data-expanded=true]") === null) header.menu = null;
+    if (expanded && target && !element.contains(target)) expanded = false;
   }}
   onkeydown={(e) => {
-    if (header.menu === null || e.key !== "Escape") return;
+    if (e.key !== "Escape") return;
     const target = e.target as Element | null;
-    target?.closest("[data-open=true]")?.querySelector("button")?.focus();
-    header.menu = null;
+    if (header.menu !== null) {
+      target?.closest("[data-expanded=true]")?.querySelector("button")?.focus();
+      header.menu = null;
+    } else if (expanded) {
+      expanded = false;
+    }
   }}
 />
 
-<header class={["flex", klass]} {...rest}>
-  <a class="flex" href={resolve("/")}>
-    <PGConf style="height: calc(1lh + 0.75em);" />
-  </a>
+<header
+  bind:this={element}
+  class={["flex", klass]}
+  data-expanded={expanded}
+  data-search={search}
+  {...rest}
+>
+  <Mark href={resolve("/")} aria-label="PGConf.dev" />
 
-  <nav aria-label="Main">
-    <menu class="flex">
-      {@render children()}
-    </menu>
+  <button
+    aria-expanded={expanded}
+    aria-label="Menu"
+    class="iconic"
+    onclick={() => (expanded = !expanded)}
+  >
+    <Menu />
+  </button>
+
+  <Search bind:text={search} style="order: 1;" />
+
+  <nav aria-label="Main" style:order="2">
+    <menu>{@render children()}</menu>
   </nav>
 
-  <search class="flex" style:flex="auto">
-    <label class="iconic" style:flex="auto">
-      <Search />
-      <input type="search" placeholder="Search…" bind:value={search} />
-    </label>
-  </search>
-
-  <a role="button" href="/">Register</a>
+  <a
+    role="button"
+    class="iconic"
+    href="/"
+    aria-label="Register"
+    style:order="3"
+  >
+    <span>Register</span>
+    <UserPlus />
+  </a>
 </header>
