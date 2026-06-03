@@ -16,7 +16,7 @@
 </script>
 
 <style>
-  li:not(:has(> [data-open="true"].triple)) {
+  li:not(:has(> [data-open].triple)) {
     position: relative;
   }
 
@@ -76,7 +76,12 @@
     <ChevronDown />
   </button>
 
-  <div class={["menu", { triple }]} {id} data-open={open} {...rest}>
+  <div
+    class={["menu", { triple }]}
+    {id}
+    data-open={open ? open : undefined}
+    {...rest}
+  >
     {@render children()}
   </div>
 </li>

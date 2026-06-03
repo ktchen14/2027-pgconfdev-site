@@ -7,7 +7,7 @@
 
   let { class: klass = undefined, children, ...rest } = $props();
 
-  let header = $state({ menu: null });
+  const header = $state({ menu: null });
   setHeaderContext(header);
 
   let search = $state();
@@ -31,7 +31,7 @@
       }
     }
 
-    [data-search]:not([data-search=""]) > & {
+    [data-search] > & {
       display: none;
     }
   }
@@ -69,7 +69,7 @@
         display: none;
       }
 
-      [data-search]:not([data-search=""]) > & {
+      [data-search] > & {
         display: none;
       }
     }
@@ -102,7 +102,7 @@
     @media (width >= 30rem) and (width < 48rem) {
       order: 2;
 
-      [data-search]:not([data-search=""]) > & {
+      [data-search] > & {
         display: none;
       }
     }
@@ -141,7 +141,7 @@
   bind:this={element}
   class={["flex", klass]}
   data-expanded={expanded}
-  data-search={search}
+  data-search={search ? search : undefined}
   {...rest}
 >
   <Mark href={resolve("/")} aria-label="PGConf.dev" />

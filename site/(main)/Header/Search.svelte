@@ -1,10 +1,12 @@
 <script lang="ts">
   import { List, MapPin, Search as SearchIcon, User } from "@lucide/svelte";
   import Result from "./Result.svelte";
+  import { setSearchContext } from "./context.ts";
 
   let { text = $bindable(), ...rest } = $props();
 
-  let search = $state<HTMLInputElement>();
+  const search = $state({ node: undefined });
+  setSearchContext(search);
 </script>
 
 <style>
@@ -78,42 +80,52 @@
   <label class="iconic">
     <SearchIcon />
     <input
-      bind:this={search}
+      bind:this={search.node}
       type="search"
-      size="6"
+      size="8"
       placeholder="Search…"
       bind:value={text}
     />
   </label>
 
-  <div class="menu searchpop" data-searchpop data-open={!!text}>
+  <div
+    class="menu searchpop"
+    data-searchpop
+    data-open={text ? true : undefined}
+  >
     <div class="main">
       <p class="kicker">Talks</p>
-      <Result
-        {search}
-        href="#"
-        icon={List}
-        title="Zero-downtime upgrades with logical replication"
-        subtitle="Wed · 14:00 · Track A"
-      />
+      <ul>
+        <li>
+          <Result href="#" icon={List}>
+            Zero-downtime upgrades with logical replication
+            <br />
+            <small class="fg-mute"> Wed · 14:00 · Track A </small>
+          </Result>
+        </li>
+      </ul>
 
       <p class="kicker">Speakers</p>
-      <Result
-        {search}
-        href="#"
-        icon={User}
-        title="Amara Okonkwo"
-        subtitle="Speaker · 2 talks"
-      />
+      <ul>
+        <li>
+          <Result href="#" icon={User}>
+            Amara Okonkwo
+            <br />
+            <small class="fg-mute"> Speaker · 2 talks </small>
+          </Result>
+        </li>
+      </ul>
 
       <p class="kicker">Logistics</p>
-      <Result
-        {search}
-        href="#"
-        icon={MapPin}
-        title="Venue & floor plans"
-        subtitle="Attend · Getting around"
-      />
+      <ul>
+        <li>
+          <Result href="#" icon={MapPin}>
+            Venue & floor plans
+            <br />
+            <small class="fg-mute"> Attend · Getting around </small>
+          </Result>
+        </li>
+      </ul>
     </div>
 
     <hr />

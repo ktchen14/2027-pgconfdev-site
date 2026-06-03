@@ -1,23 +1,24 @@
 <script lang="ts">
-  let {
-    class: klass = undefined,
+  import { getSearchContext } from "./context.ts";
+
+  const {
     href,
     icon: Icon,
-    title,
-    subtitle,
-    search,
+    class: klass = undefined,
+    search: X,
+    children,
     ...rest
   } = $props();
+
+  const search = getSearchContext();
 </script>
 
 <style>
   a {
     border-radius: var(--border-radius);
-    color: var(--fg);
     gap: 0.75rem;
     margin-inline: -0.75rem;
     padding: 0.75rem;
-    text-decoration: none;
 
     &:hover {
       background-color: var(--bg-tint);
@@ -34,21 +35,8 @@
     width: 2.5rem;
   }
 
-  div {
-    line-height: 1.2;
-  }
-
   p {
-    margin-block: 0;
-  }
-
-  .tt {
-    font-weight: 500;
-  }
-
-  .sb {
-    color: var(--fg-mute);
-    font-size: 0.75rem;
+    line-height: 1.2;
   }
 </style>
 
@@ -57,12 +45,11 @@
   {href}
   {...rest}
   onkeydown={(e) => {
-    if (e.key === "Escape") search.focus();
+    if (e.key === "Escape") search?.node?.focus();
   }}
 >
   <Icon />
-  <div>
-    <p class="tt">{title}</p>
-    <p class="sb">{subtitle}</p>
-  </div>
+  <p>
+    {@render children()}
+  </p>
 </a>
