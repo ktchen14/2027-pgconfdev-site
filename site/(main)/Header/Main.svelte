@@ -12,7 +12,7 @@
   const header = $state({ menu: null });
   setHeaderContext(header);
 
-  let expanded = $state(false);
+  let expose = $state<true | undefined>();
   let search = $state("");
 </script>
 
@@ -26,7 +26,7 @@
     @media (width < 48rem) {
       width: 100%;
 
-      :not([data-expanded="true"]) > & {
+      &:not([data-expose]) {
         display: none;
       }
     }
@@ -65,7 +65,7 @@
     @media (width < 48rem) {
       width: 100%;
 
-      :not([data-expanded="true"]) > & {
+      &:not([data-expose]) {
         display: none;
       }
 
@@ -121,39 +121,40 @@
 
 <svelte:window
   onclick={(e) => {
-    const target = e.target as Element | null;
-    if (expanded && !root.contains(target)) expanded = false;
-  }}
-  onkeydown={(e) => {
-    if (e.key !== "Escape") return;
-    const target = e.target as Element | null;
-    if (expanded) {
-      expanded = false;
-    }
+    if (!expose || root.contains(e.target as Node))
+      return;
+    expose = undefined;
   }}
 />
 
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <header
   bind:this={root}
   class={["flex", klass]}
-  data-expanded={expanded}
   data-search={search ? search : undefined}
+  onkeydown={(e) => {
+    if (!expose || e.key !== "Escape") return;
+    if (e.target instanceof HTMLInputElement) return;
+    expose = undefined;
+    e.currentTarget.querySelector("button")?.focus();
+    e.stopPropagation();
+  }}
   {...rest}
 >
   <Mark href={resolve("/")} aria-label="PGConf.dev" />
 
   <button
-    aria-expanded={expanded}
+    aria-expanded={expose}
     aria-label="Menu"
     class="iconic"
-    onclick={() => (expanded = !expanded)}
+    onclick={() => (expose = !expose ? true : undefined)}
   >
     <Menu />
   </button>
 
-  <Search bind:text={search} style="order: 1;" />
+  <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
-  <nav aria-label="Main" style:order="2">
+  <nav aria-label="Main" data-expose={expose} style:order="2">
     <menu>{@render children()}</menu>
   </nav>
 
@@ -161,6 +162,7 @@
     role="button"
     class="iconic"
     href="/"
+    data-expose={expose}
     aria-label="Register"
     style:order="3"
   >

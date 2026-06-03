@@ -16,7 +16,7 @@
     @media (width < 30rem) {
       width: 100%;
 
-      :global(:not([data-expanded="true"])) > & {
+      &:not([data-expose]) {
         display: none;
       }
     }
@@ -26,7 +26,7 @@
       margin-inline-end: auto;
       max-width: 18rem;
 
-      :global([data-search]:not([data-search=""]) > &) {
+      &[data-search] {
         max-width: none;
       }
     }
@@ -76,7 +76,7 @@
   }
 </style>
 
-<search {...rest}>
+<search data-search={text ? true : undefined} {...rest}>
   <label class="iconic">
     <SearchIcon />
     <input

@@ -9,7 +9,7 @@
 
   let root: HTMLElement;
 
-  const open = $derived(header.menu === id);
+  const open = $derived(header.menu === id ? true : undefined);
 </script>
 
 <style>
@@ -64,7 +64,8 @@
 
 <svelte:window
   onclick={(e) => {
-    if (open && !root.contains(e.target as Element | null)) header.menu = null;
+    if (!open || root.contains(e.target as Node)) return;
+    header.menu = null;
   }}
 />
 
@@ -72,12 +73,15 @@
 <li
   bind:this={root}
   onkeydown={(e) => {
-    if (e.key === "Escape" && open) header.menu = null;
+    if (!open || e.key !== "Escape") return;
+    header.menu = null;
+    e.currentTarget.querySelector("button")?.focus();
+    e.stopPropagation();
   }}
 >
   <button
     aria-controls={id}
-    aria-expanded={open ? open : undefined}
+    aria-expanded={open}
     class="iconic"
     onclick={() => (header.menu = header.menu === id ? null : id)}
   >
@@ -88,7 +92,7 @@
   <div
     class={["menu", { triple }]}
     {id}
-    data-open={open ? open : undefined}
+    data-open={open}
     {...rest}
   >
     {@render children()}
