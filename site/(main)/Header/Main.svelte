@@ -5,15 +5,15 @@
   import Mark from "./Mark.svelte";
   import Search from "./Search.svelte";
 
-  let { class: klass = undefined, children, ...rest } = $props();
+  const { class: klass = undefined, children, ...rest } = $props();
+
+  let root: HTMLElement;
 
   const header = $state({ menu: null });
   setHeaderContext(header);
 
-  let search = $state();
-
-  let element: HTMLElement;
   let expanded = $state(false);
+  let search = $state("");
 </script>
 
 <style>
@@ -122,23 +122,19 @@
 <svelte:window
   onclick={(e) => {
     const target = e.target as Element | null;
-    if (target?.closest("[data-expanded=true]") === null) header.menu = null;
-    if (expanded && target && !element.contains(target)) expanded = false;
+    if (expanded && !root.contains(target)) expanded = false;
   }}
   onkeydown={(e) => {
     if (e.key !== "Escape") return;
     const target = e.target as Element | null;
-    if (header.menu !== null) {
-      target?.closest("[data-expanded=true]")?.querySelector("button")?.focus();
-      header.menu = null;
-    } else if (expanded) {
+    if (expanded) {
       expanded = false;
     }
   }}
 />
 
 <header
-  bind:this={element}
+  bind:this={root}
   class={["flex", klass]}
   data-expanded={expanded}
   data-search={search ? search : undefined}

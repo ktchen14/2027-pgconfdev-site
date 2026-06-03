@@ -1,11 +1,11 @@
 <script lang="ts">
   import { List, MapPin, Search as SearchIcon, User } from "@lucide/svelte";
+  import { setSearchContext, type Search } from "./context.ts";
   import Result from "./Result.svelte";
-  import { setSearchContext } from "./context.ts";
 
   let { text = $bindable(), ...rest } = $props();
 
-  const search = $state({ node: undefined });
+  const search = $state<Search>({ node: undefined });
   setSearchContext(search);
 </script>
 
@@ -132,7 +132,7 @@
 
     <div class="footer">
       <strong>
-        <a href="/">See all results</a>
+        <a class="action-fg" href="/">See all results</a>
       </strong>
       for "{text?.trim() || "your search"}" ↵
     </div>

@@ -5,7 +5,6 @@
     href,
     icon: Icon,
     class: klass = undefined,
-    search: X,
     children,
     ...rest
   } = $props();

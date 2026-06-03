@@ -7,10 +7,7 @@
 
   const header = getHeaderContext();
 
-  function toggle(e: MouseEvent) {
-    e.stopPropagation();
-    header.menu = header.menu === id ? null : id;
-  }
+  let root: HTMLElement;
 
   const open = $derived(header.menu === id);
 </script>
@@ -65,12 +62,24 @@
   }
 </style>
 
-<li>
+<svelte:window
+  onclick={(e) => {
+    if (open && !root.contains(e.target as Element | null)) header.menu = null;
+  }}
+/>
+
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<li
+  bind:this={root}
+  onkeydown={(e) => {
+    if (e.key === "Escape" && open) header.menu = null;
+  }}
+>
   <button
     aria-controls={id}
-    aria-expanded={open}
+    aria-expanded={open ? open : undefined}
     class="iconic"
-    onclick={toggle}
+    onclick={() => (header.menu = header.menu === id ? null : id)}
   >
     {name}
     <ChevronDown />

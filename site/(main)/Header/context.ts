@@ -1,11 +1,11 @@
 import { createContext } from "svelte";
 
-interface Header {
+export interface Header {
   menu: string | null;
 }
 
-interface Search {
-  node: HTMLInputElement;
+export interface Search {
+  node: HTMLInputElement | undefined;
 }
 
 export const [getHeaderContext, setHeaderContext] = createContext<Header>();
