@@ -1,6 +1,10 @@
 <script lang="ts">
   let {
-    class: klass = undefined, href, icon: Icon, title, subtitle,
+    class: klass = undefined,
+    href,
+    icon: Icon,
+    title,
+    subtitle,
     search,
     ...rest
   } = $props();
@@ -48,7 +52,10 @@
   }
 </style>
 
-<a class={["iconic", klass]} {href} {...rest}
+<a
+  class={["iconic", klass]}
+  {href}
+  {...rest}
   onkeydown={(e) => {
     if (e.key === "Escape") search.focus();
   }}

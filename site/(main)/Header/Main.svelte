@@ -5,11 +5,7 @@
   import Mark from "./Mark.svelte";
   import Search from "./Search.svelte";
 
-  let {
-    class: klass = undefined,
-    children,
-    ...rest
-  } = $props();
+  let { class: klass = undefined, children, ...rest } = $props();
 
   let header = $state({ menu: null });
   setHeaderContext(header);

@@ -77,19 +77,43 @@
 <search {...rest}>
   <label class="iconic">
     <SearchIcon />
-    <input bind:this={search} type="search" size=6 placeholder="Search…" bind:value={text} />
+    <input
+      bind:this={search}
+      type="search"
+      size="6"
+      placeholder="Search…"
+      bind:value={text}
+    />
   </label>
 
   <div class="menu searchpop" data-searchpop data-open={!!text}>
     <div class="main">
       <p class="kicker">Talks</p>
-      <Result {search} href="#" icon={List} title="Zero-downtime upgrades with logical replication" subtitle="Wed · 14:00 · Track A" />
+      <Result
+        {search}
+        href="#"
+        icon={List}
+        title="Zero-downtime upgrades with logical replication"
+        subtitle="Wed · 14:00 · Track A"
+      />
 
       <p class="kicker">Speakers</p>
-      <Result {search} href="#" icon={User} title="Amara Okonkwo" subtitle="Speaker · 2 talks" />
+      <Result
+        {search}
+        href="#"
+        icon={User}
+        title="Amara Okonkwo"
+        subtitle="Speaker · 2 talks"
+      />
 
       <p class="kicker">Logistics</p>
-      <Result {search} href="#" icon={MapPin} title="Venue & floor plans" subtitle="Attend · Getting around" />
+      <Result
+        {search}
+        href="#"
+        icon={MapPin}
+        title="Venue & floor plans"
+        subtitle="Attend · Getting around"
+      />
     </div>
 
     <hr />
