@@ -1,15 +1,5 @@
 <script lang="ts">
-  import { getSearchContext } from "./context.ts";
-
-  const {
-    href,
-    icon: Icon,
-    class: klass = undefined,
-    children,
-    ...rest
-  } = $props();
-
-  const search = getSearchContext();
+  const { icon: Icon, class: klass = undefined, children, ...rest } = $props();
 </script>
 
 <style>
@@ -39,14 +29,7 @@
   }
 </style>
 
-<a
-  class={["iconic", klass]}
-  {href}
-  {...rest}
-  onkeydown={(e) => {
-    if (e.key === "Escape") search?.node?.focus();
-  }}
->
+<a class={["iconic", klass]} {...rest}>
   <Icon />
   <p>
     {@render children()}

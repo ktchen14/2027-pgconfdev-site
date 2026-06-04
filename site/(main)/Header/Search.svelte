@@ -1,12 +1,10 @@
 <script lang="ts">
   import { List, MapPin, Search as SearchIcon, User } from "@lucide/svelte";
-  import { setSearchContext, type Search } from "./context.ts";
   import Result from "./Result.svelte";
 
   let { text = $bindable(), ...rest } = $props();
 
-  const search = $state<Search>({ node: undefined });
-  setSearchContext(search);
+  let node: HTMLInputElement;
 </script>
 
 <style>
@@ -76,15 +74,24 @@
   }
 </style>
 
-<search data-search={text ? true : undefined} {...rest}>
+<search
+  data-search={text ? true : undefined}
+  onkeydown={(e) => {
+    if (e.key !== "Escape") return;
+    node.focus();
+    e.stopPropagation();
+  }}
+  {...rest}
+>
   <label class="iconic">
     <SearchIcon />
     <input
-      bind:this={search.node}
-      type="search"
-      size="8"
-      placeholder="Search…"
+      bind:this={node}
       bind:value={text}
+      onkeydown={(e) => e.stopPropagation()}
+      placeholder="Search…"
+      size="8"
+      type="search"
     />
   </label>
 
@@ -100,7 +107,7 @@
           <Result href="#" icon={List}>
             Zero-downtime upgrades with logical replication
             <br />
-            <small class="fg-mute"> Wed · 14:00 · Track A </small>
+            <small class="fg-mute">Wed · 14:00 · Track A</small>
           </Result>
         </li>
       </ul>
@@ -111,7 +118,7 @@
           <Result href="#" icon={User}>
             Amara Okonkwo
             <br />
-            <small class="fg-mute"> Speaker · 2 talks </small>
+            <small class="fg-mute">Speaker · 2 talks</small>
           </Result>
         </li>
       </ul>
@@ -122,7 +129,7 @@
           <Result href="#" icon={MapPin}>
             Venue & floor plans
             <br />
-            <small class="fg-mute"> Attend · Getting around </small>
+            <small class="fg-mute">Attend · Getting around</small>
           </Result>
         </li>
       </ul>

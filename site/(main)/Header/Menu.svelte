@@ -81,7 +81,7 @@
 >
   <button
     aria-controls={id}
-    aria-expanded={open}
+    aria-expanded={open === true}
     class="iconic"
     onclick={() => (header.menu = header.menu === id ? null : id)}
   >
@@ -89,12 +89,7 @@
     <ChevronDown />
   </button>
 
-  <div
-    class={["menu", { triple }]}
-    {id}
-    data-open={open}
-    {...rest}
-  >
+  <div class={["menu", { triple }]} {id} data-open={open} {...rest}>
     {@render children()}
   </div>
 </li>

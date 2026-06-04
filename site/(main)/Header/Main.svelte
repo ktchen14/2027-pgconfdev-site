@@ -6,6 +6,7 @@
   import Search from "./Search.svelte";
 
   const { class: klass = undefined, children, ...rest } = $props();
+  const id = $props.id();
 
   let root: HTMLElement;
 
@@ -111,18 +112,11 @@
       display: none;
     }
   }
-
-  /* ============================================================
-     Search focused state
-     ============================================================ */
-
-  /* ≥768px (single row): hide nav so search expands into its space */
 </style>
 
 <svelte:window
   onclick={(e) => {
-    if (!expose || root.contains(e.target as Node))
-      return;
+    if (!expose || search || root.contains(e.target as Node)) return;
     expose = undefined;
   }}
 />
@@ -131,10 +125,9 @@
 <header
   bind:this={root}
   class={["flex", klass]}
-  data-search={search ? search : undefined}
+  data-search={search ? true : undefined}
   onkeydown={(e) => {
     if (!expose || e.key !== "Escape") return;
-    if (e.target instanceof HTMLInputElement) return;
     expose = undefined;
     e.currentTarget.querySelector("button")?.focus();
     e.stopPropagation();
@@ -144,26 +137,27 @@
   <Mark href={resolve("/")} aria-label="PGConf.dev" />
 
   <button
-    aria-expanded={expose}
+    aria-controls={id}
+    aria-expanded={expose === true}
     aria-label="Menu"
     class="iconic"
-    onclick={() => (expose = !expose ? true : undefined)}
+    onclick={() => (expose = expose ? undefined : true)}
   >
     <Menu />
   </button>
 
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
-  <nav aria-label="Main" data-expose={expose} style:order="2">
+  <nav {id} aria-label="Main" data-expose={expose} style:order="2">
     <menu>{@render children()}</menu>
   </nav>
 
   <a
-    role="button"
-    class="iconic"
-    href="/"
-    data-expose={expose}
     aria-label="Register"
+    class="iconic"
+    data-expose={expose}
+    href="/"
+    role="button"
     style:order="3"
   >
     <span>Register</span>

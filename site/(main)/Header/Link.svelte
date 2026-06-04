@@ -3,9 +3,9 @@
 
   const { href, children, ...rest } = $props();
 
-  const ariaCurrent = $derived.by(() => {
-    if (new URL(href, page.url).pathname === page.url.pathname) return "page";
-  });
+  const ariaCurrent = $derived(
+    new URL(href, page.url).pathname === page.url.pathname ? "page" : undefined,
+  );
 </script>
 
 <li>

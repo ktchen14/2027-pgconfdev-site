@@ -9,7 +9,7 @@
     display: flex;
 
     @media (30rem <= width < 48rem) {
-      :global([data-search]:not([data-search=""])) > & {
+      :global([data-search]) > & {
         display: none;
       }
     }
