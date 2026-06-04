@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { List, MapPin, Search as SearchIcon, User } from "@lucide/svelte";
-  import Result from "./Result.svelte";
+  import { Search as SearchIcon } from "@lucide/svelte";
+  import SearchMenu from "./SearchMenu.svelte";
 
   let { text = $bindable(), ...rest } = $props();
 
@@ -55,23 +55,6 @@
     outline: 0;
     padding: 0;
   }
-
-  .searchpop {
-    font-size: 0.875rem;
-    margin-top: 1.5rem;
-
-    @media (width >= 48rem) {
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-      margin-top: 0.5rem;
-      max-height: min(70vh, 28rem);
-    }
-  }
-
-  .footer {
-    color: var(--fg-tint);
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-  }
 </style>
 
 <search
@@ -95,53 +78,5 @@
     />
   </label>
 
-  <div
-    class="menu searchpop"
-    data-searchpop
-    data-open={text ? true : undefined}
-  >
-    <div class="main">
-      <p class="kicker">Talks</p>
-      <ul>
-        <li>
-          <Result href="#" icon={List}>
-            Zero-downtime upgrades with logical replication
-            <br />
-            <small class="fg-mute">Wed · 14:00 · Track A</small>
-          </Result>
-        </li>
-      </ul>
-
-      <p class="kicker">Speakers</p>
-      <ul>
-        <li>
-          <Result href="#" icon={User}>
-            Amara Okonkwo
-            <br />
-            <small class="fg-mute">Speaker · 2 talks</small>
-          </Result>
-        </li>
-      </ul>
-
-      <p class="kicker">Logistics</p>
-      <ul>
-        <li>
-          <Result href="#" icon={MapPin}>
-            Venue & floor plans
-            <br />
-            <small class="fg-mute">Attend · Getting around</small>
-          </Result>
-        </li>
-      </ul>
-    </div>
-
-    <hr />
-
-    <div class="footer">
-      <strong>
-        <a class="action-fg" href="/">See all results</a>
-      </strong>
-      for "{text?.trim() || "your search"}" ↵
-    </div>
-  </div>
+  <SearchMenu {text} />
 </search>

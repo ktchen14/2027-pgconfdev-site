@@ -2,20 +2,35 @@
   import { GitHub, Mastodon } from "$lib/icon";
   import Header from "./Header";
 
+  const { Link, ToggleMenu } = Header;
+
   const { children } = $props();
 </script>
 
 <style>
-  ul :global(a) {
-    border-radius: var(--border-radius);
-    display: block;
-    margin-block: -0.25em;
-    margin-inline: -0.5em;
-    padding-block: 0.25em;
-    padding-inline: 0.5em;
+  :is(.menu-single, .menu-triple) :global([data-open]) {
+    font-size: 0.875em;
+    margin-block: 0.5rem calc(1.5rem - 0.25rem - 0.875 * 0.25rem);
+  }
 
-    &:hover {
-      background-color: var(--bg-tint);
+  .menu-single {
+    position: relative;
+  }
+
+  .menu-single :global([data-open]) {
+    @media (width >= 48rem) {
+      right: calc(-1.5rem - var(--border-width));
+      width: 16rem;
+    }
+  }
+
+  .menu-triple :global([data-open]) {
+    @media (width >= 48rem) {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      right: calc(50% - min(45rem, calc(100vw - 3rem)) / 2);
+      width: 45rem;
     }
   }
 
@@ -36,101 +51,111 @@
 </style>
 
 <Header class="restrict-1280">
-  <Header.Menu name="Program" triple>
-    <div>
-      <p class="kicker">Schedule</p>
+  <li class="menu-triple">
+    <ToggleMenu name="Program">
+      <div>
+        <p class="kicker">Schedule</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Full schedule</Link></li>
+          <li><Link href="#">Tue · Tutorials</Link></li>
+          <li><Link href="#">Wed · Talks</Link></li>
+          <li><Link href="#">Thu · Talks</Link></li>
+          <li><Link href="#">Fri · Unconference</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="kicker">Formats</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Talks</Link></li>
+          <li><Link href="#">Tutorials</Link></li>
+          <li><Link href="#">Keynotes</Link></li>
+          <li><Link href="#">Lightning talks</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="kicker">More</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Speakers</Link></li>
+          <li><Link href="#">Posters</Link></li>
+          <li><Link href="#">Office hours</Link></li>
+          <li><Link href="#">Call for proposals</Link></li>
+        </ul>
+      </div>
+    </ToggleMenu>
+  </li>
+
+  <li class="menu-triple">
+    <ToggleMenu name="Attend">
+      <div>
+        <p class="kicker">Getting there</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Register</Link></li>
+          <li><Link href="#">Travel</Link></li>
+          <li><Link href="#">Hotels</Link></li>
+          <li><Link href="#">Visa letters</Link></li>
+          <li><Link href="#">Scholarships</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="kicker">At the venue</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Venue &amp; rooms</Link></li>
+          <li><Link href="#">Floor plans</Link></li>
+          <li><Link href="#">Wi-Fi</Link></li>
+          <li><Link href="#">Accessibility</Link></li>
+          <li><Link href="#">Childcare</Link></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="kicker">Social &amp; community</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Welcome breakfast</Link></li>
+          <li><Link href="#">Social run</Link></li>
+          <li><Link href="#">Gala reception</Link></li>
+          <li><Link href="#">Conference pub</Link></li>
+          <li><Link href="#">Discord</Link></li>
+        </ul>
+      </div>
+    </ToggleMenu>
+  </li>
+
+  <li class="menu-single">
+    <ToggleMenu name="Sponsor">
+      <p class="kicker">Sponsor</p>
       <hr style:margin-block="0 0.75rem" />
       <ul>
-        <li><a href="#">Full schedule</a></li>
-        <li><a href="#">Tue · Tutorials</a></li>
-        <li><a href="#">Wed · Talks</a></li>
-        <li><a href="#">Thu · Talks</a></li>
-        <li><a href="#">Fri · Unconference</a></li>
+        <li><Link href="#">Our 2027 sponsors</Link></li>
+        <li><Link href="#">Become a sponsor</Link></li>
+        <li><Link href="#">Prospectus</Link></li>
       </ul>
-    </div>
+    </ToggleMenu>
+  </li>
 
-    <div>
-      <p class="kicker">Formats</p>
+  <li class="menu-single">
+    <ToggleMenu name="About">
+      <p class="kicker">About the Conference</p>
       <hr style:margin-block="0 0.75rem" />
       <ul>
-        <li><a href="#">Talks</a></li>
-        <li><a href="#">Tutorials</a></li>
-        <li><a href="#">Keynotes</a></li>
-        <li><a href="#">Lightning talks</a></li>
+        <li><Link href="About.html">What PGConf.dev is</Link></li>
+        <li><Link href="About.html#committee">Organizing committee</Link></li>
+        <li>
+          <Link href="About.html#history">History &amp; past editions</Link>
+        </li>
+        <li><Link href="About.html#contact">Contact</Link></li>
+        <li><Link href="CoC.html">Code of conduct</Link></li>
       </ul>
-    </div>
-
-    <div>
-      <p class="kicker">More</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><a href="#">Speakers</a></li>
-        <li><a href="#">Posters</a></li>
-        <li><a href="#">Office hours</a></li>
-        <li><a href="#">Call for proposals</a></li>
-      </ul>
-    </div>
-  </Header.Menu>
-
-  <Header.Menu name="Attend" triple>
-    <div>
-      <p class="kicker">Getting there</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Travel</a></li>
-        <li><a href="#">Hotels</a></li>
-        <li><a href="#">Visa letters</a></li>
-        <li><a href="#">Scholarships</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <p class="kicker">At the venue</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><a href="#">Venue &amp; rooms</a></li>
-        <li><a href="#">Floor plans</a></li>
-        <li><a href="#">Wi-Fi</a></li>
-        <li><a href="#">Accessibility</a></li>
-        <li><a href="#">Childcare</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <p class="kicker">Social &amp; community</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><a href="#">Welcome breakfast</a></li>
-        <li><a href="#">Social run</a></li>
-        <li><a href="#">Gala reception</a></li>
-        <li><a href="#">Conference pub</a></li>
-        <li><a href="#">Discord</a></li>
-      </ul>
-    </div>
-  </Header.Menu>
-
-  <Header.Menu name="Sponsor">
-    <p class="kicker">Sponsor</p>
-    <hr style:margin-block="0 0.75rem" />
-    <ul>
-      <li><a href="#">Our 2027 sponsors</a></li>
-      <li><a href="#">Become a sponsor</a></li>
-      <li><a href="#">Prospectus</a></li>
-    </ul>
-  </Header.Menu>
-
-  <Header.Menu name="About">
-    <p class="kicker">About the Conference</p>
-    <hr style:margin-block="0 0.75rem" />
-    <ul>
-      <li><a href="About.html">What PGConf.dev is</a></li>
-      <li><a href="About.html#committee">Organizing committee</a></li>
-      <li><a href="About.html#history">History &amp; past editions</a></li>
-      <li><a href="About.html#contact">Contact</a></li>
-      <li><a href="CoC.html">Code of conduct</a></li>
-    </ul>
-  </Header.Menu>
+    </ToggleMenu>
+  </li>
 </Header>
 
 <hr />

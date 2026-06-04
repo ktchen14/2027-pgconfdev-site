@@ -40,23 +40,11 @@
   menu {
     @media (width >= 48rem) {
       display: flex;
-      flex: none;
       gap: 1.5rem;
 
       > :global(*) {
         margin-block: 0;
       }
-    }
-
-    :global(> li > a) {
-      display: block;
-    }
-
-    :global(> li > :is(a, button)) {
-      margin-block: -0.25em;
-      margin-inline: -0.5em;
-      padding-block: 0.25em;
-      padding-inline: 0.5em;
     }
   }
 

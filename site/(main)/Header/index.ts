@@ -1,5 +1,5 @@
 import Link from "./Link.svelte";
 import Main from "./Main.svelte";
-import Menu from "./Menu.svelte";
+import ToggleMenu from "./ToggleMenu.svelte";
 
-export default Object.assign(Main, { Link, Menu });
+export default Object.assign(Main, { Link, ToggleMenu });
