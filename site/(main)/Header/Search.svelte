@@ -31,8 +31,7 @@
   }
 
   label {
-    border-radius: calc(infinity * 1px);
-    border: var(--border-width) solid var(--border);
+    border: 1px solid var(--border);
     color: var(--fg-mute);
     cursor: text;
     flex: auto;
@@ -51,9 +50,10 @@
     color: var(--fg-mute);
     flex: 1 1 0;
     font-size: 0.875em;
-    min-width: 6em;
+    min-width: 4em;
     outline: 0;
     padding: 0;
+    width: 0;
   }
 </style>
 
@@ -66,14 +66,13 @@
   }}
   {...rest}
 >
-  <label class="iconic">
+  <label class="iconic circle">
     <SearchIcon />
     <input
       bind:this={node}
       bind:value={text}
       onkeydown={(e) => e.stopPropagation()}
       placeholder="Search…"
-      size="8"
       type="search"
     />
   </label>

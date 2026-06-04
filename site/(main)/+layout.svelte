@@ -19,7 +19,7 @@
 
   .menu-single :global([data-open]) {
     @media (width >= 48rem) {
-      right: calc(-1.5rem - var(--border-width));
+      right: calc(-1.5rem - 1px);
       width: 16rem;
     }
   }
@@ -31,6 +31,14 @@
       grid-template-columns: repeat(3, 1fr);
       right: calc(50% - min(45rem, calc(100vw - 3rem)) / 2);
       width: 45rem;
+    }
+  }
+
+  .menu-list {
+    margin-block: 1.25em;
+
+    @media (width >= 48rem) {
+      margin-block: 0;
     }
   }
 
@@ -53,8 +61,8 @@
 <Header class="restrict-1280">
   <li class="menu-triple">
     <ToggleMenu name="Program">
-      <div>
-        <p class="kicker">Schedule</p>
+      <div class="menu-list">
+        <p class="over">Schedule</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Full schedule</Link></li>
@@ -65,8 +73,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="kicker">Formats</p>
+      <div class="menu-list">
+        <p class="over">Formats</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Talks</Link></li>
@@ -76,8 +84,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="kicker">More</p>
+      <div class="menu-list">
+        <p class="over">More</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Speakers</Link></li>
@@ -91,8 +99,8 @@
 
   <li class="menu-triple">
     <ToggleMenu name="Attend">
-      <div>
-        <p class="kicker">Getting there</p>
+      <div class="menu-list">
+        <p class="over">Getting there</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Register</Link></li>
@@ -103,8 +111,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="kicker">At the venue</p>
+      <div class="menu-list">
+        <p class="over">At the venue</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Venue &amp; rooms</Link></li>
@@ -115,8 +123,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="kicker">Social &amp; community</p>
+      <div class="menu-list">
+        <p class="over">Social &amp; community</p>
         <hr style:margin-block="0 0.75rem" />
         <ul>
           <li><Link href="#">Welcome breakfast</Link></li>
@@ -131,29 +139,33 @@
 
   <li class="menu-single">
     <ToggleMenu name="Sponsor">
-      <p class="kicker">Sponsor</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><Link href="#">Our 2027 sponsors</Link></li>
-        <li><Link href="#">Become a sponsor</Link></li>
-        <li><Link href="#">Prospectus</Link></li>
-      </ul>
+      <div class="menu-list">
+        <p class="over">Sponsor</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="#">Our 2027 sponsors</Link></li>
+          <li><Link href="#">Become a sponsor</Link></li>
+          <li><Link href="#">Prospectus</Link></li>
+        </ul>
+      </div>
     </ToggleMenu>
   </li>
 
   <li class="menu-single">
     <ToggleMenu name="About">
-      <p class="kicker">About the Conference</p>
-      <hr style:margin-block="0 0.75rem" />
-      <ul>
-        <li><Link href="About.html">What PGConf.dev is</Link></li>
-        <li><Link href="About.html#committee">Organizing committee</Link></li>
-        <li>
-          <Link href="About.html#history">History &amp; past editions</Link>
-        </li>
-        <li><Link href="About.html#contact">Contact</Link></li>
-        <li><Link href="CoC.html">Code of conduct</Link></li>
-      </ul>
+      <div class="menu-list">
+        <p class="over">About the Conference</p>
+        <hr style:margin-block="0 0.75rem" />
+        <ul>
+          <li><Link href="About.html">What PGConf.dev is</Link></li>
+          <li><Link href="About.html#committee">Organizing committee</Link></li>
+          <li>
+            <Link href="About.html#history">History &amp; past editions</Link>
+          </li>
+          <li><Link href="About.html#contact">Contact</Link></li>
+          <li><Link href="CoC.html">Code of conduct</Link></li>
+        </ul>
+      </div>
     </ToggleMenu>
   </li>
 </Header>

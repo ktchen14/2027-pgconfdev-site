@@ -6,8 +6,8 @@
   div {
     @media (width >= 48rem) {
       background-color: var(--bg);
-      border: var(--border-width) solid var(--border);
-      border-block-start: calc(3 * var(--border-width)) solid var(--action);
+      border: 1px solid var(--border);
+      border-block-start: 3px solid var(--action);
       box-shadow: 0 24px 48px -24px
         color-mix(in oklch, var(--ink) 45%, transparent);
       overflow: auto;

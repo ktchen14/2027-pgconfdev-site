@@ -1,40 +1,76 @@
-@import '@csstools/normalize.css' layer;
-@import '@fontsource/newsreader/400-italic.css' layer(font);
-@import '@fontsource/newsreader/400.css' layer(font);
-@import '@fontsource/newsreader/700-italic.css' layer(font);
-@import '@fontsource/newsreader/700.css' layer(font);
+@import "@csstools/normalize.css" layer;
 
-@custom-selector :--link a:where(:not([role='button'])), [role='link'];
-@custom-selector :--button button, ::file-selector-button, [role='button'],
-  [type='button'], [type='reset'], [type='submit'];
+/* TODO: fonts */
+@import "@fontsource/newsreader/400-italic.css" layer(font);
+@import "@fontsource/newsreader/400.css" layer(font);
+@import "@fontsource/newsreader/700-italic.css" layer(font);
+@import "@fontsource/newsreader/700.css" layer(font);
 
-@layer {
+/* See https://html.spec.whatwg.org/multipage/ */
+
+@layer layout {
   :root {
-    --normal-font:
-      system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial,
-      'Helvetica Neue', sans-serif;
-
-    --header-font: 'Newsreader', Georgia, serif;
+    /* Font */
+    --header-font: "Newsreader", Georgia, serif;
     --mono-font: "JetBrains Mono", ui-monospace, monospace;
     --normal-font: "Public Sans", system-ui, sans-serif;
 
-    --border-radius: 0.25rem;
-    --border-width: 0.0625rem;
-    --outline-width: 0.125rem;
+    /* Size */
 
-    --mute-color: rgb(100 107 121);
+    --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
+
+    --h1-size: clamp(2.25rem, 3vw + 1rem, 3.75rem);
+    --h2-size: clamp(1.625rem, 1.5vw + 1rem, 2.25rem);
+    --h3-size: 1.375rem;
+    --h4-size: 1.25em;
+    --h5-size: 1em;
+    --h6-size: 1em;
+
+    --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
+    --radius: 0.25rem;
+
+    --w-text: 38rem; /* editorial column */
+    --w-text-wide: 50rem; /* mid breakout */
+    --w-wide: 80rem; /* container */
+
+    /* Color */
+
+    --action: oklch(0.4973 0.12 245.25);
+    --delete: oklch(0.58 0.14 28.82);
+    --insert: oklch(0.58 0.14 142.14);
+    --notice: oklch(0.8 0.14 80.25);
+
+    --bg: white;
+    --fg: oklch(0.2 0.01 245.25);
+
+    --ink: oklch(0.15 0.01 245.25);
+
+    /* Neutral */
+    --bg-tint: color-mix(in oklch, var(--bg), var(--ink) 4%);
+    --fg-mute: color-mix(in oklch, var(--fg), var(--bg) 35%);
+    --fg-tint: color-mix(in oklch, var(--fg), var(--bg) 60%);
+    --border: color-mix(in oklch, var(--ink), var(--bg) 80%);
+
+    /* Code */
+    --code-bg: color-mix(in oklch, var(--bg), var(--action) 6%);
+
+    --action-fg: var(--action);
+    --action-fg-active: color-mix(in oklch, var(--action), var(--ink) 15%);
+    --action-bg-mute: color-mix(in oklch, var(--action) 12%, transparent);
+
+    --notice-fg: color-mix(in oklch, var(--notice), var(--ink) 35%);
+    --notice-bg: var(--notice);
+    --notice-bg-mute: color-mix(in oklch, var(--notice) 18%, transparent);
+
+    --insert-fg: var(--insert);
+    --insert-bg-mute: color-mix(in oklch, var(--insert) 15%, transparent);
+
+    --delete-fg: var(--delete);
+    --delete-bg-mute: color-mix(in oklch, var(--delete) 15%, transparent);
+
+    /* TODO: legacy */
+
     --selection-background-color: rgb(2 154 232 / 25%);
-    --text-color: rgb(55 60 68);
-
-    --h1-color: rgb(45 49 56);
-    --h2-color: var(--text-color);
-    --h3-color: rgb(66 71 81);
-    --h4-color: rgb(77 83 94);
-    --h5-color: rgb(92 99 112);
-    --h6-color: var(--mute-color);
-
-    --del-color: rgb(136 57 53);
-    --ins-color: rgb(29 106 84);
 
     --code-background-color: rgb(243 245 247);
     --code-color: rgb(92 99 112);
@@ -43,94 +79,218 @@
 
     --accent-background-color: rgb(1 114 173);
     --accent-border-color: rgb(2 154 232 / 50%);
-    --accent-color: rgb(1 114 173);
     --accent-hover-background-color: rgb(2 101 154);
     --accent-hover-color: rgb(1 88 135);
-
-    --region-background-color: var(--background-color);
-    --region-border-color: var(--border-color);
-    --region-box-shadow: 0 0 0.25rem rgb(129 145 181 / 12.5%);
-    --region-header-background-color: rgb(251 252 252);
-
-    --stripe-background-color: rgb(111 120 135 / 3.75%);
-
-    /* Remove the grey highlight on links in iOS (opinionated) */
-    -webkit-tap-highlight-color: transparent;
-
-    overflow-wrap: break-word;
   }
 
   *, ::before, ::after {
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
-    transition-property: none;
-  }
-
-  ::selection {
-    background-color: var(--selection-background-color);
   }
 
   body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: var(--normal-font);
     line-height: 1.5;
     margin: 0;
-    min-width: 20rem;
   }
 
-  /* From the list at https://developer.mozilla.org/en-US/docs/Web/HTML/Element */
-  address, article, aside, blockquote, details, dl, fieldset, figure, form,
-  footer, h1, h2, h3, h4, h5, h6, header, hgroup, hr, main, menu, nav, ol, p, pre,
-  search, section, table, ul {
-    margin-block: 0 1.5rem;
+  /* Sectioning content */
+  article, aside, nav, section {
+    margin-block: var(--margin);
+
+    &:where(:first-child) {
+      margin-block-start: 0;
+    }
 
     &:where(:last-child) {
       margin-block-end: 0;
     }
   }
 
-  small {
-    font-size: 87.5%;
-  }
+  /* Flow content except heading content, phrasing content, sectioning content,
+   * <dialog>, and <div>. */
+  address, blockquote, details, dl, fieldset, figure, footer, form, header, hr,
+  main, menu, ol, p, pre, search, table, ul {
+    margin-block: 0 1em;
 
-  /************************************ Text ************************************/
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--header-font);
-    font-weight: 700;
-    letter-spacing: 0.0625rem;
-
-    :where(:not(h1, h2, h3, h4, h5, h6)) + & {
-      margin-block-start: 1.5em;
+    &:where(:last-child) {
+      margin-block-end: 0;
     }
   }
 
-  h1 { color: var(--h1-color); font-size: 2.000rem; line-height: 1.125; }
-  h2 { color: var(--h2-color); font-size: 1.750rem; line-height: 1.150; }
-  h3 { color: var(--h3-color); font-size: 1.500rem; line-height: 1.175; }
-  h4 { color: var(--h4-color); font-size: 1.250rem; line-height: 1.200; }
-  h5 { color: var(--h5-color); font-size: 1.125rem; line-height: 1.225; }
-  h6 { color: var(--h6-color); font-size: 1.000rem; line-height: 1.250; }
+  :where(dd, li) > :is(dl, menu, ol, ul) {
+    margin-block: 0.25em 0;
 
-  hr {
-    border: calc(var(--border-width) / 2) solid var(--border);
+    &:where(:first-child) {
+      margin-block: 0;
+    }
+  }
+
+  /* Heading content */
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-block: 1.5em 0.5em;
+  }
+
+  hgroup:has(> :where(h1)), .margin-h1 {
+    margin-block: calc(1.5 * var(--h1-size)) calc(0.5 * var(--h1-size));
+  }
+
+  hgroup:has(> :where(h2)), .margin-h2 {
+    margin-block: calc(1.5 * var(--h2-size)) calc(0.5 * var(--h2-size));
+  }
+
+  hgroup:has(> :where(h3)), .margin-h3 {
+    margin-block: calc(1.5 * var(--h3-size)) calc(0.5 * var(--h3-size));
+  }
+
+  hgroup:has(> :where(h4)), .margin-h4 {
+    margin-block: calc(1.5 * var(--h4-size)) calc(0.5 * var(--h4-size));
+  }
+
+  hgroup:has(> :where(h5)), .margin-h5 {
+    margin-block: calc(1.5 * var(--h5-size)) calc(0.5 * var(--h5-size));
+  }
+
+  hgroup:has(> :where(h6)), .margin-h6 {
+    margin-block: calc(1.5 * var(--h6-size)) calc(0.5 * var(--h6-size));
+  }
+
+  h1, .h1, .margin-h1,
+  h2, .h2, .margin-h2,
+  h3, .h3, .margin-h3,
+  h4, .h4, .margin-h4,
+  h5, .h5, .margin-h5,
+  h6, .h6, .margin-h6,
+  hgroup {
+    &:where(:first-child) {
+      margin-block-start: 0;
+    }
+
+    &:where(:last-child) {
+      margin-block-end: 0;
+    }
+
+    :where(&) + & {
+      margin-block-start: 0;
+    }
+  }
+
+  :where(hgroup) > :is(h1, h2, h3, h4, h5, h6, p, ._) {
+    margin-block: 0;
+  }
+
+  :where(hgroup > p) + :is(h1, h2, h3, h4, h5, h6, ._) {
+    margin-block-start: 0.25em;
+  }
+
+  /* List elements */
+  dd, li {
+    margin-block: 0 0.25em;
+
+    &:where(:last-child) {
+      margin-block: 0;
+    }
+  }
+
+  /* Caption elements */
+  caption, figcaption {
+    margin-block: 0.5em;
+  }
+
+  /* Summary elements */
+  [open] > summary {
+    margin-block-end: 1em;
+  }
+}
+
+@layer appearance {
+  *, ::before, ::after {
+    transition-duration: 0.2s;
+    transition-property: none;
+    transition-timing-function: ease-in-out;
+  }
+
+  body {
+    /* Remove the grey highlight on links in iOS (opinionated) */
+    -webkit-tap-highlight-color: transparent;
+
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--normal-font);
+    min-width: 20rem;
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    background-color: var(--selection-background-color);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-border-color);
+  }
+
+  /* Heading content */
+
+  hgroup > p:has(~ :where(h1, h2, h3, h4, h5, h6)), .over {
+    color: var(--fg-tint);
+    font-family: var(--mono-font);
+    font-size: 0.75em;
+    letter-spacing: 10%;
+    text-transform: uppercase;
+  }
+
+  hgroup > :where(h1, h2, h3, h4, h5, h6) ~ p, .deck {
+    color: var(--fg-mute);
+    font-size: 0.875em;
+  }
+
+  /* TODO */
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+  }
+
+  h1 { font-size: var(--h1-size); line-height: 1.1; }
+  h2 { font-size: var(--h2-size); line-height: 1.15; }
+  h3 { font-size: var(--h3-size); line-height: 1.2; }
+  h4 { font-size: 1.25em; line-height: 1.25; }
+  h5 { font-size: 1em; line-height: 1.3; }
+  h6 { font-size: 1em; line-height: 1.3; }
+
+  /* Flow content except phrasing content */
+
+  blockquote {
+    border-inline-start: 3px solid var(--border);
+    margin-inline: 0;
+    padding-inline: 1rem;
+  }
+
+  dd {
+    margin-inline-start: 2em;
+
+    :is(nav, search) & {
+      margin-inline-start: 0;
+    }
+  }
+
+  figure {
     margin-inline: 0;
   }
 
-  abbr:where([title]) {
-    border-bottom: 1px dotted;
-    cursor: help;
-    text-decoration: none;
+  hr {
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    margin-inline: 0;
   }
 
-  del {
-    color: var(--del-color);
+  menu, ol, ul {
+    padding-inline-start: 2em;
+
+    :is(nav, search) :is(&) {
+      list-style-type: none;
+      padding-inline-start: 0;
+    }
   }
 
-  ins {
-    color: var(--ins-color);
-  }
+  /* https://html.spec.whatwg.org/multipage/text-level-semantics.html */
 
   mark {
     background-color: var(--mark-background-color);
@@ -138,6 +298,16 @@
     padding: 0.125rem 0.25rem;
     vertical-align: baseline;
   }
+
+  small {
+    font-size: 0.875em;
+  }
+
+  :is(sub, sup) {
+    font-size: 0.75em;
+  }
+
+  /* TODO */
 
   code, kbd, pre, samp {
     font-family: var(--f-mono);
@@ -159,70 +329,60 @@
 
   code {
     background-color: var(--code-background-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
     color: var(--code-color);
     display: inline-block;
     padding: 0.375rem;
   }
 
-  sup, sub {
-    font-size: 60%;
-  }
+  /* https://html.spec.whatwg.org/multipage/links.html */
 
-  /*********************************** Object ***********************************/
+  a:where(:not(.button, [role="button"])), [role="link"] {
+    color: var(--action);
+    text-decoration: underline rgb(from currentColor r g b / 50%);
+    transition-property: background-color, color;
 
-  iframe {
-    border: 0;
-  }
+    &[aria-current]:where(:not([aria-current="false"])) {
+      color: var(--action-fg-mute);
+    }
 
-  img {
-    height: auto;
-    max-width: 100%;
-  }
+    :is(nav, search) & {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  svg:where(:not([title])) {
-    pointer-events: none;
-  }
-
-  /************************* Article, Aside, Blockquote *************************/
-
-  blockquote {
-    border-inline-start: 0.25rem solid var(--border-color);
-    margin-inline: 0;
-    padding-inline: 1rem;
-
-    > header, > footer {
-      color: var(--mute-color);
+    &:hover {
+      color: var(--accent-hover-color);
     }
   }
 
-  /*********************************** Lists ************************************/
-
-  dt {
-    font-weight: 600;
+  a:is(.button, [role="button"]) {
+    text-decoration: none;
   }
 
-  dd, li {
-    margin-bottom: 0.25rem;
+  /* https://html.spec.whatwg.org/multipage/edits.html */
+
+  del {
+    color: var(--delete-fg);
   }
 
-  li:where(:last-child) {
-    margin-bottom: 0;
+  ins {
+    color: var(--insert-fg);
   }
 
-  :is(dd, dt, li) > :is(dl, menu, ol, ul) {
-    margin-block: 0.25rem 0;
+  /* https://html.spec.whatwg.org/multipage/embedded-content.html */
+
+  iframe {
+    border: 0;
+    height: auto;
+    width: 100%;
   }
 
-  ul {
-    list-style-type: square;
+  embed, img, object, video {
+    max-width: 100%;
   }
 
-  /******************************* Figure, Table ********************************/
-
-  figure {
-    margin-inline: 0;
-  }
+  /* Tabular data */
 
   table {
     border-collapse: collapse;
@@ -230,62 +390,50 @@
     width: 100%;
   }
 
-  caption, figcaption {
-    color: var(--mute-color);
-    margin-block: 0.5rem;
+  :where(thead) > tr:where(:last-child) {
+    border-block-end: 3px solid var(--border);
   }
 
-  .stripe > tbody > tr:nth-child(odd) {
-    background-color: var(--stripe-background-color);
+  :where(tbody) > tr {
+    border-block-end: 1px solid var(--border);
   }
 
-  thead > tr {
-    border-bottom: calc(3 * var(--border-width)) solid var(--border-color);
+  .stripe > :where(tbody) > tr:where(:nth-child(odd)) {
+    background-color: var(--bg-tint);
   }
 
-  tbody > tr {
-    border-bottom: var(--border-width) solid var(--border-color);
-  }
-
-  tfoot > tr {
-    border-top: calc(3 * var(--border-width)) solid var(--border-color);
+  :where(tfoot) > tr:where(:first-child) {
+    border-block-start: 3px solid var(--border);
   }
 
   th, td {
-    padding: 0.5rem 1rem;
+    padding: 0.5em;
   }
 
   th {
-    font-weight: 600;
-    text-align: start;
+    text-align: inherit;
   }
 
-  /******************************** Interaction *********************************/
+  /* https://html.spec.whatwg.org/multipage/forms.html */
 
-  :--link {
-    color: var(--accent-color);
-    outline-offset: 0.0625rem;
-    text-decoration: underline rgb(from currentColor r g b / 50%);
-    transition-property: background-color, color, outline-color;
-
-    &:is([aria-current]:where(:not([aria-current='false'])),
-        :active, :focus, :hover) {
-      color: var(--accent-hover-color);
-    }
-  }
-
-  :--button {
+  button, .button,
+  ::file-selector-button,
+  [role="button"],
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
     background-color: var(--accent-background-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--radius);
     border: 0;
-    color: #ffffff;
+    color: var(--bg);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    padding: 0.67rem 1rem;
+    padding-block: 0.5em;
+    padding-inline: 1em;
     text-align: center;
-    transition-property: background-color, color, outline-color;
+    transition-property: background-color, color;
     user-select: none;
 
     &:is(:active, :focus, :hover) {
@@ -293,117 +441,60 @@
     }
   }
 
+  /* https://html.spec.whatwg.org/multipage/interactive-elements.html */
+
   summary {
-    cursor: pointer;
-    list-style: none;
-    outline-offset: 0.5rem;
-    padding-inline-end: 1.5rem;
-    transition-property: background-color, color, outline-color;
+    --marker-size: 0.5em;
+
+    list-style-type: none;
 
     &::-webkit-details-marker {
       display: none;
     }
 
     &::before {
-      content: '◀';
+      content: "◀";
       float: inline-end;
-      margin-inline-end: -1.5rem;
+      margin-inline-end: calc(-1em - var(--marker-size));
       transition-property: transform;
     }
 
+    [open] > &::before {
+      transform: rotate(-90deg);
+    }
+  }
+
+  summary:where(:not(.button, [role="button"])) {
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-block: -0.5em;
+    margin-inline: -1em;
+    padding-block: 0.5em;
+    padding-inline: 1em calc(2em + var(--marker-size));
+    transition-property: background-color, color;
+
     [open] > & {
-      margin-bottom: 1rem;
-
-      &:where(:not([role='button'])) {
-        color: var(--mute-color);
-      }
-
-      &::before {
-        transform: rotate(-90deg);
-      }
+      margin-block-end: 0.625em;
     }
 
-    &:is(:active, :focus, :hover):where(:not([role='button'])) {
-      color: var(--accent-hover-color);
+    &:hover {
+      background-color: var(--bg-tint);
+      color: var(--action);
     }
   }
 
-  :--link, :--button, summary {
-    outline: var(--outline-width) solid transparent;
-
-    &:focus-visible {
-      outline-color: var(--accent-border-color);
-    }
-  }
-
-  a[role='button'] {
-    display: inline-block;
-    text-decoration: none;
-  }
-
-  summary[role='button'] {
-    outline-offset: 0;
-    padding-inline-end: 2.5rem;
+  summary:is(.button, [role="button"]) {
+    padding-inline-end: calc(2em + var(--marker-size));
     text-align: start;
-  }
 
-  /********************************* Navigation *********************************/
-
-  search {
-    :is(menu, ol, ul) {
-      padding-inline-start: 0;
-      list-style-type: none;
-    }
-
-    :--link {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--action-fg);
-      }
+    [open] > & {
+      margin-block-end: revert-layer;
     }
   }
 
-  nav {
-    :is(menu, ol, ul) {
-      padding-inline-start: 0;
-      list-style-type: none;
-    }
-
-    :--link {
-      color: inherit;
-      text-decoration: none;
-
-      &:hover {
-        color: var(--action-fg);
-      }
-      /* border-radius: var(--border-radius); */
-      /* outline-offset: 0.5rem; */
-      /* transition-property: background-color, color, outline-color, */
-      /*   text-decoration-color; */
-
-      /* &:not(:is([aria-current]:where(:not([aria-current='false'])), */
-      /*     :active, :focus, :hover)) { */
-      /*   text-decoration-color: transparent; */
-      /* } */
-    }
-
-    /* ol > li:where(:not(:first-child))::before { */
-    /*   color: var(--mute-color); */
-    /*   content: '›'; */
-    /*   padding-inline-end: 1rem; */
-    /*   position: static; */
-    /* } */
-    /**/
-    /**/
-    /* :--button { */
-    /*   padding: calc(0.5rem - var(--border-width)) 0.5rem; */
-    /* } */
-    /**/
-    /* summary[role='button'] { */
-    /*   padding-inline-end: 2rem; */
-    /* } */
+  /* Caption elements */
+  caption, figcaption {
+    color: var(--fg-mute);
   }
 }
 
@@ -414,73 +505,8 @@
   min-height: 100vh;
 }
 
-:root {
-  --action: oklch(0.4973 0.12 245.25);
-  --notice: oklch(0.8 0.14 80.25);
-  --delete: oklch(0.58 0.14 28.82);
-  --insert: oklch(0.58 0.14 142.14);
-
-  --bg: white;
-  --fg: oklch(0.2 0.01 245.25);
-
-  --ink: oklch(0.15 0.01 245.25);
-
-  /* Neutral */
-  --bg-tint: color-mix(in oklch, var(--bg), var(--ink) 4%);
-  --fg-mute: color-mix(in oklch, var(--fg), var(--bg) 35%);
-  --fg-tint: color-mix(in oklch, var(--fg), var(--bg) 60%);
-  --border:  color-mix(in oklch, var(--ink), var(--bg) 80%);
-
-  /* Code */
-  --code-bg: color-mix(in oklch, var(--bg), var(--action) 6%);
-
-  --action-fg:       var(--action);
-  --action-fg-hover: color-mix(in oklch, var(--action), var(--ink) 15%);
-  --action-bg-mute:  color-mix(in oklch, var(--action) 12%, transparent);
-
-  --notice-fg:      color-mix(in oklch, var(--notice), var(--ink) 35%);
-  --notice-bg:      var(--notice);
-  --notice-bg-mute: color-mix(in oklch, var(--notice) 18%, transparent);
-
-  --insert-fg:      var(--insert);
-  --insert-bg-mute: color-mix(in oklch, var(--insert) 15%, transparent);
-
-  --delete-fg:      var(--delete);
-  --delete-bg-mute: color-mix(in oklch, var(--delete) 15%, transparent);
-
-  /* Type */
-
-  --t-display:  clamp(3rem, 6vw + 1rem, 6.5rem);
-  --t-small:    0.875rem;
-
-  /* Layout widths */
-  --w-text:      38rem;   /* editorial column */
-  --w-text-wide: 50rem;   /* mid breakout */
-  --w-wide:      80rem;   /* container */
-  --w-full:      100vw;
-
-  --gutter: clamp(1rem, 4vw, 2rem);
-
-  --h1-size: clamp(2.25rem, 3vw + 1rem, 3.75rem);
-  --h2-size: clamp(1.625rem, 1.5vw + 1rem, 2.25rem);
-  --h3-size: 1.375rem;
-
-  --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
-}
-
-[role=button] {
-  background-color: var(--action);
+.circle {
   border-radius: calc(infinity * 1px);
-  color: white;
-  cursor: pointer;
-  padding-block: 0.375em;
-  padding-inline: 0.75em;
-  text-decoration: none;
-
-  &:hover {
-    background-color: var(--action-fg-hover);
-    color: white;
-  }
 }
 
 .restrict-1280 {
@@ -490,44 +516,25 @@
   padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
 }
 
-hgroup > :is(h1, h2, h3, h4, h5, h6) {
-  margin-block: 0;
-}
-
-hgroup > p:where(:not(:is(h1, h2, h3, h4, h5, h6) ~ p)),
-.kicker {
-  color: var(--fg-tint);
-  font-family: var(--mono-font);
-  font-size: 0.75em;
-  letter-spacing: 10%;
-  margin-block-end: 1em;
-  text-transform: uppercase;
-}
-
-hgroup > :is(:where(h1, h2, h3, h4, h5, h6) ~ p), .small {
-  color: var(--fg-mute);
-  font-size: 0.875em;
-}
-
 .lede {
   font-family: var(--header-font);
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 
-.action-text {
+.action {
   color: var(--action-fg);
 }
 
-.action-fg {
-  color: var(--action-fg);
+.notice {
+  color: var(--notice-fg);
 }
 
-.insert-fg {
+.insert {
   color: var(--insert-fg);
 }
 
-.mute-text {
-  color: var(--fg-mute);
+.delete {
+  color: var(--delete-fg);
 }
 
 .fg-mute {
@@ -536,21 +543,6 @@ hgroup > :is(:where(h1, h2, h3, h4, h5, h6) ~ p), .small {
 
 .bg-tint {
   background-color: var(--bg-tint);
-}
-
-.notice-fg {
-  color: color-mix(in oklch, var(--notice), white 20%);
-}
-
-.iconic {
-  align-items: center;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.5em;
-
-  > :is(object, svg) {
-    flex: none;
-  }
 }
 
 .lucide-icon {
@@ -587,6 +579,18 @@ hgroup > :is(:where(h1, h2, h3, h4, h5, h6) ~ p), .small {
   gap: 1.5rem;
 
   > * {
+    margin-block: 0;
+  }
+}
+
+.iconic {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+
+  > * {
+    flex: none;
     margin-block: 0;
   }
 }

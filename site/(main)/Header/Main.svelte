@@ -64,6 +64,7 @@
     }
 
     @media (48rem <= width < 64rem) {
+      /* TODO */
       padding: 0.5em;
 
       > span {
@@ -74,7 +75,6 @@
 
   button {
     background-color: initial;
-    border-radius: var(--border-radius);
     color: inherit;
     margin: -0.5em;
     padding: 0.5em;
@@ -142,7 +142,7 @@
 
   <a
     aria-label="Register"
-    class="iconic"
+    class="iconic circle"
     data-expose={expose}
     href="/"
     role="button"

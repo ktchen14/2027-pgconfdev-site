@@ -1,5 +1,6 @@
 <script lang="ts">
   import { ChevronDown } from "@lucide/svelte";
+  import { tick } from "svelte";
   import { getHeaderContext } from "./context.ts";
   import Menu from "./Menu.svelte";
 
@@ -10,6 +11,15 @@
   const open = $derived(header.menu === id ? true : undefined);
 
   let root: HTMLElement;
+
+  async function toggle(button: HTMLButtonElement) {
+    header.menu = header.menu === id ? null : id;
+
+    const source = button.getBoundingClientRect().top;
+    await tick();
+    const target = button.getBoundingClientRect().top;
+    if (target < 0) window.scrollBy(0, target - source);
+  }
 </script>
 
 <style>
@@ -17,11 +27,9 @@
     background-color: initial;
     color: inherit;
     justify-content: space-between;
-    margin-block: -0.25em;
-    margin-inline: -0.5em;
-    padding-block: 0.25em;
-    padding-inline: 0.5em;
-    width: calc(100% + 1em);
+    margin-block: -0.5em;
+    margin-inline: -1em;
+    width: stretch;
 
     &:hover {
       background-color: var(--bg-tint);
@@ -64,7 +72,7 @@
     aria-controls={id}
     aria-expanded={open === true}
     class="iconic"
-    onclick={() => (header.menu = header.menu === id ? null : id)}
+    onclick={(e) => toggle(e.currentTarget)}
   >
     {name}
     <ChevronDown />

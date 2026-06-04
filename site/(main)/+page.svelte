@@ -22,17 +22,12 @@
       margin-block-end: var(--margin);
 
       dt {
-        font-weight: inherit;
         margin-block-end: 0.5rem;
       }
 
       dd {
         line-height: 1.2;
         margin-inline-start: 0;
-      }
-
-      small {
-        font-size: 87.5%;
       }
     }
   }
@@ -57,18 +52,15 @@
   }
 
   h2 {
-    font-family: var(--header-font);
     font-size: clamp(1.625em, 1.5vw + 1em, 2.25em);
     font-weight: 500;
     letter-spacing: -0.015em;
-    line-height: 1.15;
-    margin-block: 0;
     text-wrap: balance;
   }
 
   .cfp-card {
-    border: var(--border-width) solid var(--border);
-    border-left: calc(var(--border-width) * 4) solid var(--positive);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--insert);
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr;
@@ -106,10 +98,10 @@
 
 <section class="hero restrict-1280">
   <hgroup>
-    <p class="action-fg">The PostgreSQL Developer Conference</p>
+    <p class="action">The PostgreSQL Developer Conference</p>
 
     <h1>
-      <span class="action-fg">PGConf</span>.dev
+      <span class="action">PGConf</span>.dev
       <br />
       <span class="fg-mute">2027</span>
     </h1>
@@ -123,7 +115,7 @@
 
   <dl class="grid-1234">
     <div>
-      <dt class="kicker">Time</dt>
+      <dt class="over">Time</dt>
       <dd class="lede">
         <time datetime="2027-05-11">May 11</time>
         &ndash;
@@ -133,19 +125,19 @@
     </div>
 
     <div>
-      <dt class="kicker">Location</dt>
+      <dt class="over">Location</dt>
       <dd class="lede">Montréal, QC</dd>
       <dd class="fg-mute"><small>Plaza Centre-Ville</small></dd>
     </div>
 
     <div>
-      <dt class="kicker">Format</dt>
+      <dt class="over">Format</dt>
       <dd class="lede">3+ tracks × 4 days</dd>
       <dd class="ft-mute"><small>~300 attendees</small></dd>
     </div>
 
     <div>
-      <dt class="kicker">Content</dt>
+      <dt class="over">Content</dt>
       <dd class="lede">
         Due <time datetime="2027-02-14">Feb 14</time>
       </dd>
@@ -154,8 +146,8 @@
   </dl>
 
   <div class="flex">
-    <a href={resolve("/")} role="button">Register</a>
-    <a href={resolve("/")} role="button">Submit a talk</a>
+    <a href={resolve("/")} class="circle" role="button">Register</a>
+    <a href={resolve("/")} class="circle" role="button">Submit a talk</a>
   </div>
 </section>
 
@@ -187,6 +179,54 @@
       once a year.
     </p>
 
+    <dl>
+      <dt>This is an item with another list</dt>
+      <dd>This is a description</dd>
+
+      <dt>This is an item with another list</dt>
+      <dt>This is an item with another list</dt>
+      <dd>This is a description</dd>
+      <dd>This is a description</dd>
+    </dl>
+    <ul>
+      <li>This is a test</li>
+      <li>This is another item</li>
+      <li>
+        This is an item with another list
+        <ol>
+          <li>This is a test</li>
+          <li>This is another item</li>
+          <li>This is a third item</li>
+        </ol>
+      </li>
+      <li>This is a third item</li>
+      <li>
+        <p>This is an item with another list</p>
+        <p>This is an item with another list</p>
+        <ol>
+          <li>This is a test</li>
+          <li>This is another item</li>
+          <li>This is a third item</li>
+        </ol>
+      </li>
+      <li>This is a test</li>
+      <li>This is another item</li>
+      <li>This is a third item</li>
+      <li>
+        <dl>
+          <dt>This is an item with another list</dt>
+          <dd>
+            This is a description
+            <!-- <ul> -->
+            <!--   <li>This is a test</li> -->
+            <!--   <li>This is another item</li> -->
+            <!--   <li>This is a third item</li> -->
+            <!-- </ul> -->
+          </dd>
+        </dl>
+      </li>
+    </ul>
+
     <p><a href="About.html">Read more about who we are →</a></p>
   </div>
 </section>
@@ -195,7 +235,7 @@
   <div class="cfp-card">
     <div style="font-size: 0.875rem">
       <hgroup style:margin-bottom="1.25rem">
-        <p class="iconic insert-fg">
+        <p class="iconic insert">
           <Circle style="--size: 0.75em; fill: currentColor;" />
           Call for Proposals — open through 14 Feb 2027
         </p>
@@ -238,6 +278,8 @@
       up.
     </p>
   </hgroup>
+
+  <p>First paragraph</p>
 
   <div class="grid-1234">
     <figure>

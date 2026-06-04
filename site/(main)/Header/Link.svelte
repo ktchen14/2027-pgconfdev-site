@@ -10,13 +10,12 @@
 
 <style>
   a {
-    border-radius: var(--border-radius);
-    color: inherit;
+    border-radius: var(--radius);
     display: block;
-    margin-block: -0.25em;
-    margin-inline: -0.5em;
-    padding-block: 0.25em;
-    padding-inline: 0.5em;
+    margin-block: -0.375em;
+    margin-inline: -0.75em;
+    padding-block: 0.375em;
+    padding-inline: 0.75em;
 
     &:hover {
       background-color: var(--bg-tint);

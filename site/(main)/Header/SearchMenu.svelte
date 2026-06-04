@@ -18,7 +18,7 @@
 </style>
 
 <Menu class="search-menu" data-open={text ? true : undefined} {...rest}>
-  <p class="kicker">Talks</p>
+  <p class="over">Talks</p>
   <ul>
     <li>
       <Result href="#" icon={List}>
@@ -29,7 +29,7 @@
     </li>
   </ul>
 
-  <p class="kicker">Speakers</p>
+  <p class="over">Speakers</p>
   <ul>
     <li>
       <Result href="#" icon={User}>
@@ -40,7 +40,7 @@
     </li>
   </ul>
 
-  <p class="kicker">Logistics</p>
+  <p class="over">Logistics</p>
   <ul>
     <li>
       <Result href="#" icon={MapPin}>
@@ -55,7 +55,7 @@
 
   <p style:color="var(--fg-tint)">
     <strong>
-      <a class="action-fg" href="/">See all results</a>
+      <a class="action" href="/">See all results</a>
     </strong>
     for "{text?.trim() || "your search"}" ↵
   </p>
