@@ -15,56 +15,48 @@
       margin-top: 0.5rem;
     }
   }
-
-  .footer {
-    color: var(--fg-tint);
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-  }
 </style>
 
 <Menu class="search-menu" data-open={text ? true : undefined} {...rest}>
-  <div class="main">
-    <p class="kicker">Talks</p>
-    <ul>
-      <li>
-        <Result href="#" icon={List}>
-          Zero-downtime upgrades with logical replication
-          <br />
-          <small class="fg-mute">Wed · 14:00 · Track A</small>
-        </Result>
-      </li>
-    </ul>
+  <p class="kicker">Talks</p>
+  <ul>
+    <li>
+      <Result href="#" icon={List}>
+        Zero-downtime upgrades with logical replication
+        <br />
+        <small class="fg-mute">Wed · 14:00 · Track A</small>
+      </Result>
+    </li>
+  </ul>
 
-    <p class="kicker">Speakers</p>
-    <ul>
-      <li>
-        <Result href="#" icon={User}>
-          Amara Okonkwo
-          <br />
-          <small class="fg-mute">Speaker · 2 talks</small>
-        </Result>
-      </li>
-    </ul>
+  <p class="kicker">Speakers</p>
+  <ul>
+    <li>
+      <Result href="#" icon={User}>
+        Amara Okonkwo
+        <br />
+        <small class="fg-mute">Speaker · 2 talks</small>
+      </Result>
+    </li>
+  </ul>
 
-    <p class="kicker">Logistics</p>
-    <ul>
-      <li>
-        <Result href="#" icon={MapPin}>
-          Venue &amp; floor plans
-          <br />
-          <small class="fg-mute">Attend · Getting around</small>
-        </Result>
-      </li>
-    </ul>
-  </div>
+  <p class="kicker">Logistics</p>
+  <ul>
+    <li>
+      <Result href="#" icon={MapPin}>
+        Venue &amp; floor plans
+        <br />
+        <small class="fg-mute">Attend · Getting around</small>
+      </Result>
+    </li>
+  </ul>
 
   <hr />
 
-  <div class="footer">
+  <p style:color="var(--fg-tint)">
     <strong>
       <a class="action-fg" href="/">See all results</a>
     </strong>
     for "{text?.trim() || "your search"}" ↵
-  </div>
+  </p>
 </Menu>
