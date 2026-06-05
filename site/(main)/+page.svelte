@@ -279,6 +279,28 @@
     </p>
   </hgroup>
 
+<article><details><summary class="circle" role="button">U.S. Residents 🇺🇸</summary> <p>Citizens
+and permanent residents of the U.S. may enter Canada visa-free. U.S. Citizens
+must have a valid passport while lawful permanent residents must have the
+documents listed <a
+href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html#lawful-pr-us">here</a>.</p></details>
+<hr> <details><summary role="button">Electronic Travel Authorization (eTA)</summary>
+<p>Visitors from <a
+href="https://ircc.canada.ca/english/visit/visas.asp">visa-exempt countries</a>
+should apply for an eTA <a
+href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html">here</a>.
+Most applications are approved quickly.</p></details> <hr>
+<details><summary>Visitor Visa</summary>
+<p>Procedures for obtaining a visitor visa are available <a
+href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/about-visitor-visa.html">here</a>.
+This process can be lengthy and we advise that you start it as soon as you have
+decided that you will be attending the conference.</p>
+<p>Procedures for obtaining a visitor visa are available <a
+href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/about-visitor-visa.html">here</a>.
+This process can be lengthy and we advise that you start it as soon as you have
+decided that you will be attending the conference.</p>
+</details></article>
+
   <p>First paragraph</p>
 
   <div class="grid-1234">
