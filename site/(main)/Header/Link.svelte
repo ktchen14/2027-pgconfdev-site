@@ -12,14 +12,13 @@
   a {
     border-radius: var(--radius);
     display: block;
-    margin-block: -0.375em;
+    margin-block: -0.25em;
     margin-inline: -0.75em;
-    padding-block: 0.375em;
+    padding-block: 0.5em;
     padding-inline: 0.75em;
 
     &:hover {
       background-color: var(--bg-tint);
-      color: var(--action);
     }
   }
 </style>
