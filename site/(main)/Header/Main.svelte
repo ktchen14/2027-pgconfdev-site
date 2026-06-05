@@ -19,7 +19,10 @@
 
 <style>
   header {
+    align-items: center;
     justify-content: space-between;
+    margin-block: 0;
+    padding-block: 1.5rem;
     position: relative;
   }
 
@@ -48,8 +51,10 @@
     }
   }
 
-  [role="button"] {
-    justify-content: center;
+  .button {
+    box-sizing: content-box;
+    height: 1lh;
+    min-width: 1lh;
 
     @media (width < 48rem) {
       width: 100%;
@@ -64,8 +69,7 @@
     }
 
     @media (48rem <= width < 64rem) {
-      /* TODO */
-      padding: 0.5em;
+      padding-inline: 0.5em;
 
       > span {
         display: none;
@@ -142,10 +146,9 @@
 
   <a
     aria-label="Register"
-    class="iconic circle"
+    class="button circle iconic"
     data-expose={expose}
     href="/"
-    role="button"
     style:order="3"
   >
     <span>Register</span>

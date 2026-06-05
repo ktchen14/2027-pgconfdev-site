@@ -17,7 +17,7 @@
 
   svg {
     fill: currentColor;
-    height: 2.25rem;
+    height: 2.5em;
 
     @media (width < 48rem) {
       &:last-child {

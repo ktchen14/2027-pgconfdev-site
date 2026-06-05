@@ -6,8 +6,8 @@
   a {
     border-radius: var(--radius);
     gap: 0.75rem;
-    margin-inline: -0.75rem;
-    padding: 0.75rem;
+    margin-inline: -0.75em;
+    padding: 0.75em;
 
     &:hover {
       background-color: var(--bg-tint);
@@ -19,9 +19,9 @@
     border-radius: var(--radius);
     border: 1px solid var(--border);
     color: var(--action-fg);
-    height: 2.5rem;
-    padding: 0.5rem;
-    width: 2.5rem;
+    height: 2.5em;
+    padding: 0.5em;
+    width: 2.5em;
   }
 
   p {

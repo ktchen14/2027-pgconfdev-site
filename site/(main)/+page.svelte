@@ -8,73 +8,58 @@
 </script>
 
 <style>
+  section {
+    padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
+
+    &.bg-tint {
+      padding-block: var(--margin);
+    }
+  }
+
   .hero {
     margin-block: calc(2 * var(--margin));
 
     h1 {
       font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
+      font-weight: 700;
       letter-spacing: -2%;
       line-height: 1;
     }
 
-    dl {
-      gap: var(--margin);
-      margin-block-end: var(--margin);
-
-      dt {
-        margin-block-end: 0.5rem;
-      }
-
-      dd {
-        line-height: 1.2;
-        margin-inline-start: 0;
-      }
+    dd {
+      line-height: 1.2;
+      margin-inline-start: 0;
     }
   }
 
-  .banner {
-    margin-block-end: var(--margin);
-    text-align: center;
-
-    > img {
-      max-height: 67vh;
-      min-height: 34vh;
-      object-fit: cover;
-    }
+  .banner > img {
+    max-height: calc(200vh / 3);
+    min-height: calc(100vh / 3);
+    object-fit: cover;
   }
 
   @media (width >= 768px) {
-    .whatis {
+    .side-by-side {
       display: grid;
-      gap: 3rem;
+      gap: var(--margin);
       grid-template-columns: repeat(3, 1fr);
+
+      > * {
+        margin-block: 0;
+      }
     }
+  }
+
+  .button.circle {
+    padding-inline: 1.5em;
+  }
+
+  :global(main + hr) {
+    display: none;
   }
 
   h2 {
-    font-size: clamp(1.625em, 1.5vw + 1em, 2.25em);
-    font-weight: 500;
     letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-
-  .cfp-card {
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--insert);
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: 1fr;
-    padding: var(--margin);
-
-    @media (min-width: 768px) {
-      align-items: center;
-      gap: var(--margin);
-      grid-template-columns: 1fr auto;
-    }
-  }
-
-  .cfp-card h2 {
-    font-size: 1.625rem;
   }
 
   figcaption {
@@ -82,7 +67,6 @@
     font-family: var(--mono-font);
     font-size: 0.75rem;
     letter-spacing: 0.05em;
-    margin-top: 0.5rem;
     text-transform: uppercase;
   }
 </style>
@@ -96,7 +80,7 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<section class="hero restrict-1280">
+<section class="hero">
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
 
@@ -106,14 +90,14 @@
       <span class="fg-mute">2027</span>
     </h1>
 
-    <p class="lede" style:font-size="var(--h2-size)">
+    <p class="h2" style:font-weight="400">
       Where PostgreSQL is <em>made</em>
     </p>
   </hgroup>
 
-  <hr style:margin-block="var(--margin)" />
+  <hr class="margin-section" />
 
-  <dl class="grid-1234">
+  <dl class="auto-grid margin-section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">
@@ -133,7 +117,7 @@
     <div>
       <dt class="over">Format</dt>
       <dd class="lede">3+ tracks × 4 days</dd>
-      <dd class="ft-mute"><small>~300 attendees</small></dd>
+      <dd class="fg-mute"><small>~300 attendees</small></dd>
     </div>
 
     <div>
@@ -146,19 +130,16 @@
   </dl>
 
   <div class="flex">
-    <a href={resolve("/")} class="circle" role="button">Register</a>
-    <a href={resolve("/")} class="circle" role="button">Submit a talk</a>
+    <a href={resolve("/")} class="button circle">Register</a>
+    <a href={resolve("/")} class="button circle stroke">Submit a talk</a>
   </div>
 </section>
 
-<div class="banner restrict-1280">
-  <img src={banner} fetchpriority="high" alt="Banner with Vancouver Skyline" />
-</div>
+<section class="banner">
+  <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
+</section>
 
-<section
-  class="bg-tint restrict-1280 whatis"
-  style:padding-block="var(--margin)"
->
+<section class="bg-tint side-by-side">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -179,67 +160,27 @@
       once a year.
     </p>
 
-    <dl>
-      <dt>This is an item with another list</dt>
-      <dd>This is a description</dd>
-
-      <dt>This is an item with another list</dt>
-      <dt>This is an item with another list</dt>
-      <dd>This is a description</dd>
-      <dd>This is a description</dd>
-    </dl>
-    <ul>
-      <li>This is a test</li>
-      <li>This is another item</li>
-      <li>
-        This is an item with another list
-        <ol>
-          <li>This is a test</li>
-          <li>This is another item</li>
-          <li>This is a third item</li>
-        </ol>
-      </li>
-      <li>This is a third item</li>
-      <li>
-        <p>This is an item with another list</p>
-        <p>This is an item with another list</p>
-        <ol>
-          <li>This is a test</li>
-          <li>This is another item</li>
-          <li>This is a third item</li>
-        </ol>
-      </li>
-      <li>This is a test</li>
-      <li>This is another item</li>
-      <li>This is a third item</li>
-      <li>
-        <dl>
-          <dt>This is an item with another list</dt>
-          <dd>
-            This is a description
-            <!-- <ul> -->
-            <!--   <li>This is a test</li> -->
-            <!--   <li>This is another item</li> -->
-            <!--   <li>This is a third item</li> -->
-            <!-- </ul> -->
-          </dd>
-        </dl>
-      </li>
-    </ul>
-
     <p><a href="About.html">Read more about who we are →</a></p>
   </div>
 </section>
 
-<section class="restrict-1280" style:margin-block="var(--margin)">
-  <div class="cfp-card">
-    <div style="font-size: 0.875rem">
-      <hgroup style:margin-bottom="1.25rem">
+<section>
+  <div
+    class="note side-by-side"
+    style:align-items="center"
+    style:padding="var(--margin)"
+  >
+    <div
+      class="margin-gap"
+      style="font-size: 0.875em"
+      style:grid-column="span 2"
+    >
+      <hgroup>
         <p class="iconic insert">
           <Circle style="--size: 0.75em; fill: currentColor;" />
           Call for Proposals — open through 14 Feb 2027
         </p>
-        <h2>Submit a talk, unconference topic, or tutorial.</h2>
+        <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
       </hgroup>
 
       <p class="fg-mute" style="max-width: 38rem;">
@@ -250,12 +191,19 @@
       </p>
     </div>
 
-    <a role="button" href="#">Submit a proposal</a>
+    <a
+      class="button circle"
+      href="#"
+      style:justify-self="end"
+      style:max-width="max-content"
+    >
+      Submit a proposal
+    </a>
   </div>
 </section>
 
-<section class="bg-tint restrict-1280" style:padding-block="var(--margin)">
-  <hgroup style="margin-block-end: 1.25em;">
+<section class="bg-tint">
+  <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>
     <p>
@@ -264,13 +212,13 @@
     </p>
   </hgroup>
 
-  <p class="small" style="margin-top: 2rem;;">
+  <p>
     <a href="#">Sponsor PGConf.dev 2027 →</a>
   </p>
 </section>
 
-<section class="restrict-1280" style:margin-block="var(--margin)">
-  <hgroup style="margin-block-end: var(--margin);">
+<section>
+  <hgroup class="margin-gap">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
     <p>
@@ -279,31 +227,7 @@
     </p>
   </hgroup>
 
-<article><details><summary class="circle" role="button">U.S. Residents 🇺🇸</summary> <p>Citizens
-and permanent residents of the U.S. may enter Canada visa-free. U.S. Citizens
-must have a valid passport while lawful permanent residents must have the
-documents listed <a
-href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/entry-requirements-country.html#lawful-pr-us">here</a>.</p></details>
-<hr> <details><summary role="button">Electronic Travel Authorization (eTA)</summary>
-<p>Visitors from <a
-href="https://ircc.canada.ca/english/visit/visas.asp">visa-exempt countries</a>
-should apply for an eTA <a
-href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta/apply.html">here</a>.
-Most applications are approved quickly.</p></details> <hr>
-<details><summary>Visitor Visa</summary>
-<p>Procedures for obtaining a visitor visa are available <a
-href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/about-visitor-visa.html">here</a>.
-This process can be lengthy and we advise that you start it as soon as you have
-decided that you will be attending the conference.</p>
-<p>Procedures for obtaining a visitor visa are available <a
-href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/about-visitor-visa.html">here</a>.
-This process can be lengthy and we advise that you start it as soon as you have
-decided that you will be attending the conference.</p>
-</details></article>
-
-  <p>First paragraph</p>
-
-  <div class="grid-1234">
+  <div class="auto-grid">
     <figure>
       <img src={href} alt="" />
       <figcaption>
@@ -335,5 +259,51 @@ decided that you will be attending the conference.</p>
         Tutorial day
       </figcaption>
     </figure>
+  </div>
+</section>
+
+<section
+  style:background-color="var(--action)"
+  style:color="var(--bg)"
+  style:padding-block="var(--margin)"
+>
+  <div
+    style="
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--s-2);
+      align-items: end;
+    "
+  >
+    <hgroup>
+      <p style:color="var(--bg)">Registration</p>
+      <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">Reserve your seat for the 2027 edition.</h2>
+    </hgroup>
+
+    <p
+      class="margin-gap"
+      style="
+        font-family: var(--mono-font);
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        opacity: 0.85;
+      "
+    >
+      <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
+      &nbsp;·&nbsp;
+      <strong style="font-weight: 500">Standard $640</strong>
+      &nbsp;·&nbsp;
+      <strong style="font-weight: 500">Student $120</strong>
+    </p>
+
+    <a
+      class="button circle"
+      href="#"
+      style:background-color="var(--bg)"
+      style:color="var(--action)"
+      style:max-width="max-content"
+    >
+      Register now
+    </a>
   </div>
 </section>

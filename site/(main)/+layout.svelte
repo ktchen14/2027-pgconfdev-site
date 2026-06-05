@@ -8,9 +8,13 @@
 </script>
 
 <style>
+  .menu-list:not(:last-child) {
+    margin-block-end: 1em;
+  }
+
   :is(.menu-single, .menu-triple) :global([data-open]) {
     font-size: 0.875em;
-    margin-block: 0.5rem calc(1.5rem - 0.25rem - 0.875 * 0.25rem);
+    margin-block-start: 1em;
   }
 
   .menu-single {
@@ -19,6 +23,7 @@
 
   .menu-single :global([data-open]) {
     @media (width >= 48rem) {
+      padding-block-end: 1.25em;
       right: calc(-1.5rem - 1px);
       width: 16rem;
     }
@@ -29,16 +34,13 @@
       display: grid;
       gap: 1.5rem;
       grid-template-columns: repeat(3, 1fr);
+      padding-block-end: 1.25em;
       right: calc(50% - min(45rem, calc(100vw - 3rem)) / 2);
       width: 45rem;
-    }
-  }
 
-  .menu-list {
-    margin-block: 1.25em;
-
-    @media (width >= 48rem) {
-      margin-block: 0;
+      > * {
+        margin-block: 0;
+      }
     }
   }
 
