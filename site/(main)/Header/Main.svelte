@@ -35,6 +35,15 @@
     [data-search] > & {
       display: none;
     }
+
+    :global(button) {
+      padding-inline: 0.75em;
+      margin-inline: -0.75em;
+    }
+
+    :global(li) {
+      margin-block: 0.5em;
+    }
   }
 
   menu {
