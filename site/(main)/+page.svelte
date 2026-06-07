@@ -130,8 +130,14 @@
   </dl>
 
   <div class="flex">
-    <a href={resolve("/")} class="button circle">Register</a>
-    <a href={resolve("/")} class="button circle stroke">Submit a talk</a>
+    <a
+      href="#"
+      class="button circle"
+      style:color="var(--delete-fg)"
+      style:background-color="transparent"
+      style:border="1px solid var(--delete-fg)">Register</a
+    >
+    <a href="/cfp" class="button circle stroke">Submit a talk</a>
   </div>
 </section>
 
@@ -160,7 +166,7 @@
       once a year.
     </p>
 
-    <p><a href="About.html">Read more about who we are →</a></p>
+    <p><a href="/about">Read more about who we are →</a></p>
   </div>
 </section>
 
@@ -170,14 +176,10 @@
     style:align-items="center"
     style:padding="var(--margin)"
   >
-    <div
-      class="margin-gap"
-      style="font-size: 0.875em"
-      style:grid-column="span 2"
-    >
+    <div class="margin-gap size-" style:grid-column="span 2">
       <hgroup>
         <p class="iconic insert">
-          <Circle style="--size: 0.75em; fill: currentColor;" />
+          <Circle class="size--" style="fill: currentColor" />
           Call for Proposals — open through 14 Feb 2027
         </p>
         <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
@@ -193,7 +195,7 @@
 
     <a
       class="button circle"
-      href="#"
+      href="/cfp"
       style:justify-self="end"
       style:max-width="max-content"
     >
@@ -213,7 +215,7 @@
   </hgroup>
 
   <p>
-    <a href="#">Sponsor PGConf.dev 2027 →</a>
+    <a href="/sponsor">Sponsor PGConf.dev 2027 →</a>
   </p>
 </section>
 
@@ -277,14 +279,15 @@
   >
     <hgroup>
       <p style:color="var(--bg)">Registration</p>
-      <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">Reserve your seat for the 2027 edition.</h2>
+      <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">
+        Reserve your seat for the 2027 edition.
+      </h2>
     </hgroup>
 
     <p
-      class="margin-gap"
+      class="margin-gap size-"
       style="
         font-family: var(--mono-font);
-        font-size: 0.875rem;
         letter-spacing: 0.05em;
         opacity: 0.85;
       "
@@ -300,7 +303,7 @@
       class="button circle"
       href="#"
       style:background-color="var(--bg)"
-      style:color="var(--action)"
+      style:color="var(--delete-fg)"
       style:max-width="max-content"
     >
       Register now

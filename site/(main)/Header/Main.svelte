@@ -135,7 +135,7 @@
     class="iconic"
     onclick={() => (expose = expose ? undefined : true)}
   >
-    <Menu />
+    <Menu class="size++" />
   </button>
 
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
@@ -148,10 +148,11 @@
     aria-label="Register"
     class="button circle iconic"
     data-expose={expose}
-    href="/"
+    href="#"
     style:order="3"
+    style:background-color="var(--delete-fg)"
   >
     <span>Register</span>
-    <UserPlus />
+    <UserPlus class="size+" />
   </a>
 </header>

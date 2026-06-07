@@ -185,7 +185,7 @@
     margin-block: 0;
   }
 
-  :where(hgroup > p):has(+ :is(h1, h2, h3, h4, h5, h6, ._)), .over {
+  :where(hgroup > p):has(+ :is(h1, h2, h3, h4, h5, h6, ._)) {
     margin-block: 0 calc(2em / 3);
   }
 
@@ -204,11 +204,11 @@
     margin-block: calc(2em / 3) 0;
   }
 
-  * + figcaption {
+  * + figcaption, * + .over {
     margin-block: calc(2em / 3) 0;
   }
 
-  figcaption:has(+ *) {
+  figcaption:has(+ *), .over:has(+ *) {
     margin-block: 0 calc(2em / 3);
   }
 
@@ -614,7 +614,12 @@
   }
 
   .lucide {
-    height: var(--size, 1.25em);
-    width: var(--size, 1.25em);
+    height: 1em;
+    width: 1em;
   }
+
+  .size\+\+, .size\+2 { font-size: 1.25em; }
+  .size\+,   .size\+1 { font-size: 1.125em; }
+  .size-,    .size-1  { font-size: 0.875em; }
+  .size--,   .size-2  { font-size: 0.75em; }
 }
