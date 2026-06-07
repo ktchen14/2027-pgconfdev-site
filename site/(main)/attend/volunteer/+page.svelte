@@ -1,30 +1,19 @@
 <style>
-  .page-head {
-    padding-block: var(--margin);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,7 +36,8 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
@@ -58,22 +48,6 @@
   .callout--positive {
     background: var(--insert-bg-mute);
     border-inline-start: 3px solid var(--insert-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
-  }
-
-  .list-rule {
-    list-style: none;
-    padding-inline-start: 0;
-    border-inline-start: 3px solid var(--border);
-    padding-inline: 1rem;
-  }
-
-  .list-rule li {
-    margin-block: 0.5em;
   }
 
   .role-grid {
@@ -132,25 +106,27 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <a href="/attend">Attend</a>
-    <span class="sep">/</span>
-    <span>Volunteer</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li><a href="/attend">Attend</a></li>
+    <li>Volunteer</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over action">Attend · Volunteer</p>
-  <h1>Help run the conference.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p class="action">Attend · Volunteer</p>
+    <h1>Help run the conference.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     PGConf.dev would not be possible without volunteers. In exchange for at
     least eight hours of shifts, you get a complimentary full-conference
     registration.
   </p>
-</div>
+</header>
+
+<hr class="margin-section" />
 
 <article class="editorial restrict-1280">
   <nav class="section-nav" aria-label="Attend sections">
@@ -161,7 +137,7 @@
   </nav>
 
   <div class="callout callout--positive">
-    <p class="callout__title">Applications open in early 2027</p>
+    <h3 class="h6">Applications open in early 2027</h3>
     <p>
       Volunteer signup opens alongside early-bird registration. Subscribe to the
       mailing list or watch the conference Discord for the announcement.
@@ -169,8 +145,10 @@
   </div>
 
   <section>
-    <p class="over">§ 01 · What you get</p>
-    <h2>Free registration for eight hours of work.</h2>
+    <hgroup>
+      <p>§ 01 · What you get</p>
+      <h2>Free registration for eight hours of work.</h2>
+    </hgroup>
 
     <p class="lede">
       Volunteers who commit to at least eight scheduled hours receive a
@@ -186,8 +164,10 @@
   </section>
 
   <section>
-    <p class="over">§ 02 · Volunteer roles</p>
-    <h2>What volunteers do.</h2>
+    <hgroup>
+      <p>§ 02 · Volunteer roles</p>
+      <h2>What volunteers do.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
@@ -235,8 +215,10 @@
   </div>
 
   <section>
-    <p class="over">§ 03 · Photography policy</p>
-    <h2>The red lanyard rule.</h2>
+    <hgroup>
+      <p>§ 03 · Photography policy</p>
+      <h2>The red lanyard rule.</h2>
+    </hgroup>
 
     <p>
       Attendees who do not wish to be photographed wear a
@@ -252,8 +234,10 @@
   </section>
 
   <section>
-    <p class="over">§ 04 · Apply</p>
-    <h2>How to sign up.</h2>
+    <hgroup>
+      <p>§ 04 · Apply</p>
+      <h2>How to sign up.</h2>
+    </hgroup>
 
     <p>
       Applications open in early 2027 alongside registration. You'll be asked

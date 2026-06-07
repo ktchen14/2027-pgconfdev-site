@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,7 +41,8 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
@@ -65,20 +60,10 @@
     border-inline-start: 3px solid var(--insert-fg);
   }
 
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
-  }
-
   .list-rule {
-    list-style: none;
-    padding-inline-start: 0;
     border-inline-start: 3px solid var(--border);
-    padding-inline: 1rem;
-  }
-
-  .list-rule li {
-    margin-block: 0.5em;
+    list-style-type: none;
+    padding-inline: 1em;
   }
 
   .facts {
@@ -99,18 +84,9 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .facts dt {
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-  }
-
   .facts dd {
     margin-inline-start: 0;
     color: var(--fg-mute);
-    font-size: 0.9375rem;
   }
 </style>
 
@@ -122,17 +98,18 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <span>Call for Proposals</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li>Call for Proposals</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over action">Call for Proposals</p>
-  <h1>Submit a talk for 2027.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p class="action">Call for Proposals</p>
+    <h1>Submit a talk for 2027.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     We're looking for technical talks, hands-on tutorials, and unconference
     topics from contributors at every level. The CFP closes <strong
@@ -140,11 +117,11 @@
     >
     at 11:59 pm UTC.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <div class="callout callout--positive">
-    <p class="callout__title">CFP is open</p>
+    <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
       >. Submit via the proposal system linked below. Questions?
@@ -153,8 +130,10 @@
   </div>
 
   <section>
-    <p class="over">§ 01 · What we're looking for</p>
-    <h2>Technical depth, honestly reported.</h2>
+    <hgroup>
+      <p>§ 01 · What we're looking for</p>
+      <h2>Technical depth, honestly reported.</h2>
+    </hgroup>
 
     <p class="lede">
       PGConf.dev is a working conference. The audience has already read the
@@ -198,8 +177,10 @@
   </section>
 
   <section>
-    <p class="over">§ 02 · Formats</p>
-    <h2>Three formats to choose from.</h2>
+    <hgroup>
+      <p>§ 02 · Formats</p>
+      <h2>Three formats to choose from.</h2>
+    </hgroup>
 
     <p>
       Pick the format that fits your material. We review each format on its own
@@ -211,21 +192,21 @@
   <div class="break-wide">
     <dl class="facts">
       <div>
-        <dt>Talk · 45 min</dt>
+        <dt class="over">Talk · 45 min</dt>
         <dd>
           The main format. Slide-driven or live-demo. Q&amp;A in the final 5–10
           minutes. Three parallel tracks.
         </dd>
       </div>
       <div>
-        <dt>Tutorial · 90 min</dt>
+        <dt class="over">Tutorial · 90 min</dt>
         <dd>
           Hands-on, laptop-required session. Day 1 only (tutorial day). Max 40
           attendees per room. Attendees should have Postgres 17 installed.
         </dd>
       </div>
       <div>
-        <dt>Unconference</dt>
+        <dt class="over">Unconference</dt>
         <dd>
           Proposed and voted on the day of (Friday). Submit a topic idea in
           advance to seed the board; final schedule fills live from attendee
@@ -236,8 +217,10 @@
   </div>
 
   <section>
-    <p class="over">§ 03 · Review process</p>
-    <h2>Double-blind, then discussed.</h2>
+    <hgroup>
+      <p>§ 03 · Review process</p>
+      <h2>Double-blind, then discussed.</h2>
+    </hgroup>
 
     <p>
       Every proposal is reviewed independently by at least two members of the
@@ -254,7 +237,7 @@
   </section>
 
   <div class="callout callout--info">
-    <p class="callout__title">Speaker support</p>
+    <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If
       travel funding would make the difference between submitting and not, note
@@ -264,32 +247,34 @@
   </div>
 
   <section>
-    <p class="over">§ 04 · Key dates</p>
-    <h2>Important deadlines.</h2>
+    <hgroup>
+      <p>§ 04 · Key dates</p>
+      <h2>Important deadlines.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
     <dl class="facts">
       <div>
-        <dt>CFP opens</dt>
+        <dt class="over">CFP opens</dt>
         <dd><time datetime="2026-12-01">1 December 2026</time></dd>
       </div>
       <div>
-        <dt>CFP closes</dt>
+        <dt class="over">CFP closes</dt>
         <dd>
           <time datetime="2027-02-14">14 February 2027</time> at 11:59 pm UTC
         </dd>
       </div>
       <div>
-        <dt>Notifications</dt>
+        <dt class="over">Notifications</dt>
         <dd><time datetime="2027-03-15">by 15 March 2027</time></dd>
       </div>
       <div>
-        <dt>Schedule published</dt>
+        <dt class="over">Schedule published</dt>
         <dd><time datetime="2027-04-01">early April 2027</time></dd>
       </div>
       <div>
-        <dt>Conference</dt>
+        <dt class="over">Conference</dt>
         <dd>18 – 21 May 2027 · Montréal</dd>
       </div>
     </dl>

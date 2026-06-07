@@ -4,7 +4,7 @@
 </script>
 
 <style>
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     letter-spacing: -0.02em;
     line-height: 1;
@@ -100,7 +100,6 @@
   }
 
   .right-sidebar {
-    font-size: 0.875rem;
     grid-area: 1 / 3;
 
     @media (max-width: 1024px) {
@@ -112,9 +111,20 @@
     }
   }
 
-  .toc-aside ol {
-    list-style-type: revert;
-    padding-inline-start: 1.25em;
+  .toc-aside li {
+    margin-block: 0;
+  }
+
+  .toc-aside a {
+    border-radius: var(--radius);
+    display: block;
+    margin-inline: -0.75em;
+    padding-block: 0.5em;
+    padding-inline: 0.75em;
+
+    &:hover {
+      background-color: var(--bg-tint);
+    }
   }
 
   .glance-aside {
@@ -414,7 +424,7 @@
   </ol>
 </nav>
 
-<section class="restrict-1280 page-head">
+<header class="restrict-1280">
   <hgroup>
     <p class="action">About PGConf.dev</p>
     <h1>The PostgreSQL Developer Conference.</h1>
@@ -425,16 +435,16 @@
     software with Postgres at its core. Run by the community, for the community
     — without the marketing layer.
   </p>
-</section>
+</header>
 
 <hr class="margin-section" />
 
 <div class="restrict-1280 page-layout">
   <!-- Left sidebar: columns 1–2 -->
-  <aside class="sidebar-nav size-" aria-label="About section navigation">
-    <nav style:color="var(--fg-mute)">
+  <aside class="sidebar-nav" aria-label="About section navigation">
+    <nav class="fg-mute">
       <p class="over">About the Conference</p>
-      <ul>
+      <ul class="size-">
         <li>
           <a href={resolve("/about")} aria-current="page">What PGConf.dev is</a>
         </li>
@@ -450,7 +460,7 @@
     <aside class="toc-aside" aria-label="On this page">
       <nav class="fg-mute">
         <p class="over">On this page</p>
-        <ol>
+        <ol class="size-">
           <li><a href="#what">What PGConf.dev is</a></li>
           <li><a href="#who">Who attends</a></li>
           <li><a href="#history">A short history</a></li>
@@ -462,7 +472,8 @@
 
     <aside class="glance-aside" aria-label="At a glance">
       <Rule>At a glance</Rule>
-      <dl class="facts">
+      <p class="over">At a Glance</p>
+      <dl class="facts size-">
         <div>
           <dt class="over">Conference</dt>
           <dd>

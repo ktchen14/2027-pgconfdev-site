@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,7 +41,8 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--notice {
@@ -58,11 +53,6 @@
   .callout--info {
     background: var(--action-bg-mute);
     border-inline-start: 3px solid var(--action-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
   }
 
   .facts {
@@ -83,18 +73,9 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .facts dt {
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-  }
-
   .facts dd {
     margin-inline-start: 0;
     color: var(--fg-mute);
-    font-size: 0.9375rem;
   }
 
   .hotel-grid {
@@ -162,24 +143,24 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <a href="/attend">Attend</a>
-    <span class="sep">/</span>
-    <span>Travel &amp; Hotels</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li><a href="/attend">Attend</a></li>
+    <li>Travel &amp; Hotels</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over action">Attend · Travel</p>
-  <h1>Getting to Montréal.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p class="action">Attend · Travel</p>
+    <h1>Getting to Montréal.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     Montréal is well-connected by air and rail. The Palais des congrès is in the
     heart of downtown, directly on the métro.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <nav class="section-nav" aria-label="Attend sections">
@@ -191,8 +172,10 @@
 
   <!-- By air -->
   <section>
-    <p class="over">§ 01 · By air</p>
-    <h2>Montréal–Trudeau International Airport (YUL).</h2>
+    <hgroup>
+      <p>§ 01 · By air</p>
+      <h2>Montréal–Trudeau International Airport (YUL).</h2>
+    </hgroup>
 
     <p class="lede">
       YUL is the main hub for Montréal, served by Air Canada, WestJet, Delta,
@@ -211,17 +194,17 @@
   <div class="break-wide">
     <dl class="facts">
       <div>
-        <dt>747 bus</dt>
+        <dt class="over">747 bus</dt>
         <dd>
           YUL → Lionel-Groulx · 24/7 service · CAD $11 (STM pass accepted)
         </dd>
       </div>
       <div>
-        <dt>Métro</dt>
+        <dt class="over">Métro</dt>
         <dd>Lionel-Groulx → Place-d'Armes · Orange line · 20 min</dd>
       </div>
       <div>
-        <dt>Taxi / rideshare</dt>
+        <dt class="over">Taxi / rideshare</dt>
         <dd>~45 min from airport · CAD $45–55</dd>
       </div>
     </dl>
@@ -229,8 +212,10 @@
 
   <!-- By train -->
   <section>
-    <p class="over">§ 02 · By train</p>
-    <h2>VIA Rail and Amtrak.</h2>
+    <hgroup>
+      <p>§ 02 · By train</p>
+      <h2>VIA Rail and Amtrak.</h2>
+    </hgroup>
 
     <p>
       Montréal's Gare Centrale is served by VIA Rail from Québec City, Ottawa,
@@ -243,8 +228,10 @@
 
   <!-- Visa -->
   <section id="visa">
-    <p class="over">§ 03 · Entry requirements</p>
-    <h2>Visas and eTAs.</h2>
+    <hgroup>
+      <p>§ 03 · Entry requirements</p>
+      <h2>Visas and eTAs.</h2>
+    </hgroup>
 
     <p>Entry requirements depend on your country of citizenship:</p>
 
@@ -273,7 +260,7 @@
   </section>
 
   <div class="callout callout--notice">
-    <p class="callout__title">Apply early</p>
+    <h3 class="h6">Apply early</h3>
     <p>
       Visa and eTA processing can be slow, especially around major holidays.
       Apply at least 8 weeks before the conference if in doubt.
@@ -282,8 +269,10 @@
 
   <!-- Hotels -->
   <section id="hotels">
-    <p class="over">§ 04 · Hotels</p>
-    <h2>Partner hotels for 2027.</h2>
+    <hgroup>
+      <p>§ 04 · Hotels</p>
+      <h2>Partner hotels for 2027.</h2>
+    </hgroup>
 
     <p>
       We are negotiating rates at several downtown hotels within walking
@@ -316,7 +305,7 @@
   </div>
 
   <div class="callout callout--info">
-    <p class="callout__title">Book early</p>
+    <h3 class="h6">Book early</h3>
     <p>
       Montréal is a popular conference destination in spring. Even outside our
       partner hotels, downtown options book up quickly in May. We recommend

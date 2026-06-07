@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,17 +41,13 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
     background: var(--action-bg-mute);
     border-inline-start: 3px solid var(--action-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
   }
 
   /* Sponsor tiers */
@@ -181,26 +171,27 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <span>Sponsors</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li>Sponsors</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over">Sponsors</p>
-  <h1>The companies underwriting 2027.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p>Sponsors</p>
+    <h1>The companies underwriting 2027.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     PGConf.dev is non-profit. Sponsors cover the venue, A/V, catering,
     scholarships, and the parts of the program that ticket revenue alone can't.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <div class="callout callout--info">
-    <p class="callout__title">Sponsorships are open</p>
+    <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
       or <a href="/about#contact">contact the sponsorship team</a> for a full prospectus.
@@ -209,8 +200,10 @@
 
   <!-- 2027 sponsors — placeholder until confirmed -->
   <section>
-    <p class="over">2027 sponsors</p>
-    <h2>Confirmed sponsors will appear here.</h2>
+    <hgroup>
+      <p>2027 sponsors</p>
+      <h2>Confirmed sponsors will appear here.</h2>
+    </hgroup>
     <p class="fg-mute">
       Announcements will be made as sponsorships are confirmed. Check back or
       subscribe to the mailing list for updates.
@@ -219,8 +212,10 @@
 
   <!-- Become a sponsor -->
   <section id="become">
-    <p class="over">§ 01 · Become a sponsor</p>
-    <h2>Why sponsor PGConf.dev?</h2>
+    <hgroup>
+      <p>§ 01 · Become a sponsor</p>
+      <h2>Why sponsor PGConf.dev?</h2>
+    </hgroup>
 
     <p class="lede">
       PGConf.dev puts your company in front of the engineers who build,
@@ -244,8 +239,10 @@
 
   <!-- Tiers -->
   <section>
-    <p class="over">§ 02 · Sponsorship tiers</p>
-    <h2>Four levels of support.</h2>
+    <hgroup>
+      <p>§ 02 · Sponsorship tiers</p>
+      <h2>Four levels of support.</h2>
+    </hgroup>
     <p class="fg-mute">
       Pricing in Canadian dollars. Contact us for the full prospectus with
       detailed benefit descriptions.

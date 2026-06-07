@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,7 +41,8 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
@@ -58,11 +53,6 @@
   .callout--positive {
     background: var(--insert-bg-mute);
     border-inline-start: 3px solid var(--insert-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
   }
 
   .event-card {
@@ -138,25 +128,25 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <a href="/attend">Attend</a>
-    <span class="sep">/</span>
-    <span>Social Events</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li><a href="/attend">Attend</a></li>
+    <li>Social Events</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over action">Attend · Social</p>
-  <h1>Social events.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p class="action">Attend · Social</p>
+    <h1>Social events.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     PGConf.dev's hallway track is as valuable as the scheduled program. These
     events are how the contributor community actually connects — don't skip
     them.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <nav class="section-nav" aria-label="Attend sections">
@@ -167,7 +157,7 @@
   </nav>
 
   <div class="callout callout--info">
-    <p class="callout__title">Details coming soon</p>
+    <h3 class="h6">Details coming soon</h3>
     <p>
       Specific venues and signup links for 2027 will be posted closer to the
       conference. The events below are modeled on 2026 and may change. Subscribe
@@ -177,8 +167,10 @@
 
   <!-- Tuesday -->
   <section id="tuesday">
-    <p class="over">Tuesday · 18 May</p>
-    <h2>Tutorial day social.</h2>
+    <hgroup>
+      <p>Tuesday · 18 May</p>
+      <h2>Tutorial day social.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
@@ -210,8 +202,10 @@
 
   <!-- Wednesday -->
   <section id="wednesday">
-    <p class="over">Wednesday · 19 May</p>
-    <h2>First talk day.</h2>
+    <hgroup>
+      <p>Wednesday · 19 May</p>
+      <h2>First talk day.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
@@ -233,8 +227,10 @@
 
   <!-- Thursday -->
   <section id="thursday">
-    <p class="over">Thursday · 20 May</p>
-    <h2>Second talk day.</h2>
+    <hgroup>
+      <p>Thursday · 20 May</p>
+      <h2>Second talk day.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
@@ -256,8 +252,10 @@
 
   <!-- All week -->
   <section id="all-week">
-    <p class="over">All week</p>
-    <h2>Ongoing throughout the conference.</h2>
+    <hgroup>
+      <p>All week</p>
+      <h2>Ongoing throughout the conference.</h2>
+    </hgroup>
   </section>
 
   <div class="break-wide">
@@ -290,7 +288,7 @@
   </div>
 
   <div class="callout callout--positive">
-    <p class="callout__title">Signup forms</p>
+    <h3 class="h6">Signup forms</h3>
     <p>
       Signup links for the dinner, Meet &amp; Eat, and any ticketed events will
       be available at the registration desk and posted on the conference Discord

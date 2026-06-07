@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -40,7 +34,8 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--notice {
@@ -51,22 +46,6 @@
   .callout--negative {
     background: var(--delete-bg-mute);
     border-inline-start: 3px solid var(--delete-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
-  }
-
-  .list-rule {
-    list-style: none;
-    padding-inline-start: 0;
-    border-inline-start: 3px solid var(--border);
-    padding-inline: 1rem;
-  }
-
-  .list-rule li {
-    margin-block: 0.5em;
   }
 
   .contact-grid {
@@ -109,23 +88,24 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <span>Code of Conduct</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li>Code of Conduct</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over">About</p>
-  <h1>Code of Conduct.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p>About</p>
+    <h1>Code of Conduct.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     PGConf.dev is dedicated to providing a harassment-free conference experience
     for everyone, regardless of gender, sexual orientation, disability, physical
     appearance, body size, race, or religion.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <section>
@@ -229,7 +209,7 @@
   </section>
 
   <div class="callout callout--notice">
-    <p class="callout__title">Enforcement</p>
+    <h3 class="h6">Enforcement</h3>
     <p>
       The CoC committee is independent of the organizing committee. Reports are
       handled confidentially. The committee will acknowledge receipt of every

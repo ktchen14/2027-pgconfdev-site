@@ -348,7 +348,7 @@
 
   /* https://html.spec.whatwg.org/multipage/links.html */
 
-  a:where(:not(.button, [role="button"])), [role="link"] {
+  a:where(:not(.button, [role="button"])) {
     color: var(--action);
     text-decoration: underline rgb(from currentColor r g b / 50%);
     transition-property: background-color, color;

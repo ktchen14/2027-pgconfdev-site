@@ -1,30 +1,24 @@
 <style>
-  .page-head {
+  header {
     padding-block: var(--margin);
     border-bottom: 1px solid var(--border);
   }
 
-  .page-head h1 {
+  header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     line-height: 1;
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 
   .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-    padding-block: 0.75rem;
-  }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
+    }
 
-  .breadcrumb .sep {
-    color: var(--border);
+    a {
+      padding-block: 0.75rem;
+    }
   }
 
   .editorial {
@@ -47,17 +41,13 @@
   }
 
   .callout {
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
     background: var(--action-bg-mute);
     border-inline-start: 3px solid var(--action-fg);
-  }
-
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
   }
 
   .facts {
@@ -78,18 +68,9 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .facts dt {
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--fg-tint);
-  }
-
   .facts dd {
     margin-inline-start: 0;
     color: var(--fg-mute);
-    font-size: 0.9375rem;
   }
 
   .photo-placeholder--wide {
@@ -131,23 +112,24 @@
   />
 </svelte:head>
 
-<div class="restrict-1280">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">PGConf.dev 2027</a>
-    <span class="sep">/</span>
-    <span>Attend</span>
-  </nav>
-</div>
+<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
+  <ol class="flex over" style:gap="0.5em">
+    <li><a href="/">PGConf.dev 2027</a></li>
+    <li>Attend</li>
+  </ol>
+</nav>
 
-<div class="restrict-1280 page-head">
-  <p class="over action">Attend · Montréal 2027</p>
-  <h1>Everything you need to get here.</h1>
+<header class="restrict-1280">
+  <hgroup>
+    <p class="action">Attend · Montréal 2027</p>
+    <h1>Everything you need to get here.</h1>
+  </hgroup>
   <p class="lede fg-mute">
     PGConf.dev 2027 takes place 18 – 21 May at the Palais des congrès de
     Montréal. This page covers the venue, getting there, accommodation, and
     everything you need for the week.
   </p>
-</div>
+</header>
 
 <article class="editorial restrict-1280">
   <nav class="section-nav" aria-label="Attend sections">
@@ -159,8 +141,10 @@
 
   <!-- Venue -->
   <section id="venue">
-    <p class="over">§ 01 · Venue</p>
-    <h2>Palais des congrès de Montréal.</h2>
+    <hgroup>
+      <p>§ 01 · Venue</p>
+      <h2>Palais des congrès de Montréal.</h2>
+    </hgroup>
 
     <p class="lede">
       The Palais des congrès is Montréal's downtown convention centre, located
@@ -177,19 +161,19 @@
   <div class="break-wide">
     <dl class="facts">
       <div>
-        <dt>Address</dt>
+        <dt class="over">Address</dt>
         <dd>159 Rue Saint-Antoine Ouest, Montréal, QC H2Z 1H2</dd>
       </div>
       <div>
-        <dt>Métro</dt>
+        <dt class="over">Métro</dt>
         <dd>Place-d'Armes (Orange line) — direct access from underground</dd>
       </div>
       <div>
-        <dt>Dates</dt>
+        <dt class="over">Dates</dt>
         <dd>18 – 21 May 2027 (Tue – Fri)</dd>
       </div>
       <div>
-        <dt>Registration</dt>
+        <dt class="over">Registration</dt>
         <dd>Main lobby, Level 2. Open from 08:00 each day.</dd>
       </div>
     </dl>
@@ -206,8 +190,10 @@
 
   <!-- Rooms -->
   <section id="floor-plans">
-    <p class="over">§ 02 · Rooms &amp; floor plans</p>
-    <h2>Session rooms and spaces.</h2>
+    <hgroup>
+      <p>§ 02 · Rooms &amp; floor plans</p>
+      <h2>Session rooms and spaces.</h2>
+    </hgroup>
 
     <p>
       The conference occupies Level 5 of the Palais des congrès for the talk
@@ -220,38 +206,38 @@
   <div class="break-wide">
     <dl class="facts">
       <div>
-        <dt>Grand Ballroom</dt>
+        <dt class="over">Grand Ballroom</dt>
         <dd>Level 7 · Plenary sessions, keynotes, opening/closing</dd>
       </div>
       <div>
-        <dt>Room 5A – 5C</dt>
+        <dt class="over">Room 5A – 5C</dt>
         <dd>Level 5 · Main talk tracks, 150 seats each</dd>
       </div>
       <div>
-        <dt>Room 2A – 2B</dt>
+        <dt class="over">Room 2A – 2B</dt>
         <dd>Level 2 · Tutorial rooms, 40 seats, tables for laptops</dd>
       </div>
       <div>
-        <dt>Room U-1 – U-3</dt>
+        <dt class="over">Room U-1 – U-3</dt>
         <dd>Level 5 · Unconference rooms, Friday only, flexible seating</dd>
       </div>
       <div>
-        <dt>Sponsor hall</dt>
+        <dt class="over">Sponsor hall</dt>
         <dd>Level 2 · Adjacent to registration, open all four days</dd>
       </div>
       <div>
-        <dt>Grand Foyer</dt>
+        <dt class="over">Grand Foyer</dt>
         <dd>Level 5 · Breaks, hallway track, coffee</dd>
       </div>
       <div>
-        <dt>Hall C</dt>
+        <dt class="over">Hall C</dt>
         <dd>Level 3 · Catered lunch (included in registration)</dd>
       </div>
     </dl>
   </div>
 
   <div class="callout callout--info">
-    <p class="callout__title">Floor plans</p>
+    <h3 class="h6">Floor plans</h3>
     <p>
       Detailed floor plans will be published closer to the conference and
       included in the printed program distributed at registration.
@@ -260,8 +246,10 @@
 
   <!-- Accessibility -->
   <section id="accessibility">
-    <p class="over">§ 03 · Accessibility</p>
-    <h2>Accessible by design.</h2>
+    <hgroup>
+      <p>§ 03 · Accessibility</p>
+      <h2>Accessible by design.</h2>
+    </hgroup>
 
     <p>
       The Palais des congrès is fully wheelchair accessible, with elevators
