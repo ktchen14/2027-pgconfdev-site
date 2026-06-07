@@ -1,11 +1,11 @@
 <script>
+  import { resolve } from "$app/paths";
   import Rule from "$lib/Rule.svelte";
 </script>
 
 <style>
   .page-head h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    font-weight: 500;
     letter-spacing: -0.02em;
     line-height: 1;
   }
@@ -83,20 +83,18 @@
 
     a {
       border-inline-start: 2px solid var(--border);
-      color: var(--fg-mute);
       display: block;
-      padding-block: 0.375rem;
-      padding-inline-start: 0.75rem;
+      padding-block: 0.5em;
+      padding-inline: 0.75em;
       transition-property: color, border-color;
 
       &[aria-current]:where(:not([aria-current="false"])) {
         background-color: var(--action-bg-mute);
-        border-inline-start-color: var(--action-fg);
+        border-color: var(--action-fg);
       }
 
       &:hover {
-        color: var(--action-fg);
-        border-inline-start-color: var(--action-fg);
+        border-color: var(--action-fg);
       }
     }
   }
@@ -114,19 +112,9 @@
     }
   }
 
-  .toc-aside {
-    ol {
-      padding-inline-start: 1.25em;
-    }
-
-    a {
-      color: var(--fg-mute);
-      text-decoration: none;
-
-      &:hover {
-        color: var(--action-fg);
-      }
-    }
+  .toc-aside ol {
+    list-style-type: revert;
+    padding-inline-start: 1.25em;
   }
 
   .glance-aside {
@@ -137,8 +125,8 @@
 
   /* Callouts */
   .callout {
-    border-radius: 2px;
-    padding: 1rem 1.25rem;
+    border-radius: var(--radius);
+    padding: 1.5rem;
   }
 
   .callout--info {
@@ -161,11 +149,6 @@
     border-inline-start: 3px solid var(--delete-fg);
   }
 
-  .callout__title {
-    font-weight: 600;
-    margin-block: 0 0.5em;
-  }
-
   /* Stats strip */
   .stats {
     border-block: 1px solid var(--border);
@@ -185,14 +168,9 @@
 
   /* List with left rule */
   .list-rule {
-    list-style: none;
-    padding-inline-start: 0;
     border-inline-start: 3px solid var(--border);
-    padding-inline: 1rem;
-
-    li {
-      margin-block: 0.5em;
-    }
+    list-style-type: none;
+    padding-inline: 1em;
   }
 
   /* Facts / definition rows */
@@ -201,30 +179,21 @@
     gap: 0;
 
     > div {
-      display: grid;
-      grid-template-columns: 9rem 1fr;
-      gap: 1rem;
-      padding-block: 0.75rem;
-      border-top: 1px solid var(--border);
       align-items: baseline;
+      border-top: 1px solid var(--border);
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 9rem 1fr;
+      padding-block: 0.75rem;
 
       &:last-child {
         border-bottom: 1px solid var(--border);
       }
     }
 
-    dt {
-      font-family: var(--mono-font);
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--fg-tint);
-    }
-
     dd {
       margin-inline-start: 0;
       color: var(--fg-mute);
-      font-size: 0.9375rem;
     }
   }
 
@@ -233,8 +202,6 @@
     display: grid;
     grid-column: 1 / span 2;
     grid-template-columns: subgrid;
-    margin-block: 0;
-    row-gap: 0;
 
     @media (max-width: 1024px) {
       grid-column: 1 / -1;
@@ -409,34 +376,21 @@
     font-size: clamp(1.25rem, 2vw + 0.75rem, 1.75rem);
     font-style: italic;
     line-height: 1.35;
+    margin-block: 0;
     padding-inline: 0;
     padding-top: 1rem;
+  }
 
-    cite {
-      color: var(--fg-tint);
-      display: block;
-      font-family: var(--mono-font);
-      font-size: 0.875rem;
-      font-style: normal;
-      letter-spacing: 0.05em;
-      margin-top: 0.75rem;
-    }
+  cite {
+    font-style: normal;
+    letter-spacing: 0.05em;
   }
 
   /* Breadcrumb */
   .breadcrumb {
-    ol {
-      display: flex;
-      gap: 0.5em;
-
-      > * {
-        margin-block: 0;
-      }
-
-      > li:where(:not(:first-child))::before {
-        content: "/";
-        padding-inline-end: 0.5rem;
-      }
+    ol > li:where(:not(:first-child))::before {
+      content: "›";
+      padding-inline-end: 0.5rem;
     }
 
     a {
@@ -454,7 +408,7 @@
 </svelte:head>
 
 <nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
-  <ol class="over">
+  <ol class="flex over" style:gap="0.5em">
     <li><a href="/">PGConf.dev 2027</a></li>
     <li>About</li>
   </ol>
@@ -478,10 +432,12 @@
 <div class="restrict-1280 page-layout">
   <!-- Left sidebar: columns 1–2 -->
   <aside class="sidebar-nav size-" aria-label="About section navigation">
-    <nav>
+    <nav style:color="var(--fg-mute)">
       <p class="over">About the Conference</p>
       <ul>
-        <li><a href="/about" aria-current="page">What PGConf.dev is</a></li>
+        <li>
+          <a href={resolve("/about")} aria-current="page">What PGConf.dev is</a>
+        </li>
         <li><a href="/about#committee">Organizing committee</a></li>
         <li><a href="/about#history">History &amp; past editions</a></li>
         <li><a href="/about#contact">Contact</a></li>
@@ -490,52 +446,53 @@
     </nav>
   </aside>
 
-  <!-- Right sidebar: columns 11–12 -->
   <div class="right-sidebar">
     <aside class="toc-aside" aria-label="On this page">
-      <p class="over">On this page</p>
-      <ol>
-        <li><a href="#what">What PGConf.dev is</a></li>
-        <li><a href="#who">Who attends</a></li>
-        <li><a href="#history">A short history</a></li>
-        <li><a href="#committee">Organizing committee</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ol>
+      <nav class="fg-mute">
+        <p class="over">On this page</p>
+        <ol>
+          <li><a href="#what">What PGConf.dev is</a></li>
+          <li><a href="#who">Who attends</a></li>
+          <li><a href="#history">A short history</a></li>
+          <li><a href="#committee">Organizing committee</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
     </aside>
 
     <aside class="glance-aside" aria-label="At a glance">
       <Rule>At a glance</Rule>
       <dl class="facts">
         <div>
-          <dt>Conference</dt>
+          <dt class="over">Conference</dt>
           <dd>
             PGConf.dev 2027 — the fourth annual PostgreSQL Developer Conference
           </dd>
         </div>
         <div>
-          <dt>Dates</dt>
+          <dt class="over">Dates</dt>
           <dd>18 — 21 May 2027</dd>
         </div>
         <div>
-          <dt>Venue</dt>
+          <dt class="over">Venue</dt>
           <dd>Palais des congrès de Montréal</dd>
         </div>
         <div>
-          <dt>Capacity</dt>
+          <dt class="over">Capacity</dt>
           <dd>~600 attendees</dd>
         </div>
         <div>
-          <dt>Format</dt>
+          <dt class="over">Format</dt>
           <dd>
             3 parallel tracks · tutorial day · 2 talk days · unconference day
           </dd>
         </div>
         <div>
-          <dt>Languages</dt>
+          <dt class="over">Languages</dt>
           <dd>English</dd>
         </div>
         <div>
-          <dt>Organizer</dt>
+          <dt class="over">Organizer</dt>
           <dd>PostgreSQL Community Association of Canada</dd>
         </div>
       </dl>
@@ -571,13 +528,18 @@
       sits adjacent to them, focused specifically on the contributor track.
     </p>
 
-    <blockquote class="pullquote margin-section">
-      <q>
-        The only conference where I leave with a code review queue instead of a
-        swag bag.
-      </q>
-      <cite>— Returning attendee, 2025</cite>
-    </blockquote>
+    <figure class="margin-section">
+      <blockquote class="pullquote">
+        <q>
+          The only conference where I leave with a code review queue instead of a
+          swag bag.
+        </q>
+      </blockquote>
+
+      <figcaption class="over">
+        <cite>— Returning attendee, 2025</cite>
+      </figcaption>
+    </figure>
 
     <figure>
       <div class="photo-placeholder--wide">
@@ -650,7 +612,8 @@
   </div>
 
   <div class="callout callout--info">
-    <p class="callout__title">Format</p>
+    <h3 class="h6">Format</h3>
+
     <p>
       The conference runs four days: a tutorial day, two days of talks, and a
       final unconference day. No track ever has more than three parallel
@@ -807,7 +770,8 @@
   </div>
 
   <div class="callout callout--notice">
-    <p class="callout__title">Working with the committee</p>
+    <h3 class="h6">Working with the committee</h3>
+
     <p>
       Reviewer notes are sent to every proposer — accepted or not. If your talk
       wasn't selected, you'll get specific feedback you can use next year. We
