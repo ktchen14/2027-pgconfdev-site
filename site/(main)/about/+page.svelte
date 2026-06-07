@@ -429,10 +429,12 @@
       display: flex;
       gap: 0.5em;
 
-      > * { margin-block: 0; }
+      > * {
+        margin-block: 0;
+      }
 
       > li:where(:not(:first-child))::before {
-        content: '/';
+        content: "/";
         padding-inline-end: 0.5rem;
       }
     }

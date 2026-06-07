@@ -541,16 +541,6 @@
     border-radius: calc(infinity * 1px);
   }
 
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-
-    > * {
-      margin-block: 0;
-    }
-  }
-
   .iconic {
     align-items: center;
     display: flex;

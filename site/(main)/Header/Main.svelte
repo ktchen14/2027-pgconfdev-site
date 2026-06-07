@@ -40,17 +40,6 @@
     }
   }
 
-  menu {
-    @media (width >= 48rem) {
-      display: flex;
-      gap: 1.5rem;
-
-      > :global(*) {
-        margin-block: 0;
-      }
-    }
-  }
-
   .button {
     box-sizing: content-box;
     height: 1lh;
@@ -70,10 +59,6 @@
 
     @media (48rem <= width < 64rem) {
       padding-inline: 0.5em;
-
-      > span {
-        display: none;
-      }
     }
   }
 
@@ -141,7 +126,7 @@
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
   <nav {id} aria-label="Main" data-expose={expose} style:order="2">
-    <menu>{@render children()}</menu>
+    <menu class="flex[48-]">{@render children()}</menu>
   </nav>
 
   <a
@@ -149,10 +134,10 @@
     class="button circle iconic"
     data-expose={expose}
     href="#"
-    style:order="3"
     style:background-color="var(--delete-fg)"
+    style:order="3"
   >
-    <span>Register</span>
+    <span class="none[48-64]">Register</span>
     <UserPlus class="size+" />
   </a>
 </header>

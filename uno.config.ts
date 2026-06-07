@@ -1,9 +1,26 @@
+import { symbols } from "@unocss/core";
+import extractorSvelte from "@unocss/extractor-svelte";
 import { defineConfig } from "unocss";
 
 export default defineConfig({
+  extractors: [extractorSvelte()],
   presets: [],
   rules: [
     ["none", { display: "none" }],
+    [
+      "flex",
+      [
+        {
+          display: "flex",
+          "flex-wrap": "wrap",
+          gap: "1.5rem",
+        },
+        {
+          [symbols.selector]: (s) => `${s} > *`,
+          "margin-block": 0,
+        },
+      ],
+    ],
   ],
   variants: [
     (matcher) => {
