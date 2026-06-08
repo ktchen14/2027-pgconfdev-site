@@ -28,10 +28,6 @@
     }
   }
 
-  .mono {
-    font-family: var(--mono-font);
-  }
-
   blockquote {
     border-inline-start: none;
     border-top: 3px solid var(--action-fg);
@@ -453,38 +449,41 @@
     </figure>
   </div>
 
-  <Rule class="main">Program committee</Rule>
-
-  <p class="main">
-    The program committee reviews every proposal at least twice, with conflicts
-    of interest declared and blind to author identity until the second pass.
-  </p>
-
-  <ul class="edge dedent main">
-    <li>Committee member · subsystem maintainer</li>
-    <li>Committee member · extension author</li>
-    <li>Committee member · downstream product engineer</li>
-    <li>Committee member · committer</li>
-    <li>Committee member · application engineer</li>
-    <li>Committee member · academic researcher</li>
-    <li>Committee member · DevRel from a sponsor (non-voting)</li>
-  </ul>
-
-  <p class="main">
-    <small>
-      Committee membership rotates each year.
-      <a href="#" class="delete">Read about how we pick reviewers →</a>
-    </small>
-  </p>
-
-  <div class="panel fill-notice edge-notice main">
-    <h3 class="h6">Working with the committee</h3>
+  <div class="main">
+    <Rule>Program committee</Rule>
 
     <p>
-      Reviewer notes are sent to every proposer — accepted or not. If your talk
-      wasn't selected, you'll get specific feedback you can use next year. We
-      treat the CFP as a community service, not a gate.
+      The program committee reviews every proposal at least twice, with
+      conflicts of interest declared and blind to author identity until the
+      second pass.
     </p>
+
+    <ul class="edge dedent">
+      <li>Committee member · subsystem maintainer</li>
+      <li>Committee member · extension author</li>
+      <li>Committee member · downstream product engineer</li>
+      <li>Committee member · committer</li>
+      <li>Committee member · application engineer</li>
+      <li>Committee member · academic researcher</li>
+      <li>Committee member · DevRel from a sponsor (non-voting)</li>
+    </ul>
+
+    <p>
+      <small>
+        Committee membership rotates each year.
+        <a href="#" class="delete">Read about how we pick reviewers →</a>
+      </small>
+    </p>
+
+    <div class="panel fill-notice edge-notice">
+      <h3 class="h6">Working with the committee</h3>
+
+      <p>
+        Reviewer notes are sent to every proposer — accepted or not. If your
+        talk wasn't selected, you'll get specific feedback you can use next
+        year. We treat the CFP as a community service, not a gate.
+      </p>
+    </div>
   </div>
 </section>
 

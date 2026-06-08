@@ -576,9 +576,18 @@
     }
   }
 
-  .lede {
+  .lead, .lede {
     font-family: var(--header-font);
     font-size: 1.25em;
+  }
+
+  .mono {
+    font-family: var(--mono-font);
+  }
+
+  .note > :is(p, ol, ul, dl, menu, blockquote) {
+    color: var(--fg-mute);
+    font-size: 0.875em;
   }
 
   /* Padded surface */
@@ -602,11 +611,6 @@
   .fill-notice { background: var(--notice-bg-mute); }
   .fill-insert { background: var(--insert-bg-mute); }
   .fill-delete { background: var(--delete-bg-mute); }
-
-  .note > :is(p, ol, ul, dl, menu, blockquote) {
-    color: var(--fg-mute);
-    font-size: 0.875em;
-  }
 
   /* Colorization */
 
@@ -648,13 +652,6 @@
     min-height: 100vh;
   }
 
-  .restrict-1280 {
-    /* Fluid gutter: scales smoothly from 1.5rem at 320px to 3rem at 1280px,
-      where it meets the centering term continuously (both equal 3rem). Above
-      1280px the content stays centered. No step, no flat region. */
-    padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
-  }
-
   .lucide {
     height: 1em;
     width: 1em;
@@ -664,4 +661,11 @@
   .size\+,   .size\+1 { font-size: 1.125em; }
   .size-,    .size-1  { font-size: 0.875em; }
   .size--,   .size-2  { font-size: 0.75em; }
+}
+
+.restrict-1280 {
+  /* Fluid gutter: scales smoothly from 1.5rem at 320px to 3rem at 1280px,
+    where it meets the centering term continuously (both equal 3rem). Above
+    1280px the content stays centered. No step, no flat region. */
+  padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
 }
