@@ -1,92 +1,26 @@
-<style>
-  header {
-    padding-block: var(--margin);
-    border-bottom: 1px solid var(--border);
-  }
+<script>
+  import { resolve } from "$app/paths";
+</script>
 
+<style>
   header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    line-height: 1;
     letter-spacing: -0.02em;
+    line-height: 1;
   }
 
-  .breadcrumb {
-    ol > li:where(:not(:first-child))::before {
-      content: "›";
-      padding-inline-end: 0.5rem;
+  .section-nav a {
+    border-inline-start: 2px solid var(--border);
+    border-radius: 0;
+    margin-inline: 0;
+
+    &[aria-current]:where(:not([aria-current="false"])) {
+      background-color: var(--action-bg-mute);
     }
 
-    a {
-      padding-block: 0.75rem;
+    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
+      border-color: var(--action-fg);
     }
-  }
-
-  .editorial {
-    display: grid;
-    grid-template-columns: 1fr min(var(--w-text), 100%) 1fr;
-    row-gap: var(--margin);
-    padding-block: var(--margin);
-  }
-
-  .editorial > * {
-    grid-column: 2;
-    margin-block: 0;
-  }
-
-  .break-wide {
-    grid-column: 1 / -1;
-    max-width: var(--w-text-wide);
-    width: 100%;
-    margin-inline: auto;
-  }
-
-  .callout {
-    border-radius: var(--radius);
-    padding: 1.5rem;
-  }
-
-  .callout--info {
-    background: var(--action-bg-mute);
-    border-inline-start: 3px solid var(--action-fg);
-  }
-
-  .callout--notice {
-    background: var(--notice-bg-mute);
-    border-inline-start: 3px solid var(--notice-fg);
-  }
-
-  .callout--positive {
-    background: var(--insert-bg-mute);
-    border-inline-start: 3px solid var(--insert-fg);
-  }
-
-  .list-rule {
-    border-inline-start: 3px solid var(--border);
-    list-style-type: none;
-    padding-inline: 1em;
-  }
-
-  .facts {
-    display: grid;
-    gap: 0;
-  }
-
-  .facts > div {
-    display: grid;
-    grid-template-columns: 9rem 1fr;
-    gap: 1rem;
-    padding-block: 0.75rem;
-    border-top: 1px solid var(--border);
-    align-items: baseline;
-  }
-
-  .facts > div:last-child {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .facts dd {
-    margin-inline-start: 0;
-    color: var(--fg-mute);
   }
 </style>
 
@@ -98,29 +32,77 @@
   />
 </svelte:head>
 
-<nav class="breadcrumb restrict-1280" aria-label="Breadcrumb">
-  <ol class="flex over" style:gap="0.5em">
-    <li><a href="/">PGConf.dev 2027</a></li>
-    <li>Call for Proposals</li>
+<nav class="merge-both" aria-label="Breadcrumb">
+  <ol class="iconic over" style:gap="1em">
+    <li aria-hidden="true">/</li>
+    <li><a href="/">Call for Proposals</a></li>
   </ol>
 </nav>
 
-<header class="restrict-1280">
+<header class="merge-both">
   <hgroup>
     <p class="action">Call for Proposals</p>
     <h1>Submit a talk for 2027.</h1>
   </hgroup>
-  <p class="lede fg-mute">
+
+  <p class="lede mute text">
     We're looking for technical talks, hands-on tutorials, and unconference
-    topics from contributors at every level. The CFP closes <strong
-      >14 February 2027</strong
-    >
-    at 11:59 pm UTC.
+    topics from contributors at every level. The CFP closes
+    <strong>14 February 2027</strong> at 11:59 pm UTC.
   </p>
 </header>
 
-<article class="editorial restrict-1280">
-  <div class="callout callout--positive">
+<hr class="margin-section" />
+
+<nav class="section-nav float-left none[-64] note" aria-labelledby="program-nav">
+  <h2 id="program-nav" class="over">Program</h2>
+  <ul>
+    <li><a href={resolve("/program")}>Full schedule</a></li>
+    <li><a href={resolve("/cfp")} aria-current="page">Call for proposals</a></li>
+    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
+  </ul>
+</nav>
+
+<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+  <h2 id="on-this-page" class="over">On this page</h2>
+  <ol>
+    <li><a href="#looking-for">What we're looking for</a></li>
+    <li><a href="#formats">Formats</a></li>
+    <li><a href="#review">Review process</a></li>
+    <li><a href="#dates">Key dates</a></li>
+  </ol>
+</nav>
+
+<aside class="float-right note panel bg-tint border" aria-labelledby="cfp-glance">
+  <h2 id="cfp-glance" class="over">At a Glance</h2>
+
+  <hr />
+
+  <dl class="dedent">
+    <div class="margin-p">
+      <dt class="over">Status</dt>
+      <dd class="insert">Open for submissions</dd>
+    </div>
+
+    <div class="margin-p">
+      <dt class="over">Closes</dt>
+      <dd>14 February 2027 · 11:59 pm UTC</dd>
+    </div>
+
+    <div class="margin-p">
+      <dt class="over">Decisions</dt>
+      <dd>By 15 March 2027</dd>
+    </div>
+
+    <div class="margin-p">
+      <dt class="over">Formats</dt>
+      <dd>45-min talk · 90-min tutorial · unconference</dd>
+    </div>
+  </dl>
+</aside>
+
+<section class="main">
+  <div class="panel fill-insert edge-insert">
     <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
@@ -128,115 +110,112 @@
       <a href="/about#contact">Contact the program committee.</a>
     </p>
   </div>
+</section>
 
-  <section>
-    <hgroup>
-      <p>§ 01 · What we're looking for</p>
-      <h2>Technical depth, honestly reported.</h2>
-    </hgroup>
+<section id="looking-for" class="main">
+  <hgroup>
+    <p>§ 01 · What we're looking for</p>
+    <h2>Technical depth, honestly reported.</h2>
+  </hgroup>
 
-    <p class="lede">
-      PGConf.dev is a working conference. The audience has already read the
-      documentation — they want to hear what the documentation doesn't say.
-    </p>
+  <p class="lede">
+    PGConf.dev is a working conference. The audience has already read the
+    documentation — they want to hear what the documentation doesn't say.
+  </p>
 
-    <p>
-      The best talks here are war stories, deep dives, and design walks that
-      only the person who built or broke the thing could give. We especially
-      welcome:
-    </p>
+  <p>
+    The best talks here are war stories, deep dives, and design walks that only
+    the person who built or broke the thing could give. We especially welcome:
+  </p>
 
-    <ul class="list-rule">
-      <li>
-        <strong>Internals and patches</strong> — new features in PG 18, work in progress,
-        design decisions and their trade-offs
-      </li>
-      <li>
-        <strong>Operating at scale</strong> — vacuum, replication, connection pooling,
-        observability — what you actually learned in production
-      </li>
-      <li>
-        <strong>Extensions</strong> — building, distributing, and maintaining extensions;
-        pgvector, TimescaleDB, pgrx, the PGXN ecosystem
-      </li>
-      <li>
-        <strong>Tooling and ecosystem</strong> — backup, migration, upgrade paths,
-        cloud-native deployments, logical replication
-      </li>
-      <li>
-        <strong>Community and process</strong> — how patches get committed, how the
-        committer model works, how new contributors find their footing
-      </li>
-    </ul>
+  <ul class="edge dedent">
+    <li>
+      <strong>Internals and patches</strong> — new features in PG 18, work in progress,
+      design decisions and their trade-offs
+    </li>
+    <li>
+      <strong>Operating at scale</strong> — vacuum, replication, connection pooling,
+      observability — what you actually learned in production
+    </li>
+    <li>
+      <strong>Extensions</strong> — building, distributing, and maintaining extensions;
+      pgvector, TimescaleDB, pgrx, the PGXN ecosystem
+    </li>
+    <li>
+      <strong>Tooling and ecosystem</strong> — backup, migration, upgrade paths,
+      cloud-native deployments, logical replication
+    </li>
+    <li>
+      <strong>Community and process</strong> — how patches get committed, how the
+      committer model works, how new contributors find their footing
+    </li>
+  </ul>
 
-    <p>
-      Introductory talks are a poor fit for this audience. If your proposal
-      could run verbatim at a general PostgreSQL conference, it's probably not
-      the right match for PGConf.dev.
-    </p>
-  </section>
+  <p>
+    Introductory talks are a poor fit for this audience. If your proposal could
+    run verbatim at a general PostgreSQL conference, it's probably not the right
+    match for PGConf.dev.
+  </p>
+</section>
 
-  <section>
-    <hgroup>
-      <p>§ 02 · Formats</p>
-      <h2>Three formats to choose from.</h2>
-    </hgroup>
+<section id="formats">
+  <hgroup class="main">
+    <p>§ 02 · Formats</p>
+    <h2>Three formats to choose from.</h2>
+  </hgroup>
 
-    <p>
-      Pick the format that fits your material. We review each format on its own
-      merits — a 45-minute talk is not a better or worse submission than a
-      tutorial.
-    </p>
-  </section>
+  <p class="main">
+    Pick the format that fits your material. We review each format on its own
+    merits — a 45-minute talk is not a better or worse submission than a
+    tutorial.
+  </p>
 
-  <div class="break-wide">
-    <dl class="facts">
-      <div>
-        <dt class="over">Talk · 45 min</dt>
-        <dd>
-          The main format. Slide-driven or live-demo. Q&amp;A in the final 5–10
-          minutes. Three parallel tracks.
-        </dd>
-      </div>
-      <div>
-        <dt class="over">Tutorial · 90 min</dt>
-        <dd>
-          Hands-on, laptop-required session. Day 1 only (tutorial day). Max 40
-          attendees per room. Attendees should have Postgres 17 installed.
-        </dd>
-      </div>
-      <div>
-        <dt class="over">Unconference</dt>
-        <dd>
-          Proposed and voted on the day of (Friday). Submit a topic idea in
-          advance to seed the board; final schedule fills live from attendee
-          proposals.
-        </dd>
-      </div>
-    </dl>
-  </div>
+  <dl class="auto-grid-16 dedent merge-both">
+    <div>
+      <dt class="over">Talk · 45 min</dt>
+      <dd>
+        The main format. Slide-driven or live-demo. Q&amp;A in the final 5–10
+        minutes. Three parallel tracks.
+      </dd>
+    </div>
+    <div>
+      <dt class="over">Tutorial · 90 min</dt>
+      <dd>
+        Hands-on, laptop-required session. Day 1 only (tutorial day). Max 40
+        attendees per room. Attendees should have Postgres 17 installed.
+      </dd>
+    </div>
+    <div>
+      <dt class="over">Unconference</dt>
+      <dd>
+        Proposed and voted on the day of (Friday). Submit a topic idea in
+        advance to seed the board; final schedule fills live from attendee
+        proposals.
+      </dd>
+    </div>
+  </dl>
+</section>
 
-  <section>
-    <hgroup>
-      <p>§ 03 · Review process</p>
-      <h2>Double-blind, then discussed.</h2>
-    </hgroup>
+<section id="review" class="main">
+  <hgroup>
+    <p>§ 03 · Review process</p>
+    <h2>Double-blind, then discussed.</h2>
+  </hgroup>
 
-    <p>
-      Every proposal is reviewed independently by at least two members of the
-      program committee. The first pass is blind to author identity. In the
-      second pass, reviewers discuss shortlisted proposals with author context
-      visible and conflicts of interest declared.
-    </p>
+  <p>
+    Every proposal is reviewed independently by at least two members of the
+    program committee. The first pass is blind to author identity. In the second
+    pass, reviewers discuss shortlisted proposals with author context visible
+    and conflicts of interest declared.
+  </p>
 
-    <p>
-      All proposers receive written feedback regardless of outcome. If your talk
-      isn't selected, you'll get specific notes you can use for the next
-      submission or a future edition.
-    </p>
-  </section>
+  <p>
+    All proposers receive written feedback regardless of outcome. If your talk
+    isn't selected, you'll get specific notes you can use for the next
+    submission or a future edition.
+  </p>
 
-  <div class="callout callout--info">
+  <div class="panel fill-action edge-action margin-section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If
@@ -245,51 +224,52 @@
       year.
     </p>
   </div>
+</section>
 
-  <section>
-    <hgroup>
-      <p>§ 04 · Key dates</p>
-      <h2>Important deadlines.</h2>
-    </hgroup>
-  </section>
+<section id="dates">
+  <hgroup class="main">
+    <p>§ 04 · Key dates</p>
+    <h2>Important deadlines.</h2>
+  </hgroup>
 
-  <div class="break-wide">
-    <dl class="facts">
-      <div>
-        <dt class="over">CFP opens</dt>
-        <dd><time datetime="2026-12-01">1 December 2026</time></dd>
-      </div>
-      <div>
-        <dt class="over">CFP closes</dt>
-        <dd>
-          <time datetime="2027-02-14">14 February 2027</time> at 11:59 pm UTC
-        </dd>
-      </div>
-      <div>
-        <dt class="over">Notifications</dt>
-        <dd><time datetime="2027-03-15">by 15 March 2027</time></dd>
-      </div>
-      <div>
-        <dt class="over">Schedule published</dt>
-        <dd><time datetime="2027-04-01">early April 2027</time></dd>
-      </div>
-      <div>
-        <dt class="over">Conference</dt>
-        <dd>18 – 21 May 2027 · Montréal</dd>
-      </div>
-    </dl>
-  </div>
+  <dl class="auto-grid-12 dedent merge-both">
+    <div>
+      <dt class="over">CFP opens</dt>
+      <dd><time datetime="2026-12-01">1 December 2026</time></dd>
+    </div>
+    <div>
+      <dt class="over">CFP closes</dt>
+      <dd>
+        <time datetime="2027-02-14">14 February 2027</time> · 11:59 pm UTC
+      </dd>
+    </div>
+    <div>
+      <dt class="over">Notifications</dt>
+      <dd><time datetime="2027-03-15">by 15 March 2027</time></dd>
+    </div>
+    <div>
+      <dt class="over">Schedule published</dt>
+      <dd><time datetime="2027-04-01">early April 2027</time></dd>
+    </div>
+    <div>
+      <dt class="over">Conference</dt>
+      <dd>18 – 21 May 2027 · Montréal</dd>
+    </div>
+  </dl>
+</section>
 
-  <div style="text-align: center; padding-block: var(--margin)">
+<section class="main">
+  <p>
     <a
       href="#"
-      class="button circle"
-      style="color: var(--delete-fg); border: 1px solid var(--delete-fg); background: none;"
+      class="button circle stroke"
+      style:color="var(--delete-fg)"
+      style:border="1px solid var(--delete-fg)"
     >
       Submit a proposal — link coming soon
     </a>
-    <p class="fg-mute" style="font-size: 0.875rem; margin-top: 1rem">
-      Questions? Email <a href="/about#contact">the program committee</a>.
-    </p>
-  </div>
-</article>
+  </p>
+  <p>
+    <small>Questions? Email <a href="/about#contact">the program committee</a>.</small>
+  </p>
+</section>
