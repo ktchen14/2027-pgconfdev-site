@@ -168,6 +168,21 @@ export default defineConfig({
         },
       ],
     ],
+    // Fixed N-column grid (each column 1fr).
+    [
+      /^grid-(\d+)$/,
+      ([, n]) => [
+        {
+          display: "grid",
+          gap: "1.5rem",
+          "grid-template-columns": `repeat(${n}, 1fr)`,
+        },
+        {
+          [symbols.selector]: (s) => `${s} > *`,
+          "margin-block": 0,
+        },
+      ],
+    ],
   ],
   variants: [
     (matcher) => {

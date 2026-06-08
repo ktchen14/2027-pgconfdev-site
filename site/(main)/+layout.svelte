@@ -9,13 +9,16 @@
 
 <style>
   :is(.menu-single, .menu-triple) :global([data-open]) {
-    font-size: 0.875em;
     margin-block-start: 1em;
     padding-block-end: 1.25em;
   }
 
   .menu-single {
     position: relative;
+  }
+
+  ul {
+    font-size: 0.875em;
   }
 
   .menu-single :global([data-open]) {
@@ -27,15 +30,8 @@
 
   .menu-triple :global([data-open]) {
     @media (width >= 48rem) {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(3, 1fr);
       right: calc(50% - min(45rem, calc(100vw - 3rem)) / 2);
       width: 45rem;
-
-      > * {
-        margin-block: 0;
-      }
     }
   }
 
@@ -46,7 +42,7 @@
 
 <Header class="merge-both">
   <li class="menu-triple">
-    <ToggleMenu name="Program">
+    <ToggleMenu name="Program" class="grid-3[48-]">
       <div class="margin-p">
         <p class="over">Schedule</p>
         <hr style:margin-block="0 0.75rem" />
@@ -84,7 +80,7 @@
   </li>
 
   <li class="menu-triple">
-    <ToggleMenu name="Attend">
+    <ToggleMenu name="Attend" class="grid-3[48-]">
       <div class="margin-p">
         <p class="over">Getting there</p>
         <hr style:margin-block="0 0.75rem" />

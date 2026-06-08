@@ -260,44 +260,35 @@
   style:color="var(--bg)"
   style:padding-block="var(--margin)"
 >
-  <div
+  <hgroup>
+    <p style:color="var(--bg)">Registration</p>
+    <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">
+      Reserve your seat for the 2027 edition.
+    </h2>
+  </hgroup>
+
+  <p
+    class="margin-gap size-"
     style="
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s-2);
-      align-items: end;
+      font-family: var(--mono-font);
+      letter-spacing: 0.05em;
+      opacity: 0.85;
     "
   >
-    <hgroup>
-      <p style:color="var(--bg)">Registration</p>
-      <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">
-        Reserve your seat for the 2027 edition.
-      </h2>
-    </hgroup>
+    <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
+    &nbsp;·&nbsp;
+    <strong style="font-weight: 500">Standard $640</strong>
+    &nbsp;·&nbsp;
+    <strong style="font-weight: 500">Student $120</strong>
+  </p>
 
-    <p
-      class="margin-gap size-"
-      style="
-        font-family: var(--mono-font);
-        letter-spacing: 0.05em;
-        opacity: 0.85;
-      "
-    >
-      <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
-      &nbsp;·&nbsp;
-      <strong style="font-weight: 500">Standard $640</strong>
-      &nbsp;·&nbsp;
-      <strong style="font-weight: 500">Student $120</strong>
-    </p>
-
-    <a
-      class="button circle"
-      href="#"
-      style:background-color="var(--bg)"
-      style:color="var(--delete-fg)"
-      style:max-width="max-content"
-    >
-      Register now
-    </a>
-  </div>
+  <a
+    class="button circle"
+    href="#"
+    style:background-color="var(--bg)"
+    style:color="var(--delete-fg)"
+    style:max-width="max-content"
+  >
+    Register now
+  </a>
 </section>
