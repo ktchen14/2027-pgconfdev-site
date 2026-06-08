@@ -171,7 +171,7 @@
 
     <p>
       If you need a formal invitation letter for your visa application, email
-      <a href="/about#contact">info@pgconf.dev</a> with your full name and
+      <a href="/team#contact">info@pgconf.dev</a> with your full name and
       country of citizenship.
     </p>
   </div>

@@ -59,11 +59,10 @@
 <nav class="section-nav float-left none[-64] note" aria-labelledby="about-nav">
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
-    <li><a href="/about">What PGConf.dev is</a></li>
-    <li><a href="/about#committee">Organizing committee</a></li>
-    <li><a href="/about#history">History &amp; past editions</a></li>
-    <li><a href="/about#contact">Contact</a></li>
+    <li><a href={resolve("/about")}>About PGConf.dev</a></li>
+    <li><a href={resolve("/team")}>Team</a></li>
     <li><a href={resolve("/conduct")} aria-current="page">Code of conduct</a></li>
+    <li><a href={resolve("/policies")}>Policies &amp; privacy</a></li>
   </ul>
 </nav>
 

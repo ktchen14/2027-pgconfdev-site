@@ -212,7 +212,7 @@
 
   <p>
     If you have specific accessibility requirements, contact us in advance at
-    <a href="/about#contact">info@pgconf.dev</a> so we can make arrangements.
+    <a href="/team#contact">info@pgconf.dev</a> so we can make arrangements.
     Captioning and hearing loop availability will be confirmed closer to the
     conference.
   </p>

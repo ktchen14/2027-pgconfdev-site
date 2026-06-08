@@ -230,7 +230,7 @@
   </p>
 
   <p>
-    Questions? Email <a href="/about#contact">info@pgconf.dev</a>.
+    Questions? Email <a href="/team#contact">info@pgconf.dev</a>.
   </p>
 
   <p class="margin-section">

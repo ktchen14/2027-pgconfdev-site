@@ -1,0 +1,288 @@
+<script>
+  import { resolve } from "$app/paths";
+  import Rule from "$lib/Rule.svelte";
+</script>
+
+<style>
+  header h1 {
+    font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .section-nav a {
+    border-inline-start: 2px solid var(--border);
+    border-radius: 0;
+    margin-inline: 0;
+
+    &[aria-current]:where(:not([aria-current="false"])) {
+      background-color: var(--action-bg-mute);
+    }
+
+    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
+      border-color: var(--action-fg);
+    }
+  }
+</style>
+
+<svelte:head>
+  <title>Team — PGConf.dev 2027</title>
+  <meta
+    name="description"
+    content="The volunteers who organize PGConf.dev — the organizing committee, program committee, and the crew who run the week."
+  />
+</svelte:head>
+
+<nav class="merge-both" aria-label="Breadcrumb">
+  <ol class="iconic over" style:gap="1em">
+    <li aria-hidden="true">/</li>
+    <li><a href={resolve("/about")}>About</a></li>
+    <li aria-hidden="true">/</li>
+    <li><a href="/">Team</a></li>
+  </ol>
+</nav>
+
+<header class="merge-both">
+  <hgroup>
+    <p class="action">About</p>
+    <h1>The volunteers who put this on.</h1>
+  </hgroup>
+
+  <p class="lede mute text">
+    No paid staff. PGConf.dev is organized by a rotating committee of community
+    volunteers, with program-committee membership refreshed each year to spread
+    the work and the perspective.
+  </p>
+</header>
+
+<hr class="margin-section" />
+
+<nav class="section-nav float-left none[-64] note" aria-labelledby="about-nav">
+  <h2 id="about-nav" class="over">About the Conference</h2>
+  <ul>
+    <li><a href={resolve("/about")}>About PGConf.dev</a></li>
+    <li><a href={resolve("/team")} aria-current="page">Team</a></li>
+    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
+    <li><a href={resolve("/policies")}>Policies &amp; privacy</a></li>
+  </ul>
+</nav>
+
+<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+  <h2 id="on-this-page" class="over">On this page</h2>
+  <ol>
+    <li><a href="#organizing">Organizing committee</a></li>
+    <li><a href="#program">Program committee</a></li>
+    <li><a href="#volunteers">Volunteers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</nav>
+
+<section id="organizing">
+  <hgroup class="main">
+    <p>§ 01 · Organizing committee</p>
+    <h2>The chairs who run the conference.</h2>
+  </hgroup>
+
+  <p class="main">
+    The organizing committee handles the program, logistics, and sponsorship.
+    Membership rotates between editions to spread the load and keep fresh
+    perspective in the room.
+  </p>
+
+  <Rule class="merge-both">Conference chairs</Rule>
+
+  <div class="auto-grid-12 merge-both">
+    <figure>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
+      <figcaption class="note">
+        <hgroup>
+          <p>Conference chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Maintainer of a major PostgreSQL subsystem. Three years on the
+          organizing committee.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
+      <figcaption class="note">
+        <hgroup>
+          <p>Program chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Extension author and longtime contributor to the regression test
+          suite.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
+      <figcaption class="note">
+        <hgroup>
+          <p>Logistics chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Volunteer coordinator for two prior PGConf.dev editions; based in
+          Montréal.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
+      <figcaption class="note">
+        <hgroup>
+          <p>Sponsorship</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Coordinates partner agreements, scholarship funding, and the sponsor
+          program.
+        </p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="program" class="main">
+  <hgroup>
+    <p>§ 02 · Program committee</p>
+    <h2>Who reviews the talks.</h2>
+  </hgroup>
+
+  <p>
+    The program committee reviews every proposal at least twice, with conflicts
+    of interest declared and blind to author identity until the second pass.
+  </p>
+
+  <ul class="edge dedent">
+    <li>Committee member · subsystem maintainer</li>
+    <li>Committee member · extension author</li>
+    <li>Committee member · downstream product engineer</li>
+    <li>Committee member · committer</li>
+    <li>Committee member · application engineer</li>
+    <li>Committee member · academic researcher</li>
+    <li>Committee member · DevRel from a sponsor (non-voting)</li>
+  </ul>
+
+  <p>
+    <small>
+      Committee membership rotates each year.
+      <a href="#" class="delete">Read about how we pick reviewers →</a>
+    </small>
+  </p>
+
+  <div class="panel fill-notice edge-notice">
+    <h3 class="h6">Working with the committee</h3>
+
+    <p>
+      Reviewer notes are sent to every proposer — accepted or not. If your talk
+      wasn't selected, you'll get specific feedback you can use next year. We
+      treat the CFP as a community service, not a gate.
+    </p>
+  </div>
+</section>
+
+<section id="volunteers" class="main">
+  <hgroup>
+    <p>§ 03 · Volunteers</p>
+    <h2>The crew who run the week.</h2>
+  </hgroup>
+
+  <p>
+    Beyond the committee, PGConf.dev is staffed each year by dozens of
+    volunteers — the registration desk, room hosts, A/V support, and the social
+    program. They keep the conference running, and get a complimentary
+    registration in return.
+  </p>
+
+  <p>
+    <a href={resolve("/attend/volunteer")}>Volunteer at PGConf.dev 2027 →</a>
+  </p>
+</section>
+
+<section id="contact">
+  <div class="main margin-gap">
+    <hgroup>
+      <p>§ 04 · Contact</p>
+      <h2>How to reach us.</h2>
+    </hgroup>
+
+    <p>
+      The committee is small — for most things, the best route is the matching
+      email below. We also keep a few public channels open.
+    </p>
+  </div>
+
+  <div class="auto-grid-14 merge-both">
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">Program</h3>
+        <p>CFP questions, schedule, talk logistics.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="mailto:program@pgconf.dev">program@pgconf.dev</a>
+      </p>
+    </div>
+
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">Sponsorship</h3>
+        <p>Sponsorship inquiries, partner program, invoicing.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="mailto:sponsors@pgconf.dev">sponsors@pgconf.dev</a>
+      </p>
+    </div>
+
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">Press &amp; media</h3>
+        <p>Press passes, interview requests, photo policy.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="mailto:press@pgconf.dev">press@pgconf.dev</a>
+      </p>
+    </div>
+
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">Code of conduct</h3>
+        <p>Confidential channel monitored by the CoC committee.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
+      </p>
+    </div>
+
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">General</h3>
+        <p>Anything else.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="mailto:info@pgconf.dev">info@pgconf.dev</a>
+      </p>
+    </div>
+
+    <div class="note panel bg-tint border">
+      <hgroup>
+        <h3 class="h4">Mailing list</h3>
+        <p>Announcements only — about one email a month.</p>
+      </hgroup>
+      <p class="mono">
+        <a href="#" class="delete">Subscribe →</a>
+      </p>
+    </div>
+  </div>
+</section>

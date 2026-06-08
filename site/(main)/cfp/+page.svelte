@@ -22,6 +22,31 @@
       border-color: var(--action-fg);
     }
   }
+
+  /* Deadlines ledger — milestone left, date right; stacks when narrow.
+     Cell appearance (mono/mute/size/serif) is handled by utilities. */
+  .dates > div {
+    align-items: baseline;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 0.25rem 1.5rem;
+    grid-template-columns: 1fr auto;
+    padding-block: 0.85rem;
+  }
+
+  .dates > div:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dates dt {
+    font-family: var(--header-font);
+  }
+
+  @media (width < 30rem) {
+    .dates > div {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -57,9 +82,8 @@
 <nav class="section-nav float-left none[-64] note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
-    <li><a href={resolve("/program")}>Full schedule</a></li>
+    <li><a href={resolve("/program")}>Schedule</a></li>
     <li><a href={resolve("/cfp")} aria-current="page">Call for proposals</a></li>
-    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
   </ul>
 </nav>
 
@@ -107,7 +131,7 @@
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
       >. Submit via the proposal system linked below. Questions?
-      <a href="/about#contact">Contact the program committee.</a>
+      <a href="/team#contact">Contact the program committee.</a>
     </p>
   </div>
 </section>
@@ -170,30 +194,40 @@
     tutorial.
   </p>
 
-  <dl class="auto-grid-16 dedent merge-both">
-    <div>
-      <dt class="over">Talk · 45 min</dt>
-      <dd>
-        The main format. Slide-driven or live-demo. Q&amp;A in the final 5–10
-        minutes. Three parallel tracks.
-      </dd>
+  <div class="auto-grid-16 merge-both">
+    <div class="note panel border edge">
+      <hgroup>
+        <p>45 min · 3 tracks</p>
+        <h3 class="h4">Talk</h3>
+      </hgroup>
+      <p>
+        The main format. Slide-driven or live-demo, with Q&amp;A in the final
+        5–10 minutes.
+      </p>
     </div>
-    <div>
-      <dt class="over">Tutorial · 90 min</dt>
-      <dd>
-        Hands-on, laptop-required session. Day 1 only (tutorial day). Max 40
-        attendees per room. Attendees should have Postgres 17 installed.
-      </dd>
+
+    <div class="note panel border edge-insert">
+      <hgroup>
+        <p>90 min · Day 1</p>
+        <h3 class="h4">Tutorial</h3>
+      </hgroup>
+      <p>
+        Hands-on, laptop-required session on the tutorial day. Max 40 attendees
+        per room; attendees should have Postgres 17 installed.
+      </p>
     </div>
-    <div>
-      <dt class="over">Unconference</dt>
-      <dd>
-        Proposed and voted on the day of (Friday). Submit a topic idea in
-        advance to seed the board; final schedule fills live from attendee
-        proposals.
-      </dd>
+
+    <div class="note panel border edge-notice">
+      <hgroup>
+        <p>30 min · Friday</p>
+        <h3 class="h4">Unconference</h3>
+      </hgroup>
+      <p>
+        Proposed and voted on the day of. Submit a topic idea in advance to seed
+        the board; the schedule fills live from attendee proposals.
+      </p>
     </div>
-  </dl>
+  </div>
 </section>
 
 <section id="review" class="main">
@@ -232,28 +266,34 @@
     <h2>Important deadlines.</h2>
   </hgroup>
 
-  <dl class="auto-grid-12 dedent merge-both">
+  <dl class="dates dedent main">
     <div>
-      <dt class="over">CFP opens</dt>
-      <dd><time datetime="2026-12-01">1 December 2026</time></dd>
+      <dt>CFP opens</dt>
+      <dd class="mono mute size-">
+        <time datetime="2026-12-01">1 December 2026</time>
+      </dd>
     </div>
     <div>
-      <dt class="over">CFP closes</dt>
-      <dd>
+      <dt>CFP closes</dt>
+      <dd class="mono action size-">
         <time datetime="2027-02-14">14 February 2027</time> · 11:59 pm UTC
       </dd>
     </div>
     <div>
-      <dt class="over">Notifications</dt>
-      <dd><time datetime="2027-03-15">by 15 March 2027</time></dd>
+      <dt>Notifications</dt>
+      <dd class="mono mute size-">
+        <time datetime="2027-03-15">by 15 March 2027</time>
+      </dd>
     </div>
     <div>
-      <dt class="over">Schedule published</dt>
-      <dd><time datetime="2027-04-01">early April 2027</time></dd>
+      <dt>Schedule published</dt>
+      <dd class="mono mute size-">
+        <time datetime="2027-04-01">early April 2027</time>
+      </dd>
     </div>
     <div>
-      <dt class="over">Conference</dt>
-      <dd>18 – 21 May 2027 · Montréal</dd>
+      <dt>Conference</dt>
+      <dd class="mono mute size-">18 – 21 May 2027 · Montréal</dd>
     </div>
   </dl>
 </section>
@@ -270,6 +310,6 @@
     </a>
   </p>
   <p>
-    <small>Questions? Email <a href="/about#contact">the program committee</a>.</small>
+    <small>Questions? Email <a href="/team#contact">the program committee</a>.</small>
   </p>
 </section>

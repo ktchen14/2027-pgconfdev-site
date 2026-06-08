@@ -1,26 +1,8 @@
-<script>
-  import { resolve } from "$app/paths";
-</script>
-
 <style>
   header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     letter-spacing: -0.02em;
     line-height: 1;
-  }
-
-  .section-nav a {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
-
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-mute);
-    }
-
-    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
-      border-color: var(--action-fg);
-    }
   }
 
   /* Per-tier accent hierarchy, driven through the .edge custom property. */
@@ -71,16 +53,6 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="sponsor-nav">
-  <h2 id="sponsor-nav" class="over">Sponsor</h2>
-  <ul>
-    <li><a href={resolve("/sponsor")} aria-current="page">Our 2027 sponsors</a></li>
-    <li><a href="/sponsor#become">Become a sponsor</a></li>
-    <li><a href="/sponsor#tiers">Sponsorship tiers</a></li>
-    <li><a href="#" class="delete">Prospectus</a></li>
-  </ul>
-</nav>
-
 <nav aria-labelledby="on-this-page" class="float-right none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
@@ -120,7 +92,7 @@
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
-      or <a href="/about#contact">contact the sponsorship team</a> for a full
+      or <a href="/team#contact">contact the sponsorship team</a> for a full
       prospectus.
     </p>
   </div>
@@ -230,7 +202,7 @@
   </p>
 
   <p class="margin-section">
-    <a href="/about#contact" class="button circle">Contact the sponsorship team</a>
+    <a href="/team#contact" class="button circle">Contact the sponsorship team</a>
   </p>
 </section>
 

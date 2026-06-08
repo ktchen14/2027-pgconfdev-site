@@ -470,11 +470,7 @@
 <nav class="section-nav float-left none[-64] note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
-    <li><a href={resolve("/program")} aria-current="page">Full schedule</a></li>
-    <li><a href="/program#day-1">Tue · Tutorials</a></li>
-    <li><a href="/program#day-2">Wed · Talks</a></li>
-    <li><a href="/program#day-3">Thu · Talks</a></li>
-    <li><a href="/program#day-4">Fri · Unconference</a></li>
+    <li><a href={resolve("/program")} aria-current="page">Schedule</a></li>
     <li><a href={resolve("/cfp")}>Call for proposals</a></li>
   </ul>
 </nav>

@@ -27,7 +27,6 @@
     background-color: initial;
     color: inherit;
     justify-content: space-between;
-    margin-block: -0.25em;
     margin-inline: -0.75em;
     padding-inline: 0.75em;
     width: stretch;

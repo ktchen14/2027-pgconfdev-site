@@ -1,6 +1,5 @@
 <script>
   import { resolve } from "$app/paths";
-  import Rule from "$lib/Rule.svelte";
 </script>
 
 <style>
@@ -74,13 +73,10 @@
 >
   <h2 id="about-the-conference" class="over">About the Conference</h2>
   <ul>
-    <li>
-      <a href={resolve("/about")} aria-current="page">What PGConf.dev is</a>
-    </li>
-    <li><a href="/about#committee">Organizing committee</a></li>
-    <li><a href="/about#history">History &amp; past editions</a></li>
-    <li><a href="/about#contact">Contact</a></li>
-    <li><a href="/conduct">Code of conduct</a></li>
+    <li><a href={resolve("/about")} aria-current="page">About PGConf.dev</a></li>
+    <li><a href={resolve("/team")}>Team</a></li>
+    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
+    <li><a href={resolve("/policies")}>Policies &amp; privacy</a></li>
   </ul>
 </nav>
 
@@ -90,8 +86,6 @@
     <li><a href="#what">What PGConf.dev is</a></li>
     <li><a href="#who">Who attends</a></li>
     <li><a href="#history">A short history</a></li>
-    <li><a href="#committee">Organizing committee</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </nav>
 
@@ -294,8 +288,6 @@
   </p>
 
   <div class="margin-section">
-    <hr aria-hidden="true" class="merge-left margin-gap" />
-
     <div class="split-left margin-gap">
       <figure>
         <div class="action h2">2024</div>
@@ -357,206 +349,6 @@
         <h4>This year</h4>
         <p>Palais des congrès · 18 – 21 May · CFP closes 14 February</p>
       </div>
-    </div>
-
-    <hr aria-hidden="true" class="merge-left margin-gap" />
-  </div>
-</section>
-
-<section id="committee">
-  <hgroup class="main">
-    <p>§ 04 · Organizing committee</p>
-    <h2>The volunteers who put this on.</h2>
-  </hgroup>
-
-  <aside class="float-right note">
-    <h3 class="over">Volunteer-run</h3>
-    <p>
-      No paid staff. Every committee member contributes their time alongside a
-      day job in the Postgres ecosystem.
-    </p>
-  </aside>
-
-  <p class="main">
-    PGConf.dev is organized by a rotating committee of community volunteers,
-    with program-committee membership refreshed each year to spread the work and
-    the perspective.
-  </p>
-
-  <Rule class="merge-both" style="clear: both;">Conference chairs</Rule>
-
-  <div class="auto-grid-12 merge-both">
-    <figure>
-      <div class="border" style:aspect-ratio="4 / 5"></div>
-      <figcaption class="note">
-        <hgroup>
-          <p>Conference chair</p>
-          <h3 class="h5">Committee member name</h3>
-        </hgroup>
-
-        <p>
-          Maintainer of a major PostgreSQL subsystem. Three years on the
-          organizing committee.
-        </p>
-      </figcaption>
-    </figure>
-
-    <figure>
-      <div class="border" style:aspect-ratio="4 / 5"></div>
-      <figcaption class="note">
-        <hgroup>
-          <p>Program chair</p>
-          <h3 class="h5">Committee member name</h3>
-        </hgroup>
-
-        <p>
-          Extension author and longtime contributor to the regression test
-          suite.
-        </p>
-      </figcaption>
-    </figure>
-
-    <figure>
-      <div class="border" style:aspect-ratio="4 / 5"></div>
-      <figcaption class="note">
-        <hgroup>
-          <p>Logistics chair</p>
-          <h3 class="h5">Committee member name</h3>
-        </hgroup>
-
-        <p>
-          Volunteer coordinator for two prior PGConf.dev editions; based in
-          Montréal.
-        </p>
-      </figcaption>
-    </figure>
-
-    <figure>
-      <div class="border" style:aspect-ratio="4 / 5"></div>
-      <figcaption class="note">
-        <hgroup>
-          <p>Sponsorship</p>
-          <h3 class="h5">Committee member name</h3>
-        </hgroup>
-
-        <p>
-          Coordinates partner agreements, scholarship funding, and the sponsor
-          program.
-        </p>
-      </figcaption>
-    </figure>
-  </div>
-
-  <div class="main">
-    <Rule>Program committee</Rule>
-
-    <p>
-      The program committee reviews every proposal at least twice, with
-      conflicts of interest declared and blind to author identity until the
-      second pass.
-    </p>
-
-    <ul class="edge dedent">
-      <li>Committee member · subsystem maintainer</li>
-      <li>Committee member · extension author</li>
-      <li>Committee member · downstream product engineer</li>
-      <li>Committee member · committer</li>
-      <li>Committee member · application engineer</li>
-      <li>Committee member · academic researcher</li>
-      <li>Committee member · DevRel from a sponsor (non-voting)</li>
-    </ul>
-
-    <p>
-      <small>
-        Committee membership rotates each year.
-        <a href="#" class="delete">Read about how we pick reviewers →</a>
-      </small>
-    </p>
-
-    <div class="panel fill-notice edge-notice">
-      <h3 class="h6">Working with the committee</h3>
-
-      <p>
-        Reviewer notes are sent to every proposer — accepted or not. If your
-        talk wasn't selected, you'll get specific feedback you can use next
-        year. We treat the CFP as a community service, not a gate.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="main margin-gap">
-    <hgroup>
-      <p>§ 05 · Contact</p>
-      <h2>How to reach us.</h2>
-    </hgroup>
-
-    <p>
-      The committee is small — for most things, the best route is the matching
-      email below. We also keep a few public channels open.
-    </p>
-  </div>
-
-  <div class="auto-grid-14 merge-both">
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">Program</h3>
-        <p>CFP questions, schedule, talk logistics.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="mailto:program@pgconf.dev">program@pgconf.dev</a>
-      </p>
-    </div>
-
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">Sponsorship</h3>
-        <p>Sponsorship inquiries, partner program, invoicing.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="mailto:sponsors@pgconf.dev">sponsors@pgconf.dev</a>
-      </p>
-    </div>
-
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">Press &amp; media</h3>
-        <p>Press passes, interview requests, photo policy.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="mailto:press@pgconf.dev">press@pgconf.dev</a>
-      </p>
-    </div>
-
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">Code of conduct</h3>
-        <p>Confidential channel monitored by the CoC committee.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
-      </p>
-    </div>
-
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">General</h3>
-        <p>Anything else.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="mailto:info@pgconf.dev">info@pgconf.dev</a>
-      </p>
-    </div>
-
-    <div class="note panel bg-tint border">
-      <hgroup>
-        <h3 class="h4">Mailing list</h3>
-        <p>Announcements only — about one email a month.</p>
-      </hgroup>
-      <p class="mono">
-        <a href="#" class="delete">Subscribe →</a>
-      </p>
     </div>
   </div>
 </section>
