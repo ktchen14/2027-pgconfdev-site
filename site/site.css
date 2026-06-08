@@ -236,7 +236,7 @@
 
 @layer appearance {
   *, ::before, ::after {
-    transition-duration: 0s;
+    transition-duration: 0.15s;
     transition-property: none;
     transition-timing-function: ease-in-out;
   }
@@ -371,7 +371,6 @@
   a:where(:not(.button, [role="button"])) {
     color: var(--action);
     text-decoration: underline rgb(from currentColor r g b / 50%);
-    transition-property: background-color, color;
 
     &[aria-current]:where(:not([aria-current="false"])) {
       color: var(--action-fg-mute);
@@ -475,7 +474,6 @@
     padding-block: 0.5em;
     padding-inline: 1em;
     text-align: center;
-    transition-property: background-color, color;
     user-select: none;
 
     &:where(:not(.stroke)) {
@@ -529,7 +527,6 @@
     margin-inline: -1em;
     padding-block: 0.5em;
     padding-inline: 1em calc(2em + var(--marker-size));
-    transition-property: background-color, color;
 
     [open] > & {
       margin-block-end: 0.625em;

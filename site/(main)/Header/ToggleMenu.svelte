@@ -41,7 +41,7 @@
     }
 
     :global(> svg) {
-      transition-property: color, transform;
+      transition-property: transform;
     }
 
     :global(&[aria-expanded="true"] > svg) {
