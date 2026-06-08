@@ -163,7 +163,7 @@
 
 <section>
   <div
-    class="panel side-by-side"
+    class="panel side-by-side border edge-insert"
     style:align-items="center"
     style:padding="var(--margin)"
   >

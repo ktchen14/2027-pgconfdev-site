@@ -581,11 +581,27 @@
     font-size: 1.25em;
   }
 
+  /* Padded surface */
   .panel {
-    border: 1px solid var(--border);
-    border-inline-start: 3px solid var(--insert);
     padding: 1.5rem;
   }
+
+  /* Inline-start accent rule, content inset behind it.
+     Color via .edge-*; bare .edge uses the neutral border color. */
+  .edge, .edge-action, .edge-notice, .edge-insert, .edge-delete {
+    border-inline-start: 3px solid var(--edge, var(--border));
+    padding-inline-start: 1.5rem;
+  }
+  .edge-action { --edge: var(--action-fg); }
+  .edge-notice { --edge: var(--notice-fg); }
+  .edge-insert { --edge: var(--insert-fg); }
+  .edge-delete { --edge: var(--delete-fg); }
+
+  /* Tinted fill (neutral fill is .bg-tint) */
+  .fill-action { background: var(--action-bg-mute); }
+  .fill-notice { background: var(--notice-bg-mute); }
+  .fill-insert { background: var(--insert-bg-mute); }
+  .fill-delete { background: var(--delete-bg-mute); }
 
   .note > :is(p, ol, ul, dl, menu, blockquote) {
     color: var(--fg-mute);

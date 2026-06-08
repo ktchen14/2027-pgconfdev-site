@@ -28,45 +28,8 @@
     }
   }
 
-  /* Callouts */
-  .callout {
-    border-radius: var(--radius);
-    padding: 1.5rem;
-  }
-
-  .callout--info {
-    background: var(--action-bg-mute);
-    border-inline-start: 3px solid var(--action-fg);
-  }
-
-  .callout--notice {
-    background: var(--notice-bg-mute);
-    border-inline-start: 3px solid var(--notice-fg);
-  }
-
-  /* List with left rule */
-  .list-rule {
-    border-inline-start: 3px solid var(--border);
-    list-style-type: none;
-    padding-inline: 1.5rem;
-  }
-
-  /* At a glance fact card */
-  .glance {
-    background: var(--bg-tint);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-  }
-
-  .contact-grid > * {
-    background-color: var(--bg-tint);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-
-    a {
-      font-family: var(--mono-font);
-    }
+  .mono {
+    font-family: var(--mono-font);
   }
 
   blockquote {
@@ -140,7 +103,10 @@
   </ol>
 </nav>
 
-<aside class="float-right note glance" aria-labelledby="at-a-glance">
+<aside
+  class="float-right note panel bg-tint border"
+  aria-labelledby="at-a-glance"
+>
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -185,7 +151,6 @@
   </dl>
 </aside>
 
-<!-- WHAT -->
 <section id="what" class="main">
   <hgroup>
     <p>§ 01 · What it is</p>
@@ -238,7 +203,6 @@
   </figure>
 </section>
 
-<!-- WHO -->
 <section id="who" class="main">
   <div class="margin-section">
     <hgroup>
@@ -251,7 +215,7 @@
       track real and the unconference sessions workable. Roughly:
     </p>
 
-    <ul class="list-rule">
+    <ul class="edge dedent">
       <li>
         <strong>Core contributors</strong> — committers, major patch authors, and
         people who show up regularly on -hackers
@@ -303,7 +267,7 @@
   <hr class="margin-gap" />
 </section>
 
-<section class="callout callout--info main">
+<section class="panel fill-action edge-action main">
   <h3 class="h6">Format</h3>
 
   <p>
@@ -405,14 +369,12 @@
   </div>
 </section>
 
-<!-- COMMITTEE -->
 <section id="committee">
   <hgroup class="main">
     <p>§ 04 · Organizing committee</p>
     <h2>The volunteers who put this on.</h2>
   </hgroup>
 
-  <!-- Inline margin note: floats into the right column, clears the TOC/glance -->
   <aside class="float-right note">
     <h3 class="over">Volunteer-run</h3>
     <p>
@@ -498,7 +460,7 @@
     of interest declared and blind to author identity until the second pass.
   </p>
 
-  <ul class="list-rule main">
+  <ul class="edge dedent main">
     <li>Committee member · subsystem maintainer</li>
     <li>Committee member · extension author</li>
     <li>Committee member · downstream product engineer</li>
@@ -515,7 +477,7 @@
     </small>
   </p>
 
-  <div class="callout callout--notice main">
+  <div class="panel fill-notice edge-notice main">
     <h3 class="h6">Working with the committee</h3>
 
     <p>
@@ -526,7 +488,7 @@
   </div>
 </section>
 
-<section id="contact" class="contact-section">
+<section id="contact">
   <div class="main margin-gap">
     <hgroup>
       <p>§ 05 · Contact</p>
@@ -539,63 +501,63 @@
     </p>
   </div>
 
-  <div class="auto-grid-14 contact-grid merge-both">
-    <div class="note">
+  <div class="auto-grid-14 merge-both">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">Program</h3>
         <p>CFP questions, schedule, talk logistics.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="mailto:program@pgconf.dev">program@pgconf.dev</a>
       </p>
     </div>
 
-    <div class="note">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">Sponsorship</h3>
         <p>Sponsorship inquiries, partner program, invoicing.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="mailto:sponsors@pgconf.dev">sponsors@pgconf.dev</a>
       </p>
     </div>
 
-    <div class="note">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">Press &amp; media</h3>
         <p>Press passes, interview requests, photo policy.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="mailto:press@pgconf.dev">press@pgconf.dev</a>
       </p>
     </div>
 
-    <div class="note">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">Code of conduct</h3>
         <p>Confidential channel monitored by the CoC committee.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
       </p>
     </div>
 
-    <div class="note">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">General</h3>
         <p>Anything else.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="mailto:info@pgconf.dev">info@pgconf.dev</a>
       </p>
     </div>
 
-    <div class="note">
+    <div class="note panel bg-tint border">
       <hgroup>
         <h3 class="h4">Mailing list</h3>
         <p>Announcements only — about one email a month.</p>
       </hgroup>
-      <p>
+      <p class="mono">
         <a href="#" class="delete">Subscribe →</a>
       </p>
     </div>
