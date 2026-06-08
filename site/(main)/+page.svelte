@@ -8,12 +8,8 @@
 </script>
 
 <style>
-  section {
-    padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
-
-    &.bg-tint {
-      padding-block: var(--margin);
-    }
+  section.bg-tint {
+    padding-block: var(--margin);
   }
 
   .hero {
@@ -59,7 +55,7 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<section class="hero">
+<section class="hero merge-both">
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
 
@@ -76,7 +72,7 @@
 
   <hr class="margin-section" />
 
-  <dl class="dedent auto-grid-16 margin-section">
+  <dl class="auto-grid-16 dedent margin-section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">
@@ -111,20 +107,20 @@
   <div class="flex">
     <a
       href="#"
-      class="button circle"
+      class="button circle stroke"
       style:color="var(--delete-fg)"
-      style:background-color="transparent"
-      style:border="1px solid var(--delete-fg)">Register</a
+      style:border="1px solid var(--delete-fg)"
+    >Register</a
     >
     <a href="/cfp" class="button circle stroke">Submit a talk</a>
   </div>
 </section>
 
-<section class="banner">
+<section class="banner merge-both">
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="bg-tint grid-3[48-]" style:gap="var(--margin)">
+<section class="bg-tint grid-3[48-] merge-both" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -149,9 +145,9 @@
   </div>
 </section>
 
-<section>
+<section class="merge-both">
   <div
-    class="grid-3[48-] border edge-insert"
+    class="border edge-insert grid-3[48-]"
     style:align-items="center"
     style:padding="var(--margin)"
   >
@@ -172,18 +168,13 @@
       </p>
     </div>
 
-    <a
-      class="button circle"
-      href="/cfp"
-      style:justify-self="end"
-      style:max-width="max-content"
-    >
+    <a class="button circle" href="/cfp" style:justify-self="end">
       Submit a proposal
     </a>
   </div>
 </section>
 
-<section class="bg-tint">
+<section class="bg-tint merge-both">
   <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>
@@ -198,7 +189,7 @@
   </p>
 </section>
 
-<section>
+<section class="merge-both">
   <hgroup class="margin-gap">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
@@ -244,6 +235,7 @@
 </section>
 
 <section
+  class="merge-both"
   style:background-color="var(--action)"
   style:color="var(--bg)"
   style:padding-block="var(--margin)"
