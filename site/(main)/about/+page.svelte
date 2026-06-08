@@ -28,6 +28,10 @@
     }
   }
 
+  dl.flush > dd, dl.flush > div > dd {
+    margin-inline-start: 0;
+  }
+
   /* Callouts */
   .callout {
     border-radius: var(--radius);
@@ -57,10 +61,6 @@
     border-radius: var(--radius);
     border: 1px solid var(--border);
     padding: 1.5rem;
-  }
-
-  dl.flush > dd, dl.flush > div > dd {
-    margin-inline-start: 0;
   }
 
   .contact-grid > * {

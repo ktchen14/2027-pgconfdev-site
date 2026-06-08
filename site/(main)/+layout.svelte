@@ -1,6 +1,5 @@
 <script lang="ts">
   import { GitHub, Mastodon } from "$lib/icon";
-  import Footer from "./Footer.svelte";
   import Header from "./Header";
 
   const { Link, ToggleMenu } = Header;
@@ -39,9 +38,13 @@
       }
     }
   }
+
+  footer {
+    justify-content: space-between;
+  }
 </style>
 
-<Header class="restrict-1280">
+<Header class="merge-both">
   <li class="menu-triple">
     <ToggleMenu name="Program">
       <div class="margin-p">
@@ -163,7 +166,7 @@
 
 <hr class="margin-gap" />
 
-<Footer class="margin-gap">
+<footer class="flex[48-] merge-both margin-gap note">
   <p>Follow us on <Mastodon /> for the latest news on PGConf.dev 2027</p>
   <p>Fork this site on <GitHub /></p>
-</Footer>
+</footer>

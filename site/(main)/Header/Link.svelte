@@ -8,12 +8,6 @@
   );
 </script>
 
-<style>
-  a {
-    display: block;
-  }
-</style>
-
 <a {href} aria-current={ariaCurrent} {...rest}>
   {@render children()}
 </a>
