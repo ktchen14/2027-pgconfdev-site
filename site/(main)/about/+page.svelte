@@ -10,9 +10,8 @@
     line-height: 1;
   }
 
-  :global(.fullwidth) {
-    clear: both;
-    padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
+  header p {
+    max-width: 38rem;
   }
 
   .section-nav a {
@@ -49,51 +48,19 @@
   .list-rule {
     border-inline-start: 3px solid var(--border);
     list-style-type: none;
-    padding-inline: 1em;
+    padding-inline: 1.5rem;
   }
 
-  /* Facts / definition rows */
-  .facts {
-    display: grid;
-    gap: 0;
-
-    > div {
-      align-items: baseline;
-      border-top: 1px solid var(--border);
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
-      padding-block: 0.75rem;
-    }
-
-    dd {
-      margin-inline-start: 0;
-    }
-  }
-
-  .timeline > div {
-    align-items: start;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 10rem 1fr;
-
-    @media (width < 35rem) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* Portrait placeholder */
-  .placeholder--portrait {
-    aspect-ratio: 4 / 5;
-    background-color: var(--bg-tint);
+  /* At a glance fact card */
+  .glance {
+    background: var(--bg-tint);
+    border-radius: var(--radius);
     border: 1px solid var(--border);
+    padding: 1.5rem;
   }
 
-  /* Photo placeholder */
-  .photo-placeholder--wide {
-    aspect-ratio: 16 / 7;
-    background-color: var(--bg-tint);
-    border: 1px solid var(--border);
+  dl.flush > dd, dl.flush > div > dd {
+    margin-inline-start: 0;
   }
 
   .contact-grid > * {
@@ -119,11 +86,6 @@
     padding-inline: 0;
     padding-top: 1rem;
   }
-
-  cite {
-    font-style: normal;
-    letter-spacing: 0.05em;
-  }
 </style>
 
 <svelte:head>
@@ -134,20 +96,20 @@
   />
 </svelte:head>
 
-<nav class="fullwidth" aria-label="Breadcrumb">
+<nav class="merge-both" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">About</a></li>
   </ol>
 </nav>
 
-<header class="fullwidth">
+<header class="merge-both">
   <hgroup>
     <p class="action">About PGConf.dev</p>
     <h1>The PostgreSQL Developer Conference.</h1>
   </hgroup>
 
-  <p class="lede fg-mute">
+  <p class="lede mute">
     An annual gathering for contributors, committers, and the engineers building
     software with Postgres at its core. Run by the community, for the community
     — without the marketing layer.
@@ -157,10 +119,10 @@
 <hr class="margin-section" />
 
 <nav
-  aria-labelledby="section-nav-over"
   class="section-nav float-left none[-64] note"
+  aria-labelledby="about-the-conference"
 >
-  <h2 id="section-nav-over" class="over">About the Conference</h2>
+  <h2 id="about-the-conference" class="over">About the Conference</h2>
   <ul>
     <li>
       <a href={resolve("/about")} aria-current="page">What PGConf.dev is</a>
@@ -172,8 +134,8 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="content-nav-over" class="float-right none[-48] note">
-  <h2 id="content-nav-over" class="over">On this page</h2>
+<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+  <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#what">What PGConf.dev is</a></li>
     <li><a href="#who">Who attends</a></li>
@@ -183,36 +145,45 @@
   </ol>
 </nav>
 
-<aside class="glance-aside float-right none[-48] note" aria-label="At a glance">
-  <Rule>At a glance</Rule>
-  <dl class="facts">
-    <div>
+<aside class="float-right note glance" aria-labelledby="at-a-glance">
+  <h2 id="at-a-glance" class="over">At a Glance</h2>
+
+  <hr />
+
+  <dl class="flush">
+    <div class="margin-p">
       <dt class="over">Conference</dt>
       <dd>
         PGConf.dev 2027 — the fourth annual PostgreSQL Developer Conference
       </dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Dates</dt>
       <dd>18 — 21 May 2027</dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Venue</dt>
       <dd>Palais des congrès de Montréal</dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Capacity</dt>
       <dd>~600 attendees</dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Format</dt>
       <dd>3 parallel tracks · tutorial day · 2 talk days · unconference day</dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Languages</dt>
       <dd>English</dd>
     </div>
-    <div>
+
+    <div class="margin-p">
       <dt class="over">Organizer</dt>
       <dd>PostgreSQL Community Association of Canada</dd>
     </div>
@@ -257,12 +228,12 @@
     </blockquote>
 
     <figcaption class="over">
-      <cite>— Returning attendee, 2025</cite>
+      <cite style:font-style="normal">— Returning attendee, 2025</cite>
     </figcaption>
   </figure>
 
   <figure>
-    <div class="photo-placeholder--wide">
+    <div class="border" style:aspect-ratio="16 / 7">
       [ Photo · main hall · past edition ]
     </div>
     <figcaption>
@@ -312,7 +283,7 @@
   </div>
 </section>
 
-<section class="fullwidth" aria-label="Statistics">
+<section class="merge-both" aria-label="Statistics">
   <hr class="margin-gap" />
 
   <div class="auto-grid-8 margin-gap">
@@ -353,7 +324,7 @@
     <h2>Four years, four cities.</h2>
   </hgroup>
 
-  <aside class="main[-64] float-left[64-] note">
+  <aside class="float-left note">
     <h3 class="over">PGCon</h3>
     <p>
       PGCon ran in Ottawa from 2007 to 2023 — sixteen editions before PGConf.dev
@@ -368,75 +339,76 @@
     moves between cities to stay close to different parts of the global
     community.
   </p>
+
+  <div class="margin-section">
+    <hr aria-hidden="true" class="merge-left margin-gap" />
+
+    <div class="split-left margin-gap">
+      <figure>
+        <div class="action h2">2024</div>
+        <figcaption class="over">Vancouver, BC</figcaption>
+      </figure>
+
+      <div class="note">
+        <h4>The first PGConf.dev</h4>
+        <p>
+          ~450 attendees · 38 talks · the first unconference day · the format
+          proves itself
+        </p>
+      </div>
+    </div>
+
+    <hr aria-hidden="true" class="merge-left margin-gap" />
+
+    <div class="split-left margin-gap">
+      <figure>
+        <div class="action h2">2025</div>
+        <figcaption class="over">Montréal, QC</figcaption>
+      </figure>
+
+      <div class="note">
+        <h4>Second year, expanded program</h4>
+        <p>
+          ~580 attendees · tutorial day added · scholarships program launches
+          with 22 funded seats
+        </p>
+      </div>
+    </div>
+
+    <hr aria-hidden="true" class="merge-left margin-gap" />
+
+    <div class="split-left margin-gap">
+      <figure>
+        <div class="action h2" style:margin-block="0">2026</div>
+        <figcaption class="over">Vancouver, BC</figcaption>
+      </figure>
+
+      <div class="note">
+        <h4>Return to the West Coast</h4>
+        <p>
+          ~610 attendees · two co-located workshops · first year with a
+          dedicated community day
+        </p>
+      </div>
+    </div>
+
+    <hr aria-hidden="true" class="merge-left margin-gap" />
+
+    <div class="split-left margin-gap">
+      <figure>
+        <div class="action h2">2027</div>
+        <figcaption class="over">Montréal, QC</figcaption>
+      </figure>
+
+      <div class="note">
+        <h4>This year</h4>
+        <p>Palais des congrès · 18 – 21 May · CFP closes 14 February</p>
+      </div>
+    </div>
+
+    <hr aria-hidden="true" class="merge-left margin-gap" />
+  </div>
 </section>
-
-<!-- Timeline: float-based two-column rows -->
-<div class="timeline main margin-section">
-  <div class="margin-gap">
-    <figure>
-      <div class="action h2">2024</div>
-      <figcaption class="over">Vancouver, BC</figcaption>
-    </figure>
-
-    <div class="note">
-      <h4>The first PGConf.dev</h4>
-      <p>
-        ~450 attendees · 38 talks · the first unconference day · the format
-        proves itself
-      </p>
-    </div>
-  </div>
-
-  <hr class="margin-gap" />
-
-  <div class="margin-gap">
-    <figure>
-      <div class="action h2">2025</div>
-      <figcaption class="over">Montréal, QC</figcaption>
-    </figure>
-
-    <div class="note">
-      <h4>Second year, expanded program</h4>
-      <p>
-        ~580 attendees · tutorial day added · scholarships program launches with
-        22 funded seats
-      </p>
-    </div>
-  </div>
-
-  <hr class="margin-gap" />
-
-  <div class="margin-gap">
-    <figure>
-      <div class="action h2" style:margin-block="0">2026</div>
-      <figcaption class="over">Vancouver, BC</figcaption>
-    </figure>
-
-    <div class="note">
-      <h4>Return to the West Coast</h4>
-      <p>
-        ~610 attendees · two co-located workshops · first year with a dedicated
-        community day
-      </p>
-    </div>
-  </div>
-
-  <hr class="margin-gap" />
-
-  <div class="margin-gap">
-    <figure>
-      <div class="action h2">2027</div>
-      <figcaption class="over">Montréal, QC</figcaption>
-    </figure>
-
-    <div class="note">
-      <h4>This year</h4>
-      <p>
-        Palais des congrès · 18 – 21 May · CFP closes 14 February
-      </p>
-    </div>
-  </div>
-</div>
 
 <!-- COMMITTEE -->
 <section id="committee">
@@ -460,11 +432,11 @@
     the perspective.
   </p>
 
-  <Rule class="fullwidth" style="clear: both;">Conference chairs</Rule>
+  <Rule class="merge-both" style="clear: both;">Conference chairs</Rule>
 
-  <div class="auto-grid-12 fullwidth">
+  <div class="auto-grid-12 merge-both">
     <figure>
-      <div class="placeholder--portrait"></div>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
         <hgroup>
           <p>Conference chair</p>
@@ -479,7 +451,7 @@
     </figure>
 
     <figure>
-      <div class="placeholder--portrait"></div>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
         <hgroup>
           <p>Program chair</p>
@@ -487,13 +459,14 @@
         </hgroup>
 
         <p>
-          Extension author and longtime contributor to the regression test suite.
+          Extension author and longtime contributor to the regression test
+          suite.
         </p>
       </figcaption>
     </figure>
 
     <figure>
-      <div class="placeholder--portrait"></div>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
         <hgroup>
           <p>Logistics chair</p>
@@ -508,7 +481,7 @@
     </figure>
 
     <figure>
-      <div class="placeholder--portrait"></div>
+      <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
         <hgroup>
           <p>Sponsorship</p>
@@ -571,7 +544,7 @@
     </p>
   </div>
 
-  <div class="auto-grid-14 contact-grid fullwidth">
+  <div class="auto-grid-14 contact-grid merge-both">
     <div class="note">
       <hgroup>
         <h3 class="h4">Program</h3>

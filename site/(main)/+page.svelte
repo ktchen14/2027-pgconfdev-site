@@ -79,7 +79,7 @@
     <h1>
       <span class="action">PGConf</span>.dev
       <br />
-      <span class="fg-mute">2027</span>
+      <span class="mute">2027</span>
     </h1>
 
     <p class="h2" style:font-weight="400">

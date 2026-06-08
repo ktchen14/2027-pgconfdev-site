@@ -621,6 +621,14 @@
     color: var(--fg-mute);
   }
 
+  .mute {
+    color: var(--fg-mute);
+  }
+
+  .border {
+    border: 1px solid var(--border);
+  }
+
   .bg-tint {
     background-color: var(--bg-tint);
   }
