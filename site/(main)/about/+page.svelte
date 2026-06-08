@@ -241,7 +241,7 @@
 <section class="merge-both" aria-label="Statistics">
   <hr class="margin-gap" />
 
-  <div class="auto-grid-8 margin-gap">
+  <div class="auto-grid-12 margin-gap">
     <figure>
       <div class="action h2">~600</div>
       <figcaption class="over">Attendees</figcaption>

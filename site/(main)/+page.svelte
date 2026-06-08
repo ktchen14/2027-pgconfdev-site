@@ -220,7 +220,7 @@
     </p>
   </hgroup>
 
-  <div class="auto-grid">
+  <div class="auto-grid-16">
     <figure>
       <img src={href} alt="" />
       <figcaption class="over">
