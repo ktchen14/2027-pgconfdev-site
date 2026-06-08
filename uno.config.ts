@@ -18,9 +18,9 @@ export default defineConfig({
     [
       "main",
       [
-        { "margin-inline": gutter },
-        { [symbols.parent]: md, "margin-inline-end": sidebar },
-        { [symbols.parent]: lg, "margin-inline-start": sidebar },
+        { "padding-inline": gutter },
+        { [symbols.parent]: md, "padding-inline-end": sidebar },
+        { [symbols.parent]: lg, "padding-inline-start": sidebar },
       ],
     ],
     // Like `main`, but merging the left / right / both sidebar(s) into the
@@ -28,26 +28,26 @@ export default defineConfig({
     [
       "merge-left",
       [
-        { clear: "left", "margin-inline": gutter },
-        { [symbols.parent]: md, "margin-inline-end": sidebar },
+        { clear: "left", "padding-inline": gutter },
+        { [symbols.parent]: md, "padding-inline-end": sidebar },
       ],
     ],
     [
       "merge-right",
       [
-        { clear: "right", "margin-inline": gutter },
-        { [symbols.parent]: lg, "margin-inline-start": sidebar },
+        { clear: "right", "padding-inline": gutter },
+        { [symbols.parent]: lg, "padding-inline-start": sidebar },
       ],
     ],
-    ["merge-both", { clear: "both", "margin-inline": gutter }],
+    ["merge-both", { clear: "both", "padding-inline": gutter }],
     // Like the matching `merge-*`, but a grid that splits the span into sidebar
     // and main columns; falls back to normal flow below the breakpoint where
     // that sidebar appears.
     [
       "split-left",
       [
-        { clear: "left", "margin-inline": gutter },
-        { [symbols.parent]: md, "margin-inline-end": sidebar },
+        { clear: "left", "padding-inline": gutter },
+        { [symbols.parent]: md, "padding-inline-end": sidebar },
         {
           [symbols.parent]: lg,
           display: "grid",
@@ -64,8 +64,8 @@ export default defineConfig({
     [
       "split-right",
       [
-        { clear: "right", "margin-inline": gutter },
-        { [symbols.parent]: lg, "margin-inline-start": sidebar },
+        { clear: "right", "padding-inline": gutter },
+        { [symbols.parent]: lg, "padding-inline-start": sidebar },
         {
           [symbols.parent]: md,
           display: "grid",
@@ -82,7 +82,7 @@ export default defineConfig({
     [
       "split-both",
       [
-        { clear: "both", "margin-inline": gutter },
+        { clear: "both", "padding-inline": gutter },
         {
           [symbols.parent]: lg,
           display: "grid",

@@ -259,14 +259,16 @@
   <hr class="margin-gap" />
 </section>
 
-<section class="panel fill-action edge-action main">
-  <h3 class="h6">Format</h3>
+<section class="main">
+  <div class="panel fill-action edge-action">
+    <h3 class="h6">Format</h3>
 
-  <p>
-    The conference runs four days: a tutorial day, two days of talks, and a
-    final unconference day. No track ever has more than three parallel sessions,
-    so you can usually catch what you want.
-  </p>
+    <p>
+      The conference runs four days: a tutorial day, two days of talks, and a
+      final unconference day. No track ever has more than three parallel sessions,
+      so you can usually catch what you want.
+    </p>
+  </div>
 </section>
 
 <section id="history">
