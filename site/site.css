@@ -220,7 +220,7 @@
 
 @layer appearance {
   *, ::before, ::after {
-    transition-duration: 0.2s;
+    transition-duration: 0s;
     transition-property: none;
     transition-timing-function: ease-in-out;
   }
@@ -358,8 +358,17 @@
     }
 
     :is(nav, search) & {
+      border-radius: var(--radius);
       color: inherit;
+      display: inline-block;
+      margin-inline: -0.75em;
+      padding-block: 0.5em;
+      padding-inline: 0.75em;
       text-decoration: none;
+
+      &:hover {
+        background-color: var(--bg-tint);
+      }
     }
 
     &:hover {
