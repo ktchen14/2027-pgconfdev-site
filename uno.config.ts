@@ -15,7 +15,6 @@ export default defineConfig({
   extractors: [extractorSvelte()],
   presets: [],
   rules: [
-    ["none", { display: "none" }],
     [
       "main",
       [
@@ -98,20 +97,6 @@ export default defineConfig({
       ],
     ],
     [
-      "flex",
-      [
-        {
-          display: "flex",
-          "flex-wrap": "wrap",
-          gap: "1.5rem",
-        },
-        {
-          [symbols.selector]: (s) => `${s} > *`,
-          "margin-block": 0,
-        },
-      ],
-    ],
-    [
       // Floats into the left sidebar once it exists (`lg`); below that it falls
       // back to `main` so it keeps the same gutter / sidebar reservations.
       "float-left",
@@ -154,13 +139,28 @@ export default defineConfig({
         },
       ],
     ],
+    ["none", { display: "none" }],
+    [
+      "flex",
+      [
+        {
+          display: "flex",
+          "flex-wrap": "wrap",
+          gap: "1.5rem",
+        },
+        {
+          [symbols.selector]: (s) => `${s} > *`,
+          "margin-block": 0,
+        },
+      ],
+    ],
     [
       /^auto-grid-(\d+)$/,
-      ([, w]) => [
+      ([, number]) => [
         {
           display: "grid",
           gap: "1.5rem",
-          "grid-template-columns": `repeat(auto-fit, minmax(${w}rem, 1fr))`,
+          "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
         },
         {
           [symbols.selector]: (s) => `${s} > *`,
@@ -171,11 +171,11 @@ export default defineConfig({
     // Fixed N-column grid (each column 1fr).
     [
       /^grid-(\d+)$/,
-      ([, n]) => [
+      ([, number]) => [
         {
           display: "grid",
           gap: "1.5rem",
-          "grid-template-columns": `repeat(${n}, 1fr)`,
+          "grid-template-columns": `repeat(${number}, 1fr)`,
         },
         {
           [symbols.selector]: (s) => `${s} > *`,

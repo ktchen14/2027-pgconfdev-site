@@ -31,7 +31,6 @@
     line-height: 1;
   }
 
-
   .banner > img {
     max-height: calc(200vh / 3);
     min-height: calc(100vh / 3);
