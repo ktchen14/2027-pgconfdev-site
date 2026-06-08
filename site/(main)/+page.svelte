@@ -28,7 +28,6 @@
 
     dd {
       line-height: 1.2;
-      margin-inline-start: 0;
     }
   }
 
@@ -89,7 +88,7 @@
 
   <hr class="margin-section" />
 
-  <dl class="auto-grid margin-section">
+  <dl class="dedent auto-grid-16 margin-section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">

@@ -28,10 +28,6 @@
     }
   }
 
-  dl.flush > dd, dl.flush > div > dd {
-    margin-inline-start: 0;
-  }
-
   /* Callouts */
   .callout {
     border-radius: var(--radius);
@@ -73,8 +69,7 @@
     }
   }
 
-  /* Pull quote */
-  .pullquote {
+  blockquote {
     border-inline-start: none;
     border-top: 3px solid var(--action-fg);
     color: var(--fg-mute);
@@ -150,7 +145,7 @@
 
   <hr />
 
-  <dl class="flush">
+  <dl class="dedent">
     <div class="margin-p">
       <dt class="over">Conference</dt>
       <dd>
@@ -220,7 +215,7 @@
   </p>
 
   <figure class="margin-section">
-    <blockquote class="pullquote">
+    <blockquote>
       <q>
         The only conference where I leave with a code review queue instead of a
         swag bag.

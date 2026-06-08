@@ -305,7 +305,10 @@
   dd {
     margin-inline-start: 2em;
 
-    :is(nav, search) & {
+    :is(nav, search) &,
+    &.dedent,
+    :where(dl).dedent > :where(div) > &,
+    :where(dl).dedent > & {
       margin-inline-start: 0;
     }
   }
@@ -323,7 +326,7 @@
   menu, ol, ul {
     padding-inline-start: 2em;
 
-    :is(nav, search) :is(&) {
+    :is(nav, search) :is(&), :is(&).dedent {
       list-style-type: none;
       padding-inline-start: 0;
     }
@@ -556,16 +559,6 @@
 
 @layer svelte {
   /* Miscellaneous classes */
-
-  .auto-grid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-
-    > * {
-      margin-block: 0;
-    }
-  }
 
   .circle {
     border-radius: calc(infinity * 1px);
