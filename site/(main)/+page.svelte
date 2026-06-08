@@ -61,14 +61,6 @@
   h2 {
     letter-spacing: -0.015em;
   }
-
-  figcaption {
-    color: var(--fg-tint);
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
 </style>
 
 <svelte:head>
@@ -105,19 +97,19 @@
         &ndash;
         <time datetime="2027-05-14">14</time>, 2027
       </dd>
-      <dd class="fg-mute"><small>Tuesday through Friday</small></dd>
+      <dd><small>Tuesday through Friday</small></dd>
     </div>
 
     <div>
       <dt class="over">Location</dt>
       <dd class="lede">Montréal, QC</dd>
-      <dd class="fg-mute"><small>Plaza Centre-Ville</small></dd>
+      <dd><small>Plaza Centre-Ville</small></dd>
     </div>
 
     <div>
       <dt class="over">Format</dt>
       <dd class="lede">3+ tracks × 4 days</dd>
-      <dd class="fg-mute"><small>~300 attendees</small></dd>
+      <dd><small>~300 attendees</small></dd>
     </div>
 
     <div>
@@ -125,7 +117,7 @@
       <dd class="lede">
         Due <time datetime="2027-02-14">Feb 14</time>
       </dd>
-      <dd class="fg-mute"><small>11:59pm UTC</small></dd>
+      <dd><small>11:59pm UTC</small></dd>
     </div>
   </dl>
 
@@ -172,11 +164,11 @@
 
 <section>
   <div
-    class="note side-by-side"
+    class="panel side-by-side"
     style:align-items="center"
     style:padding="var(--margin)"
   >
-    <div class="margin-gap size-" style:grid-column="span 2">
+    <div class="margin-gap note" style:grid-column="span 2">
       <hgroup>
         <p class="iconic insert">
           <Circle class="size--" style="fill: currentColor" />
@@ -185,7 +177,7 @@
         <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
       </hgroup>
 
-      <p class="fg-mute" style="max-width: 38rem;">
+      <p style="max-width: 38rem;">
         We're looking for technical talks from contributors at every level —
         your first commit, your hardest debug, the extension you wish existed.
         Three formats: 45-minute talks, 90-minute tutorials, and ad-hoc
@@ -232,7 +224,7 @@
   <div class="auto-grid">
     <figure>
       <img src={href} alt="" />
-      <figcaption>
+      <figcaption class="over">
         <strong>2026 · Vancouver</strong>
         Day-one keynote
       </figcaption>
@@ -240,7 +232,7 @@
 
     <figure>
       <img src={href} alt="" />
-      <figcaption>
+      <figcaption class="over">
         <strong>2025 · Montréal</strong>
         Unconference scheduling
       </figcaption>
@@ -248,7 +240,7 @@
 
     <figure>
       <img src={href} alt="" />
-      <figcaption>
+      <figcaption class="over">
         <strong>2024 · Vancouver</strong>
         Hallway-track conversation
       </figcaption>
@@ -256,7 +248,7 @@
 
     <figure>
       <img src={href} alt="" />
-      <figcaption>
+      <figcaption class="over">
         <strong>2025 · Montréal</strong>
         Tutorial day
       </figcaption>

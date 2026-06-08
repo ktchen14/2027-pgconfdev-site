@@ -196,6 +196,10 @@
     &:where(:last-child) {
       margin-block-end: 0;
     }
+
+    :where(nav, search) & {
+      margin-block-end: 0;
+    }
   }
 
   /* Caption elements */
@@ -204,12 +208,24 @@
     margin-block: calc(2em / 3) 0;
   }
 
+  *:has(+ figcaption), *:has(+ .over) {
+    margin-block-end: 0;
+  }
+
+  figcaption + *, .over + * {
+    margin-block-start: 0;
+  }
+
+  figcaption, .over {
+    margin-block: 0;
+  }
+
   * + figcaption, * + .over {
-    margin-block: calc(2em / 3) 0;
+    margin-block-start: calc(2em / 3);
   }
 
   figcaption:has(+ *), .over:has(+ *) {
-    margin-block: 0 calc(2em / 3);
+    margin-block-end: calc(2em / 3);
   }
 
   /* Summary elements */
@@ -339,6 +355,7 @@
   }
 
   small {
+    color: var(--fg-mute);
     font-size: 0.875em;
   }
 
@@ -360,7 +377,7 @@
     :is(nav, search) & {
       border-radius: var(--radius);
       color: inherit;
-      display: inline-block;
+      display: block;
       margin-inline: -0.75em;
       padding-block: 0.5em;
       padding-inline: 0.75em;
@@ -571,10 +588,15 @@
     font-size: 1.25em;
   }
 
-  .note {
+  .panel {
     border: 1px solid var(--border);
     border-inline-start: 3px solid var(--insert);
     padding: 1.5rem;
+  }
+
+  .note > :is(p, ol, ul, dl, menu, blockquote) {
+    color: var(--fg-mute);
+    font-size: 0.875em;
   }
 
   /* Colorization */

@@ -11,7 +11,6 @@
 <style>
   a {
     display: block;
-    margin-block: -0.25em;
   }
 </style>
 

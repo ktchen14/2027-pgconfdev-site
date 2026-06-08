@@ -10,17 +10,9 @@
     line-height: 1;
   }
 
-  .fullwidth {
+  :global(.fullwidth) {
     clear: both;
     padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
-  }
-
-  nav:where(:not(.breadcrumb)) li {
-    margin-block: 0;
-  }
-
-  nav:where(:not(.breadcrumb)) a {
-    display: block;
   }
 
   .section-nav a {
@@ -93,67 +85,21 @@
   /* Portrait placeholder */
   .placeholder--portrait {
     aspect-ratio: 4 / 5;
-    background:
-      linear-gradient(
-        135deg,
-        transparent 49%,
-        color-mix(in oklch, var(--bg-tint), var(--ink) 5%) 49%,
-        color-mix(in oklch, var(--bg-tint), var(--ink) 5%) 51%,
-        transparent 51%
-      ),
-      var(--bg-tint);
-    background-size:
-      14px 14px,
-      100% 100%;
+    background-color: var(--bg-tint);
     border: 1px solid var(--border);
   }
 
   /* Photo placeholder */
   .photo-placeholder--wide {
     aspect-ratio: 16 / 7;
-    background: var(--bg-tint);
+    background-color: var(--bg-tint);
     border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--fg-tint);
-    font-family: var(--mono-font);
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .person {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .person__name {
-    font-family: var(--header-font);
-    font-weight: 600;
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  .person__role {
-    font-family: var(--mono-font);
-    font-size: 0.7rem;
-    color: var(--fg-tint);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .person__bio {
-    font-size: 0.875rem;
-    color: var(--fg-mute);
-    margin: 0;
   }
 
   .contact-grid > * {
-    background: var(--bg-tint);
+    background-color: var(--bg-tint);
     border: 1px solid var(--border);
-    padding: 1.25rem;
+    padding: 1.5rem;
 
     a {
       font-family: var(--mono-font);
@@ -178,12 +124,6 @@
     font-style: normal;
     letter-spacing: 0.05em;
   }
-
-  .breadcrumb ol > li:where(:not(:first-child))::before {
-    content: "›";
-    margin-inline-start: 0.5em;
-    padding-inline-end: 1em;
-  }
 </style>
 
 <svelte:head>
@@ -194,9 +134,9 @@
   />
 </svelte:head>
 
-<nav class="breadcrumb fullwidth" aria-label="Breadcrumb">
-  <ol class="flex over" style:gap="0.5em">
-    <li><a href="/">PGConf.dev 2027</a></li>
+<nav class="fullwidth" aria-label="Breadcrumb">
+  <ol class="iconic over" style:gap="1em">
+    <li aria-hidden="true">/</li>
     <li><a href="/">About</a></li>
   </ol>
 </nav>
@@ -218,10 +158,10 @@
 
 <nav
   aria-labelledby="section-nav-over"
-  class="section-nav float-left none[-64]"
+  class="section-nav float-left none[-64] note"
 >
-  <p id="section-nav-over" class="over">About the Conference</p>
-  <ul class="fg-mute size-">
+  <h2 id="section-nav-over" class="over">About the Conference</h2>
+  <ul>
     <li>
       <a href={resolve("/about")} aria-current="page">What PGConf.dev is</a>
     </li>
@@ -232,9 +172,9 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="content-nav-over" class="float-right none[-48]">
-  <p id="content-nav-over" class="over">On this page</p>
-  <ol class="fg-mute size-">
+<nav aria-labelledby="content-nav-over" class="float-right none[-48] note">
+  <h2 id="content-nav-over" class="over">On this page</h2>
+  <ol>
     <li><a href="#what">What PGConf.dev is</a></li>
     <li><a href="#who">Who attends</a></li>
     <li><a href="#history">A short history</a></li>
@@ -243,9 +183,9 @@
   </ol>
 </nav>
 
-<aside class="glance-aside float-right none[-48]" aria-label="At a glance">
+<aside class="glance-aside float-right none[-48] note" aria-label="At a glance">
   <Rule>At a glance</Rule>
-  <dl class="facts fg-mute size-">
+  <dl class="facts">
     <div>
       <dt class="over">Conference</dt>
       <dd>
@@ -413,8 +353,8 @@
     <h2>Four years, four cities.</h2>
   </hgroup>
 
-  <aside class="main[-64] float-left[64-] fg-mute size-">
-    <p class="over">PGCon</p>
+  <aside class="main[-64] float-left[64-] note">
+    <h3 class="over">PGCon</h3>
     <p>
       PGCon ran in Ottawa from 2007 to 2023 — sixteen editions before PGConf.dev
       picked up the thread.
@@ -438,9 +378,9 @@
       <figcaption class="over">Vancouver, BC</figcaption>
     </figure>
 
-    <div class="size-">
+    <div class="note">
       <h4>The first PGConf.dev</h4>
-      <p class="fg-mute">
+      <p>
         ~450 attendees · 38 talks · the first unconference day · the format
         proves itself
       </p>
@@ -450,14 +390,14 @@
   <hr class="margin-gap" />
 
   <div class="margin-gap">
-    <div>
+    <figure>
       <div class="action h2">2025</div>
-      <div class="over">Montréal, QC</div>
-    </div>
+      <figcaption class="over">Montréal, QC</figcaption>
+    </figure>
 
-    <div class="size-">
+    <div class="note">
       <h4>Second year, expanded program</h4>
-      <p class="fg-mute">
+      <p>
         ~580 attendees · tutorial day added · scholarships program launches with
         22 funded seats
       </p>
@@ -467,14 +407,14 @@
   <hr class="margin-gap" />
 
   <div class="margin-gap">
-    <div>
+    <figure>
       <div class="action h2" style:margin-block="0">2026</div>
-      <div class="over">Vancouver, BC</div>
-    </div>
+      <figcaption class="over">Vancouver, BC</figcaption>
+    </figure>
 
-    <div class="size-">
+    <div class="note">
       <h4>Return to the West Coast</h4>
-      <p class="fg-mute">
+      <p>
         ~610 attendees · two co-located workshops · first year with a dedicated
         community day
       </p>
@@ -484,14 +424,14 @@
   <hr class="margin-gap" />
 
   <div class="margin-gap">
-    <div>
+    <figure>
       <div class="action h2">2027</div>
-      <div class="over">Montréal, QC</div>
-    </div>
+      <figcaption class="over">Montréal, QC</figcaption>
+    </figure>
 
-    <div class="size-">
+    <div class="note">
       <h4>This year</h4>
-      <p class="fg-mute">
+      <p>
         Palais des congrès · 18 – 21 May · CFP closes 14 February
       </p>
     </div>
@@ -506,8 +446,8 @@
   </hgroup>
 
   <!-- Inline margin note: floats into the right column, clears the TOC/glance -->
-  <aside class="float-right size- fg-mute">
-    <p class="over">Volunteer-run</p>
+  <aside class="float-right note">
+    <h3 class="over">Volunteer-run</h3>
     <p>
       No paid staff. Every committee member contributes their time alongside a
       day job in the Postgres ecosystem.
@@ -523,41 +463,64 @@
   <Rule class="fullwidth" style="clear: both;">Conference chairs</Rule>
 
   <div class="auto-grid-12 fullwidth">
-    <div class="person">
+    <figure>
       <div class="placeholder--portrait"></div>
-      <p class="person__role">Conference chair</p>
-      <p class="person__name">Committee member name</p>
-      <p class="person__bio">
-        Maintainer of a major PostgreSQL subsystem. Three years on the
-        organizing committee.
-      </p>
-    </div>
-    <div class="person">
+      <figcaption class="note">
+        <hgroup>
+          <p>Conference chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Maintainer of a major PostgreSQL subsystem. Three years on the
+          organizing committee.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
       <div class="placeholder--portrait"></div>
-      <p class="person__role">Program chair</p>
-      <p class="person__name">Committee member name</p>
-      <p class="person__bio">
-        Extension author and longtime contributor to the regression test suite.
-      </p>
-    </div>
-    <div class="person">
+      <figcaption class="note">
+        <hgroup>
+          <p>Program chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Extension author and longtime contributor to the regression test suite.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
       <div class="placeholder--portrait"></div>
-      <p class="person__role">Logistics chair</p>
-      <p class="person__name">Committee member name</p>
-      <p class="person__bio">
-        Volunteer coordinator for two prior PGConf.dev editions; based in
-        Montréal.
-      </p>
-    </div>
-    <div class="person">
+      <figcaption class="note">
+        <hgroup>
+          <p>Logistics chair</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Volunteer coordinator for two prior PGConf.dev editions; based in
+          Montréal.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure>
       <div class="placeholder--portrait"></div>
-      <p class="person__role">Sponsorship</p>
-      <p class="person__name">Committee member name</p>
-      <p class="person__bio">
-        Coordinates partner agreements, scholarship funding, and the sponsor
-        program.
-      </p>
-    </div>
+      <figcaption class="note">
+        <hgroup>
+          <p>Sponsorship</p>
+          <h3 class="h5">Committee member name</h3>
+        </hgroup>
+
+        <p>
+          Coordinates partner agreements, scholarship funding, and the sponsor
+          program.
+        </p>
+      </figcaption>
+    </figure>
   </div>
 
   <Rule class="main">Program committee</Rule>
@@ -577,9 +540,11 @@
     <li>Committee member · DevRel from a sponsor (non-voting)</li>
   </ul>
 
-  <p class="fg-mute main size-">
-    Committee membership rotates each year.
-    <a href="#" class="delete">Read about how we pick reviewers →</a>
+  <p class="main">
+    <small>
+      Committee membership rotates each year.
+      <a href="#" class="delete">Read about how we pick reviewers →</a>
+    </small>
   </p>
 
   <div class="callout callout--notice main">
@@ -607,44 +572,61 @@
   </div>
 
   <div class="auto-grid-14 contact-grid fullwidth">
-    <div class="fg-mute size-">
-      <h3 class="h4">Program</h3>
-      <p>CFP questions, schedule, talk logistics.</p>
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">Program</h3>
+        <p>CFP questions, schedule, talk logistics.</p>
+      </hgroup>
       <p>
         <a href="mailto:program@pgconf.dev">program@pgconf.dev</a>
       </p>
     </div>
-    <div class="fg-mute size-">
-      <h3 class="h4">Sponsorship</h3>
-      <p>Sponsorship inquiries, partner program, invoicing.</p>
+
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">Sponsorship</h3>
+        <p>Sponsorship inquiries, partner program, invoicing.</p>
+      </hgroup>
       <p>
         <a href="mailto:sponsors@pgconf.dev">sponsors@pgconf.dev</a>
       </p>
     </div>
-    <div class="fg-mute size-">
-      <h3 class="h6">Press &amp; media</h3>
-      <p>Press passes, interview requests, photo policy.</p>
+
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">Press &amp; media</h3>
+        <p>Press passes, interview requests, photo policy.</p>
+      </hgroup>
       <p>
         <a href="mailto:press@pgconf.dev">press@pgconf.dev</a>
       </p>
     </div>
-    <div class="fg-mute size-">
-      <h3 class="h6">Code of conduct</h3>
-      <p>Confidential channel monitored by the CoC committee.</p>
+
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">Code of conduct</h3>
+        <p>Confidential channel monitored by the CoC committee.</p>
+      </hgroup>
       <p>
         <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
       </p>
     </div>
-    <div class="fg-mute size-">
-      <h3 class="h6">General</h3>
-      <p>Anything else.</p>
+
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">General</h3>
+        <p>Anything else.</p>
+      </hgroup>
       <p>
         <a href="mailto:info@pgconf.dev">info@pgconf.dev</a>
       </p>
     </div>
-    <div class="fg-mute size-">
-      <h3 class="h6">Mailing list</h3>
-      <p>Announcements only — about one email a month.</p>
+
+    <div class="note">
+      <hgroup>
+        <h3 class="h4">Mailing list</h3>
+        <p>Announcements only — about one email a month.</p>
+      </hgroup>
       <p>
         <a href="#" class="delete">Subscribe →</a>
       </p>

@@ -47,7 +47,7 @@ export default defineConfig({
         {
           clear: "left",
           float: "left",
-          "margin-block": "var(--margin) 1.5rem",
+          "margin-block": "1.5rem",
           "margin-left": "max(var(--margin), (100vw - 80rem + 6rem) / 2)",
           "margin-right": "var(--margin)",
           width: "16rem",
@@ -64,7 +64,7 @@ export default defineConfig({
         {
           clear: "right",
           float: "right",
-          "margin-block": "var(--margin) 1.5rem",
+          "margin-block": "1.5rem",
           "margin-left": "var(--margin)",
           "margin-right": "max(var(--margin), (100vw - 80rem + 6rem) / 2)",
           width: "16rem",
