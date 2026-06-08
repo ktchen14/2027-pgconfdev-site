@@ -582,7 +582,7 @@
     font-family: var(--mono-font);
   }
 
-  .note > :is(p, ol, ul, dl, menu, blockquote) {
+  .note > :is(blockquote, dl, menu, ol, p, ul) {
     color: var(--fg-mute);
     font-size: 0.875em;
   }
@@ -590,6 +590,14 @@
   /* Padded surface */
   .panel {
     padding: 1.5rem;
+  }
+
+  .border {
+    border: 1px solid var(--border);
+  }
+
+  .text {
+    max-width: 38rem;
   }
 
   /* Inline-start accent rule, content inset behind it.
@@ -633,10 +641,6 @@
 
   .mute {
     color: var(--fg-mute);
-  }
-
-  .border {
-    border: 1px solid var(--border);
   }
 
   .bg-tint {

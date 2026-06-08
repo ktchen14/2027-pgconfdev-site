@@ -19,34 +19,23 @@
   .hero {
     margin-block: calc(2 * var(--margin));
 
-    h1 {
-      font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
-      font-weight: 700;
-      letter-spacing: -2%;
-      line-height: 1;
-    }
-
     dd {
       line-height: 1.2;
     }
   }
 
+  h1 {
+    font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
+    font-weight: 700;
+    letter-spacing: -2%;
+    line-height: 1;
+  }
+
+
   .banner > img {
     max-height: calc(200vh / 3);
     min-height: calc(100vh / 3);
     object-fit: cover;
-  }
-
-  @media (width >= 768px) {
-    .side-by-side {
-      display: grid;
-      gap: var(--margin);
-      grid-template-columns: repeat(3, 1fr);
-
-      > * {
-        margin-block: 0;
-      }
-    }
   }
 
   .button.circle {
@@ -136,7 +125,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="bg-tint side-by-side">
+<section class="bg-tint grid-3[48-]" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -163,7 +152,7 @@
 
 <section>
   <div
-    class="panel side-by-side border edge-insert"
+    class="grid-3[48-] border edge-insert"
     style:align-items="center"
     style:padding="var(--margin)"
   >
@@ -176,7 +165,7 @@
         <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
       </hgroup>
 
-      <p style="max-width: 38rem;">
+      <p class="text">
         We're looking for technical talks from contributors at every level —
         your first commit, your hardest debug, the extension you wish existed.
         Three formats: 45-minute talks, 90-minute tutorials, and ad-hoc

@@ -10,10 +10,6 @@
     line-height: 1;
   }
 
-  header p {
-    max-width: 38rem;
-  }
-
   .section-nav a {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
@@ -63,7 +59,7 @@
     <h1>The PostgreSQL Developer Conference.</h1>
   </hgroup>
 
-  <p class="lede mute">
+  <p class="lede mute text">
     An annual gathering for contributors, committers, and the engineers building
     software with Postgres at its core. Run by the community, for the community
     — without the marketing layer.
