@@ -10,12 +10,12 @@
     type: string;
   }
 
-  // Map a session type to one of the existing edge / fill accent utilities.
-  const accent: Record<string, string> = {
-    talk: "border edge",
-    tutorial: "border edge-insert",
-    unconf: "border edge-notice",
-    featured: "fill-action edge-action",
+  // Map a session type to its schedule-grid accent variant.
+  const variant: Record<string, string> = {
+    talk: "",
+    tutorial: "session--tutorial",
+    unconf: "session--unconf",
+    featured: "session--featured",
   };
 
   const days = [
@@ -291,19 +291,149 @@
     }
   }
 
-  .session h3 {
-    margin-block: 0.25em;
+  /* Schedule: a time × track grid. Time runs down the left column; each slot's
+     sessions align across track columns; breaks span the full width. */
+  .schedule {
+    display: grid;
+  }
+
+  .schedule__row {
+    align-items: start;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 9rem 1fr;
+    padding-block: 1rem;
+  }
+
+  .schedule__row:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .schedule__time {
+    color: var(--fg);
+    font-family: var(--mono-font);
+    font-size: 0.875rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .slot {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(var(--tracks, 1), 1fr);
+  }
+
+  .schedule__row--break {
+    align-items: baseline;
+    color: var(--fg-mute);
+    grid-template-columns: 9rem 1fr auto;
+  }
+
+  .break-label {
+    color: var(--fg-mute);
+    font-family: var(--header-font);
+    font-style: italic;
+  }
+
+  .break-meta {
+    color: var(--fg-tint);
+    font-family: var(--mono-font);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .session {
+    border-top: 3px solid var(--accent, var(--border));
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .session__track {
+    color: var(--accent, var(--fg-tint));
+    font-family: var(--mono-font);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .session__title {
+    font-family: var(--header-font);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .session__speaker {
+    color: var(--fg-mute);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .session__speaker strong {
+    color: var(--fg);
+    font-weight: 500;
+  }
+
+  .session__meta {
+    color: var(--fg-tint);
+    font-family: var(--mono-font);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    margin-block-start: auto;
+    padding-block-start: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .session--featured {
+    --accent: var(--action);
+  }
+  .session--featured .session__title {
+    font-size: 1.5rem;
+    line-height: 1.15;
+  }
+  .session--tutorial {
+    --accent: var(--insert);
+  }
+  .session--unconf {
+    --accent: var(--notice-fg);
+  }
+
+  @media (width < 48rem) {
+    .schedule__row {
+      gap: 0.5rem;
+      grid-template-columns: 1fr;
+    }
+    .schedule__row--break {
+      grid-template-columns: 1fr auto;
+    }
+    .slot {
+      grid-template-columns: 1fr;
+    }
+    .schedule__time {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
+    }
   }
 </style>
 
 {#snippet session(s: Session)}
-  <article class={["session note panel", accent[s.type]]}>
-    <p class="over">{s.track}</p>
-    <h3 class="h5">{s.title}</h3>
-    <p>
+  <article class={["session", variant[s.type]]}>
+    <p class="session__track">{s.track}</p>
+    <h3 class="session__title">{s.title}</h3>
+    <p class="session__speaker">
       {#if s.org}<strong>{s.who}</strong> · {s.org}{:else}{s.who}{/if}
     </p>
-    <p class="over">{s.room}</p>
+    <p class="session__meta">{s.room}</p>
   </article>
 {/snippet}
 
@@ -426,17 +556,19 @@
 
     <p class="main note">{day.intro}</p>
 
-    <div class="merge-both">
+    <div class="schedule merge-both">
       {#each day.slots as slot}
         {#if slot.break}
-          <p class="over" style:margin-block="1.5rem">
-            {slot.time} · {slot.break} · {slot.place}
-          </p>
+          <div class="schedule__row schedule__row--break">
+            <div class="schedule__time">{slot.time}</div>
+            <div class="break-label">{slot.break}</div>
+            <div class="break-meta">{slot.place}</div>
+          </div>
         {:else}
-          <div class="margin-section">
-            <p class="over mono">{slot.time}</p>
-            <div class="auto-grid-16">
-              {#each slot.sessions as s}
+          <div class="schedule__row">
+            <div class="schedule__time">{slot.time}</div>
+            <div class="slot" style:--tracks={slot.sessions?.length ?? 1}>
+              {#each slot.sessions ?? [] as s}
                 {@render session(s)}
               {/each}
             </div>

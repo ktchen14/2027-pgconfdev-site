@@ -22,6 +22,24 @@
       border-color: var(--action-fg);
     }
   }
+
+  /* Per-tier accent hierarchy, driven through the .edge custom property. */
+  .tier-platinum {
+    --edge: var(--action-fg);
+  }
+  .tier-gold {
+    --edge: oklch(0.72 0.13 85);
+  }
+  .tier-silver {
+    --edge: oklch(0.62 0.02 245);
+  }
+  .tier-bronze {
+    --edge: oklch(0.58 0.09 50);
+  }
+
+  .tier .price {
+    color: var(--edge);
+  }
 </style>
 
 <svelte:head>
@@ -158,10 +176,10 @@
   </p>
 
   <div class="auto-grid-16 merge-both">
-    <div class="note panel border edge-action">
+    <div class="note panel border edge tier tier-platinum">
       <hgroup>
         <h3 class="h4">Platinum</h3>
-        <p class="mono action">CAD $25,000</p>
+        <p class="mono price">CAD $25,000</p>
       </hgroup>
       <p>
         Prominent logo placement throughout the venue and website, speaking
@@ -170,10 +188,10 @@
       </p>
     </div>
 
-    <div class="note panel border edge">
+    <div class="note panel border edge tier tier-gold">
       <hgroup>
         <h3 class="h4">Gold</h3>
-        <p class="mono">CAD $15,000</p>
+        <p class="mono price">CAD $15,000</p>
       </hgroup>
       <p>
         Logo on website, printed program, and sponsor banner. Two complimentary
@@ -181,10 +199,10 @@
       </p>
     </div>
 
-    <div class="note panel border edge">
+    <div class="note panel border edge tier tier-silver">
       <hgroup>
         <h3 class="h4">Silver</h3>
-        <p class="mono">CAD $7,500</p>
+        <p class="mono price">CAD $7,500</p>
       </hgroup>
       <p>
         Logo on website and printed program. One complimentary registration.
@@ -192,10 +210,10 @@
       </p>
     </div>
 
-    <div class="note panel border edge">
+    <div class="note panel border edge tier tier-bronze">
       <hgroup>
         <h3 class="h4">Bronze</h3>
-        <p class="mono">CAD $3,000</p>
+        <p class="mono price">CAD $3,000</p>
       </hgroup>
       <p>Logo on website. One complimentary registration.</p>
     </div>

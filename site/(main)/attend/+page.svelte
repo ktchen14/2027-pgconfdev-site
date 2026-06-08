@@ -22,6 +22,29 @@
       border-color: var(--action-fg);
     }
   }
+
+  /* Aligned label → value spec table */
+  .facts {
+    display: grid;
+  }
+
+  .facts > div {
+    align-items: baseline;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 9rem 1fr;
+    padding-block: 0.75rem;
+  }
+
+  .facts > div:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .facts dd {
+    color: var(--fg-mute);
+    margin-inline-start: 0;
+  }
 </style>
 
 <svelte:head>
@@ -73,34 +96,6 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="venue-glance">
-  <h2 id="venue-glance" class="over">Venue at a Glance</h2>
-
-  <hr />
-
-  <dl class="dedent">
-    <div class="margin-p">
-      <dt class="over">Address</dt>
-      <dd>159 Rue Saint-Antoine Ouest, Montréal, QC H2Z 1H2</dd>
-    </div>
-
-    <div class="margin-p">
-      <dt class="over">Métro</dt>
-      <dd>Place-d'Armes (Orange line) — direct underground access</dd>
-    </div>
-
-    <div class="margin-p">
-      <dt class="over">Dates</dt>
-      <dd>18 – 21 May 2027 (Tue – Fri)</dd>
-    </div>
-
-    <div class="margin-p">
-      <dt class="over">Registration</dt>
-      <dd>Main lobby, Level 2 — open from 08:00 each day</dd>
-    </div>
-  </dl>
-</aside>
-
 <section id="venue" class="main">
   <hgroup>
     <p>§ 01 · Venue</p>
@@ -117,6 +112,25 @@
     The venue is a short walk from hotels, restaurants, and the rest of the
     downtown core. Old Montréal and the Vieux-Port are minutes away on foot.
   </p>
+
+  <dl class="facts">
+    <div>
+      <dt class="over">Address</dt>
+      <dd>159 Rue Saint-Antoine Ouest, Montréal, QC H2Z 1H2</dd>
+    </div>
+    <div>
+      <dt class="over">Métro</dt>
+      <dd>Place-d'Armes (Orange line) — direct access from underground</dd>
+    </div>
+    <div>
+      <dt class="over">Dates</dt>
+      <dd>18 – 21 May 2027 (Tue – Fri)</dd>
+    </div>
+    <div>
+      <dt class="over">Registration</dt>
+      <dd>Main lobby, Level 2. Open from 08:00 each day.</dd>
+    </div>
+  </dl>
 
   <figure class="margin-section">
     <div class="border" style:aspect-ratio="16 / 7">
@@ -140,12 +154,8 @@
     rooms are on Level 2. Registration and the sponsor hall are in the main
     lobby on Level 2.
   </p>
-</section>
 
-<section aria-label="Rooms" class="merge-both">
-  <hr class="margin-gap" />
-
-  <dl class="auto-grid-14 dedent margin-gap">
+  <dl class="facts">
     <div>
       <dt class="over">Grand Ballroom</dt>
       <dd>Level 7 · Plenary sessions, keynotes, opening/closing</dd>
@@ -175,8 +185,6 @@
       <dd>Level 3 · Catered lunch (included in registration)</dd>
     </div>
   </dl>
-
-  <hr class="margin-gap" />
 </section>
 
 <section class="main">
