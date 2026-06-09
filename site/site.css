@@ -16,12 +16,6 @@
     --mono-font: "JetBrains Mono", ui-monospace, monospace;
     --normal-font: "Public Sans", system-ui, sans-serif;
 
-    /* Layout */
-
-    --sidebar-width: clamp(12rem, 25vw, 16rem);
-    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
-    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
-
     /* Size */
 
     --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
@@ -241,9 +235,17 @@
 }
 
 @layer page-layout {
-  .float-left {
-    margin-inline: var(--gutter);
+  :root {
+    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
+    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
+    --sidebar-width: clamp(12rem, 25vw, 16rem);
+  }
 
+  .\(, .\) {
+    margin-inline: var(--gutter);
+  }
+
+  .\( {
     @media (width >= 48rem) {
       margin-inline-end: var(--side);
     }
@@ -251,25 +253,27 @@
     @media (width >= 64rem) {
       clear: inline-start;
       float: inline-start;
+      margin-block-start: 0;
       margin-inline: var(--gutter) var(--margin);
       width: var(--sidebar-width);
     }
   }
 
-  .float-right {
-    margin-inline: var(--gutter);
-
+  .\) {
     @media (width >= 48rem) {
       clear: inline-end;
       float: inline-end;
+      margin-block-start: 0;
       margin-inline: var(--margin) var(--gutter);
       width: var(--sidebar-width);
     }
   }
 
+  .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
+    padding-inline: var(--gutter);
+  }
+
   .main {
-    padding-inline: var(--gutter);
-
     @media (width >= 48rem) {
       padding-inline-end: var(--side);
     }
@@ -279,39 +283,14 @@
     }
   }
 
-  .merge-left {
-    padding-inline: var(--gutter);
-
+  .\(main {
     @media (width >= 48rem) {
       clear: inline-start;
       padding-inline-end: var(--side);
     }
   }
 
-  .merge-right {
-    padding-inline: var(--gutter);
-
-    @media (width >= 64rem) {
-      clear: inline-end;
-      padding-inline-start: var(--side);
-    }
-  }
-
-  .merge-both {
-    padding-inline: var(--gutter);
-
-    @media (width >= 48rem) {
-      clear: inline-start;
-    }
-
-    @media (width >= 64rem) {
-      clear: both;
-    }
-  }
-
-  .split-left {
-    padding-inline: var(--gutter);
-
+  .\[main {
     @media (width >= 48rem) {
       padding-inline-end: var(--side);
     }
@@ -329,9 +308,14 @@
     }
   }
 
-  .split-right {
-    padding-inline: var(--gutter);
+  .main\) {
+    @media (width >= 64rem) {
+      clear: inline-end;
+      padding-inline-start: var(--side);
+    }
+  }
 
+  .main\] {
     @media (width >= 48rem) {
       clear: inline-end;
       column-gap: var(--margin);
@@ -349,9 +333,17 @@
     }
   }
 
-  .split-both {
-    padding-inline: var(--gutter);
+  .\(main\) {
+    @media (width >= 48rem) {
+      clear: inline-start;
+    }
 
+    @media (width >= 64rem) {
+      clear: both;
+    }
+  }
+
+  .\[main\] {
     @media (width >= 48rem) {
       clear: inline-end;
       column-gap: var(--margin);

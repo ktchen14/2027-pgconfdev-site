@@ -55,14 +55,14 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">Attend</a></li>
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Attend · Montréal 2027</p>
     <h1>Everything you need to get here.</h1>
@@ -77,7 +77,7 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")} aria-current="page">Venue</a></li>
@@ -87,7 +87,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#venue">The venue</a></li>

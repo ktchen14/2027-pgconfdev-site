@@ -30,7 +30,7 @@
   }
 </style>
 
-<Header class="merge-both">
+<Header class="(main)">
   <li class="menu-single">
     <ToggleMenu name="Program">
       <ul>
@@ -73,7 +73,7 @@
 
 <hr class="margin-gap" />
 
-<footer class="flex[48-] merge-both margin-gap note">
+<footer class="flex[48-] (main) margin-gap note">
   <p>Follow us on <Mastodon /> for the latest news on PGConf.dev 2027</p>
   <p>Fork this site on <GitHub /></p>
 </footer>

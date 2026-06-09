@@ -55,7 +55,7 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<section class="hero merge-both">
+<section class="hero (main)">
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
 
@@ -115,11 +115,11 @@
   </div>
 </section>
 
-<section class="banner merge-both">
+<section class="banner (main)">
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="bg-tint grid-3[48-] merge-both" style:gap="var(--margin)">
+<section class="bg-tint grid-3[48-] (main)" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -144,7 +144,7 @@
   </div>
 </section>
 
-<section class="merge-both">
+<section class="(main)">
   <div
     class="border edge-insert grid-3[48-]"
     style:align-items="center"
@@ -173,7 +173,7 @@
   </div>
 </section>
 
-<section class="bg-tint merge-both">
+<section class="bg-tint (main)">
   <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>
@@ -188,7 +188,7 @@
   </p>
 </section>
 
-<section class="merge-both">
+<section class="(main)">
   <hgroup class="margin-gap">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
@@ -234,7 +234,7 @@
 </section>
 
 <section
-  class="merge-both"
+  class="(main)"
   style:background-color="var(--action)"
   style:color="var(--bg)"
   style:padding-block="var(--margin)"

@@ -50,7 +50,7 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href={resolve("/attend")}>Attend</a></li>
@@ -59,7 +59,7 @@
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Attend · Social</p>
     <h1>Social events.</h1>
@@ -84,7 +84,7 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -96,7 +96,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#evenings">The big evenings</a></li>
@@ -110,7 +110,7 @@
     <h2>Two nights worth clearing your calendar for.</h2>
   </hgroup>
 
-  <aside class="float-right note">
+  <aside class=") note">
     <h3 class="over">Details &amp; signup</h3>
     <p>
       Venues and signup links for 2027 go up closer to the conference; the
@@ -120,7 +120,7 @@
     </p>
   </aside>
 
-  <div class="auto-grid-16 merge-both">
+  <div class="auto-grid-16 (main)">
     <figure id="reception">
       <div class="photo border">[ Photo · evening reception ]</div>
       <figcaption class="note">
@@ -159,7 +159,7 @@
     <h2>Smaller ways to meet people.</h2>
   </hgroup>
 
-  <div class="auto-grid-12 merge-both">
+  <div class="auto-grid-12 (main)">
     <figure id="breakfast">
       <div class="photo border">[ Photo · welcome breakfast ]</div>
       <figcaption class="note">

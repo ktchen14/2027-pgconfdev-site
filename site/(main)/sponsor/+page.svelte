@@ -32,14 +32,14 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">Sponsors</a></li>
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Sponsors</p>
     <h1>The companies underwriting 2027.</h1>
@@ -53,7 +53,7 @@
 
 <hr class="margin-section" />
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#confirmed">2027 sponsors</a></li>
@@ -63,7 +63,7 @@
 </nav>
 
 <aside
-  class="float-right note area bg-tint border"
+  class=") note area bg-tint border"
   aria-labelledby="tiers-glance"
 >
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
@@ -149,7 +149,7 @@
     detailed benefit descriptions.
   </p>
 
-  <div class="auto-grid-16 merge-both">
+  <div class="auto-grid-16 (main)">
     <div class="note area border edge tier tier-platinum">
       <hgroup>
         <h3 class="h4">Platinum</h3>
@@ -211,7 +211,7 @@
 </section>
 
 <section
-  class="merge-both"
+  class="(main)"
   style:background-color="var(--action)"
   style:color="var(--bg)"
   style:padding-block="var(--margin)"

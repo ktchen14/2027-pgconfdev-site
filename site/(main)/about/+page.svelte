@@ -45,14 +45,14 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">About</a></li>
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">About PGConf.dev</p>
     <h1>The PostgreSQL Developer Conference.</h1>
@@ -68,7 +68,7 @@
 <hr class="margin-section" />
 
 <nav
-  class="section-nav float-left none[-64] note"
+  class="section-nav ( none[-64] note"
   aria-labelledby="about-the-conference"
 >
   <h2 id="about-the-conference" class="over">About the Conference</h2>
@@ -82,7 +82,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#what">What PGConf.dev is</a></li>
@@ -92,7 +92,7 @@
 </nav>
 
 <aside
-  class="area bg-tint border float-right note"
+  class="area bg-tint border ) note"
   aria-labelledby="at-a-glance"
 >
   <h2 id="at-a-glance" class="over">At a Glance</h2>
@@ -230,7 +230,7 @@
   </div>
 </section>
 
-<section class="merge-both" aria-label="Statistics">
+<section class="(main)" aria-label="Statistics">
   <div class="border-block" style:padding-top="1.5rem">
     <div class="auto-grid-12 margin-gap">
       <figure>
@@ -271,7 +271,7 @@
     <h2>Four years, four cities.</h2>
   </hgroup>
 
-  <aside class="float-left note">
+  <aside class="( note">
     <h3 class="over">PGCon</h3>
     <p>
       PGCon ran in Ottawa from 2007 to 2023 — sixteen editions before PGConf.dev
@@ -287,7 +287,7 @@
     community.
   </p>
 
-  <div class="margin-section split-right">
+  <div class="margin-section main]">
     <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2">2024</div>

@@ -32,7 +32,7 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href={resolve("/attend")}>Attend</a></li>
@@ -41,7 +41,7 @@
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Attend · Volunteer</p>
     <h1>Help run the conference.</h1>
@@ -56,7 +56,7 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -68,7 +68,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#get">What you get</a></li>
@@ -79,7 +79,7 @@
 </nav>
 
 <aside
-  class="float-right note area bg-tint border"
+  class=") note area bg-tint border"
   aria-labelledby="vol-glance"
 >
   <h2 id="vol-glance" class="over">At a Glance</h2>
@@ -139,7 +139,7 @@
     <h2>What volunteers do.</h2>
   </hgroup>
 
-  <div class="auto-grid-16 merge-both">
+  <div class="auto-grid-16 (main)">
     <div class="note area border">
       <hgroup>
         <h3 class="h4">Registration desk</h3>
@@ -196,7 +196,7 @@
     <h2>The red lanyard rule.</h2>
   </hgroup>
 
-  <aside class="float-right note">
+  <aside class=") note">
     <h3 class="over">Red lanyard</h3>
     <p>
       A red lanyard means "do not photograph." When in doubt, don't take the

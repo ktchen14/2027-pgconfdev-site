@@ -32,7 +32,7 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href={resolve("/attend")}>Attend</a></li>
@@ -41,7 +41,7 @@
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Attend · Travel</p>
     <h1>Getting to Montréal.</h1>
@@ -55,7 +55,7 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -69,7 +69,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#air">By air</a></li>
@@ -80,7 +80,7 @@
 </nav>
 
 <aside
-  class="float-right note area bg-tint border"
+  class=") note area bg-tint border"
   aria-labelledby="yul-glance"
 >
   <h2 id="yul-glance" class="over">YUL → Venue</h2>
@@ -144,7 +144,7 @@
     <h2>Visas and eTAs.</h2>
   </hgroup>
 
-  <aside class="float-right note">
+  <aside class=") note">
     <h3 class="over">Apply early</h3>
     <p>
       Visa and eTA processing can be slow, especially around major holidays.
@@ -193,7 +193,7 @@
   </p>
 </section>
 
-<section aria-label="Partner hotels" class="merge-both">
+<section aria-label="Partner hotels" class="(main)">
   <div class="auto-grid-14">
     <div class="note area border">
       <hgroup>

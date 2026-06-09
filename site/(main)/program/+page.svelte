@@ -888,14 +888,14 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">Program</a></li>
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Program · 4 days · 3 tracks</p>
     <h1>The 2027 program.</h1>
@@ -911,7 +911,7 @@
 <hr class="margin-section" />
 
 <nav
-  class="section-nav float-left none[-64] note"
+  class="section-nav ( none[-64] note"
   aria-labelledby="program-nav"
 >
   <h2 id="program-nav" class="over">Program</h2>
@@ -921,7 +921,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">Jump to a day</h2>
   <ol>
     <li><a href="#day-1">Tue · 18 May · Tutorials</a></li>
@@ -931,7 +931,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note area bg-tint border" aria-labelledby="legend">
+<aside class=") note area bg-tint border" aria-labelledby="legend">
   <h2 id="legend" class="over">Legend</h2>
 
   <hr />
@@ -956,7 +956,7 @@
   </dl>
 </aside>
 
-<section aria-label="Statistics" class="merge-both">
+<section aria-label="Statistics" class="(main)">
   <hr class="margin-gap" />
 
   <div class="auto-grid-12 margin-gap">
@@ -998,7 +998,7 @@
 
     <p class="main note">{day.intro}</p>
 
-    <div class="schedule merge-both">
+    <div class="schedule (main)">
       {#each day.slots as slot}
         {#if slot.break}
           <div class="schedule__row schedule__row--break">

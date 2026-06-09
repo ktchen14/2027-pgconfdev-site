@@ -57,14 +57,14 @@
   />
 </svelte:head>
 
-<nav class="merge-both" aria-label="Breadcrumb">
+<nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
     <li><a href="/">Call for Proposals</a></li>
   </ol>
 </nav>
 
-<header class="merge-both">
+<header class="(main)">
   <hgroup>
     <p class="action">Call for Proposals</p>
     <h1>Submit a talk for 2027.</h1>
@@ -80,7 +80,7 @@
 <hr class="margin-section" />
 
 <nav
-  class="section-nav float-left none[-64] note"
+  class="section-nav ( none[-64] note"
   aria-labelledby="program-nav"
 >
   <h2 id="program-nav" class="over">Program</h2>
@@ -92,7 +92,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class="float-right none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none[-48] note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#looking-for">What we're looking for</a></li>
@@ -103,7 +103,7 @@
 </nav>
 
 <aside
-  class="float-right note area bg-tint border"
+  class=") note area bg-tint border"
   aria-labelledby="cfp-glance"
 >
   <h2 id="cfp-glance" class="over">At a Glance</h2>
@@ -202,7 +202,7 @@
     tutorial.
   </p>
 
-  <div class="auto-grid-16 merge-both">
+  <div class="auto-grid-16 (main)">
     <div class="note area border edge">
       <hgroup>
         <p>45 min · 3 tracks</p>
