@@ -27,28 +27,15 @@ export default defineConfig({
     ],
 
     [
-      /^grid\+(\d+)$/,
-      ([, number]) => [
+      /^grid([+/])(\d+)$/,
+      ([, operator, number]) => [
         {
           display: "grid",
           gap: "1.5rem",
-          "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
-        },
-        {
-          [symbols.selector]: (selector) => `${selector} > *`,
-          "margin-block": 0,
-        },
-      ],
-    ],
-
-    // Fixed N-column grid (each column 1fr).
-    [
-      /^grid\/(\d+)$/,
-      ([, number]) => [
-        {
-          display: "grid",
-          gap: "1.5rem",
-          "grid-template-columns": `repeat(${number}, 1fr)`,
+          "grid-template-columns":
+            operator === "+"
+              ? `repeat(auto-fit, minmax(${number}rem, 1fr))`
+              : `repeat(${number}, 1fr)`,
         },
         {
           [symbols.selector]: (selector) => `${selector} > *`,
@@ -69,7 +56,7 @@ export default defineConfig({
     ],
 
     [/^column-(\d+)$/, ([, number]) => ({ "grid-column": number })],
-    [/^span-(\d+)$/, ([, number]) => ({ "grid-column": `span ${number}` })],
+    [/^column-span-(\d+)$/, ([, number]) => ({ "grid-column": `span ${number}` })],
   ],
   variants: [
     (matcher) => {

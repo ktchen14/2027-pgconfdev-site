@@ -285,7 +285,7 @@
   </p>
 
   <div class="main] margin-section">
-    <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+    <div class="column-span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -300,9 +300,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap span-2" />
+    <hr aria-hidden="true" class="margin-gap column-span-2" />
 
-    <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+    <div class="column-span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
@@ -317,9 +317,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap span-2" />
+    <hr aria-hidden="true" class="margin-gap column-span-2" />
 
-    <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+    <div class="column-span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2" style:margin-block="0">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -334,9 +334,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap span-2" />
+    <hr aria-hidden="true" class="margin-gap column-span-2" />
 
-    <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+    <div class="column-span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>
