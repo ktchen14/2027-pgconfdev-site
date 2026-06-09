@@ -30,10 +30,6 @@
     --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
     --radius: 0.25rem;
 
-    --w-text: 38rem; /* editorial column */
-    --w-text-wide: 50rem; /* mid breakout */
-    --w-wide: 80rem; /* container */
-
     /* Color */
 
     --action: oklch(0.4973 0.12 245.25);
