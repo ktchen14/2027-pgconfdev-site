@@ -146,7 +146,7 @@
 
 <section class="(main)">
   <div
-    class="border edge-insert grid/3[48-]"
+    class="border insert-edge grid/3[48-]"
     style:align-items="center"
     style:padding="var(--margin)"
   >

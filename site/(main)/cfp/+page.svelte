@@ -128,7 +128,7 @@
 </aside>
 
 <section class="main">
-  <div class="area fill-insert edge-insert">
+  <div class="area fill-insert insert-edge">
     <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
@@ -208,7 +208,7 @@
       </p>
     </div>
 
-    <div class="note area border edge-insert">
+    <div class="note area border insert-edge">
       <hgroup>
         <p>90 min · Day 1</p>
         <h3 class="h4">Tutorial</h3>
@@ -219,7 +219,7 @@
       </p>
     </div>
 
-    <div class="note area border edge-notice">
+    <div class="note area border notice-edge">
       <hgroup>
         <p>30 min · Friday</p>
         <h3 class="h4">Unconference</h3>
@@ -251,7 +251,7 @@
     submission or a future edition.
   </p>
 
-  <div class="area fill-action edge-action margin-section">
+  <div class="area fill-action action-edge margin-section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If

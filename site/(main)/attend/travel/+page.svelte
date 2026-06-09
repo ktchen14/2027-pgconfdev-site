@@ -217,7 +217,7 @@
 </section>
 
 <section class="main">
-  <div class="area fill-action edge-action">
+  <div class="area fill-action action-edge">
     <h3 class="h6">Book early</h3>
     <p>
       Montréal is a popular conference destination in spring. Even outside our

@@ -729,6 +729,26 @@
     font-size: 1.25em;
   }
 
+  .lucide {
+    size: 1em;
+  }
+
+  :where(:not(.icon)):is(.size\+2, .size\+\+) {
+    font-size: 1.25em;
+  }
+
+  :where(:not(.icon)):is(.size\+1, .size\+) {
+    font-size: 1.125em;
+  }
+
+  :where(:not(.icon)):is(.size-1, .size-) {
+    font-size: 0.875em;
+  }
+
+  :where(:not(.icon)):is(.size-2, .size--) {
+    font-size: 0.75em;
+  }
+
   .mono {
     font-family: var(--mono-font);
   }
@@ -753,29 +773,6 @@
 
   .text {
     max-width: 38rem;
-  }
-
-  /* Inline-start accent rule, content inset behind it.
-     Color via .edge-*; bare .edge uses the neutral border color. */
-  .edge,
-  .edge-action,
-  .edge-notice,
-  .edge-insert,
-  .edge-delete {
-    border-inline-start: 3px solid var(--edge, var(--border));
-    padding-inline-start: 1.5rem;
-  }
-  .edge-action {
-    --edge: var(--action-fg);
-  }
-  .edge-notice {
-    --edge: var(--notice-fg);
-  }
-  .edge-insert {
-    --edge: var(--insert-fg);
-  }
-  .edge-delete {
-    --edge: var(--delete-fg);
   }
 
   /* Tinted fill (neutral fill is .bg-tint) */
@@ -822,29 +819,53 @@
     background-color: var(--bg-tint);
   }
 
+  /* Block-start accent rule, content inset behind it. */
+  .acme, .action-acme, .notice-acme, .insert-acme, .delete-acme {
+    border-block-start: 3px solid var(--border);
+    padding-block-start: 1.5rem;
+  }
+
+  .action-acme {
+    border-block-start-color: var(--action-fg);
+  }
+
+  .notice-acme {
+    border-block-start-color: var(--notice-fg);
+  }
+
+  .insert-acme {
+    border-block-start-color: var(--insert-fg);
+  }
+
+  .delete-acme {
+    border-block-start-color: var(--delete-fg);
+  }
+
+  /* Inline-start accent rule, content inset behind it. */
+  .edge, .action-edge, .notice-edge, .insert-edge, .delete-edge {
+    border-inline-start: 3px solid var(--border);
+    padding-inline-start: 1.5rem;
+  }
+
+  .action-edge {
+    border-inline-start-color: var(--action-fg);
+  }
+
+  .notice-edge {
+    border-inline-start-color: var(--notice-fg);
+  }
+
+  .insert-edge {
+    border-inline-start-color: var(--insert-fg);
+  }
+
+  .delete-edge {
+    border-inline-start-color: var(--delete-fg);
+  }
+
   #root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-
-  .lucide {
-    size: 1em;
-  }
-
-  :where(:not(.icon)):is(.size\+2, .size\+\+) {
-    font-size: 1.25em;
-  }
-
-  :where(:not(.icon)):is(.size\+1, .size\+) {
-    font-size: 1.125em;
-  }
-
-  :where(:not(.icon)):is(.size-1, .size-) {
-    font-size: 0.875em;
-  }
-
-  :where(:not(.icon)):is(.size-2, .size--) {
-    font-size: 0.75em;
   }
 }

@@ -1019,7 +1019,7 @@
 {/each}
 
 <section class="main">
-  <div class="area fill-action edge-action">
+  <div class="area fill-action action-edge">
     <h3 class="h6">Changes &amp; updates</h3>
     <p>
       The program is subject to minor changes through April 2027. The CFP for

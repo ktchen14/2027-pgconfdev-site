@@ -182,7 +182,7 @@
     </small>
   </p>
 
-  <div class="area fill-notice edge-notice">
+  <div class="area fill-notice notice-edge">
     <h3 class="h6">Working with the committee</h3>
 
     <p>

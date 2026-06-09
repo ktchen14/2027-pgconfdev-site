@@ -5,22 +5,17 @@
     line-height: 1;
   }
 
-  /* Per-tier accent hierarchy, driven through the .edge custom property. */
-  .tier-platinum {
-    --edge: var(--action-fg);
-  }
-  .tier-gold {
-    --edge: oklch(0.72 0.13 85);
-  }
-  .tier-silver {
-    --edge: oklch(0.62 0.02 245);
-  }
-  .tier-bronze {
-    --edge: oklch(0.58 0.09 50);
+  .tier-platinum { --tier-color: var(--action-fg); }
+  .tier-gold     { --tier-color: oklch(0.72 0.13 85); }
+  .tier-silver   { --tier-color: oklch(0.62 0.02 245); }
+  .tier-bronze   { --tier-color: oklch(0.58 0.09 50); }
+
+  .tier {
+    border-inline-start-color: var(--tier-color);
   }
 
   .tier .price {
-    color: var(--edge);
+    color: var(--tier-color);
   }
 </style>
 
@@ -88,7 +83,7 @@
 </aside>
 
 <section class="main">
-  <div class="area fill-action edge-action">
+  <div class="area fill-action action-edge">
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below

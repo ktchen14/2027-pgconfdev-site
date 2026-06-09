@@ -187,7 +187,7 @@
 </section>
 
 <section class="main">
-  <div class="area fill-action edge-action">
+  <div class="area fill-action action-edge">
     <h3 class="h6">Floor plans</h3>
 
     <p>

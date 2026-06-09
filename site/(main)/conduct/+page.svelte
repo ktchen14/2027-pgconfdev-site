@@ -219,7 +219,7 @@
     conference-related social events.
   </p>
 
-  <div class="area fill-notice edge-notice margin-section">
+  <div class="area fill-notice notice-edge margin-section">
     <h3 class="h6">Enforcement</h3>
     <p>
       The CoC committee is independent of the organizing committee. Reports are

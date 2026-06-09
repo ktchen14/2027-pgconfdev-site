@@ -102,7 +102,7 @@
 </aside>
 
 <section class="main">
-  <div class="area fill-insert edge-insert">
+  <div class="area fill-insert insert-edge">
     <h3 class="h6">Applications open in early 2027</h3>
     <p>
       Volunteer signup opens alongside early-bird registration. Subscribe to the
