@@ -182,7 +182,7 @@
     </small>
   </p>
 
-  <div class="panel fill-notice edge-notice">
+  <div class="area fill-notice edge-notice">
     <h3 class="h6">Working with the committee</h3>
 
     <p>
@@ -225,7 +225,7 @@
   </div>
 
   <div class="auto-grid-14 merge-both">
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Program</h3>
         <p>CFP questions, schedule, talk logistics.</p>
@@ -235,7 +235,7 @@
       </p>
     </div>
 
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Sponsorship</h3>
         <p>Sponsorship inquiries, partner program, invoicing.</p>
@@ -245,7 +245,7 @@
       </p>
     </div>
 
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Press &amp; media</h3>
         <p>Press passes, interview requests, photo policy.</p>
@@ -255,7 +255,7 @@
       </p>
     </div>
 
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Code of conduct</h3>
         <p>Confidential channel monitored by the CoC committee.</p>
@@ -265,7 +265,7 @@
       </p>
     </div>
 
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">General</h3>
         <p>Anything else.</p>
@@ -275,7 +275,7 @@
       </p>
     </div>
 
-    <div class="note panel bg-tint border">
+    <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Mailing list</h3>
         <p>Announcements only — about one email a month.</p>

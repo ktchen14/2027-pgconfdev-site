@@ -78,7 +78,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="vol-glance">
+<aside class="float-right note area bg-tint border" aria-labelledby="vol-glance">
   <h2 id="vol-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -102,7 +102,7 @@
 </aside>
 
 <section class="main">
-  <div class="panel fill-insert edge-insert">
+  <div class="area fill-insert edge-insert">
     <h3 class="h6">Applications open in early 2027</h3>
     <p>
       Volunteer signup opens alongside early-bird registration. Subscribe to the
@@ -137,7 +137,7 @@
   </hgroup>
 
   <div class="auto-grid-16 merge-both">
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h4">Registration desk</h3>
         <p class="mono action">3–4 hr shifts · All days</p>
@@ -149,7 +149,7 @@
       </p>
     </div>
 
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h4">Room host (speaker intro)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
@@ -161,7 +161,7 @@
       </p>
     </div>
 
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h4">Room host (operations)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
@@ -173,7 +173,7 @@
       </p>
     </div>
 
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h4">A/V support</h3>
         <p class="mono action">Full day · As needed</p>

@@ -97,7 +97,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="cfp-glance">
+<aside class="float-right note area bg-tint border" aria-labelledby="cfp-glance">
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -126,7 +126,7 @@
 </aside>
 
 <section class="main">
-  <div class="panel fill-insert edge-insert">
+  <div class="area fill-insert edge-insert">
     <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
@@ -195,7 +195,7 @@
   </p>
 
   <div class="auto-grid-16 merge-both">
-    <div class="note panel border edge">
+    <div class="note area border edge">
       <hgroup>
         <p>45 min · 3 tracks</p>
         <h3 class="h4">Talk</h3>
@@ -206,7 +206,7 @@
       </p>
     </div>
 
-    <div class="note panel border edge-insert">
+    <div class="note area border edge-insert">
       <hgroup>
         <p>90 min · Day 1</p>
         <h3 class="h4">Tutorial</h3>
@@ -217,7 +217,7 @@
       </p>
     </div>
 
-    <div class="note panel border edge-notice">
+    <div class="note area border edge-notice">
       <hgroup>
         <p>30 min · Friday</p>
         <h3 class="h4">Unconference</h3>
@@ -249,7 +249,7 @@
     submission or a future edition.
   </p>
 
-  <div class="panel fill-action edge-action margin-section">
+  <div class="area fill-action edge-action margin-section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If

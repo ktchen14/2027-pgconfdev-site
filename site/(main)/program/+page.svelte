@@ -485,7 +485,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="legend">
+<aside class="float-right note area bg-tint border" aria-labelledby="legend">
   <h2 id="legend" class="over">Legend</h2>
 
   <hr />
@@ -576,7 +576,7 @@
 {/each}
 
 <section class="main">
-  <div class="panel fill-action edge-action">
+  <div class="area fill-action edge-action">
     <h3 class="h6">Changes &amp; updates</h3>
     <p>
       The program is subject to minor changes through April 2027. The CFP for the

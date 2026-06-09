@@ -62,7 +62,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="tiers-glance">
+<aside class="float-right note area bg-tint border" aria-labelledby="tiers-glance">
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
 
   <hr />
@@ -88,7 +88,7 @@
 </aside>
 
 <section class="main">
-  <div class="panel fill-action edge-action">
+  <div class="area fill-action edge-action">
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
@@ -148,7 +148,7 @@
   </p>
 
   <div class="auto-grid-16 merge-both">
-    <div class="note panel border edge tier tier-platinum">
+    <div class="note area border edge tier tier-platinum">
       <hgroup>
         <h3 class="h4">Platinum</h3>
         <p class="mono price">CAD $25,000</p>
@@ -160,7 +160,7 @@
       </p>
     </div>
 
-    <div class="note panel border edge tier tier-gold">
+    <div class="note area border edge tier tier-gold">
       <hgroup>
         <h3 class="h4">Gold</h3>
         <p class="mono price">CAD $15,000</p>
@@ -171,7 +171,7 @@
       </p>
     </div>
 
-    <div class="note panel border edge tier tier-silver">
+    <div class="note area border edge tier tier-silver">
       <hgroup>
         <h3 class="h4">Silver</h3>
         <p class="mono price">CAD $7,500</p>
@@ -182,7 +182,7 @@
       </p>
     </div>
 
-    <div class="note panel border edge tier tier-bronze">
+    <div class="note area border edge tier tier-bronze">
       <hgroup>
         <h3 class="h4">Bronze</h3>
         <p class="mono price">CAD $3,000</p>

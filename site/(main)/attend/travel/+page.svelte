@@ -77,7 +77,7 @@
   </ol>
 </nav>
 
-<aside class="float-right note panel bg-tint border" aria-labelledby="yul-glance">
+<aside class="float-right note area bg-tint border" aria-labelledby="yul-glance">
   <h2 id="yul-glance" class="over">YUL → Venue</h2>
 
   <hr />
@@ -192,21 +192,21 @@
 
 <section aria-label="Partner hotels" class="merge-both">
   <div class="auto-grid-14">
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
-    <div class="note panel border">
+    <div class="note area border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
@@ -217,7 +217,7 @@
 </section>
 
 <section class="main">
-  <div class="panel fill-action edge-action">
+  <div class="area fill-action edge-action">
     <h3 class="h6">Book early</h3>
     <p>
       Montréal is a popular conference destination in spring. Even outside our

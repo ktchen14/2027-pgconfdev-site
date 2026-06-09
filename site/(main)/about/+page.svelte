@@ -90,7 +90,7 @@
 </nav>
 
 <aside
-  class="float-right note panel bg-tint border"
+  class="float-right note area bg-tint border"
   aria-labelledby="at-a-glance"
 >
   <h2 id="at-a-glance" class="over">At a Glance</h2>
@@ -229,32 +229,30 @@
 </section>
 
 <section class="merge-both" aria-label="Statistics">
-  <hr class="margin-gap" />
-
-  <div class="auto-grid-12 margin-gap">
-    <figure>
-      <div class="action h2">~600</div>
-      <figcaption class="over">Attendees</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">3</div>
-      <figcaption class="over">Parallel tracks</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">42</div>
-      <figcaption class="over">Talks &amp; tutorials</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">18</div>
-      <figcaption class="over">Unconference rooms</figcaption>
-    </figure>
+  <div class="border-block" style:padding-top="1.5rem">
+    <div class="auto-grid-12 margin-gap">
+      <figure>
+        <div class="action h2">~600</div>
+        <figcaption class="over">Attendees</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">3</div>
+        <figcaption class="over">Parallel tracks</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">42</div>
+        <figcaption class="over">Talks &amp; tutorials</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">18</div>
+        <figcaption class="over">Unconference rooms</figcaption>
+      </figure>
+    </div>
   </div>
-
-  <hr class="margin-gap" />
 </section>
 
 <section class="main">
-  <div class="panel fill-action edge-action">
+  <div class="area fill-action edge-action">
     <h3 class="h6">Format</h3>
 
     <p>
