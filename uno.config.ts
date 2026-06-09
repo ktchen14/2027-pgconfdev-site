@@ -27,7 +27,7 @@ export default defineConfig({
     ],
 
     [
-      /^auto-grid-(\d+)$/,
+      /^grid\+(\d+)$/,
       ([, number]) => [
         {
           display: "grid",
@@ -43,7 +43,7 @@ export default defineConfig({
 
     // Fixed N-column grid (each column 1fr).
     [
-      /^grid-(\d+)$/,
+      /^grid\/(\d+)$/,
       ([, number]) => [
         {
           display: "grid",

@@ -120,7 +120,7 @@
     </p>
   </aside>
 
-  <div class="auto-grid-16 (main)">
+  <div class="grid+16 (main)">
     <figure id="reception">
       <div class="photo border">[ Photo · evening reception ]</div>
       <figcaption class="note">
@@ -159,7 +159,7 @@
     <h2>Smaller ways to meet people.</h2>
   </hgroup>
 
-  <div class="auto-grid-12 (main)">
+  <div class="grid+12 (main)">
     <figure id="breakfast">
       <div class="photo border">[ Photo · welcome breakfast ]</div>
       <figcaption class="note">

@@ -229,7 +229,7 @@
 
 <section class="(main)" aria-label="Statistics">
   <div class="border-block" style:padding-top="1.5rem">
-    <div class="auto-grid-12 margin-gap">
+    <div class="grid+12 margin-gap">
       <figure>
         <div class="action h2">~600</div>
         <figcaption class="over">Attendees</figcaption>

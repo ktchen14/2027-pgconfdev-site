@@ -55,7 +55,7 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<section class="hero (main)">
+<section class="(main) hero">
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
 
@@ -72,7 +72,7 @@
 
   <hr class="margin-section" />
 
-  <dl class="auto-grid-16 dedent margin-section">
+  <dl class="grid+16 dedent margin-section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">
@@ -115,11 +115,11 @@
   </div>
 </section>
 
-<section class="banner (main)">
+<section class="(main) banner">
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="bg-tint grid-3[48-] (main)" style:gap="var(--margin)">
+<section class="(main) bg-tint grid/3[48-]" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -146,7 +146,7 @@
 
 <section class="(main)">
   <div
-    class="border edge-insert grid-3[48-]"
+    class="border edge-insert grid/3[48-]"
     style:align-items="center"
     style:padding="var(--margin)"
   >
@@ -173,7 +173,7 @@
   </div>
 </section>
 
-<section class="bg-tint (main)">
+<section class="(main) bg-tint">
   <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>
@@ -198,7 +198,7 @@
     </p>
   </hgroup>
 
-  <div class="auto-grid-16">
+  <div class="grid+16">
     <figure>
       <img src={href} alt="" />
       <figcaption class="over">

@@ -956,7 +956,7 @@
 <section aria-label="Statistics" class="(main)">
   <hr class="margin-gap" />
 
-  <div class="auto-grid-12 margin-gap">
+  <div class="grid+12 margin-gap">
     <figure>
       <div class="action h2">4</div>
       <figcaption class="over">Days</figcaption>

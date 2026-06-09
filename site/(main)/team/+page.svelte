@@ -91,7 +91,7 @@
 
   <Rule class="(main)">Conference chairs</Rule>
 
-  <div class="auto-grid-12 (main)">
+  <div class="grid+12 (main)">
     <figure>
       <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
@@ -224,7 +224,7 @@
     </p>
   </div>
 
-  <div class="auto-grid-14 (main)">
+  <div class="grid+14 (main)">
     <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Program</h3>

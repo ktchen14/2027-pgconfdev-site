@@ -196,7 +196,7 @@
     tutorial.
   </p>
 
-  <div class="auto-grid-16 (main)">
+  <div class="grid+16 (main)">
     <div class="note area border edge">
       <hgroup>
         <p>45 min · 3 tracks</p>

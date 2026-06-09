@@ -146,7 +146,7 @@
     detailed benefit descriptions.
   </p>
 
-  <div class="auto-grid-16 (main)">
+  <div class="grid+16 (main)">
     <div class="note area border edge tier tier-platinum">
       <hgroup>
         <h3 class="h4">Platinum</h3>

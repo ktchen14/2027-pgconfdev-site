@@ -191,7 +191,7 @@
 </section>
 
 <section aria-label="Partner hotels" class="(main)">
-  <div class="auto-grid-14">
+  <div class="grid+14">
     <div class="note area border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>

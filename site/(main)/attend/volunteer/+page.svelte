@@ -136,7 +136,7 @@
     <h2>What volunteers do.</h2>
   </hgroup>
 
-  <div class="auto-grid-16 (main)">
+  <div class="grid+16 (main)">
     <div class="note area border">
       <hgroup>
         <h3 class="h4">Registration desk</h3>

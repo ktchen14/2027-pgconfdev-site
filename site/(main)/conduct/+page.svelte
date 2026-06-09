@@ -181,7 +181,7 @@
 </section>
 
 <section aria-label="Reporting channels" class="(main)">
-  <div class="auto-grid-16">
+  <div class="grid+16">
     <div class="note area bg-tint border">
       <hgroup>
         <h3 class="h4">Code of Conduct committee</h3>
