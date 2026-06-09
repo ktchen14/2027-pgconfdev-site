@@ -92,7 +92,7 @@
 </nav>
 
 <aside
-  class="float-right note area bg-tint border"
+  class="area bg-tint border float-right note"
   aria-labelledby="at-a-glance"
 >
   <h2 id="at-a-glance" class="over">At a Glance</h2>
