@@ -57,10 +57,10 @@
 
 <section class="(main) hero">
   <hgroup>
-    <p class="action">The PostgreSQL Developer Conference</p>
+    <p class="action-text">The PostgreSQL Developer Conference</p>
 
     <h1>
-      <span class="action">PGConf</span>.dev
+      <span class="action-text">PGConf</span>.dev
       <br />
       <span class="mute">2027</span>
     </h1>
@@ -125,7 +125,7 @@
     <h2>Built by and for PostgreSQL contributors.</h2>
   </hgroup>
 
-  <div style="grid-column: span 2">
+  <div class="column-span-2">
     <p class="lede">
       PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
       extension authors, and the developers who work with them. Four days of
@@ -150,9 +150,9 @@
     style:align-items="center"
     style:padding="var(--margin)"
   >
-    <div class="margin-gap note" style:grid-column="span 2">
+    <div class="column-span-2 margin-gap note">
       <hgroup>
-        <p class="iconic insert">
+        <p class="iconic insert-text">
           <Circle class="size--" style="fill: currentColor" />
           Call for Proposals — open through 14 Feb 2027
         </p>

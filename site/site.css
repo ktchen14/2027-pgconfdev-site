@@ -707,7 +707,6 @@
 }
 
 @layer svelte {
-  /* Miscellaneous classes */
   .circle {
     border-radius: calc(infinity * 1px);
   }
@@ -724,43 +723,58 @@
     }
   }
 
-  .lead, .lede {
-    font-family: var(--header-font);
-    font-size: 1.25em;
-  }
-
-  .lucide {
+  .icon, .lucide {
     size: 1em;
   }
 
-  :where(:not(.icon)):is(.size\+2, .size\+\+) {
+  .lead, .lede {
+    font-family: var(--header-font);
     font-size: 1.25em;
-  }
-
-  :where(:not(.icon)):is(.size\+1, .size\+) {
-    font-size: 1.125em;
-  }
-
-  :where(:not(.icon)):is(.size-1, .size-) {
-    font-size: 0.875em;
-  }
-
-  :where(:not(.icon)):is(.size-2, .size--) {
-    font-size: 0.75em;
   }
 
   .mono {
     font-family: var(--mono-font);
   }
 
-  .note > :is(blockquote, dl, menu, ol, p, ul) {
+  .note > :where(blockquote, dl, menu, ol, p, ul) {
     color: var(--fg-mute);
     font-size: 0.875em;
   }
 
-  /* Padded surface */
-  .area {
-    padding: 1.5rem;
+  .text {
+    max-width: 38rem;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size\+2, .size\+\+) {
+    font-size: 1.25em;
+  }
+
+  :where(.icon, .lucide):is(.size\+2, .size\+\+) {
+    size: 1.25em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size\+1, .size\+) {
+    font-size: 1.125em;
+  }
+
+  :where(.icon, .lucide):is(.size\+1, .size\+) {
+    size: 1.125em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size-1, .size-) {
+    font-size: 0.875em;
+  }
+
+  :where(.icon, .lucide):is(.size-1, .size-) {
+    size: 0.875em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size-2, .size--) {
+    font-size: 0.75em;
+  }
+
+  :where(.icon, .lucide):is(.size-2, .size--) {
+    size: 0.75em;
   }
 
   .border {
@@ -773,39 +787,42 @@
     padding-block: 1.5rem;
   }
 
-  .text {
-    max-width: 38rem;
+  /* Tinted fill (neutral fill is .bg-tint) */
+  .area, .action-area, .notice-area, .insert-area, .delete-area {
+    padding: 1.5rem;
   }
 
-  /* Tinted fill (neutral fill is .bg-tint) */
-  .fill-action {
-    background: var(--action-bg-mute);
+  .action-area {
+    background-color: var(--action-bg-mute);
   }
-  .fill-notice {
-    background: var(--notice-bg-mute);
+
+  .notice-area {
+    background-color: var(--notice-bg-mute);
   }
-  .fill-insert {
-    background: var(--insert-bg-mute);
+
+  .insert-area {
+    background-color: var(--insert-bg-mute);
   }
-  .fill-delete {
-    background: var(--delete-bg-mute);
+
+  .delete-area {
+    background-color: var(--delete-bg-mute);
   }
 
   /* Colorization */
 
-  .action {
+  .action-text {
     color: var(--action-fg);
   }
 
-  .notice {
+  .notice-text {
     color: var(--notice-fg);
   }
 
-  .insert {
+  .insert-text {
     color: var(--insert-fg);
   }
 
-  .delete {
+  .delete-text {
     color: var(--delete-fg);
   }
 

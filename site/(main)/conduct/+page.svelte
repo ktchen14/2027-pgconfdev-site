@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">About</p>
+    <p class="action-text">About</p>
     <h1>Code of Conduct.</h1>
   </hgroup>
 
@@ -219,7 +219,7 @@
     conference-related social events.
   </p>
 
-  <div class="area fill-notice notice-edge section">
+  <div class="notice-area notice-edge section">
     <h3 class="h6">Enforcement</h3>
     <p>
       The CoC committee is independent of the organizing committee. Reports are

@@ -897,7 +897,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">Program · 4 days · 3 tracks</p>
+    <p class="action-text">Program · 4 days · 3 tracks</p>
     <h1>The 2027 program.</h1>
   </hgroup>
 
@@ -939,15 +939,15 @@
       <dd>Three parallel tracks · Room 5A – 5C</dd>
     </div>
     <div class="p">
-      <dt class="over insert">Tutorial · 90 min</dt>
+      <dt class="over insert-text">Tutorial · 90 min</dt>
       <dd>Hands-on · Day 1 · Room 2A – 2B</dd>
     </div>
     <div class="p">
-      <dt class="over action">Keynote · plenary</dt>
+      <dt class="over action-text">Keynote · plenary</dt>
       <dd>Grand Ballroom</dd>
     </div>
     <div class="p">
-      <dt class="over notice">Unconference · 30 min</dt>
+      <dt class="over notice-text">Unconference · 30 min</dt>
       <dd>Day 4 · Room U-1 – U-3</dd>
     </div>
   </dl>
@@ -958,27 +958,27 @@
 
   <div class="grid+12 margin-gap">
     <figure>
-      <div class="action h2">4</div>
+      <div class="action-text h2">4</div>
       <figcaption class="over">Days</figcaption>
     </figure>
     <figure>
-      <div class="action h2">3</div>
+      <div class="action-text h2">3</div>
       <figcaption class="over">Parallel tracks</figcaption>
     </figure>
     <figure>
-      <div class="action h2">42</div>
+      <div class="action-text h2">42</div>
       <figcaption class="over">Talks</figcaption>
     </figure>
     <figure>
-      <div class="action h2">8</div>
+      <div class="action-text h2">8</div>
       <figcaption class="over">Tutorials</figcaption>
     </figure>
     <figure>
-      <div class="action h2">18</div>
+      <div class="action-text h2">18</div>
       <figcaption class="over">Unconf rooms</figcaption>
     </figure>
     <figure>
-      <div class="action h2">3</div>
+      <div class="action-text h2">3</div>
       <figcaption class="over">Keynotes</figcaption>
     </figure>
   </div>
@@ -1019,7 +1019,7 @@
 {/each}
 
 <section class="main">
-  <div class="area fill-action action-edge">
+  <div class="action-area action-edge">
     <h3 class="h6">Changes &amp; updates</h3>
     <p>
       The program is subject to minor changes through April 2027. The CFP for

@@ -66,7 +66,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">Call for Proposals</p>
+    <p class="action-text">Call for Proposals</p>
     <h1>Submit a talk for 2027.</h1>
   </hgroup>
 
@@ -107,7 +107,7 @@
   <dl class="dedent">
     <div class="p">
       <dt class="over">Status</dt>
-      <dd class="insert">Open for submissions</dd>
+      <dd class="insert-text">Open for submissions</dd>
     </div>
 
     <div class="p">
@@ -128,7 +128,7 @@
 </aside>
 
 <section class="main">
-  <div class="area fill-insert insert-edge">
+  <div class="insert-area insert-edge">
     <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
@@ -251,7 +251,7 @@
     submission or a future edition.
   </p>
 
-  <div class="area fill-action action-edge section">
+  <div class="action-area action-edge section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If
@@ -277,7 +277,7 @@
     </div>
     <div>
       <dt>CFP closes</dt>
-      <dd class="mono action size-">
+      <dd class="mono action-text size-">
         <time datetime="2027-02-14">14 February 2027</time> · 11:59 pm UTC
       </dd>
     </div>

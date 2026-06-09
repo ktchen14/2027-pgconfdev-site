@@ -44,7 +44,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">About</p>
+    <p class="action-text">About</p>
     <h1>The volunteers who put this on.</h1>
   </hgroup>
 
@@ -178,11 +178,11 @@
   <p>
     <small>
       Committee membership rotates each year.
-      <a href="#" class="delete">Read about how we pick reviewers →</a>
+      <a href="#" class="delete-text">Read about how we pick reviewers →</a>
     </small>
   </p>
 
-  <div class="area fill-notice notice-edge">
+  <div class="notice-area notice-edge">
     <h3 class="h6">Working with the committee</h3>
 
     <p>
@@ -281,7 +281,7 @@
         <p>Announcements only — about one email a month.</p>
       </hgroup>
       <p class="mono">
-        <a href="#" class="delete">Subscribe →</a>
+        <a href="#" class="delete-text">Subscribe →</a>
       </p>
     </div>
   </div>

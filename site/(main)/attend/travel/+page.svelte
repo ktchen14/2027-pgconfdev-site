@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">Attend · Travel</p>
+    <p class="action-text">Attend · Travel</p>
     <h1>Getting to Montréal.</h1>
   </hgroup>
 
@@ -195,21 +195,21 @@
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action">Rate TBD · Deadline TBD</p>
+        <p class="mono action-text">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action">Rate TBD · Deadline TBD</p>
+        <p class="mono action-text">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action">Rate TBD · Deadline TBD</p>
+        <p class="mono action-text">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
@@ -217,7 +217,7 @@
 </section>
 
 <section class="main">
-  <div class="area fill-action action-edge">
+  <div class="action-area action-edge">
     <h3 class="h6">Book early</h3>
     <p>
       Montréal is a popular conference destination in spring. Even outside our

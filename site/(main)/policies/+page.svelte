@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">About</p>
+    <p class="action-text">About</p>
     <h1>Policies &amp; privacy.</h1>
   </hgroup>
 

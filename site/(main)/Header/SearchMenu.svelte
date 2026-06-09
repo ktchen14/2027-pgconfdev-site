@@ -55,7 +55,7 @@
 
   <p style:color="var(--fg-tint)">
     <strong>
-      <a class="action" href="/">See all results</a>
+      <a class="action-text" href="/">See all results</a>
     </strong>
     for "{text?.trim() || "your search"}" ↵
   </p>

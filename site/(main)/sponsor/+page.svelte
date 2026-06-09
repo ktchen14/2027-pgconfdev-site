@@ -44,7 +44,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action">Sponsors</p>
+    <p class="action-text">Sponsors</p>
     <h1>The companies underwriting 2027.</h1>
   </hgroup>
 
@@ -91,7 +91,7 @@
 </aside>
 
 <section class="main">
-  <div class="area fill-action action-edge">
+  <div class="action-area action-edge">
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
