@@ -826,10 +826,6 @@
     color: var(--delete-fg);
   }
 
-  .fg-mute {
-    color: var(--fg-mute);
-  }
-
   .mute {
     color: var(--fg-mute);
   }

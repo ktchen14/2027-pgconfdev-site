@@ -24,7 +24,7 @@
       <Result href="#" icon={List}>
         Zero-downtime upgrades with logical replication
         <br />
-        <small class="fg-mute">Wed · 14:00 · Track A</small>
+        <small>Wed · 14:00 · Track A</small>
       </Result>
     </li>
   </ul>
@@ -35,7 +35,7 @@
       <Result href="#" icon={User}>
         Amara Okonkwo
         <br />
-        <small class="fg-mute">Speaker · 2 talks</small>
+        <small>Speaker · 2 talks</small>
       </Result>
     </li>
   </ul>
@@ -46,7 +46,7 @@
       <Result href="#" icon={MapPin}>
         Venue &amp; floor plans
         <br />
-        <small class="fg-mute">Attend · Getting around</small>
+        <small>Attend · Getting around</small>
       </Result>
     </li>
   </ul>
