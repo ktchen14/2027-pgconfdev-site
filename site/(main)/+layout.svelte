@@ -8,6 +8,13 @@
 </script>
 
 <style>
+  :global(#root) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+  }
+
   .menu-single {
     position: relative;
   }

@@ -862,10 +862,4 @@
   .delete-edge {
     border-inline-start-color: var(--delete-fg);
   }
-
-  #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
 }
