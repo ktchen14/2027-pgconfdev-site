@@ -4,8 +4,9 @@ import { defineConfig } from "unocss";
 
 /** Centering gutter from the page edge to the content area. */
 const gutter = "max(var(--margin), (100vw - 80rem + 6rem) / 2)";
+
 /** Inline margin that reserves one 16rem sidebar (plus its gap). */
-const sidebar = `calc(${gutter} + 16rem + var(--margin))`;
+const side = `calc(${gutter} + 16rem + var(--margin))`;
 
 /** The right sidebar appears at this width; the left sidebar at `lg`. */
 const md = "@media (width >= 48rem)";
@@ -22,27 +23,29 @@ export default defineConfig({
       "main",
       [
         { "padding-inline": gutter },
-        { [symbols.parent]: md, "padding-inline-end": sidebar },
-        { [symbols.parent]: lg, "padding-inline-start": sidebar },
+        { [symbols.parent]: md, "padding-inline-end": side },
+        { [symbols.parent]: lg, "padding-inline-start": side },
       ],
     ],
+
     // Like `main`, but merging the left / right / both sidebar(s) into the
     // content area — for extra-wide breakout content.
     [
       "merge-left",
       [
         { clear: "left", "padding-inline": gutter },
-        { [symbols.parent]: md, "padding-inline-end": sidebar },
+        { [symbols.parent]: md, "padding-inline-end": side },
       ],
     ],
     [
       "merge-right",
       [
         { clear: "right", "padding-inline": gutter },
-        { [symbols.parent]: lg, "padding-inline-start": sidebar },
+        { [symbols.parent]: lg, "padding-inline-start": side },
       ],
     ],
     ["merge-both", { clear: "both", "padding-inline": gutter }],
+
     // Like the matching `merge-*`, but a grid that splits the span into sidebar
     // and main columns; falls back to normal flow below the breakpoint where
     // that sidebar appears.
@@ -50,17 +53,20 @@ export default defineConfig({
       "split-left",
       [
         { clear: "left", "padding-inline": gutter },
-        { [symbols.parent]: md, "padding-inline-end": sidebar },
         {
-          [symbols.parent]: lg,
-          display: "grid",
-          "column-gap": "var(--margin)",
-          "row-gap": "1.5rem",
-          "grid-template-columns": "16rem 1fr",
+          [symbols.parent]: "@media (width >= 48rem)",
+          "padding-inline-end": side,
         },
         {
-          [symbols.parent]: lg,
-          [symbols.selector]: (s) => `${s} > *`,
+          [symbols.parent]: "@media (width >= 64rem)",
+          "column-gap": "var(--margin)",
+          display: "grid",
+          "grid-template-columns": "16rem 1fr",
+          "row-gap": "1.5rem",
+        },
+        {
+          [symbols.parent]: "@media (width >= 64rem)",
+          [symbols.selector]: (selector) => `${selector} > *`,
           "margin-block": 0,
         },
       ],
@@ -69,7 +75,7 @@ export default defineConfig({
       "split-right",
       [
         { clear: "right", "padding-inline": gutter },
-        { [symbols.parent]: lg, "padding-inline-start": sidebar },
+        { [symbols.parent]: lg, "padding-inline-start": side },
         {
           [symbols.parent]: md,
           display: "grid",
@@ -108,7 +114,7 @@ export default defineConfig({
       "float-left",
       [
         { "margin-inline": gutter },
-        { [symbols.parent]: md, "margin-inline-end": sidebar },
+        { [symbols.parent]: md, "margin-inline-end": side },
         {
           [symbols.parent]: lg,
           clear: "left",

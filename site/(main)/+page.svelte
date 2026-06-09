@@ -109,8 +109,7 @@
       href="#"
       class="button circle stroke"
       style:color="var(--delete-fg)"
-      style:border="1px solid var(--delete-fg)"
-    >Register</a
+      style:border="1px solid var(--delete-fg)">Register</a
     >
     <a href="/cfp" class="button circle stroke">Submit a talk</a>
   </div>

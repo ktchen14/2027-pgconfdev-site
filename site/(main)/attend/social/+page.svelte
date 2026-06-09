@@ -72,7 +72,9 @@
   </p>
 
   <figure class="margin-section">
-    <div class="photo photo--wide border">[ Photo · reception · past edition ]</div>
+    <div class="photo photo--wide border">
+      [ Photo · reception · past edition ]
+    </div>
     <figcaption>
       Fig. — The hallway track in full swing at a recent edition. Replace with a
       real photograph.

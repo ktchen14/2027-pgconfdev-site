@@ -104,8 +104,7 @@
 
   <p class="lede">
     The Palais des congrès is Montréal's downtown convention centre, located
-    directly above the Place-d'Armes métro station in the heart of Old
-    Montréal.
+    directly above the Place-d'Armes métro station in the heart of Old Montréal.
   </p>
 
   <p>
@@ -206,14 +205,13 @@
 
   <p>
     The Palais des congrès is fully wheelchair accessible, with elevators
-    serving all levels. Accessible entrances are available on Rue
-    Saint-Antoine Ouest and via the underground Place-d'Armes métro station.
+    serving all levels. Accessible entrances are available on Rue Saint-Antoine
+    Ouest and via the underground Place-d'Armes métro station.
   </p>
 
   <p>
     If you have specific accessibility requirements, contact us in advance at
-    <a href="/team#contact">info@pgconf.dev</a> so we can make arrangements.
-    Captioning and hearing loop availability will be confirmed closer to the
-    conference.
+    <a href="/team#contact">info@pgconf.dev</a> so we can make arrangements. Captioning
+    and hearing loop availability will be confirmed closer to the conference.
   </p>
 </section>

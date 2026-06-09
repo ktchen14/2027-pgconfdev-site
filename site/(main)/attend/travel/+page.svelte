@@ -60,7 +60,9 @@
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
     <li>
-      <a href={resolve("/attend/travel")} aria-current="page">Travel &amp; hotels</a>
+      <a href={resolve("/attend/travel")} aria-current="page"
+        >Travel &amp; hotels</a
+      >
     </li>
     <li><a href={resolve("/attend/social")}>Social events</a></li>
     <li><a href={resolve("/attend/volunteer")}>Volunteer</a></li>
@@ -77,7 +79,10 @@
   </ol>
 </nav>
 
-<aside class="float-right note area bg-tint border" aria-labelledby="yul-glance">
+<aside
+  class="float-right note area bg-tint border"
+  aria-labelledby="yul-glance"
+>
   <h2 id="yul-glance" class="over">YUL → Venue</h2>
 
   <hr />
@@ -114,9 +119,8 @@
   <p>
     The best way to get from YUL to the Palais des congrès is by the
     <strong>747 Express bus</strong> to Lionel-Groulx station, then the Orange or
-    Green line to Place-d'Armes — about 45 minutes total, no transfers required
-    from the métro. Taxis and rideshare are readily available; typical fare is
-    CAD $45–55.
+    Green line to Place-d'Armes — about 45 minutes total, no transfers required from
+    the métro. Taxis and rideshare are readily available; typical fare is CAD $45–55.
   </p>
 </section>
 
@@ -129,9 +133,8 @@
   <p>
     Montréal's Gare Centrale is served by VIA Rail from Québec City, Ottawa,
     Toronto, and Halifax, and by Amtrak's <em>Adirondack</em> (New
-    York–Montréal) and <em>Maple Leaf</em> connections. The station is connected
-    underground to the Square-Victoria–OACI métro station (Orange line), two
-    stops from Place-d'Armes.
+    York–Montréal) and <em>Maple Leaf</em> connections. The station is connected underground
+    to the Square-Victoria–OACI métro station (Orange line), two stops from Place-d'Armes.
   </p>
 </section>
 
@@ -154,25 +157,25 @@
 
     <ul class="edge dedent">
       <li>
-        <strong>U.S. citizens and permanent residents</strong> — entry is
-        visa-free; a valid passport or NEXUS card is required.
+        <strong>U.S. citizens and permanent residents</strong> — entry is visa-free;
+        a valid passport or NEXUS card is required.
       </li>
       <li>
         <strong>Citizens of visa-exempt countries</strong> — must apply for an
-        <strong>Electronic Travel Authorization (eTA)</strong> before flying to
-        Canada. An eTA is CAD $7 and typically approved in minutes, though
-        processing can take several days in some cases.
+        <strong>Electronic Travel Authorization (eTA)</strong> before flying to Canada.
+        An eTA is CAD $7 and typically approved in minutes, though processing can
+        take several days in some cases.
       </li>
       <li>
-        <strong>All other visitors</strong> — a temporary resident visa is
-        required. Apply well in advance; processing times vary significantly.
+        <strong>All other visitors</strong> — a temporary resident visa is required.
+        Apply well in advance; processing times vary significantly.
       </li>
     </ul>
 
     <p>
       If you need a formal invitation letter for your visa application, email
-      <a href="/team#contact">info@pgconf.dev</a> with your full name and
-      country of citizenship.
+      <a href="/team#contact">info@pgconf.dev</a> with your full name and country
+      of citizenship.
     </p>
   </div>
 </section>

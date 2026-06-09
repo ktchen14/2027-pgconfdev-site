@@ -79,11 +79,16 @@
 
 <hr class="margin-section" />
 
-<nav class="section-nav float-left none[-64] note" aria-labelledby="program-nav">
+<nav
+  class="section-nav float-left none[-64] note"
+  aria-labelledby="program-nav"
+>
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
     <li><a href={resolve("/program")}>Schedule</a></li>
-    <li><a href={resolve("/cfp")} aria-current="page">Call for proposals</a></li>
+    <li>
+      <a href={resolve("/cfp")} aria-current="page">Call for proposals</a>
+    </li>
   </ul>
 </nav>
 
@@ -97,7 +102,10 @@
   </ol>
 </nav>
 
-<aside class="float-right note area bg-tint border" aria-labelledby="cfp-glance">
+<aside
+  class="float-right note area bg-tint border"
+  aria-labelledby="cfp-glance"
+>
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -166,8 +174,8 @@
       pgvector, TimescaleDB, pgrx, the PGXN ecosystem
     </li>
     <li>
-      <strong>Tooling and ecosystem</strong> — backup, migration, upgrade paths,
-      cloud-native deployments, logical replication
+      <strong>Tooling and ecosystem</strong> — backup, migration, upgrade paths, cloud-native
+      deployments, logical replication
     </li>
     <li>
       <strong>Community and process</strong> — how patches get committed, how the
@@ -310,6 +318,9 @@
     </a>
   </p>
   <p>
-    <small>Questions? Email <a href="/team#contact">the program committee</a>.</small>
+    <small
+      >Questions? Email <a href="/team#contact">the program committee</a
+      >.</small
+    >
   </p>
 </section>

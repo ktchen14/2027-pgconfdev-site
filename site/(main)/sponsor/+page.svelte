@@ -62,7 +62,10 @@
   </ol>
 </nav>
 
-<aside class="float-right note area bg-tint border" aria-labelledby="tiers-glance">
+<aside
+  class="float-right note area bg-tint border"
+  aria-labelledby="tiers-glance"
+>
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
 
   <hr />
@@ -92,8 +95,7 @@
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
-      or <a href="/team#contact">contact the sponsorship team</a> for a full
-      prospectus.
+      or <a href="/team#contact">contact the sponsorship team</a> for a full prospectus.
     </p>
   </div>
 </section>
@@ -202,7 +204,9 @@
   </p>
 
   <p class="margin-section">
-    <a href="/team#contact" class="button circle">Contact the sponsorship team</a>
+    <a href="/team#contact" class="button circle"
+      >Contact the sponsorship team</a
+    >
   </p>
 </section>
 

@@ -62,7 +62,9 @@
     <li><a href={resolve("/team")}>Team</a></li>
     <li><a href={resolve("/conduct")}>Code of conduct</a></li>
     <li>
-      <a href={resolve("/policies")} aria-current="page">Policies &amp; privacy</a>
+      <a href={resolve("/policies")} aria-current="page"
+        >Policies &amp; privacy</a
+      >
     </li>
   </ul>
 </nav>
@@ -101,7 +103,9 @@
 
   <p>
     This site is hosted on GitHub Pages; see GitHub's
-    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">
+    <a
+      href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+    >
       General Privacy Statement</a
     > for details on server-side logging.
   </p>
@@ -131,7 +135,9 @@
     Canadian non-profit, with support from our
     <a href={resolve("/sponsor")}>sponsors</a>. All proceeds support the
     PostgreSQL community as set out in the
-    <a href="https://www.pgevents.ca/media/local/pdf/slonik-events-bylaws-2023.pdf">
+    <a
+      href="https://www.pgevents.ca/media/local/pdf/slonik-events-bylaws-2023.pdf"
+    >
       Slonik Events bylaws</a
     >.
   </p>

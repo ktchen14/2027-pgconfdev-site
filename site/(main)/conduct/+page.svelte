@@ -61,7 +61,9 @@
   <ul>
     <li><a href={resolve("/about")}>About PGConf.dev</a></li>
     <li><a href={resolve("/team")}>Team</a></li>
-    <li><a href={resolve("/conduct")} aria-current="page">Code of conduct</a></li>
+    <li>
+      <a href={resolve("/conduct")} aria-current="page">Code of conduct</a>
+    </li>
     <li><a href={resolve("/policies")}>Policies &amp; privacy</a></li>
   </ul>
 </nav>
@@ -77,7 +79,10 @@
   </ol>
 </nav>
 
-<aside class="float-right note area bg-tint border" aria-labelledby="report-glance">
+<aside
+  class="float-right note area bg-tint border"
+  aria-labelledby="report-glance"
+>
   <h2 id="report-glance" class="over">Report an Incident</h2>
 
   <hr />
@@ -85,7 +90,9 @@
   <dl class="dedent">
     <div class="margin-p">
       <dt class="over">CoC committee</dt>
-      <dd class="mono"><a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a></dd>
+      <dd class="mono">
+        <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
+      </dd>
       <dd>Confidential — seen only by the CoC committee.</dd>
     </div>
 
@@ -183,7 +190,9 @@
         <h3 class="h4">Code of Conduct committee</h3>
         <p>Confidential. Monitored by the CoC committee only.</p>
       </hgroup>
-      <p class="mono"><a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a></p>
+      <p class="mono">
+        <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
+      </p>
     </div>
 
     <div class="note area bg-tint border">
