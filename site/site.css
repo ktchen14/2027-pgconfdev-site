@@ -101,7 +101,7 @@
   }
 
   /* Sectioning content */
-  article, aside, nav, section, .margin-section {
+  article, aside, nav, section, .section {
     margin-block: var(--margin);
 
     &:where(:first-child) {
@@ -116,7 +116,7 @@
   /* Flow content except heading content, phrasing content, sectioning content,
    * <dialog>, and <div>. */
   address, blockquote, details, dl, fieldset, figure, footer, form, header, hr,
-  main, menu, ol, p, pre, search, table, ul, .margin-p {
+  main, menu, ol, p, pre, search, table, ul, .p {
     margin-block: 0 1em;
 
     &:where(:last-child) {
@@ -190,7 +190,7 @@
   }
 
   /* List elements */
-  dd, li, .margin-li {
+  dd, li {
     margin-block: 0 0.25em;
 
     &:where(:last-child) {

@@ -75,9 +75,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")} aria-current="page">Venue</a></li>
@@ -87,7 +87,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#venue">The venue</a></li>
@@ -131,7 +131,7 @@
     </div>
   </dl>
 
-  <figure class="margin-section">
+  <figure class="section">
     <div class="border" style:aspect-ratio="16 / 7">
       [ Photo · Palais des congrès exterior ]
     </div>

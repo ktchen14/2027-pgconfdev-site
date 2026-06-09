@@ -908,9 +908,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="program-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
     <li><a href={resolve("/program")} aria-current="page">Schedule</a></li>
@@ -918,7 +918,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">Jump to a day</h2>
   <ol>
     <li><a href="#day-1">Tue · 18 May · Tutorials</a></li>
@@ -934,19 +934,19 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Talk · 45 min</dt>
       <dd>Three parallel tracks · Room 5A – 5C</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over insert">Tutorial · 90 min</dt>
       <dd>Hands-on · Day 1 · Room 2A – 2B</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over action">Keynote · plenary</dt>
       <dd>Grand Ballroom</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over notice">Unconference · 30 min</dt>
       <dd>Day 4 · Room U-1 – U-3</dd>
     </div>

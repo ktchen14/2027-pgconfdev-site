@@ -53,9 +53,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -69,7 +69,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#air">By air</a></li>
@@ -85,17 +85,17 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">747 bus</dt>
       <dd>YUL → Lionel-Groulx · 24/7 · CAD $11 (STM pass accepted)</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Métro</dt>
       <dd>Lionel-Groulx → Place-d'Armes · Orange line · 20 min</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Taxi / rideshare</dt>
       <dd>~45 min from airport · CAD $45–55</dd>
     </div>

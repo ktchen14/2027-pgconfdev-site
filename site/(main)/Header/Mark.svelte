@@ -22,10 +22,10 @@
 </style>
 
 <a {...rest}>
-  <svg class="none[48-56]" viewBox="0 0 1464.2 411">
+  <svg class="none@48-56" viewBox="0 0 1464.2 411">
     <use href="{PGConf}#root" />
   </svg>
-  <svg class="none[-48] none[56-]" viewBox="0 0 558.7 411">
+  <svg class="none@-48 none@56-" viewBox="0 0 558.7 411">
     <use href="{PGConf}#root" />
   </svg>
 </a>

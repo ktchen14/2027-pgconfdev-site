@@ -54,9 +54,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -68,7 +68,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#get">What you get</a></li>
@@ -84,17 +84,17 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Commitment</dt>
       <dd>8 scheduled hours minimum</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">In return</dt>
       <dd>Complimentary full-conference registration (CAD $480 value)</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Applications</dt>
       <dd>Open early 2027, alongside early-bird registration</dd>
     </div>
@@ -233,7 +233,7 @@
     Questions? Email <a href="/team#contact">info@pgconf.dev</a>.
   </p>
 
-  <p class="margin-section">
+  <p class="section">
     <a
       href="#"
       class="button circle stroke"

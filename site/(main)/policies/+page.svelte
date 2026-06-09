@@ -53,9 +53,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="about-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="about-nav">
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
     <li><a href={resolve("/about")}>About PGConf.dev</a></li>
@@ -69,7 +69,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#policies">Policies</a></li>

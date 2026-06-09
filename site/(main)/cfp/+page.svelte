@@ -77,9 +77,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="program-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
     <li><a href={resolve("/program")}>Schedule</a></li>
@@ -89,7 +89,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#looking-for">What we're looking for</a></li>
@@ -105,22 +105,22 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Status</dt>
       <dd class="insert">Open for submissions</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Closes</dt>
       <dd>14 February 2027 · 11:59 pm UTC</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Decisions</dt>
       <dd>By 15 March 2027</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Formats</dt>
       <dd>45-min talk · 90-min tutorial · unconference</dd>
     </div>
@@ -251,7 +251,7 @@
     submission or a future edition.
   </p>
 
-  <div class="area fill-action action-edge margin-section">
+  <div class="area fill-action action-edge section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If

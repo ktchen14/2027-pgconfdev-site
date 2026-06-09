@@ -70,9 +70,9 @@
     </p>
   </hgroup>
 
-  <hr class="margin-section" />
+  <hr class="section" />
 
-  <dl class="grid+16 dedent margin-section">
+  <dl class="grid+16 dedent section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">
@@ -119,7 +119,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="(main) bg-tint grid/3[48-]" style:gap="var(--margin)">
+<section class="(main) bg-tint grid/3@48-" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -146,7 +146,7 @@
 
 <section class="(main)">
   <div
-    class="border insert-edge grid/3[48-]"
+    class="border insert-edge grid/3@48-"
     style:align-items="center"
     style:padding="var(--margin)"
   >

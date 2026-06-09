@@ -35,6 +35,11 @@
     padding-inline: 0;
     padding-top: 1rem;
   }
+
+  .timeline > * {
+    grid-auto-flow: dense;
+    grid-column: span 2;
+  }
 </style>
 
 <svelte:head>
@@ -65,10 +70,10 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
 <nav
-  class="( section-nav none[-64] note"
+  class="( section-nav none@-64 note"
   aria-labelledby="about-the-conference"
 >
   <h2 id="about-the-conference" class="over">About the Conference</h2>
@@ -82,7 +87,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#what">What PGConf.dev is</a></li>
@@ -97,39 +102,39 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Conference</dt>
       <dd>
         PGConf.dev 2027 — the fourth annual PostgreSQL Developer Conference
       </dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Dates</dt>
       <dd>18 — 21 May 2027</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Venue</dt>
       <dd>Palais des congrès de Montréal</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Capacity</dt>
       <dd>~600 attendees</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Format</dt>
       <dd>3 parallel tracks · tutorial day · 2 talk days · unconference day</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Languages</dt>
       <dd>English</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Organizer</dt>
       <dd>PostgreSQL Community Association of Canada</dd>
     </div>
@@ -164,7 +169,7 @@
     to them, focused specifically on the contributor track.
   </p>
 
-  <figure class="margin-section">
+  <figure class="section">
     <blockquote>
       <q>
         The only conference where I leave with a code review queue instead of a
@@ -189,7 +194,7 @@
 </section>
 
 <section id="who" class="main">
-  <div class="margin-section">
+  <div class="section">
     <hgroup>
       <p>§ 02 · Who attends</p>
       <h2>Roughly 600 people, two thirds of them contributors.</h2>
@@ -282,11 +287,8 @@
     community.
   </p>
 
-  <div class="main] margin-section">
-    <div
-      class="column-span-2 subgrid[48-] margin-gap"
-      style:grid-auto-flow="dense"
-    >
+  <div class="main] section timeline">
+    <div class="subgrid@48- margin-gap">
       <figure class="column-2">
         <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -301,12 +303,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap column-span-2" />
+    <hr aria-hidden="true" class="margin-gap" />
 
-    <div
-      class="column-span-2 subgrid[48-] margin-gap"
-      style:grid-auto-flow="dense"
-    >
+    <div class="subgrid@48- margin-gap">
       <figure class="column-2">
         <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
@@ -321,12 +320,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap column-span-2" />
+    <hr aria-hidden="true" class="margin-gap" />
 
-    <div
-      class="column-span-2 subgrid[48-] margin-gap"
-      style:grid-auto-flow="dense"
-    >
+    <div class="subgrid@48- margin-gap">
       <figure class="column-2">
         <div class="action h2" style:margin-block="0">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -341,12 +337,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap column-span-2" />
+    <hr aria-hidden="true" class="margin-gap" />
 
-    <div
-      class="column-span-2 subgrid[48-] margin-gap"
-      style:grid-auto-flow="dense"
-    >
+    <div class="subgrid@48- margin-gap">
       <figure class="column-2">
         <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>

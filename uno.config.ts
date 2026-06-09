@@ -60,7 +60,7 @@ export default defineConfig({
   ],
   variants: [
     (matcher) => {
-      const result = matcher.match(/^(.+)\[(\d+)?-(\d+)?\]$/);
+      const result = matcher.match(/^(.+)@(\d+)?-(\d+)?$/);
       if (!result) return;
       const [, rule, minimum, maximum] = result;
       const q = [];

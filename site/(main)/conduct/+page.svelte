@@ -54,9 +54,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="about-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="about-nav">
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
     <li><a href={resolve("/about")}>About PGConf.dev</a></li>
@@ -68,7 +68,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#commitment">Our commitment</a></li>
@@ -85,7 +85,7 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">CoC committee</dt>
       <dd class="mono">
         <a href="mailto:conduct@pgconf.dev">conduct@pgconf.dev</a>
@@ -93,7 +93,7 @@
       <dd>Confidential — seen only by the CoC committee.</dd>
     </div>
 
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">On-site staff</dt>
       <dd>Identify any staff member at the registration desk.</dd>
       <dd>Staff badge · blue lanyard</dd>
@@ -219,7 +219,7 @@
     conference-related social events.
   </p>
 
-  <div class="area fill-notice notice-edge margin-section">
+  <div class="area fill-notice notice-edge section">
     <h3 class="h6">Enforcement</h3>
     <p>
       The CoC committee is independent of the organizing committee. Reports are

@@ -71,7 +71,7 @@
     them.
   </p>
 
-  <figure class="margin-section">
+  <figure class="section">
     <div class="photo photo--wide border">
       [ Photo · reception · past edition ]
     </div>
@@ -82,9 +82,9 @@
   </figure>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav class="section-nav ( none[-64] note" aria-labelledby="attend-nav">
+<nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
     <li><a href={resolve("/attend")}>Venue</a></li>
@@ -96,7 +96,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#evenings">The big evenings</a></li>

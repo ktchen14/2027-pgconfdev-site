@@ -5,10 +5,18 @@
     line-height: 1;
   }
 
-  .tier-platinum { --tier-color: var(--action-fg); }
-  .tier-gold     { --tier-color: oklch(0.72 0.13 85); }
-  .tier-silver   { --tier-color: oklch(0.62 0.02 245); }
-  .tier-bronze   { --tier-color: oklch(0.58 0.09 50); }
+  .tier-platinum {
+    --tier-color: var(--action-fg);
+  }
+  .tier-gold {
+    --tier-color: oklch(0.72 0.13 85);
+  }
+  .tier-silver {
+    --tier-color: oklch(0.62 0.02 245);
+  }
+  .tier-bronze {
+    --tier-color: oklch(0.58 0.09 50);
+  }
 
   .tier {
     border-inline-start-color: var(--tier-color);
@@ -46,9 +54,9 @@
   </p>
 </header>
 
-<hr class="margin-section" />
+<hr class="section" />
 
-<nav aria-labelledby="on-this-page" class=") none[-48] note">
+<nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a href="#confirmed">2027 sponsors</a></li>
@@ -63,19 +71,19 @@
   <hr />
 
   <dl class="dedent">
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Platinum</dt>
       <dd>CAD $25,000</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Gold</dt>
       <dd>CAD $15,000</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Silver</dt>
       <dd>CAD $7,500</dd>
     </div>
-    <div class="margin-p">
+    <div class="p">
       <dt class="over">Bronze</dt>
       <dd>CAD $3,000</dd>
     </div>
@@ -195,7 +203,7 @@
     </small>
   </p>
 
-  <p class="margin-section">
+  <p class="section">
     <a href="/team#contact" class="button circle"
       >Contact the sponsorship team</a
     >

@@ -126,7 +126,7 @@
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
   <nav {id} aria-label="Main" data-expose={expose} style:order="2">
-    <menu class="flex[48-]">{@render children()}</menu>
+    <menu class="flex@48-">{@render children()}</menu>
   </nav>
 
   <a
@@ -137,7 +137,7 @@
     style:background-color="var(--delete-fg)"
     style:order="3"
   >
-    <span class="none[48-64]">Register</span>
+    <span class="none@48-64">Register</span>
     <UserPlus class="size+" />
   </a>
 </header>
