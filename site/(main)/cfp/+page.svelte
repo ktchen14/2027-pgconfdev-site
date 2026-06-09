@@ -128,7 +128,7 @@
 </aside>
 
 <section class="main">
-  <div class="insert-area insert-edge">
+  <div class="insert-area edge">
     <h3 class="h6">CFP is open</h3>
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
@@ -251,7 +251,7 @@
     submission or a future edition.
   </p>
 
-  <div class="action-area action-edge section">
+  <div class="action-area edge section">
     <h3 class="h6">Speaker support</h3>
     <p>
       Accepted speakers receive a complimentary full-conference registration. If

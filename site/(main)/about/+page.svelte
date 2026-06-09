@@ -251,7 +251,7 @@
 </section>
 
 <section class="main">
-  <div class="action-area action-edge">
+  <div class="action-area edge">
     <h3 class="h6">Format</h3>
 
     <p>

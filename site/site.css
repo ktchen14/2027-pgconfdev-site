@@ -37,33 +37,52 @@
     --insert: oklch(0.58 0.14 142.14);
     --notice: oklch(0.8 0.14 80.25);
 
-    --bg: white;
-    --fg: oklch(0.2 0.01 245.25);
-
     --ink: oklch(0.15 0.01 245.25);
 
-    /* Neutral */
-    --bg-tint: color-mix(in oklch, var(--bg), var(--ink) 4%);
-    --fg-mute: color-mix(in oklch, var(--fg), var(--bg) 35%);
-    --fg-tint: color-mix(in oklch, var(--fg), var(--bg) 60%);
-    --border: color-mix(in oklch, var(--ink), var(--bg) 80%);
+    /* Static neutral palette (fixed source of truth) */
+    --static-bg-tint: color-mix(in oklch, var(--static-bg), var(--ink) 4%);
+    --static-bg: white;
+    --static-border: color-mix(in oklch, var(--ink), var(--static-bg) 80%);
+    --static-fg-mute: color-mix(in oklch, var(--static-fg), var(--static-bg) 35%);
+    --static-fg-tint: color-mix(in oklch, var(--static-fg), var(--static-bg) 60%);
+    --static-fg: oklch(0.2 0.01 245.25);
+
+    /* Current neutral palette (contextual; scope classes override) */
+    --bg-tint: var(--static-bg-tint);
+    --bg: var(--static-bg);
+    --border: var(--static-border);
+    --fg-mute: var(--static-fg-mute);
+    --fg-tint: var(--static-fg-tint);
+    --fg: var(--static-fg);
 
     /* Code */
-    --code-bg: color-mix(in oklch, var(--bg), var(--action) 6%);
+    --code-bg: color-mix(in oklch, var(--static-bg), var(--action) 6%);
 
-    --action-fg: var(--action);
-    --action-fg-active: color-mix(in oklch, var(--action), var(--ink) 15%);
     --action-bg-mute: color-mix(in oklch, var(--action) 12%, transparent);
+    --action-border: var(--action-fg);
+    --action-fg-active: color-mix(in oklch, var(--action), var(--ink) 15%);
+    --action-fg-mute: color-mix(in oklch, var(--action-fg), var(--static-bg) 35%);
+    --action-fg-tint: color-mix(in oklch, var(--action-fg), var(--static-bg) 60%);
+    --action-fg: var(--action);
 
-    --notice-fg: color-mix(in oklch, var(--notice), var(--ink) 35%);
-    --notice-bg: var(--notice);
     --notice-bg-mute: color-mix(in oklch, var(--notice) 18%, transparent);
+    --notice-bg: var(--notice);
+    --notice-border: var(--notice-fg);
+    --notice-fg-mute: color-mix(in oklch, var(--notice-fg), var(--static-bg) 35%);
+    --notice-fg-tint: color-mix(in oklch, var(--notice-fg), var(--static-bg) 60%);
+    --notice-fg: color-mix(in oklch, var(--notice), var(--ink) 35%);
 
-    --insert-fg: var(--insert);
     --insert-bg-mute: color-mix(in oklch, var(--insert) 15%, transparent);
+    --insert-border: var(--insert-fg);
+    --insert-fg-mute: color-mix(in oklch, var(--insert-fg), var(--static-bg) 35%);
+    --insert-fg-tint: color-mix(in oklch, var(--insert-fg), var(--static-bg) 60%);
+    --insert-fg: var(--insert);
 
-    --delete-fg: var(--delete);
     --delete-bg-mute: color-mix(in oklch, var(--delete) 15%, transparent);
+    --delete-border: var(--delete-fg);
+    --delete-fg-mute: color-mix(in oklch, var(--delete-fg), var(--static-bg) 35%);
+    --delete-fg-tint: color-mix(in oklch, var(--delete-fg), var(--static-bg) 60%);
+    --delete-fg: var(--delete);
 
     /* TODO: legacy */
 
@@ -521,7 +540,7 @@
     text-decoration: underline rgb(from currentColor r g b / 50%);
 
     &[aria-current]:where(:not([aria-current="false"])) {
-      color: var(--action-fg-mute);
+      color: var(--action-fg);
     }
 
     :is(nav, search) & {
@@ -806,37 +825,57 @@
   }
 
   .action-area {
-    background-color: var(--action-bg-mute);
+    --bg: var(--action-bg-mute);
+    --border: var(--action-border);
+    background-color: var(--bg);
   }
 
   .notice-area {
-    background-color: var(--notice-bg-mute);
+    --bg: var(--notice-bg-mute);
+    --border: var(--notice-border);
+    background-color: var(--bg);
   }
 
   .insert-area {
-    background-color: var(--insert-bg-mute);
+    --bg: var(--insert-bg-mute);
+    --border: var(--insert-border);
+    background-color: var(--bg);
   }
 
   .delete-area {
-    background-color: var(--delete-bg-mute);
+    --bg: var(--delete-bg-mute);
+    --border: var(--delete-border);
+    background-color: var(--bg);
   }
 
   /* Colorization */
 
   .action-text {
-    color: var(--action-fg);
+    --fg: var(--action-fg);
+    --fg-mute: var(--action-fg-mute);
+    --fg-tint: var(--action-fg-tint);
+    color: var(--fg);
   }
 
   .notice-text {
-    color: var(--notice-fg);
+    --fg: var(--notice-fg);
+    --fg-mute: var(--notice-fg-mute);
+    --fg-tint: var(--notice-fg-tint);
+    color: var(--fg);
   }
 
   .insert-text {
-    color: var(--insert-fg);
+    --fg: var(--insert-fg);
+    --fg-mute: var(--insert-fg-mute);
+    --fg-tint: var(--insert-fg-tint);
+    color: var(--fg);
   }
 
   .delete-text {
-    color: var(--delete-fg);
+    --fg: var(--delete-fg);
+    --fg-mute: var(--delete-fg-mute);
+    --fg-tint: var(--delete-fg-tint);
+    color: var(--fg);
   }
 
   .mute {
@@ -854,19 +893,19 @@
   }
 
   .action-acme {
-    border-block-start-color: var(--action-fg);
+    border-block-start-color: var(--action-border);
   }
 
   .notice-acme {
-    border-block-start-color: var(--notice-fg);
+    border-block-start-color: var(--notice-border);
   }
 
   .insert-acme {
-    border-block-start-color: var(--insert-fg);
+    border-block-start-color: var(--insert-border);
   }
 
   .delete-acme {
-    border-block-start-color: var(--delete-fg);
+    border-block-start-color: var(--delete-border);
   }
 
   /* Inline-start accent rule, content inset behind it. */
@@ -876,18 +915,18 @@
   }
 
   .action-edge {
-    border-inline-start-color: var(--action-fg);
+    border-inline-start-color: var(--action-border);
   }
 
   .notice-edge {
-    border-inline-start-color: var(--notice-fg);
+    border-inline-start-color: var(--notice-border);
   }
 
   .insert-edge {
-    border-inline-start-color: var(--insert-fg);
+    border-inline-start-color: var(--insert-border);
   }
 
   .delete-edge {
-    border-inline-start-color: var(--delete-fg);
+    border-inline-start-color: var(--delete-border);
   }
 }
