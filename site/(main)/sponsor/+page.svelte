@@ -57,7 +57,7 @@
   </ol>
 </nav>
 
-<aside class=") note area bg-tint border" aria-labelledby="tiers-glance">
+<aside class=") note bg-tint border" aria-labelledby="tiers-glance">
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
 
   <hr />
@@ -142,7 +142,7 @@
   </p>
 
   <div class="grid+16 (main)">
-    <div class="note area border edge tier tier-platinum">
+    <div class="note border edge tier tier-platinum">
       <hgroup>
         <h3 class="h4">Platinum</h3>
         <p class="mono price">CAD $25,000</p>
@@ -154,7 +154,7 @@
       </p>
     </div>
 
-    <div class="note area border edge tier tier-gold">
+    <div class="note border edge tier tier-gold">
       <hgroup>
         <h3 class="h4">Gold</h3>
         <p class="mono price">CAD $15,000</p>
@@ -165,7 +165,7 @@
       </p>
     </div>
 
-    <div class="note area border edge tier tier-silver">
+    <div class="note border edge tier tier-silver">
       <hgroup>
         <h3 class="h4">Silver</h3>
         <p class="mono price">CAD $7,500</p>
@@ -176,7 +176,7 @@
       </p>
     </div>
 
-    <div class="note area border edge tier tier-bronze">
+    <div class="note border edge tier tier-bronze">
       <hgroup>
         <h3 class="h4">Bronze</h3>
         <p class="mono price">CAD $3,000</p>

@@ -225,7 +225,7 @@
   </div>
 
   <div class="grid+14 (main)">
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">Program</h3>
         <p>CFP questions, schedule, talk logistics.</p>
@@ -235,7 +235,7 @@
       </p>
     </div>
 
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">Sponsorship</h3>
         <p>Sponsorship inquiries, partner program, invoicing.</p>
@@ -245,7 +245,7 @@
       </p>
     </div>
 
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">Press &amp; media</h3>
         <p>Press passes, interview requests, photo policy.</p>
@@ -255,7 +255,7 @@
       </p>
     </div>
 
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">Code of conduct</h3>
         <p>Confidential channel monitored by the CoC committee.</p>
@@ -265,7 +265,7 @@
       </p>
     </div>
 
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">General</h3>
         <p>Anything else.</p>
@@ -275,7 +275,7 @@
       </p>
     </div>
 
-    <div class="note area bg-tint border">
+    <div class="note bg-tint border">
       <hgroup>
         <h3 class="h4">Mailing list</h3>
         <p>Announcements only — about one email a month.</p>

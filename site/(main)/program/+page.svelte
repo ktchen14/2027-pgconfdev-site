@@ -928,7 +928,7 @@
   </ol>
 </nav>
 
-<aside class=") note area bg-tint border" aria-labelledby="legend">
+<aside class=") note bg-tint border" aria-labelledby="legend">
   <h2 id="legend" class="over">Legend</h2>
 
   <hr />

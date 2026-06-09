@@ -78,7 +78,7 @@
   </ol>
 </nav>
 
-<aside class=") note area bg-tint border" aria-labelledby="vol-glance">
+<aside class=") note bg-tint border" aria-labelledby="vol-glance">
   <h2 id="vol-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -137,7 +137,7 @@
   </hgroup>
 
   <div class="grid+16 (main)">
-    <div class="note area border">
+    <div class="note border">
       <hgroup>
         <h3 class="h4">Registration desk</h3>
         <p class="mono action">3–4 hr shifts · All days</p>
@@ -149,7 +149,7 @@
       </p>
     </div>
 
-    <div class="note area border">
+    <div class="note border">
       <hgroup>
         <h3 class="h4">Room host (speaker intro)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
@@ -161,7 +161,7 @@
       </p>
     </div>
 
-    <div class="note area border">
+    <div class="note border">
       <hgroup>
         <h3 class="h4">Room host (operations)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
@@ -173,7 +173,7 @@
       </p>
     </div>
 
-    <div class="note area border">
+    <div class="note border">
       <hgroup>
         <h3 class="h4">A/V support</h3>
         <p class="mono action">Full day · As needed</p>

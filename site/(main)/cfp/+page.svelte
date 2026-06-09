@@ -99,7 +99,7 @@
   </ol>
 </nav>
 
-<aside class=") note area bg-tint border" aria-labelledby="cfp-glance">
+<aside class=") note bg-tint border" aria-labelledby="cfp-glance">
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -197,7 +197,7 @@
   </p>
 
   <div class="grid+16 (main)">
-    <div class="note area border edge">
+    <div class="note border edge">
       <hgroup>
         <p>45 min · 3 tracks</p>
         <h3 class="h4">Talk</h3>
@@ -208,7 +208,7 @@
       </p>
     </div>
 
-    <div class="note area border insert-edge">
+    <div class="note border insert-edge">
       <hgroup>
         <p>90 min · Day 1</p>
         <h3 class="h4">Tutorial</h3>
@@ -219,7 +219,7 @@
       </p>
     </div>
 
-    <div class="note area border notice-edge">
+    <div class="note border notice-edge">
       <hgroup>
         <p>30 min · Friday</p>
         <h3 class="h4">Unconference</h3>
