@@ -71,11 +71,11 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#commitment">Our commitment</a></li>
-    <li><a href="#photography">Photography</a></li>
-    <li><a href="#exhibitors">Exhibitors &amp; sponsors</a></li>
-    <li><a href="#reporting">Reporting</a></li>
-    <li><a href="#consequences">Consequences</a></li>
+    <li><a class="li-number" href="#commitment">Our commitment</a></li>
+    <li><a class="li-number" href="#photography">Photography</a></li>
+    <li><a class="li-number" href="#exhibitors">Exhibitors &amp; sponsors</a></li>
+    <li><a class="li-number" href="#reporting">Reporting</a></li>
+    <li><a class="li-number" href="#consequences">Consequences</a></li>
   </ol>
 </nav>
 
@@ -103,7 +103,7 @@
 
 <section id="commitment" class="main">
   <hgroup>
-    <p>§ 01 · Our commitment</p>
+    <p class="section-number">Our commitment</p>
     <h2>A harassment-free experience.</h2>
   </hgroup>
 
@@ -130,7 +130,7 @@
 
 <section id="photography" class="main">
   <hgroup>
-    <p>§ 02 · Photography</p>
+    <p class="section-number">Photography</p>
     <h2>The red lanyard rule.</h2>
   </hgroup>
 
@@ -149,7 +149,7 @@
 
 <section id="exhibitors" class="main">
   <hgroup>
-    <p>§ 03 · Exhibitors and sponsors</p>
+    <p class="section-number">Exhibitors and sponsors</p>
     <h2>The policy applies to booths, too.</h2>
   </hgroup>
 
@@ -163,7 +163,7 @@
 
 <section id="reporting" class="main">
   <hgroup>
-    <p>§ 04 · Reporting</p>
+    <p class="section-number">Reporting</p>
     <h2>How to report.</h2>
   </hgroup>
 
@@ -204,7 +204,7 @@
 
 <section id="consequences" class="main">
   <hgroup>
-    <p>§ 05 · Consequences</p>
+    <p class="section-number">Consequences</p>
     <h2>What happens next.</h2>
   </hgroup>
 

@@ -72,10 +72,10 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#air">By air</a></li>
-    <li><a href="#train">By train</a></li>
-    <li><a href="#visa">Entry requirements</a></li>
-    <li><a href="#hotels">Hotels</a></li>
+    <li><a class="li-number" href="#air">By air</a></li>
+    <li><a class="li-number" href="#train">By train</a></li>
+    <li><a class="li-number" href="#visa">Entry requirements</a></li>
+    <li><a class="li-number" href="#hotels">Hotels</a></li>
   </ol>
 </nav>
 
@@ -104,7 +104,7 @@
 
 <section id="air" class="main">
   <hgroup>
-    <p>§ 01 · By air</p>
+    <p class="section-number">By air</p>
     <h2>Montréal–Trudeau International Airport (YUL).</h2>
   </hgroup>
 
@@ -123,7 +123,7 @@
 
 <section id="train" class="main">
   <hgroup>
-    <p>§ 02 · By train</p>
+    <p class="section-number">By train</p>
     <h2>VIA Rail and Amtrak.</h2>
   </hgroup>
 
@@ -137,7 +137,7 @@
 
 <section id="visa">
   <hgroup class="main">
-    <p>§ 03 · Entry requirements</p>
+    <p class="section-number">Entry requirements</p>
     <h2>Visas and eTAs.</h2>
   </hgroup>
 
@@ -179,7 +179,7 @@
 
 <section id="hotels" class="main">
   <hgroup>
-    <p>§ 04 · Hotels</p>
+    <p class="section-number">Hotels</p>
     <h2>Partner hotels for 2027.</h2>
   </hgroup>
 

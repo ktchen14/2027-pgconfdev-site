@@ -72,15 +72,15 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#policies">Policies</a></li>
-    <li><a href="#privacy">Privacy</a></li>
-    <li><a href="#financial">Financial disclosure</a></li>
+    <li><a class="li-number" href="#policies">Policies</a></li>
+    <li><a class="li-number" href="#privacy">Privacy</a></li>
+    <li><a class="li-number" href="#financial">Financial disclosure</a></li>
   </ol>
 </nav>
 
 <section id="policies" class="main">
   <hgroup>
-    <p>§ 01 · Policies</p>
+    <p class="section-number">Policies</p>
     <h2>A PostgreSQL Community Event.</h2>
   </hgroup>
 
@@ -97,7 +97,7 @@
 
 <section id="privacy" class="main">
   <hgroup>
-    <p>§ 02 · Privacy</p>
+    <p class="section-number">Privacy</p>
     <h2>What we collect, and what we don't.</h2>
   </hgroup>
 
@@ -126,7 +126,7 @@
 
 <section id="financial" class="main">
   <hgroup>
-    <p>§ 03 · Financial disclosure</p>
+    <p class="section-number">Financial disclosure</p>
     <h2>Where the money goes.</h2>
   </hgroup>
 

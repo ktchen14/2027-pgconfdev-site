@@ -727,6 +727,23 @@
     size: 1em;
   }
 
+  main {
+    counter-reset: section;
+  }
+
+  .section-number::before {
+    content: "§ " counter(section, decimal-leading-zero) " · ";
+    counter-increment: section;
+  }
+
+  .li-number::before {
+    color: var(--fg-tint);
+    content: counter(list-item, decimal-leading-zero);
+    font-family: var(--mono-font);
+    font-size: 0.875em;
+    margin-inline-end: 1em;
+  }
+
   .lead, .lede {
     font-family: var(--header-font);
     font-size: 1.25em;

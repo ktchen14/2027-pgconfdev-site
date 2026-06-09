@@ -70,16 +70,16 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#organizing">Organizing committee</a></li>
-    <li><a href="#program">Program committee</a></li>
-    <li><a href="#volunteers">Volunteers</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a class="li-number" href="#organizing">Organizing committee</a></li>
+    <li><a class="li-number" href="#program">Program committee</a></li>
+    <li><a class="li-number" href="#volunteers">Volunteers</a></li>
+    <li><a class="li-number" href="#contact">Contact</a></li>
   </ol>
 </nav>
 
 <section id="organizing">
   <hgroup class="main">
-    <p>§ 01 · Organizing committee</p>
+    <p class="section-number">Organizing committee</p>
     <h2>The chairs who run the conference.</h2>
   </hgroup>
 
@@ -156,7 +156,7 @@
 
 <section id="program" class="main">
   <hgroup>
-    <p>§ 02 · Program committee</p>
+    <p class="section-number">Program committee</p>
     <h2>Who reviews the talks.</h2>
   </hgroup>
 
@@ -195,7 +195,7 @@
 
 <section id="volunteers" class="main">
   <hgroup>
-    <p>§ 03 · Volunteers</p>
+    <p class="section-number">Volunteers</p>
     <h2>The crew who run the week.</h2>
   </hgroup>
 
@@ -214,7 +214,7 @@
 <section id="contact">
   <div class="main margin-gap">
     <hgroup>
-      <p>§ 04 · Contact</p>
+      <p class="section-number">Contact</p>
       <h2>How to reach us.</h2>
     </hgroup>
 

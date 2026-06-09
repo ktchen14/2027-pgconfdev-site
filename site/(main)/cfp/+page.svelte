@@ -92,10 +92,10 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#looking-for">What we're looking for</a></li>
-    <li><a href="#formats">Formats</a></li>
-    <li><a href="#review">Review process</a></li>
-    <li><a href="#dates">Key dates</a></li>
+    <li><a class="li-number" href="#looking-for">What we're looking for</a></li>
+    <li><a class="li-number" href="#formats">Formats</a></li>
+    <li><a class="li-number" href="#review">Review process</a></li>
+    <li><a class="li-number" href="#dates">Key dates</a></li>
   </ol>
 </nav>
 
@@ -140,7 +140,7 @@
 
 <section id="looking-for" class="main">
   <hgroup>
-    <p>§ 01 · What we're looking for</p>
+    <p class="section-number">What we're looking for</p>
     <h2>Technical depth, honestly reported.</h2>
   </hgroup>
 
@@ -186,7 +186,7 @@
 
 <section id="formats">
   <hgroup class="main">
-    <p>§ 02 · Formats</p>
+    <p class="section-number">Formats</p>
     <h2>Three formats to choose from.</h2>
   </hgroup>
 
@@ -234,7 +234,7 @@
 
 <section id="review" class="main">
   <hgroup>
-    <p>§ 03 · Review process</p>
+    <p class="section-number">Review process</p>
     <h2>Double-blind, then discussed.</h2>
   </hgroup>
 
@@ -264,7 +264,7 @@
 
 <section id="dates">
   <hgroup class="main">
-    <p>§ 04 · Key dates</p>
+    <p class="section-number">Key dates</p>
     <h2>Important deadlines.</h2>
   </hgroup>
 

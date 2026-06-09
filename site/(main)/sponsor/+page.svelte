@@ -59,9 +59,9 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#confirmed">2027 sponsors</a></li>
-    <li><a href="#become">Why sponsor</a></li>
-    <li><a href="#tiers">Sponsorship tiers</a></li>
+    <li><a class="li-number" href="#confirmed">2027 sponsors</a></li>
+    <li><a class="li-number" href="#become">Why sponsor</a></li>
+    <li><a class="li-number" href="#tiers">Sponsorship tiers</a></li>
   </ol>
 </nav>
 
@@ -102,7 +102,7 @@
 
 <section id="confirmed" class="main">
   <hgroup>
-    <p>§ 01 · 2027 sponsors</p>
+    <p class="section-number">2027 sponsors</p>
     <h2>Confirmed sponsors will appear here.</h2>
   </hgroup>
 
@@ -114,7 +114,7 @@
 
 <section id="become" class="main">
   <hgroup>
-    <p>§ 02 · Become a sponsor</p>
+    <p class="section-number">Become a sponsor</p>
     <h2>Why sponsor PGConf.dev?</h2>
   </hgroup>
 
@@ -140,7 +140,7 @@
 
 <section id="tiers">
   <hgroup class="main">
-    <p>§ 03 · Sponsorship tiers</p>
+    <p class="section-number">Sponsorship tiers</p>
     <h2>Four levels of support.</h2>
   </hgroup>
 

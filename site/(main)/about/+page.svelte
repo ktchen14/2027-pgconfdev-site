@@ -87,9 +87,9 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#what">What PGConf.dev is</a></li>
-    <li><a href="#who">Who attends</a></li>
-    <li><a href="#history">A short history</a></li>
+    <li><a class="li-number" href="#what">What PGConf.dev is</a></li>
+    <li><a class="li-number" href="#who">Who attends</a></li>
+    <li><a class="li-number" href="#history">A short history</a></li>
   </ol>
 </nav>
 
@@ -140,7 +140,7 @@
 
 <section id="what" class="main">
   <hgroup>
-    <p>§ 01 · What it is</p>
+    <p class="section-number">What it is</p>
     <h2>A working conference for the people building Postgres.</h2>
   </hgroup>
 
@@ -193,7 +193,7 @@
 <section id="who" class="main">
   <div class="section">
     <hgroup>
-      <p>§ 02 · Who attends</p>
+      <p class="section-number">Who attends</p>
       <h2>Roughly 600 people, two thirds of them contributors.</h2>
     </hgroup>
 
@@ -264,7 +264,7 @@
 
 <section id="history">
   <hgroup class="main">
-    <p>§ 03 · History</p>
+    <p class="section-number">History</p>
     <h2>Four years, four cities.</h2>
   </hgroup>
 

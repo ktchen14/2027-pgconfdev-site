@@ -921,10 +921,10 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">Jump to a day</h2>
   <ol>
-    <li><a href="#day-1">Tue · 18 May · Tutorials</a></li>
-    <li><a href="#day-2">Wed · 19 May · Talks</a></li>
-    <li><a href="#day-3">Thu · 20 May · Talks</a></li>
-    <li><a href="#day-4">Fri · 21 May · Unconference</a></li>
+    <li><a class="li-number" href="#day-1">Tue · 18 May · Tutorials</a></li>
+    <li><a class="li-number" href="#day-2">Wed · 19 May · Talks</a></li>
+    <li><a class="li-number" href="#day-3">Thu · 20 May · Talks</a></li>
+    <li><a class="li-number" href="#day-4">Fri · 21 May · Unconference</a></li>
   </ol>
 </nav>
 

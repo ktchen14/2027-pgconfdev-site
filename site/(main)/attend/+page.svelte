@@ -90,15 +90,15 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#venue">The venue</a></li>
-    <li><a href="#floor-plans">Rooms &amp; floor plans</a></li>
-    <li><a href="#accessibility">Accessibility</a></li>
+    <li><a class="li-number" href="#venue">The venue</a></li>
+    <li><a class="li-number" href="#floor-plans">Rooms &amp; floor plans</a></li>
+    <li><a class="li-number" href="#accessibility">Accessibility</a></li>
   </ol>
 </nav>
 
 <section id="venue" class="main">
   <hgroup>
-    <p>§ 01 · Venue</p>
+    <p class="section-number">Venue</p>
     <h2>Palais des congrès de Montréal.</h2>
   </hgroup>
 
@@ -143,7 +143,7 @@
 
 <section id="floor-plans" class="main">
   <hgroup>
-    <p>§ 02 · Rooms &amp; floor plans</p>
+    <p class="section-number">Rooms &amp; floor plans</p>
     <h2>Session rooms and spaces.</h2>
   </hgroup>
 
@@ -199,7 +199,7 @@
 
 <section id="accessibility" class="main">
   <hgroup>
-    <p>§ 03 · Accessibility</p>
+    <p class="section-number">Accessibility</p>
     <h2>Accessible by design.</h2>
   </hgroup>
 

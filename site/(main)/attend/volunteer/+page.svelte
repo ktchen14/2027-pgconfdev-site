@@ -71,10 +71,10 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#get">What you get</a></li>
-    <li><a href="#roles">Volunteer roles</a></li>
-    <li><a href="#photography">Photography policy</a></li>
-    <li><a href="#apply">Apply</a></li>
+    <li><a class="li-number" href="#get">What you get</a></li>
+    <li><a class="li-number" href="#roles">Volunteer roles</a></li>
+    <li><a class="li-number" href="#photography">Photography policy</a></li>
+    <li><a class="li-number" href="#apply">Apply</a></li>
   </ol>
 </nav>
 
@@ -113,7 +113,7 @@
 
 <section id="get" class="main">
   <hgroup>
-    <p>§ 01 · What you get</p>
+    <p class="section-number">What you get</p>
     <h2>Free registration for eight hours of work.</h2>
   </hgroup>
 
@@ -132,7 +132,7 @@
 
 <section id="roles">
   <hgroup class="main">
-    <p>§ 02 · Volunteer roles</p>
+    <p class="section-number">Volunteer roles</p>
     <h2>What volunteers do.</h2>
   </hgroup>
 
@@ -189,7 +189,7 @@
 
 <section id="photography">
   <hgroup class="main">
-    <p>§ 03 · Photography policy</p>
+    <p class="section-number">Photography policy</p>
     <h2>The red lanyard rule.</h2>
   </hgroup>
 
@@ -218,7 +218,7 @@
 
 <section id="apply" class="main">
   <hgroup>
-    <p>§ 04 · Apply</p>
+    <p class="section-number">Apply</p>
     <h2>How to sign up.</h2>
   </hgroup>
 

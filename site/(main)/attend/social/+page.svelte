@@ -99,14 +99,14 @@
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
-    <li><a href="#evenings">The big evenings</a></li>
-    <li><a href="#week">Around the week</a></li>
+    <li><a class="li-number" href="#evenings">The big evenings</a></li>
+    <li><a class="li-number" href="#week">Around the week</a></li>
   </ol>
 </nav>
 
 <section id="evenings">
   <hgroup class="main">
-    <p>§ 01 · The big evenings</p>
+    <p class="section-number">The big evenings</p>
     <h2>Two nights worth clearing your calendar for.</h2>
   </hgroup>
 
@@ -155,7 +155,7 @@
 
 <section id="week">
   <hgroup class="main">
-    <p>§ 02 · Around the week</p>
+    <p class="section-number">Around the week</p>
     <h2>Smaller ways to meet people.</h2>
   </hgroup>
 
