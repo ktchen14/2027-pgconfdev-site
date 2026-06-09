@@ -16,6 +16,12 @@
     --mono-font: "JetBrains Mono", ui-monospace, monospace;
     --normal-font: "Public Sans", system-ui, sans-serif;
 
+    /* Layout */
+
+    --sidebar-width: clamp(12rem, 25vw, 16rem);
+    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
+    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
+
     /* Size */
 
     --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
@@ -234,6 +240,137 @@
   }
 }
 
+@layer page-layout {
+  .float-left {
+    margin-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      margin-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      clear: inline-start;
+      float: inline-start;
+      margin-inline: var(--gutter) var(--margin);
+      width: var(--sidebar-width);
+    }
+  }
+
+  .float-right {
+    margin-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      clear: inline-end;
+      float: inline-end;
+      margin-inline: var(--margin) var(--gutter);
+      width: var(--sidebar-width);
+    }
+  }
+
+  .main {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      padding-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .merge-left {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      clear: inline-start;
+      padding-inline-end: var(--side);
+    }
+  }
+
+  .merge-right {
+    padding-inline: var(--gutter);
+
+    @media (width >= 64rem) {
+      clear: inline-end;
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .merge-both {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      clear: inline-start;
+    }
+
+    @media (width >= 64rem) {
+      clear: both;
+    }
+  }
+
+  .split-left {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      padding-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      clear: inline-start;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      row-gap: 1.5rem;
+
+      > * {
+        margin-block: 0;
+      }
+    }
+  }
+
+  .split-right {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      clear: inline-end;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      row-gap: 1.5rem;
+
+      > * {
+        margin-block: 0;
+      }
+    }
+
+    @media (width >= 64rem) {
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .split-both {
+    padding-inline: var(--gutter);
+
+    @media (width >= 48rem) {
+      clear: inline-end;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      row-gap: 1.5rem;
+
+      > * {
+        margin-block: 0;
+      }
+    }
+
+    @media (width >= 64rem) {
+      clear: both;
+      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+    }
+  }
+}
+
 @layer appearance {
   *, ::before, ::after {
     transition-duration: 0.15s;
@@ -277,7 +414,7 @@
 
   /* TODO */
 
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6  {
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: var(--header-font);
     font-weight: 500;
     text-wrap: balance;
@@ -287,19 +424,42 @@
     font-family: var(--normal-font);
   }
 
-  h1, .h1 { font-size: var(--h1-size); line-height: 1.1; }
-  h2, .h2 { font-size: var(--h2-size); line-height: 1.15; }
-  h3, .h3 { font-size: var(--h3-size); line-height: 1.2; }
-  h4, .h4 { font-size: 1.25em; line-height: 1.25; }
-  h5, .h5 { font-size: var(--h5-size); line-height: 1.3; }
-  h6, .h6 { font-size: var(--h6-size); line-height: 1.3; }
+  h1, .h1 {
+    font-size: var(--h1-size);
+    line-height: 1.1;
+  }
+
+  h2, .h2 {
+    font-size: var(--h2-size);
+    line-height: 1.15;
+  }
+
+  h3, .h3 {
+    font-size: var(--h3-size);
+    line-height: 1.2;
+  }
+
+  h4, .h4 {
+    font-size: 1.25em;
+    line-height: 1.25;
+  }
+
+  h5, .h5 {
+    font-size: var(--h5-size);
+    line-height: 1.3;
+  }
+
+  h6, .h6 {
+    font-size: var(--h6-size);
+    line-height: 1.3;
+  }
 
   /* Flow content except phrasing content */
 
   blockquote {
     border-inline-start: 3px solid var(--border);
     margin-inline: 0;
-    padding-inline: 1rem;
+    padding-inline-start: 1.5rem;
   }
 
   dd {
@@ -605,20 +765,40 @@
 
   /* Inline-start accent rule, content inset behind it.
      Color via .edge-*; bare .edge uses the neutral border color. */
-  .edge, .edge-action, .edge-notice, .edge-insert, .edge-delete {
+  .edge,
+  .edge-action,
+  .edge-notice,
+  .edge-insert,
+  .edge-delete {
     border-inline-start: 3px solid var(--edge, var(--border));
     padding-inline-start: 1.5rem;
   }
-  .edge-action { --edge: var(--action-fg); }
-  .edge-notice { --edge: var(--notice-fg); }
-  .edge-insert { --edge: var(--insert-fg); }
-  .edge-delete { --edge: var(--delete-fg); }
+  .edge-action {
+    --edge: var(--action-fg);
+  }
+  .edge-notice {
+    --edge: var(--notice-fg);
+  }
+  .edge-insert {
+    --edge: var(--insert-fg);
+  }
+  .edge-delete {
+    --edge: var(--delete-fg);
+  }
 
   /* Tinted fill (neutral fill is .bg-tint) */
-  .fill-action { background: var(--action-bg-mute); }
-  .fill-notice { background: var(--notice-bg-mute); }
-  .fill-insert { background: var(--insert-bg-mute); }
-  .fill-delete { background: var(--delete-bg-mute); }
+  .fill-action {
+    background: var(--action-bg-mute);
+  }
+  .fill-notice {
+    background: var(--notice-bg-mute);
+  }
+  .fill-insert {
+    background: var(--insert-bg-mute);
+  }
+  .fill-delete {
+    background: var(--delete-bg-mute);
+  }
 
   /* Colorization */
 
@@ -661,15 +841,19 @@
     width: 1em;
   }
 
-  .size\+\+, .size\+2 { font-size: 1.25em; }
-  .size\+,   .size\+1 { font-size: 1.125em; }
-  .size-,    .size-1  { font-size: 0.875em; }
-  .size--,   .size-2  { font-size: 0.75em; }
-}
+  :where(:not(.icon)):is(.size\+2, .size\+\+) {
+    font-size: 1.25em;
+  }
 
-.restrict-1280 {
-  /* Fluid gutter: scales smoothly from 1.5rem at 320px to 3rem at 1280px,
-    where it meets the centering term continuously (both equal 3rem). Above
-    1280px the content stays centered. No step, no flat region. */
-  padding-inline: max(var(--margin), (100vw - 1280px + 6rem) / 2);
+  :where(:not(.icon)):is(.size\+1, .size\+) {
+    font-size: 1.125em;
+  }
+
+  :where(:not(.icon)):is(.size-1, .size-) {
+    font-size: 0.875em;
+  }
+
+  :where(:not(.icon)):is(.size-2, .size--) {
+    font-size: 0.75em;
+  }
 }
