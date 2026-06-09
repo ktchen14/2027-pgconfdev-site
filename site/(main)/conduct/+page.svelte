@@ -79,10 +79,7 @@
   </ol>
 </nav>
 
-<aside
-  class=") note area bg-tint border"
-  aria-labelledby="report-glance"
->
+<aside class=") note area bg-tint border" aria-labelledby="report-glance">
   <h2 id="report-glance" class="over">Report an Incident</h2>
 
   <hr />

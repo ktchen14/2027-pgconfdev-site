@@ -79,10 +79,7 @@
 
 <hr class="margin-section" />
 
-<nav
-  class="section-nav ( none[-64] note"
-  aria-labelledby="program-nav"
->
+<nav class="section-nav ( none[-64] note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
     <li><a href={resolve("/program")}>Schedule</a></li>
@@ -102,10 +99,7 @@
   </ol>
 </nav>
 
-<aside
-  class=") note area bg-tint border"
-  aria-labelledby="cfp-glance"
->
+<aside class=") note area bg-tint border" aria-labelledby="cfp-glance">
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />

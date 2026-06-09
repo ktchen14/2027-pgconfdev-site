@@ -62,10 +62,7 @@
   </ol>
 </nav>
 
-<aside
-  class=") note area bg-tint border"
-  aria-labelledby="tiers-glance"
->
+<aside class=") note area bg-tint border" aria-labelledby="tiers-glance">
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
 
   <hr />

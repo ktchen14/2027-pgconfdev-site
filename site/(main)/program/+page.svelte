@@ -910,10 +910,7 @@
 
 <hr class="margin-section" />
 
-<nav
-  class="section-nav ( none[-64] note"
-  aria-labelledby="program-nav"
->
+<nav class="section-nav ( none[-64] note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
     <li><a href={resolve("/program")} aria-current="page">Schedule</a></li>

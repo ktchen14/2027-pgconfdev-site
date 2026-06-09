@@ -68,7 +68,7 @@
 <hr class="margin-section" />
 
 <nav
-  class="section-nav ( none[-64] note"
+  class="( section-nav none[-64] note"
   aria-labelledby="about-the-conference"
 >
   <h2 id="about-the-conference" class="over">About the Conference</h2>
@@ -91,10 +91,7 @@
   </ol>
 </nav>
 
-<aside
-  class="area bg-tint border ) note"
-  aria-labelledby="at-a-glance"
->
+<aside class=") area bg-tint border note" aria-labelledby="at-a-glance">
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -287,7 +284,7 @@
     community.
   </p>
 
-  <div class="margin-section main]">
+  <div class="main] margin-section">
     <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
       <figure class="column-2">
         <div class="action h2">2024</div>

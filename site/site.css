@@ -829,8 +829,7 @@
   }
 
   .lucide {
-    height: 1em;
-    width: 1em;
+    size: 1em;
   }
 
   :where(:not(.icon)):is(.size\+2, .size\+\+) {
