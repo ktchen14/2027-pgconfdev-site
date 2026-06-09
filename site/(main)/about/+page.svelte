@@ -286,66 +286,68 @@
   </p>
 
   <div class="margin-section">
-    <div class="split-left margin-gap">
-      <figure>
-        <div class="action h2">2024</div>
-        <figcaption class="over">Vancouver, BC</figcaption>
-      </figure>
+    <div class="split-right">
+      <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+        <figure class="column-2">
+          <div class="action h2">2024</div>
+          <figcaption class="over">Vancouver, BC</figcaption>
+        </figure>
 
-      <div class="note">
-        <h4>The first PGConf.dev</h4>
-        <p>
-          ~450 attendees · 38 talks · the first unconference day · the format
-          proves itself
-        </p>
+        <div class="note">
+          <h4>The first PGConf.dev</h4>
+          <p>
+            ~450 attendees · 38 talks · the first unconference day · the format
+            proves itself
+          </p>
+        </div>
       </div>
-    </div>
 
-    <hr aria-hidden="true" class="merge-left margin-gap" />
+      <hr aria-hidden="true" class="margin-gap span-2" />
 
-    <div class="split-left margin-gap">
-      <figure>
-        <div class="action h2">2025</div>
-        <figcaption class="over">Montréal, QC</figcaption>
-      </figure>
+      <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+        <figure class="column-2">
+          <div class="action h2">2025</div>
+          <figcaption class="over">Montréal, QC</figcaption>
+        </figure>
 
-      <div class="note">
-        <h4>Second year, expanded program</h4>
-        <p>
-          ~580 attendees · tutorial day added · scholarships program launches
-          with 22 funded seats
-        </p>
+        <div class="note">
+          <h4>Second year, expanded program</h4>
+          <p>
+            ~580 attendees · tutorial day added · scholarships program launches
+            with 22 funded seats
+          </p>
+        </div>
       </div>
-    </div>
 
-    <hr aria-hidden="true" class="merge-left margin-gap" />
+      <hr aria-hidden="true" class="margin-gap span-2" />
 
-    <div class="split-left margin-gap">
-      <figure>
-        <div class="action h2" style:margin-block="0">2026</div>
-        <figcaption class="over">Vancouver, BC</figcaption>
-      </figure>
+      <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+        <figure class="column-2">
+          <div class="action h2" style:margin-block="0">2026</div>
+          <figcaption class="over">Vancouver, BC</figcaption>
+        </figure>
 
-      <div class="note">
-        <h4>Return to the West Coast</h4>
-        <p>
-          ~610 attendees · two co-located workshops · first year with a
-          dedicated community day
-        </p>
+        <div class="note">
+          <h4>Return to the West Coast</h4>
+          <p>
+            ~610 attendees · two co-located workshops · first year with a
+            dedicated community day
+          </p>
+        </div>
       </div>
-    </div>
 
-    <hr aria-hidden="true" class="merge-left margin-gap" />
+      <hr aria-hidden="true" class="margin-gap span-2" />
 
-    <div class="split-left margin-gap">
-      <figure>
-        <div class="action h2">2027</div>
-        <figcaption class="over">Montréal, QC</figcaption>
-      </figure>
+      <div class="span-2 subgrid[2:] margin-gap" style:grid-auto-flow="dense">
+        <figure class="column-2">
+          <div class="action h2">2027</div>
+          <figcaption class="over">Montréal, QC</figcaption>
+        </figure>
 
-      <div class="note">
-        <h4>This year</h4>
-        <p>Palais des congrès · 18 – 21 May · CFP closes 14 February</p>
+        <div class="note">
+          <h4>This year</h4>
+          <p>Palais des congrès · 18 – 21 May · CFP closes 14 February</p>
+        </div>
       </div>
     </div>
   </div>

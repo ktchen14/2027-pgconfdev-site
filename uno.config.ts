@@ -11,6 +11,9 @@ const sidebar = `calc(${gutter} + 16rem + var(--margin))`;
 const md = "@media (width >= 48rem)";
 const lg = "@media (width >= 64rem)";
 
+/** Width at which each column count begins (col 2 = md, col 3 = lg). */
+const colBreakpoints: Record<number, string> = { 2: "48rem", 3: "64rem" };
+
 export default defineConfig({
   extractors: [extractorSvelte()],
   presets: [],
@@ -51,7 +54,8 @@ export default defineConfig({
         {
           [symbols.parent]: lg,
           display: "grid",
-          gap: "var(--margin)",
+          "column-gap": "var(--margin)",
+          "row-gap": "1.5rem",
           "grid-template-columns": "16rem 1fr",
         },
         {
@@ -69,7 +73,8 @@ export default defineConfig({
         {
           [symbols.parent]: md,
           display: "grid",
-          gap: "var(--margin)",
+          "column-gap": "var(--margin)",
+          "row-gap": "1.5rem",
           "grid-template-columns": "1fr 16rem",
         },
         {
@@ -86,7 +91,8 @@ export default defineConfig({
         {
           [symbols.parent]: lg,
           display: "grid",
-          gap: "var(--margin)",
+          "column-gap": "var(--margin)",
+          "row-gap": "1.5rem",
           "grid-template-columns": "16rem 1fr 16rem",
         },
         {
@@ -139,6 +145,18 @@ export default defineConfig({
         },
       ],
     ],
+    [
+      "subgrid",
+      [
+        { display: "grid", "grid-template-columns": "subgrid" },
+        {
+          [symbols.selector]: (s) => `${s} > *`,
+          "margin-block": 0,
+        },
+      ],
+    ],
+    [/^span-(\d+)$/, ([, n]) => ({ "grid-column": `span ${n}` })],
+    [/^column-(\d+)$/, ([, n]) => ({ "grid-column": n })],
     ["none", { display: "none" }],
     [
       "flex",
@@ -192,6 +210,23 @@ export default defineConfig({
       const q = [];
       if (minimum) q.push(`(width >= ${minimum}rem)`);
       if (maximum) q.push(`(width < ${maximum}rem)`);
+      return { matcher: rule, parent: `@media ${q.join(" and ")}` };
+    },
+    (matcher) => {
+      const result = matcher.match(/^(.+)\[(\d+)?:(\d+)?\]$/);
+      if (!result) return;
+      const [, rule, minCol, maxCol] = result;
+      if (!minCol && !maxCol) return;
+      const q = [];
+      if (minCol) {
+        const bp = colBreakpoints[parseInt(minCol)];
+        if (bp) q.push(`(width >= ${bp})`);
+      }
+      if (maxCol) {
+        const bp = colBreakpoints[parseInt(maxCol)];
+        if (bp) q.push(`(width < ${bp})`);
+      }
+      if (q.length === 0) return;
       return { matcher: rule, parent: `@media ${q.join(" and ")}` };
     },
   ],

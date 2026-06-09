@@ -556,16 +556,6 @@
 
 @layer svelte {
   /* Miscellaneous classes */
-  .subgrid {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: subgrid;
-
-    > * {
-      margin-block: 0;
-    }
-  }
-
   .circle {
     border-radius: calc(infinity * 1px);
   }
