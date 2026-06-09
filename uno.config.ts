@@ -2,9 +2,6 @@ import { symbols } from "@unocss/core";
 import extractorSvelte from "@unocss/extractor-svelte";
 import { defineConfig } from "unocss";
 
-/** Width at which each column count begins (col 2 = md, col 3 = lg). */
-const colBreakpoints: Record<number, string> = { 2: "48rem", 3: "64rem" };
-
 export default defineConfig({
   extractors: [extractorSvelte()],
   presets: [],
@@ -56,7 +53,10 @@ export default defineConfig({
     ],
 
     [/^column-(\d+)$/, ([, number]) => ({ "grid-column": number })],
-    [/^column-span-(\d+)$/, ([, number]) => ({ "grid-column": `span ${number}` })],
+    [
+      /^column-span-(\d+)$/,
+      ([, number]) => ({ "grid-column": `span ${number}` }),
+    ],
   ],
   variants: [
     (matcher) => {
@@ -66,23 +66,6 @@ export default defineConfig({
       const q = [];
       if (minimum) q.push(`(width >= ${minimum}rem)`);
       if (maximum) q.push(`(width < ${maximum}rem)`);
-      return { matcher: rule, parent: `@media ${q.join(" and ")}` };
-    },
-
-    (matcher) => {
-      const result = matcher.match(/^(.+)\[(\d+)?:(\d+)?\]$/);
-      if (!result) return;
-      const [, rule, minimum, maximum] = result;
-      if (!minimum && !maximum) return;
-      const q = [];
-      if (minimum) {
-        const bp = colBreakpoints[parseInt(minimum)];
-        if (bp) q.push(`(width >= ${bp})`);
-      }
-      if (maximum) {
-        const bp = colBreakpoints[parseInt(maximum)];
-        if (bp) q.push(`(width < ${bp})`);
-      }
       return { matcher: rule, parent: `@media ${q.join(" and ")}` };
     },
   ],
