@@ -57,7 +57,7 @@
     /* Fill */
     --bg: var(--static-bg);
 
-    /* Secondary fill, i.e. :hover, .stripe, .tint */
+    /* Secondary fill, i.e. :hover, .stripe, .area */
     --bg-tint: color-mix(in oklch, var(--static) 4%, white);
 
     /* Separation, i.e. <hr>, <tr>, .border */
@@ -223,146 +223,7 @@
   }
 }
 
-@layer page-layout {
-  :root {
-    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
-    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
-    --sidebar-width: clamp(12rem, 25vw, 16rem);
-  }
-
-  .\(, .\) {
-    margin-inline: var(--gutter);
-  }
-
-  .\( {
-    @media (width >= 48rem) {
-      margin-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      clear: inline-start;
-      float: inline-start;
-      margin-block-start: 0;
-      margin-inline: var(--gutter) var(--margin);
-      width: var(--sidebar-width);
-    }
-  }
-
-  .\) {
-    @media (width >= 48rem) {
-      clear: inline-end;
-      float: inline-end;
-      margin-block-start: 0;
-      margin-inline: var(--margin) var(--gutter);
-      width: var(--sidebar-width);
-    }
-  }
-
-  .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
-    padding-inline: var(--gutter);
-  }
-
-  .main {
-    @media (width >= 48rem) {
-      padding-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      padding-inline-start: var(--side);
-    }
-  }
-
-  .\(main {
-    @media (width >= 48rem) {
-      clear: inline-start;
-      padding-inline-end: var(--side);
-    }
-  }
-
-  .\[main {
-    @media (width >= 48rem) {
-      padding-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      clear: inline-start;
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: var(--sidebar-width) 1fr;
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-  }
-
-  .main\) {
-    @media (width >= 64rem) {
-      clear: inline-end;
-      padding-inline-start: var(--side);
-    }
-  }
-
-  .main\] {
-    @media (width >= 48rem) {
-      clear: inline-end;
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-width);
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-
-    @media (width >= 64rem) {
-      padding-inline-start: var(--side);
-    }
-  }
-
-  .\(main\) {
-    @media (width >= 48rem) {
-      clear: inline-start;
-    }
-
-    @media (width >= 64rem) {
-      clear: both;
-    }
-  }
-
-  .\[main\] {
-    @media (width >= 48rem) {
-      clear: inline-end;
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-width);
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-
-    @media (width >= 64rem) {
-      clear: both;
-      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
-    }
-  }
-}
-
 @layer appearance {
-  :is(.action, .notice, .insert, .delete) {
-    color: var(--fg);
-  }
-
-  *, ::before, ::after {
-    transition-duration: 0.15s;
-    transition-property: none;
-    transition-timing-function: ease-in-out;
-  }
-
   body {
     /* Remove the grey highlight on links in iOS (opinionated) */
     -webkit-tap-highlight-color: transparent;
@@ -372,6 +233,16 @@
     font-family: var(--normal-font);
     min-width: 20rem;
     overflow-wrap: break-word;
+  }
+
+  *, ::before, ::after {
+    transition-duration: 0.15s;
+    transition-property: none;
+    transition-timing-function: ease-in-out;
+  }
+
+  :is(.action, .notice, .insert, .delete) {
+    color: var(--fg);
   }
 
   /* Heading content */
@@ -816,12 +687,12 @@
 
   /* Fill */
 
-  .tint {
-    background-color: var(--bg-tint);
+  .area, .action-area, .notice-area, .insert-area, .delete-area {
+    padding: var(--gap);
   }
 
-  .action-area, .notice-area, .insert-area, .delete-area {
-    padding: var(--gap);
+  .area {
+    background-color: var(--bg-tint);
   }
 
   .action-area {
@@ -858,14 +729,14 @@
 
   /* Accents */
 
-  .border {
-    border: 1px solid var(--border);
-    padding: var(--gap);
-  }
-
   .band {
     border-block: 1px solid var(--border);
     padding-block: var(--gap);
+  }
+
+  .border {
+    border: 1px solid var(--border);
+    padding: var(--gap);
   }
 
   .acme, .action-acme, .notice-acme, .insert-acme, .delete-acme {
@@ -908,5 +779,134 @@
 
   .delete-edge {
     border-inline-start-color: var(--delete-fg);
+  }
+
+  /* Page Layout */
+
+  :root {
+    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
+    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
+    --sidebar-width: clamp(12rem, 25vw, 16rem);
+  }
+
+  .\(, .\) {
+    margin-inline: var(--gutter);
+  }
+
+  .\( {
+    @media (width >= 48rem) {
+      margin-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      clear: inline-start;
+      float: inline-start;
+      margin-block-start: 0;
+      margin-inline: var(--gutter) var(--margin);
+      width: var(--sidebar-width);
+    }
+  }
+
+  .\) {
+    @media (width >= 48rem) {
+      clear: inline-end;
+      float: inline-end;
+      margin-block-start: 0;
+      margin-inline: var(--margin) var(--gutter);
+      width: var(--sidebar-width);
+    }
+  }
+
+  .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
+    padding-inline: var(--gutter);
+  }
+
+  .main {
+    @media (width >= 48rem) {
+      padding-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .\(main {
+    @media (width >= 48rem) {
+      clear: inline-start;
+      padding-inline-end: var(--side);
+    }
+  }
+
+  .\[main {
+    @media (width >= 48rem) {
+      padding-inline-end: var(--side);
+    }
+
+    @media (width >= 64rem) {
+      clear: inline-start;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      row-gap: var(--gap);
+
+      > * {
+        margin-block: 0;
+      }
+    }
+  }
+
+  .main\) {
+    @media (width >= 64rem) {
+      clear: inline-end;
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .main\] {
+    @media (width >= 48rem) {
+      clear: inline-end;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      row-gap: var(--gap);
+
+      > * {
+        margin-block: 0;
+      }
+    }
+
+    @media (width >= 64rem) {
+      padding-inline-start: var(--side);
+    }
+  }
+
+  .\(main\) {
+    @media (width >= 48rem) {
+      clear: inline-start;
+    }
+
+    @media (width >= 64rem) {
+      clear: both;
+    }
+  }
+
+  .\[main\] {
+    @media (width >= 48rem) {
+      clear: inline-end;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      row-gap: var(--gap);
+
+      > * {
+        margin-block: 0;
+      }
+    }
+
+    @media (width >= 64rem) {
+      clear: both;
+      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+    }
   }
 }

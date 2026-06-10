@@ -8,7 +8,7 @@
 </script>
 
 <style>
-  section.tint {
+  section.area {
     padding-block: var(--margin);
   }
 
@@ -114,7 +114,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="(main) tint grid/3@48-">
+<section class="(main) area grid/3@48-">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -168,7 +168,7 @@
   </div>
 </section>
 
-<section class="(main) tint">
+<section class="(main) area">
   <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>

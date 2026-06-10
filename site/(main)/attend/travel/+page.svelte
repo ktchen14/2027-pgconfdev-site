@@ -79,7 +79,7 @@
   </ol>
 </nav>
 
-<aside class=") note tint border" aria-labelledby="yul-glance">
+<aside class=") note area border" aria-labelledby="yul-glance">
   <h2 id="yul-glance" class="over">YUL → Venue</h2>
 
   <hr />

@@ -99,7 +99,7 @@
   </ol>
 </nav>
 
-<aside class=") note tint border" aria-labelledby="cfp-glance">
+<aside class=") note area border" aria-labelledby="cfp-glance">
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />

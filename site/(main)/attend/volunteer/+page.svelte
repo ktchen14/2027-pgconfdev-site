@@ -78,7 +78,7 @@
   </ol>
 </nav>
 
-<aside class=") note tint border" aria-labelledby="vol-glance">
+<aside class=") note area border" aria-labelledby="vol-glance">
   <h2 id="vol-glance" class="over">At a Glance</h2>
 
   <hr />

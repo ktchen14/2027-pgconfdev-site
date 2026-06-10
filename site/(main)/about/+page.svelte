@@ -88,7 +88,7 @@
   </ol>
 </nav>
 
-<aside class=") tint border note" aria-labelledby="at-a-glance">
+<aside class=") area border note" aria-labelledby="at-a-glance">
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
