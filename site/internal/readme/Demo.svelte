@@ -1,20 +1,42 @@
-<script lang="ts">
-  let { code }: { code: string } = $props();
+<script module lang="ts">
+  import { createHighlighter } from "shiki";
+
+  const highlighter = await createHighlighter({
+    langs: ["html"],
+    themes: ["catppuccin-macchiato"],
+  });
+
+  function render(source: string) {
+    return highlighter.codeToHtml(source.trim(), {
+      lang: "html",
+      theme: "catppuccin-macchiato",
+    });
+  }
 </script>
 
-<figure class="demo">
-  <div class="result">{@html code}</div>
-  <pre class="area"><code>{code.trim()}</code></pre>
-</figure>
+<script lang="ts">
+  const { source, children = undefined, ...rest } = $props();
+</script>
 
 <style>
-  .demo {
-    border-radius: var(--radius);
+  figure {
     border: 1px solid var(--border);
-    margin-inline: 0;
-  }
 
-  .result {
-    padding: var(--gap);
+    > :global(*) {
+      padding: var(--gap);
+    }
+
+    :global(pre) {
+      white-space: pre-wrap;
+    }
   }
 </style>
+
+<div class="p">
+  <figure>
+    <div {...rest}>
+      {#if children}{@render children()}{:else}{@html source}{/if}
+    </div>
+    {@html render(source)}
+  </figure>
+</div>

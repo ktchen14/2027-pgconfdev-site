@@ -817,11 +817,11 @@
     }
   }
 
-  .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
+  .main, .main\* > :where(:not(.\(, .\))), .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
     padding-inline: var(--gutter);
   }
 
-  .main {
+  .main, .main\* > :where(:not(.\(, .\))) {
     @media (width >= 48rem) {
       padding-inline-end: var(--side);
     }
