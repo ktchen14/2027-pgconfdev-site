@@ -536,12 +536,8 @@
   /* https://html.spec.whatwg.org/multipage/links.html */
 
   a:where(:not(.button, [role="button"])) {
-    color: var(--action);
+    color: var(--action-fg);
     text-decoration: underline rgb(from currentColor r g b / 50%);
-
-    &[aria-current]:where(:not([aria-current="false"])) {
-      color: var(--action-fg);
-    }
 
     :is(nav, search) & {
       border-radius: var(--radius);
@@ -558,7 +554,7 @@
     }
 
     &:hover {
-      color: var(--accent-hover-color);
+      color: var(--action-fg-active);
     }
   }
 
@@ -701,7 +697,7 @@
 
     &:hover {
       background-color: var(--bg-tint);
-      color: var(--action);
+      color: var(--action-fg-active);
     }
   }
 
@@ -768,6 +764,10 @@
     font-family: var(--mono-font);
   }
 
+  .mute {
+    color: var(--fg-mute);
+  }
+
   .note > :where(blockquote, dl, menu, ol, p, ul) {
     color: var(--fg-mute);
     font-size: 0.875em;
@@ -819,35 +819,6 @@
     padding-block: 1.5rem;
   }
 
-  /* Tinted fill (neutral fill is .bg-tint) */
-  .area, .action-area, .notice-area, .insert-area, .delete-area {
-    padding: 1.5rem;
-  }
-
-  .action-area {
-    --bg: var(--action-bg-mute);
-    --border: var(--action-border);
-    background-color: var(--bg);
-  }
-
-  .notice-area {
-    --bg: var(--notice-bg-mute);
-    --border: var(--notice-border);
-    background-color: var(--bg);
-  }
-
-  .insert-area {
-    --bg: var(--insert-bg-mute);
-    --border: var(--insert-border);
-    background-color: var(--bg);
-  }
-
-  .delete-area {
-    --bg: var(--delete-bg-mute);
-    --border: var(--delete-border);
-    background-color: var(--bg);
-  }
-
   /* Colorization */
 
   .action-text {
@@ -878,8 +849,33 @@
     color: var(--fg);
   }
 
-  .mute {
-    color: var(--fg-mute);
+  /* Tinted fill (neutral fill is .bg-tint) */
+  .area, .action-area, .notice-area, .insert-area, .delete-area {
+    padding: 1.5rem;
+  }
+
+  .action-area {
+    --bg: var(--action-bg-mute);
+    --border: var(--action-border);
+    background-color: var(--bg);
+  }
+
+  .notice-area {
+    --bg: var(--notice-bg-mute);
+    --border: var(--notice-border);
+    background-color: var(--bg);
+  }
+
+  .insert-area {
+    --bg: var(--insert-bg-mute);
+    --border: var(--insert-border);
+    background-color: var(--bg);
+  }
+
+  .delete-area {
+    --bg: var(--delete-bg-mute);
+    --border: var(--delete-border);
+    background-color: var(--bg);
   }
 
   .bg-tint {
