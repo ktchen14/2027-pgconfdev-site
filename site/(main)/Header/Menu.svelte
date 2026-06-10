@@ -11,7 +11,7 @@
       box-shadow: 0 24px 48px -24px
         color-mix(in oklch, var(--ink) 45%, transparent);
       overflow: auto;
-      padding: 1.5rem;
+      padding: var(--gap);
       position: absolute;
     }
 

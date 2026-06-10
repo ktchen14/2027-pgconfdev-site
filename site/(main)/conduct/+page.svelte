@@ -73,7 +73,9 @@
   <ol>
     <li><a class="li-number" href="#commitment">Our commitment</a></li>
     <li><a class="li-number" href="#photography">Photography</a></li>
-    <li><a class="li-number" href="#exhibitors">Exhibitors &amp; sponsors</a></li>
+    <li>
+      <a class="li-number" href="#exhibitors">Exhibitors &amp; sponsors</a>
+    </li>
     <li><a class="li-number" href="#reporting">Reporting</a></li>
     <li><a class="li-number" href="#consequences">Consequences</a></li>
   </ol>

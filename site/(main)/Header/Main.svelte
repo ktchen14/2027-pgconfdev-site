@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: space-between;
     margin-block: 0;
-    padding-block: 1.5rem;
+    padding-block: var(--gap);
     position: relative;
   }
 

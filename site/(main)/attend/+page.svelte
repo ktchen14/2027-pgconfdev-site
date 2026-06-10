@@ -91,7 +91,9 @@
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a class="li-number" href="#venue">The venue</a></li>
-    <li><a class="li-number" href="#floor-plans">Rooms &amp; floor plans</a></li>
+    <li>
+      <a class="li-number" href="#floor-plans">Rooms &amp; floor plans</a>
+    </li>
     <li><a class="li-number" href="#accessibility">Accessibility</a></li>
   </ol>
 </nav>

@@ -55,21 +55,6 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
-<section class="(main) action-area">
-  <table class="stripe">
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>2</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
 <section class="(main) hero">
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
@@ -120,12 +105,7 @@
   </dl>
 
   <div class="flex">
-    <a
-      href="#"
-      class="button circle stroke"
-      style:color="var(--delete-fg)"
-      style:border="1px solid var(--delete-fg)">Register</a
-    >
+    <a href="#" class="button circle delete stroke">Register</a>
     <a href="/cfp" class="button circle stroke">Submit a talk</a>
   </div>
 </section>
@@ -134,7 +114,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="(main) tint grid/3@48-" style:gap="var(--margin)">
+<section class="(main) tint grid/3@48-">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -256,9 +236,7 @@
 >
   <hgroup>
     <p style:color="var(--bg)">Registration</p>
-    <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">
-      Reserve your seat for the 2027 edition.
-    </h2>
+    <h2 class="h1 text">Reserve your seat for the 2027 edition.</h2>
   </hgroup>
 
   <p
@@ -281,7 +259,6 @@
     href="#"
     style:background-color="var(--bg)"
     style:color="var(--delete-fg)"
-    style:max-width="max-content"
   >
     Register now
   </a>

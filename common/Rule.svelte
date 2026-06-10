@@ -7,7 +7,7 @@
   div {
     align-items: center;
     gap: 0.5em;
-    margin-block: 1.5em;
+    margin-block: var(--gap);
   }
 </style>
 
