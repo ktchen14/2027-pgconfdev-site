@@ -58,27 +58,26 @@
     /* Code */
     --code-bg: color-mix(in oklch, var(--static-bg), var(--action) 6%);
 
-    --action-bg-mute: color-mix(in oklch, var(--action) 12%, transparent);
+    --action-bg: color-mix(in oklch, var(--action) 12%, transparent);
     --action-border: var(--action-fg);
     --action-fg-active: color-mix(in oklch, var(--action), var(--ink) 15%);
     --action-fg-mute: color-mix(in oklch, var(--action-fg), var(--static-bg) 35%);
     --action-fg-tint: color-mix(in oklch, var(--action-fg), var(--static-bg) 60%);
     --action-fg: var(--action);
 
-    --notice-bg-mute: color-mix(in oklch, var(--notice) 18%, transparent);
-    --notice-bg: var(--notice);
+    --notice-bg: color-mix(in oklch, var(--notice) 18%, transparent);
     --notice-border: var(--notice-fg);
     --notice-fg-mute: color-mix(in oklch, var(--notice-fg), var(--static-bg) 35%);
     --notice-fg-tint: color-mix(in oklch, var(--notice-fg), var(--static-bg) 60%);
     --notice-fg: color-mix(in oklch, var(--notice), var(--ink) 35%);
 
-    --insert-bg-mute: color-mix(in oklch, var(--insert) 15%, transparent);
+    --insert-bg: color-mix(in oklch, var(--insert) 15%, transparent);
     --insert-border: var(--insert-fg);
     --insert-fg-mute: color-mix(in oklch, var(--insert-fg), var(--static-bg) 35%);
     --insert-fg-tint: color-mix(in oklch, var(--insert-fg), var(--static-bg) 60%);
     --insert-fg: var(--insert);
 
-    --delete-bg-mute: color-mix(in oklch, var(--delete) 15%, transparent);
+    --delete-bg: color-mix(in oklch, var(--delete) 15%, transparent);
     --delete-border: var(--delete-fg);
     --delete-fg-mute: color-mix(in oklch, var(--delete-fg), var(--static-bg) 35%);
     --delete-fg-tint: color-mix(in oklch, var(--delete-fg), var(--static-bg) 60%);
@@ -855,25 +854,25 @@
   }
 
   .action-area {
-    --bg: var(--action-bg-mute);
+    --bg: var(--action-bg);
     --border: var(--action-border);
     background-color: var(--bg);
   }
 
   .notice-area {
-    --bg: var(--notice-bg-mute);
+    --bg: var(--notice-bg);
     --border: var(--notice-border);
     background-color: var(--bg);
   }
 
   .insert-area {
-    --bg: var(--insert-bg-mute);
+    --bg: var(--insert-bg);
     --border: var(--insert-border);
     background-color: var(--bg);
   }
 
   .delete-area {
-    --bg: var(--delete-bg-mute);
+    --bg: var(--delete-bg);
     --border: var(--delete-border);
     background-color: var(--bg);
   }
