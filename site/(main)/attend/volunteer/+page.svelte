@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Attend · Volunteer</p>
+    <p class="action">Attend · Volunteer</p>
     <h1>Help run the conference.</h1>
   </hgroup>
 
@@ -78,7 +78,7 @@
   </ol>
 </nav>
 
-<aside class=") note bg-tint border" aria-labelledby="vol-glance">
+<aside class=") note tint border" aria-labelledby="vol-glance">
   <h2 id="vol-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -140,7 +140,7 @@
     <div class="note border">
       <hgroup>
         <h3 class="h4">Registration desk</h3>
-        <p class="mono action-text">3–4 hr shifts · All days</p>
+        <p class="mono action">3–4 hr shifts · All days</p>
       </hgroup>
       <p>
         Check in attendees using the QR code system. Distribute badges,
@@ -152,7 +152,7 @@
     <div class="note border">
       <hgroup>
         <h3 class="h4">Room host (speaker intro)</h3>
-        <p class="mono action-text">Half-day blocks · Talk days</p>
+        <p class="mono action">Half-day blocks · Talk days</p>
       </hgroup>
       <p>
         Introduce each speaker, manage timing using the visual cue cards, and
@@ -164,7 +164,7 @@
     <div class="note border">
       <hgroup>
         <h3 class="h4">Room host (operations)</h3>
-        <p class="mono action-text">Half-day blocks · Talk days</p>
+        <p class="mono action">Half-day blocks · Talk days</p>
       </hgroup>
       <p>
         Manage room seating, keep doors appropriately open or closed, count
@@ -176,7 +176,7 @@
     <div class="note border">
       <hgroup>
         <h3 class="h4">A/V support</h3>
-        <p class="mono action-text">Full day · As needed</p>
+        <p class="mono action">Full day · As needed</p>
       </hgroup>
       <p>
         Assist speakers with microphone setup, slide display, and recording

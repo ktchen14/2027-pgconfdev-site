@@ -59,7 +59,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">About PGConf.dev</p>
+    <p class="action">About PGConf.dev</p>
     <h1>The PostgreSQL Developer Conference.</h1>
   </hgroup>
 
@@ -93,7 +93,7 @@
   </ol>
 </nav>
 
-<aside class=") bg-tint border note" aria-labelledby="at-a-glance">
+<aside class=") tint border note" aria-labelledby="at-a-glance">
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -230,21 +230,21 @@
 </section>
 
 <section class="(main)" aria-label="Statistics">
-  <div class="border-block grid+12">
+  <div class="band grid+12">
     <figure>
-      <div class="action-text h2">~600</div>
+      <div class="action h2">~600</div>
       <figcaption class="over">Attendees</figcaption>
     </figure>
     <figure>
-      <div class="action-text h2">3</div>
+      <div class="action h2">3</div>
       <figcaption class="over">Parallel tracks</figcaption>
     </figure>
     <figure>
-      <div class="action-text h2">42</div>
+      <div class="action h2">42</div>
       <figcaption class="over">Talks &amp; tutorials</figcaption>
     </figure>
     <figure>
-      <div class="action-text h2">18</div>
+      <div class="action h2">18</div>
       <figcaption class="over">Unconference rooms</figcaption>
     </figure>
   </div>
@@ -287,7 +287,7 @@
   <div class="main] section timeline">
     <div class="subgrid@48- margin-gap">
       <figure class="column-2">
-        <div class="action-text h2">2024</div>
+        <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
       </figure>
 
@@ -304,7 +304,7 @@
 
     <div class="subgrid@48- margin-gap">
       <figure class="column-2">
-        <div class="action-text h2">2025</div>
+        <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
       </figure>
 
@@ -321,7 +321,7 @@
 
     <div class="subgrid@48- margin-gap">
       <figure class="column-2">
-        <div class="action-text h2" style:margin-block="0">2026</div>
+        <div class="action h2" style:margin-block="0">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
       </figure>
 
@@ -338,7 +338,7 @@
 
     <div class="subgrid@48- margin-gap">
       <figure class="column-2">
-        <div class="action-text h2">2027</div>
+        <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>
       </figure>
 

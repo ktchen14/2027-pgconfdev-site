@@ -61,7 +61,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Attend · Social</p>
+    <p class="action">Attend · Social</p>
     <h1>Social events.</h1>
   </hgroup>
 

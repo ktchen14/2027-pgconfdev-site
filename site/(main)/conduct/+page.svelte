@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">About</p>
+    <p class="action">About</p>
     <h1>Code of Conduct.</h1>
   </hgroup>
 
@@ -79,7 +79,7 @@
   </ol>
 </nav>
 
-<aside class=") note bg-tint border" aria-labelledby="report-glance">
+<aside class=") note tint border" aria-labelledby="report-glance">
   <h2 id="report-glance" class="over">Report an Incident</h2>
 
   <hr />
@@ -182,7 +182,7 @@
 
 <section aria-label="Reporting channels" class="(main)">
   <div class="grid+16">
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Code of Conduct committee</h3>
         <p>Confidential. Monitored by the CoC committee only.</p>
@@ -192,7 +192,7 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">On-site staff</h3>
         <p>Identify any staff member at the registration desk or venue.</p>

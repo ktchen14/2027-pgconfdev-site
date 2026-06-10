@@ -44,7 +44,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">About</p>
+    <p class="action">About</p>
     <h1>The volunteers who put this on.</h1>
   </hgroup>
 
@@ -178,7 +178,7 @@
   <p>
     <small>
       Committee membership rotates each year.
-      <a href="#" class="delete-text">Read about how we pick reviewers →</a>
+      <a href="#" class="delete">Read about how we pick reviewers →</a>
     </small>
   </p>
 
@@ -225,7 +225,7 @@
   </div>
 
   <div class="grid+14 (main)">
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Program</h3>
         <p>CFP questions, schedule, talk logistics.</p>
@@ -235,7 +235,7 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Sponsorship</h3>
         <p>Sponsorship inquiries, partner program, invoicing.</p>
@@ -245,7 +245,7 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Press &amp; media</h3>
         <p>Press passes, interview requests, photo policy.</p>
@@ -255,7 +255,7 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Code of conduct</h3>
         <p>Confidential channel monitored by the CoC committee.</p>
@@ -265,7 +265,7 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">General</h3>
         <p>Anything else.</p>
@@ -275,13 +275,13 @@
       </p>
     </div>
 
-    <div class="note bg-tint border">
+    <div class="note tint border">
       <hgroup>
         <h3 class="h4">Mailing list</h3>
         <p>Announcements only — about one email a month.</p>
       </hgroup>
       <p class="mono">
-        <a href="#" class="delete-text">Subscribe →</a>
+        <a href="#" class="delete">Subscribe →</a>
       </p>
     </div>
   </div>

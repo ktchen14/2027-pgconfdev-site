@@ -64,7 +64,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Attend · Montréal 2027</p>
+    <p class="action">Attend · Montréal 2027</p>
     <h1>Everything you need to get here.</h1>
   </hgroup>
 

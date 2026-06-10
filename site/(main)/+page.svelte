@@ -8,7 +8,7 @@
 </script>
 
 <style>
-  section.bg-tint {
+  section.tint {
     padding-block: var(--margin);
   }
 
@@ -55,12 +55,27 @@
   <link href="https://mastodon.social/@pgconfdev" rel="me" />
 </svelte:head>
 
+<section class="(main) action-area">
+  <table class="stripe">
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
 <section class="(main) hero">
   <hgroup>
-    <p class="action-text">The PostgreSQL Developer Conference</p>
+    <p class="action">The PostgreSQL Developer Conference</p>
 
     <h1>
-      <span class="action-text">PGConf</span>.dev
+      <span class="action">PGConf</span>.dev
       <br />
       <span class="mute">2027</span>
     </h1>
@@ -119,7 +134,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="(main) bg-tint grid/3@48-" style:gap="var(--margin)">
+<section class="(main) tint grid/3@48-" style:gap="var(--margin)">
   <hgroup>
     <p>About the Conference</p>
     <h2>Built by and for PostgreSQL contributors.</h2>
@@ -152,7 +167,7 @@
   >
     <div class="column-span-2 margin-gap note">
       <hgroup>
-        <p class="iconic insert-text">
+        <p class="iconic insert">
           <Circle class="size--" style="fill: currentColor" />
           Call for Proposals — open through 14 Feb 2027
         </p>
@@ -173,7 +188,7 @@
   </div>
 </section>
 
-<section class="(main) bg-tint">
+<section class="(main) tint">
   <hgroup class="margin-gap">
     <p>Sponsors</p>
     <h2>The companies underwriting 2027.</h2>

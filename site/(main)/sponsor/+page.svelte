@@ -44,7 +44,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Sponsors</p>
+    <p class="action">Sponsors</p>
     <h1>The companies underwriting 2027.</h1>
   </hgroup>
 
@@ -65,7 +65,7 @@
   </ol>
 </nav>
 
-<aside class=") note bg-tint border" aria-labelledby="tiers-glance">
+<aside class=") note tint border" aria-labelledby="tiers-glance">
   <h2 id="tiers-glance" class="over">Tiers at a Glance</h2>
 
   <hr />

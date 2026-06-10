@@ -131,10 +131,9 @@
 
   <a
     aria-label="Register"
-    class="button circle iconic"
+    class="button circle iconic delete"
     data-expose={expose}
     href="#"
-    style:background-color="var(--delete-fg)"
     style:order="3"
   >
     <span class="none@48-64">Register</span>

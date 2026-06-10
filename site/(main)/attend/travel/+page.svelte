@@ -43,7 +43,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Attend · Travel</p>
+    <p class="action">Attend · Travel</p>
     <h1>Getting to Montréal.</h1>
   </hgroup>
 
@@ -79,7 +79,7 @@
   </ol>
 </nav>
 
-<aside class=") note bg-tint border" aria-labelledby="yul-glance">
+<aside class=") note tint border" aria-labelledby="yul-glance">
   <h2 id="yul-glance" class="over">YUL → Venue</h2>
 
   <hr />
@@ -195,21 +195,21 @@
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action-text">Rate TBD · Deadline TBD</p>
+        <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action-text">Rate TBD · Deadline TBD</p>
+        <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
       <hgroup>
         <h3 class="h5">Hotel details to be confirmed</h3>
-        <p class="mono action-text">Rate TBD · Deadline TBD</p>
+        <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>

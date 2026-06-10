@@ -66,7 +66,7 @@
 
 <header class="(main)">
   <hgroup>
-    <p class="action-text">Call for Proposals</p>
+    <p class="action">Call for Proposals</p>
     <h1>Submit a talk for 2027.</h1>
   </hgroup>
 
@@ -99,7 +99,7 @@
   </ol>
 </nav>
 
-<aside class=") note bg-tint border" aria-labelledby="cfp-glance">
+<aside class=") note tint border" aria-labelledby="cfp-glance">
   <h2 id="cfp-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -107,7 +107,7 @@
   <dl class="dedent">
     <div class="p">
       <dt class="over">Status</dt>
-      <dd class="insert-text">Open for submissions</dd>
+      <dd class="insert">Open for submissions</dd>
     </div>
 
     <div class="p">
@@ -277,7 +277,7 @@
     </div>
     <div>
       <dt>CFP closes</dt>
-      <dd class="mono action-text size-">
+      <dd class="mono action size-">
         <time datetime="2027-02-14">14 February 2027</time> · 11:59 pm UTC
       </dd>
     </div>
