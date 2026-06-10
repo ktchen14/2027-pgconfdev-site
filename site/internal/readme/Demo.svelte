@@ -4,7 +4,7 @@
 
 <figure class="demo">
   <div class="result">{@html code}</div>
-  <pre class="source area"><code>{code.trim()}</code></pre>
+  <pre class="area"><code>{code.trim()}</code></pre>
 </figure>
 
 <style>
@@ -16,9 +16,5 @@
 
   .result {
     padding: var(--gap);
-  }
-
-  .source {
-    padding: 1rem var(--gap);
   }
 </style>

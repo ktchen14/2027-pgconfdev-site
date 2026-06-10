@@ -53,7 +53,9 @@
 
     <Demo
       code={`<p class="over">Standalone eyebrow</p>
-<p class="deck">Standalone deck — a muted, slightly smaller line.</p>`}
+<p class="deck">
+  Standalone deck — a muted, slightly smaller line.
+</p>`}
     />
 
     <h3>Emphasis and voice</h3>
@@ -64,10 +66,18 @@
     </p>
 
     <Demo
-      code={`<p class="lead">A lead paragraph introduces a section in the serif display font, a little larger than body text.</p>`}
+      code={`<p class="lead">
+  A lead paragraph introduces a section in the serif
+  display font, a little larger than body text.
+</p>`}
     />
 
-    <Demo code={`<p>Wrap a value in <span class="mono">inline code voice</span> with .mono.</p>`} />
+    <Demo
+      code={`<p>
+  Wrap a value in <span class="mono">inline code voice</span>
+  with .mono.
+</p>`}
+    />
 
     <h3>De-emphasis</h3>
     <p>
@@ -78,7 +88,10 @@
 
     <Demo
       code={`<div class="note">
-  <p>The .note class de-emphasizes a whole block for asides and footnotes.</p>
+  <p>
+    The .note class de-emphasizes a whole block for
+    asides and footnotes.
+  </p>
 </div>`}
     />
 
