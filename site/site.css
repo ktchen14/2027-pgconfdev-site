@@ -11,12 +11,12 @@
 
 @layer layout {
   :root {
-    /* Font */
     --header-font: "Newsreader", Georgia, serif;
     --mono-font: "JetBrains Mono", ui-monospace, monospace;
     --normal-font: "Public Sans", system-ui, sans-serif;
 
-    /* Size */
+    --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
+    --radius: 0.25rem;
 
     --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
 
@@ -26,11 +26,6 @@
     --h4-size: 1.25em;
     --h5-size: 1em;
     --h6-size: 1em;
-
-    --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
-    --radius: 0.25rem;
-
-    /* Color */
 
     --static: oklch(0.15 0.01 245.25);
     --static-fg: color-mix(in oklch, var(--static) 80%, white);
@@ -438,7 +433,6 @@
   /* Flow content except phrasing content */
 
   blockquote {
-    border-inline-start: 3px solid var(--border-bold);
     margin-inline: 0;
     padding-inline-start: 1.5rem;
   }
@@ -690,9 +684,13 @@
 }
 
 @layer svelte {
+  /* Forms */
+
   .circle {
     border-radius: calc(infinity * 1px);
   }
+
+  /* Icons */
 
   .iconic {
     align-items: center;
@@ -709,6 +707,24 @@
   .icon, .lucide {
     size: 1em;
   }
+
+  :where(.icon, .lucide):is(.size\+2, .size\+\+) {
+    size: 1.25em;
+  }
+
+  :where(.icon, .lucide):is(.size\+1, .size\+) {
+    size: 1.125em;
+  }
+
+  :where(.icon, .lucide):is(.size-1, .size-) {
+    size: 0.875em;
+  }
+
+  :where(.icon, .lucide):is(.size-2, .size--) {
+    size: 0.75em;
+  }
+
+  /* Counters */
 
   main {
     counter-reset: section;
@@ -727,6 +743,8 @@
     margin-inline-end: 1em;
   }
 
+  /* Typography */
+
   .lead, .lede {
     font-family: var(--header-font);
     font-size: 1.25em;
@@ -736,8 +754,8 @@
     font-family: var(--mono-font);
   }
 
-  .mute {
-    color: var(--fg-mute);
+  .text {
+    max-width: 38rem;
   }
 
   .note > :where(blockquote, dl, menu, ol, p, ul) {
@@ -745,47 +763,27 @@
     font-size: 0.875em;
   }
 
-  .tint {
-    background-color: var(--bg-tint);
-  }
-
-  .text {
-    max-width: 38rem;
-  }
-
   :where(:not(.icon, .lucide)):is(.size\+2, .size\+\+) {
     font-size: 1.25em;
-  }
-
-  :where(.icon, .lucide):is(.size\+2, .size\+\+) {
-    size: 1.25em;
   }
 
   :where(:not(.icon, .lucide)):is(.size\+1, .size\+) {
     font-size: 1.125em;
   }
 
-  :where(.icon, .lucide):is(.size\+1, .size\+) {
-    size: 1.125em;
-  }
-
   :where(:not(.icon, .lucide)):is(.size-1, .size-) {
     font-size: 0.875em;
-  }
-
-  :where(.icon, .lucide):is(.size-1, .size-) {
-    size: 0.875em;
   }
 
   :where(:not(.icon, .lucide)):is(.size-2, .size--) {
     font-size: 0.75em;
   }
 
-  :where(.icon, .lucide):is(.size-2, .size--) {
-    size: 0.75em;
-  }
+  /* Text Color */
 
-  /* Colorization */
+  .mute {
+    color: var(--fg-mute);
+  }
 
   .action {
     --fg: var(--action-fg);
@@ -815,7 +813,12 @@
     --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
   }
 
-  /* Tinted fill (neutral fill is .tint) */
+  /* Fill */
+
+  .tint {
+    background-color: var(--bg-tint);
+  }
+
   .action-area, .notice-area, .insert-area, .delete-area {
     padding: 1.5rem;
   }
@@ -852,6 +855,8 @@
     background-color: var(--bg);
   }
 
+  /* Accents */
+
   .border {
     border: 1px solid var(--border);
     padding: 1.5rem;
@@ -862,7 +867,6 @@
     padding-block: 1.5rem;
   }
 
-  /* Block-start accent rule, content inset behind it. */
   .acme, .action-acme, .notice-acme, .insert-acme, .delete-acme {
     border-block-start: 3px solid var(--border-bold);
     padding-block-start: 1.5rem;
@@ -884,7 +888,6 @@
     border-block-start-color: var(--delete-fg);
   }
 
-  /* Inline-start accent rule, content inset behind it. */
   .edge, .action-edge, .notice-edge, .insert-edge, .delete-edge {
     border-inline-start: 3px solid var(--border-bold);
     padding-inline-start: 1.5rem;

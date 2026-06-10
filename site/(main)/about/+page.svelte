@@ -24,16 +24,11 @@
   }
 
   blockquote {
-    border-inline-start: none;
-    border-top: 3px solid var(--action-fg);
-    color: var(--fg-mute);
     font-family: var(--header-font);
     font-size: clamp(1.25rem, 2vw + 0.75rem, 1.75rem);
     font-style: italic;
     line-height: 1.35;
-    margin-block: 0;
     padding-inline: 0;
-    padding-top: 1rem;
   }
 
   .timeline > * {
@@ -167,7 +162,7 @@
   </p>
 
   <figure class="section">
-    <blockquote>
+    <blockquote class="action-acme mute">
       <q>
         The only conference where I leave with a code review queue instead of a
         swag bag.
