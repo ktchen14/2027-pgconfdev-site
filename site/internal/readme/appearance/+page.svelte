@@ -39,7 +39,7 @@
   </p>
 </hgroup>
 
-<section id="color" class="main">
+<section id="color" class="main*">
   <hgroup>
     <h2 class="section-number">Color</h2>
     <p>Carry meaning with the color of text and elements.</p>
@@ -52,6 +52,14 @@
     page but should not compete with the main text (captions, metadata, incidental
     notes). It changes color only, leaving size and weight alone.
   </p>
+
+  <aside class="( note p">
+    <p class="over"><T>.note</T> / <T>&lt;small&gt;</T></p>
+    <p>
+      If you're combining <T>.mute</T> with <T>.size-</T>, you probably want
+      <T>.note</T> or <T>&lt;small&gt;</T> for secondary content.
+    </p>
+  </aside>
 
   <Demo
     source={`

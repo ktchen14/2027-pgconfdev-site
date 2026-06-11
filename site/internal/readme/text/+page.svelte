@@ -198,6 +198,14 @@
   </div>
 
   <aside class="( note p">
+    <p class="over"><T>.note</T> / <T>&lt;small&gt;</T></p>
+    <p>
+      If you're combining <T>.size-</T> with <T>.mute</T>, you probably want
+      <T>.note</T> or <T>&lt;small&gt;</T> for secondary content.
+    </p>
+  </aside>
+
+  <aside class="( note p">
     <p class="over">Synonyms</p>
     <p>
       Each also has a numbered alias (<T>.size+1</T>, <T>.size+2</T>, <T
