@@ -111,38 +111,15 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     All layout classes zero out the block margins of their direct children,
-    since gap handles the spacing between items.
+    since <code>gap</code> handles the spacing between items.
   </p>
-
-  <h3>Responsive variants</h3>
-
-  <p>
-    Any layout class (and <T>none</T>) can be scoped to a viewport width range
-    by appending <code>@min-max</code>. <code>min</code> and <code>max</code>
-    are rem values; either can be omitted.
-  </p>
-
-  <Demo
-    source={`
-<!-- hidden below 48rem -->
-<p class="none@-48">Hidden on narrow viewports</p>
-
-<!-- hidden at 48rem and above -->
-<p class="none@48-">Hidden on wide viewports</p>
-
-<!-- flex row only at 48rem and above -->
-<div class="flex@48-">
-  <button>One</button>
-  <button>Two</button>
-</div>`}
-  />
 
   <h3>None</h3>
 
   <p>
     <T>none</T> hides an element (<code>display: none</code>). Its main use is
-    with a responsive variant to show or hide content at specific viewport
-    widths.
+    with a <a href="#layout-responsive-variants">responsive variant</a> to show
+    or hide content at specific viewport widths.
   </p>
 
   <h3>Flex</h3>
@@ -229,6 +206,29 @@ import Rule from "$lib/Rule.svelte";
   <div class="area column-1">Forced to col 1</div>
   <div class="area column-span-2">Spans cols 1–2</div>
   <div class="area">Col 3</div>
+</div>`}
+  />
+
+  <h3 id="layout-responsive-variants">Responsive variants</h3>
+
+  <p>
+    Any layout class (and <T>none</T>) can be scoped to a viewport width range
+    by appending <code>@min-max</code>. <code>min</code> and <code>max</code>
+    are rem values; either can be omitted.
+  </p>
+
+  <Demo
+    source={`
+<!-- hidden below 48rem -->
+<p class="none@-48">Hidden on narrow viewports</p>
+
+<!-- hidden at 48rem and above -->
+<p class="none@48-">Hidden on wide viewports</p>
+
+<!-- flex row only at 48rem and above -->
+<div class="flex@48-">
+  <button>One</button>
+  <button>Two</button>
 </div>`}
   />
 </section>
