@@ -117,17 +117,16 @@ import Rule from "$lib/Rule.svelte";
   <h3>None</h3>
 
   <p>
-    <T>none</T> hides an element (<code>display: none</code>). Its main use is
-    with a <a href="#layout-responsive-variants">responsive variant</a> to show
-    or hide content at specific viewport widths.
+    <T>none</T> hides an element (with <code>display: none</code>). Its main use
+    is with a <a href="#layout-responsive-variants">responsive variant</a> to
+    show or hide content at specific viewport widths.
   </p>
 
   <h3>Flex</h3>
 
   <p>
-    <T>flex</T> makes a wrapping flex row with a standard gap between items. Use it
-    for a row of buttons, badges, or other inline-sized elements that should wrap
-    naturally.
+    <T>flex</T> lays out children horizontally (in a flexbox), wrapping as
+    needed. Use it for a row of buttons, badges, or other inline-sized elements.
   </p>
 
   <Demo
@@ -143,69 +142,71 @@ import Rule from "$lib/Rule.svelte";
   <h3>Grid</h3>
 
   <p>
-    <T>grid+N</T> creates an auto-fit grid whose columns are at least
-    <code>N</code> rem wide, filling the row and wrapping as needed. Use it for card
-    grids where the number of columns should adapt to the available space.
+    <T>grid+N</T> arranges children in a grid, with columns at least
+    <code>N</code> rem wide, fitting as many as possible before wrapping. Use it
+    for card grids where the number of columns should adapt to the available
+    space.
   </p>
 
   <Demo
     source={`
-<div class="grid+12">
-  <div class="area">Speaker A</div>
-  <div class="area">Speaker B</div>
-  <div class="area">Speaker C</div>
-  <div class="area">Speaker D</div>
+<div class="grid+8">
+  <p class="area">Speaker A</p>
+  <p class="area">Speaker B</p>
+  <p class="area">Speaker C</p>
+  <p class="area">Speaker D</p>
 </div>`}
   />
 
   <p>
-    <T>grid/N</T> creates a fixed <code>N</code>-column grid. Use it when you
-    need a specific number of columns regardless of container width.
+    <T>grid/N</T> divides children into exactly <code>N</code> equal columns.
+    Use it for a fixed column layout.
   </p>
 
   <Demo
     source={`
 <div class="grid/3">
-  <div class="area">Column one</div>
-  <div class="area">Column two</div>
-  <div class="area">Column three</div>
+  <p class="area">Column 1</p>
+  <p class="area">Column 2</p>
+  <p class="area">Column 3</p>
 </div>`}
   />
 
-  <h3>Subgrid</h3>
-
   <p>
-    <T>subgrid</T> makes an element adopt its parent grid's column tracks, letting
-    its children align with the outer grid. Use it on a grid item that needs to place
-    children into the parent's columns.
+    <T>subgrid</T> lets a spanning grid item's children align with the outer
+    grid's column tracks. In the example below, the two children inside the
+    spanning item line up with the items in the row above.
   </p>
 
   <Demo
     source={`
 <div class="grid/3">
+  <p class="area">Alpha</p>
+  <p class="area">Beta</p>
+  <p class="area">Gamma</p>
   <div class="subgrid column-span-2">
-    <div class="area">Spans col 1</div>
-    <div class="area">Spans col 2</div>
+    <p class="area">Aligns with Alpha</p>
+    <p class="area">Aligns with Beta</p>
   </div>
-  <div class="area">Col 3</div>
+  <p class="area">Gamma</p>
 </div>`}
   />
 
   <h3>Column placement</h3>
 
   <p>
-    <T>column-N</T> places a grid item in column <code>N</code>.
-    <T>column-span-N</T> spans a grid item across <code>N</code> columns.
+    <T>column-N</T> positions a grid item in column <code>N</code>.
+    <T>column-span-N</T> stretches a grid item across <code>N</code> columns.
   </p>
 
   <Demo
     source={`
 <div class="grid/3">
-  <div class="area">Col 1</div>
-  <div class="area">Col 2</div>
-  <div class="area column-1">Forced to col 1</div>
-  <div class="area column-span-2">Spans cols 1–2</div>
-  <div class="area">Col 3</div>
+  <p class="area">Column 1</p>
+  <p class="area">Column 2</p>
+  <p class="area column-1">Forced to column 1</p>
+  <p class="area column-span-2">Spans columns 1–2</p>
+  <p class="area">Column 3</p>
 </div>`}
   />
 
@@ -219,16 +220,16 @@ import Rule from "$lib/Rule.svelte";
 
   <Demo
     source={`
-<!-- hidden below 48rem -->
-<p class="none@-48">Hidden on narrow viewports</p>
+<!-- Resize viewport to ≥ 48rem to view -->
+<p class="none@-48">
+  Visible at 48rem and above
+</p>
 
-<!-- hidden at 48rem and above -->
-<p class="none@48-">Hidden on wide viewports</p>
-
-<!-- flex row only at 48rem and above -->
+<!-- Side by side when viewport is ≥ 48rem -->
 <div class="flex@48-">
-  <button>One</button>
-  <button>Two</button>
+  <p class="area">Speakers</p>
+  <p class="area">Schedule</p>
+  <p class="area">Venue</p>
 </div>`}
   />
 </section>
