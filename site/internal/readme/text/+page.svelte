@@ -81,6 +81,24 @@
 <p class="deck">From 320 backers in the first week.</p>`}
   />
 
+  <h3>Adjacent headings</h3>
+
+  <p>
+    A heading or <T>&lt;hgroup&gt;</T> immediately followed by a lower-level
+    heading or <T>&lt;hgroup&gt;</T> collapses the second one's top margin, so
+    the pair reads as a unit rather than two separate blocks.
+  </p>
+
+  <Demo
+    source={`
+<hgroup>
+  <p>Session</p>
+  <h2>Query optimization</h2>
+</hgroup>
+<h3>Prerequisites</h3>
+<p>Body text after the subheading, at normal spacing.</p>`}
+  />
+
   <h3>Styling other elements as headings</h3>
 
   <p>
