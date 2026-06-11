@@ -15,6 +15,7 @@
     <li><a class="li-number" href="#rule">Rule</a></li>
     <li><a class="li-number" href="#counters">Counters</a></li>
     <li><a class="li-number" href="#layout">Layout</a></li>
+    <li><a class="li-number" href="#dedent">Dedent</a></li>
     <!-- <li><a class="li-number" href="#page-layout">Page layout</a></li> -->
   </ol>
 </nav>
@@ -118,15 +119,15 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     <T>none</T> hides an element (with <code>display: none</code>). Its main use
-    is with a <a href="#layout-responsive-variants">responsive variant</a> to
-    show or hide content at specific viewport widths.
+    is with a <a href="#layout-responsive-variants">responsive variant</a> to show
+    or hide content at specific viewport widths.
   </p>
 
   <h3>Flex</h3>
 
   <p>
-    <T>flex</T> lays out children horizontally (in a flexbox), wrapping as
-    needed. Use it for a row of buttons, badges, or other inline-sized elements.
+    <T>flex</T> lays out children horizontally (in a flexbox), wrapping as needed.
+    Use it for a row of buttons, badges, or other inline-sized elements.
   </p>
 
   <Demo
@@ -143,9 +144,8 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     <T>grid+N</T> arranges children in a grid, with columns at least
-    <code>N</code> rem wide, fitting as many as possible before wrapping. Use it
-    for card grids where the number of columns should adapt to the available
-    space.
+    <code>N</code> rem wide, fitting as many as possible before wrapping. Use it for
+    card grids where the number of columns should adapt to the available space.
   </p>
 
   <Demo
@@ -159,8 +159,8 @@ import Rule from "$lib/Rule.svelte";
   />
 
   <p>
-    <T>grid/N</T> divides children into exactly <code>N</code> equal columns.
-    Use it for a fixed column layout.
+    <T>grid/N</T> divides children into exactly <code>N</code> equal columns. Use
+    it for a fixed column layout.
   </p>
 
   <Demo
@@ -173,9 +173,9 @@ import Rule from "$lib/Rule.svelte";
   />
 
   <p>
-    <T>subgrid</T> lets a spanning grid item's children align with the outer
-    grid's column tracks. In the example below, the two children inside the
-    spanning item line up with the items in the row above.
+    <T>subgrid</T> lets a spanning grid item's children align with the outer grid's
+    column tracks. In the example below, the two children inside the spanning item
+    line up with the items in the row above.
   </p>
 
   <Demo
@@ -231,5 +231,54 @@ import Rule from "$lib/Rule.svelte";
   <p class="area">Schedule</p>
   <p class="area">Venue</p>
 </div>`}
+  />
+</section>
+
+<section id="dedent" class="main">
+  <hgroup>
+    <h2 class="section-number">Dedent</h2>
+    <p>Remove list indentation for flex and grid layouts.</p>
+  </hgroup>
+
+  <p>
+    <T>.dedent</T> removes the markers and start padding from a list. Its main use
+    is when you want to lay out list items with <T>flex</T> or <T>grid</T>
+    while keeping their list semantics intact.
+  </p>
+
+  <Demo
+    source={`
+<ul class="flex dedent">
+  <li><button>Speakers</button></li>
+  <li><button>Schedule</button></li>
+  <li><button>Venue</button></li>
+  <li><button>Workshops</button></li>
+</ul>`}
+  />
+
+  <p>
+    On a <code>&lt;dd&gt;</code> or parent <code>&lt;dl&gt;</code>, it removes
+    the start indent from definition values — useful when laying out a
+    <code>&lt;dl&gt;</code> in a grid.
+  </p>
+
+  <Demo
+    source={`
+<dl class="grid+12 dedent">
+  <div>
+    <dt class="over">Date</dt>
+    <dd>May 11–14, 2027</dd>
+  </div>
+
+  <div>
+    <dt class="over">Location</dt>
+    <dd>Montréal, QC</dd>
+  </div>
+
+  <div>
+    <dt class="over">Format</dt>
+    <dd>3+ tracks × 4 days</dd>
+  </div>
+</dl>`}
   />
 </section>

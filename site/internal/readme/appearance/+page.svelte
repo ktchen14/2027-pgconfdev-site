@@ -108,8 +108,8 @@
   </p>
 
   <p>
-    <T>&lt;ins&gt;</T> and <T>&lt;del&gt;</T> are colored automatically too —
-    no class needed.
+    <T>&lt;ins&gt;</T> and <T>&lt;del&gt;</T> are colored automatically too — no class
+    needed.
   </p>
 
   <Demo
@@ -349,9 +349,9 @@
   </hgroup>
 
   <p>
-    A <code class="action">&lt;details&gt;</code> element is styled automatically.
-    The <code class="action">&lt;summary&gt;</code> replaces the browser's default
-    triangle with a custom rotating marker and a hover treatment.
+    A <code class="action">&lt;details&gt;</code> element is styled
+    automatically. The <code class="action">&lt;summary&gt;</code> replaces the browser's
+    default triangle with a custom rotating marker and a hover treatment.
   </p>
 
   <Demo
@@ -594,8 +594,8 @@
   </hgroup>
 
   <p>
-    A plain <code class="action">&lt;table&gt;</code> gets full-width layout, a heavy
-    rule below <code>&lt;thead&gt;</code>, and a hairline between each
+    A plain <code class="action">&lt;table&gt;</code> gets full-width layout, a
+    heavy rule below <code>&lt;thead&gt;</code>, and a hairline between each
     <code>&lt;tbody&gt;</code> row. A <code>&lt;caption&gt;</code> renders below the
     table, not above it.
   </p>
@@ -632,8 +632,8 @@
   />
 
   <p>
-    <T>.stripe</T> fills alternating rows with the tinted surface, making longer
-    tables easier to scan row by row.
+    <T>.stripe</T> fills alternating rows with the tinted surface, making longer tables
+    easier to scan row by row.
   </p>
 
   <Demo

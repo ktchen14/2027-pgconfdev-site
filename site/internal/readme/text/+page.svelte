@@ -1,4 +1,5 @@
 <script lang="ts">
+  import OnThisPage from "$lib/OnThisPage";
   import Demo from "../Demo.svelte";
   import T from "../T.svelte";
 </script>
@@ -8,15 +9,26 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") none@-48 note" aria-labelledby="on-this-page">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<OnThisPage>
   <ol>
-    <li><a class="li-number" href="#headings">Headings</a></li>
-    <li><a class="li-number" href="#prose">Prose</a></li>
-    <li><a class="li-number" href="#size">Size</a></li>
-    <li><a class="li-number" href="#spacing">Spacing</a></li>
+    <li>
+      <OnThisPage.Link class="li-number" href="#headings"
+        >Headings</OnThisPage.Link
+      >
+    </li>
+    <li>
+      <OnThisPage.Link class="li-number" href="#prose">Prose</OnThisPage.Link>
+    </li>
+    <li>
+      <OnThisPage.Link class="li-number" href="#size">Size</OnThisPage.Link>
+    </li>
+    <li>
+      <OnThisPage.Link class="li-number" href="#spacing"
+        >Spacing</OnThisPage.Link
+      >
+    </li>
   </ol>
-</nav>
+</OnThisPage>
 
 <hgroup class="main" style:margin-block-start="0">
   <p>Internal</p>
@@ -84,9 +96,9 @@
   <h3>Adjacent headings</h3>
 
   <p>
-    A heading or <T>&lt;hgroup&gt;</T> immediately followed by a lower-level
-    heading or <T>&lt;hgroup&gt;</T> collapses the second one's top margin, so
-    the pair reads as a unit rather than two separate blocks.
+    A heading or <T>&lt;hgroup&gt;</T> immediately followed by a lower-level heading
+    or <T>&lt;hgroup&gt;</T> collapses the second one's top margin, so the pair reads
+    as a unit rather than two separate blocks.
   </p>
 
   <Demo
