@@ -910,10 +910,6 @@
     }
   }
 
-  /* Columnar interior: lay the sidebars out as interior grid columns rather
-   * than exterior floats. The grid activates at the breakpoint where each
-   * side's floated sidebar would otherwise appear (.\) at 48rem, .\( at
-   * 64rem). */
   .\(main.columnar {
     @media (width >= 64rem) {
       column-gap: var(--margin);
