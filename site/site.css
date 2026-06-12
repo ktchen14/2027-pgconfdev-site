@@ -35,6 +35,7 @@
     --action: oklch(0.4973 0.12 245.25);
     --action-fg: var(--action);
     --action-fg-active: color-mix(in oklch, var(--action-fg), black 12%);
+    --action-bg-tint: color-mix(in oklch, var(--action) 6%, white);
 
     --notice: oklch(0.8 0.14 80.25);
     --notice-fg: color-mix(in oklch, var(--notice), black 35%);
@@ -516,6 +517,7 @@
   [type="submit"] {
     --accent-bg: var(--bg);
     --accent-fg: var(--fg);
+    --bg-tint: var(--action-bg-tint);
     --fg-active: var(--action-fg-active);
     --fg: var(--action-fg);
 
@@ -532,7 +534,7 @@
     user-select: none;
 
     &:hover {
-      --accent-bg: color-mix(in oklch, var(--accent-fg) 8%, transparent);
+      --accent-bg: var(--bg-tint);
       --accent-fg: var(--fg-active);
     }
 

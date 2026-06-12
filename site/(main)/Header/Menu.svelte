@@ -8,8 +8,8 @@
       background-color: var(--bg);
       border: 1px solid var(--border);
       border-block-start: 3px solid var(--action);
-      box-shadow: 0 24px 48px -24px
-        color-mix(in oklch, var(--ink) 45%, transparent);
+      box-shadow: 0 1.5rem 3rem -1.5rem
+        color-mix(in oklch, var(--static-fg) 40%, transparent);
       overflow: auto;
       padding: var(--gap);
       position: absolute;

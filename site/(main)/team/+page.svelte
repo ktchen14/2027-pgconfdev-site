@@ -16,7 +16,7 @@
     margin-inline: 0;
 
     &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-mute);
+      background-color: var(--action-bg-tint);
     }
 
     &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {

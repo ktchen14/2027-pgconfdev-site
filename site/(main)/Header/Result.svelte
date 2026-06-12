@@ -15,7 +15,7 @@
   }
 
   a > :global(svg) {
-    background-color: var(--action-bg-mute);
+    background-color: var(--action-bg-tint);
     border-radius: var(--radius);
     border: 1px solid var(--border);
     color: var(--action-fg);
