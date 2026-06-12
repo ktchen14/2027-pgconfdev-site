@@ -872,16 +872,7 @@
   }
 
   .main, :where(.\*\:main) > *,
-  .\[, :where(.\*\:\[) > *,
-  .\], :where(.\*\:\]) > *,
-  .\[main, :where(.\*\:\[main) > *,
-  .main\], :where(.\*\:main\]) > *,
-  .\[main\], :where(.\*\:\[main\]) > *
-  {
-    margin-inline: var(--gutter);
-  }
-
-  .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
+  .\(main, .main\), .\(main\) {
     margin-inline: var(--gutter);
   }
 
@@ -902,45 +893,9 @@
     }
   }
 
-  .\[main {
-    @media (width >= 48rem) {
-      margin-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      clear: inline-start;
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: var(--sidebar-width) 1fr;
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-  }
-
   .main\) {
     @media (width >= 64rem) {
       clear: inline-end;
-      margin-inline-start: var(--side);
-    }
-  }
-
-  .main\] {
-    @media (width >= 48rem) {
-      clear: inline-end;
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-width);
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-
-    @media (width >= 64rem) {
       margin-inline-start: var(--side);
     }
   }
@@ -955,9 +910,38 @@
     }
   }
 
-  .\[main\] {
+  /* Columnar interior: lay the sidebars out as interior grid columns rather
+   * than exterior floats. The grid activates at the breakpoint where each
+   * side's floated sidebar would otherwise appear (.\) at 48rem, .\( at
+   * 64rem). */
+  .\(main.columnar {
+    @media (width >= 64rem) {
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      row-gap: var(--gap);
+
+      > * {
+        margin-block: 0;
+      }
+    }
+  }
+
+  .columnar.main\) {
     @media (width >= 48rem) {
-      clear: inline-end;
+      column-gap: var(--margin);
+      display: grid;
+      grid-template-columns: 1fr var(--sidebar-width);
+      row-gap: var(--gap);
+
+      > * {
+        margin-block: 0;
+      }
+    }
+  }
+
+  .\(main\).columnar {
+    @media (width >= 48rem) {
       column-gap: var(--margin);
       display: grid;
       grid-template-columns: 1fr var(--sidebar-width);
@@ -969,7 +953,6 @@
     }
 
     @media (width >= 64rem) {
-      clear: both;
       grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
     }
   }
