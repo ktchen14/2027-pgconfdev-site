@@ -9,12 +9,12 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<OnThisPage>
+<OnThisPage class=") none@-48 note">
   <ol>
     <li>
-      <OnThisPage.Link class="li-number" href="#headings"
-        >Headings</OnThisPage.Link
-      >
+      <OnThisPage.Link class="li-number" href="#headings">
+        Headings
+      </OnThisPage.Link>
     </li>
     <li>
       <OnThisPage.Link class="li-number" href="#prose">Prose</OnThisPage.Link>
@@ -23,9 +23,9 @@
       <OnThisPage.Link class="li-number" href="#size">Size</OnThisPage.Link>
     </li>
     <li>
-      <OnThisPage.Link class="li-number" href="#spacing"
-        >Spacing</OnThisPage.Link
-      >
+      <OnThisPage.Link class="li-number" href="#spacing">
+        Spacing
+      </OnThisPage.Link>
     </li>
   </ol>
 </OnThisPage>

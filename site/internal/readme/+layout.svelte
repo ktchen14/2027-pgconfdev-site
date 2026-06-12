@@ -13,12 +13,6 @@
   main {
     padding-block: var(--margin);
   }
-
-  :global(nav) {
-    background-color: var(--static-bg);
-    position: sticky;
-    top: var(--gap);
-  }
 </style>
 
 <main>
