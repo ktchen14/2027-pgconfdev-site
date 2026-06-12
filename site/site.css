@@ -537,7 +537,8 @@
     }
 
     &:active {
-      transform: scale(0.95);
+      --accent-fg: color-mix(in oklch, var(--fg-active), black 12%);
+      translate: 0 1px;
     }
 
     &:where(:not(.stroke)) {
