@@ -360,7 +360,7 @@
   dd {
     margin-inline-start: 2em;
 
-    :is(nav, search) &,
+    :where(nav, search) &,
     &.dedent,
     :where(dl).dedent > :where(div) > &,
     :where(dl).dedent > & {
@@ -378,10 +378,10 @@
     margin-inline: 0;
   }
 
-  menu, ol, ul {
+  :is(menu, ol, ul) {
     padding-inline-start: 2em;
 
-    :is(nav, search) :is(&), :is(&).dedent {
+    :where(nav, search) &, &.dedent {
       list-style-type: none;
       padding-inline-start: 0;
     }
@@ -393,11 +393,11 @@
 
   /* https://html.spec.whatwg.org/multipage/text-level-semantics.html */
 
-  code, kbd, pre, samp {
+  :is(code, kbd, pre, samp) {
     font-family: var(--mono-font);
     font-size: 0.875em;
 
-    :where(&) :is(&) {
+    :where(&) & {
       font-size: inherit;
     }
   }
@@ -429,7 +429,7 @@
       color: var(--action-fg-active);
     }
 
-    :is(nav, search) & {
+    :where(nav, search) & {
       border-radius: var(--radius);
       color: inherit;
       display: block;
@@ -874,9 +874,9 @@
   .main, :where(.\*\:main) > *,
   .\[, :where(.\*\:\[) > *,
   .\], :where(.\*\:\]) > *,
-  .\[\+main, :where(.\*\:\[\+main) > *,
-  .main\+\], :where(.\*\:main\+\]) > *,
-  .\[\+main\+\], :where(.\*\:\[\+main\+\]) > *
+  .\[main, :where(.\*\:\[main) > *,
+  .main\], :where(.\*\:main\]) > *,
+  .\[main\], :where(.\*\:\[main\]) > *
   {
     margin-inline: var(--gutter);
   }
