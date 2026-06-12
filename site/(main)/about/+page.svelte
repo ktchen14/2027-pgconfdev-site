@@ -279,9 +279,9 @@
     community.
   </p>
 
-  <div class="main) columnar section timeline">
+  <div class="(main main) columnar section timeline">
     <div class="subgrid@)">
-      <figure class="column-2">
+      <figure class="column-1@( column-2@)">
         <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
       </figure>
@@ -298,7 +298,7 @@
     <hr aria-hidden="true" />
 
     <div class="subgrid@)">
-      <figure class="column-2">
+      <figure class="column-1@( column-2@)">
         <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
       </figure>
@@ -315,7 +315,7 @@
     <hr aria-hidden="true" />
 
     <div class="subgrid@)">
-      <figure class="column-2">
+      <figure class="column-1@( column-2@)">
         <div class="action h2">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
       </figure>
@@ -332,7 +332,7 @@
     <hr aria-hidden="true" />
 
     <div class="subgrid@)">
-      <figure class="column-2">
+      <figure class="column-1@( column-2@)">
         <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>
       </figure>
