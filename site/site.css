@@ -9,7 +9,7 @@
 
 /* See https://html.spec.whatwg.org/multipage/ */
 
-@layer layout {
+@layer margin {
   :root {
     --header-font: "Newsreader", Georgia, serif;
     --mono-font: "JetBrains Mono", ui-monospace, monospace;
@@ -609,11 +609,185 @@
   }
 }
 
-@layer svelte {
-  /* Forms */
+@layer {
+  .columnar, :where(.\*\:columnar) > * {
+    display: grid;
+    gap: var(--gap) var(--margin);
+    grid-template-columns: 1fr;
 
-  .circle {
-    border-radius: calc(infinity * 1px);
+    > * {
+      margin-block: 0;
+    }
+  }
+}
+
+@layer layout {
+  :root {
+    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
+    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
+    --sidebar-width: clamp(12rem, 25vw, 16rem);
+  }
+
+  .\(, :where(.\*\:\() > *, .\), :where(.\*\:\)) > * {
+    display: none;
+    margin-inline: revert-layer;
+  }
+
+  .main, :where(.\*\:main) > *,
+  .\(main\), :where(.\*\:\(main\)) > *,
+  .\(main, :where(.\*\:\(main) > *,
+  .main\), :where(.\*\:main\)) > * {
+    display: revert-layer;
+    margin-inline: var(--gutter);
+  }
+
+  @media (width >= 48rem) {
+    .main, :where(.\*\:main) > *,
+    .\(main\), :where(.\*\:\(main\)) > *,
+    .\(main, :where(.\*\:\(main) > *,
+    .main\), :where(.\*\:main\)) > * {
+      float: none;
+      margin-block-start: revert-layer;
+      width: revert-layer;
+    }
+
+    .main, :where(.\*\:main) > *,
+    .\(main, :where(.\*\:\(main) > * {
+      clear: none;
+      margin-inline: var(--gutter) var(--side);
+    }
+
+    .\(main\), :where(.\*\:\(main\)) > *,
+    .main\), :where(.\*\:main\)) > * {
+      clear: inline-end;
+      grid-template-columns: 1fr var(--sidebar-width);
+      margin-inline: var(--gutter);
+    }
+
+    .\), :where(.\*\:\)) > * {
+      clear: inline-end;
+      display: revert-layer;
+      float: inline-end;
+      margin-block-start: 0;
+      margin-inline: var(--margin) var(--gutter);
+      width: var(--sidebar-width);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .main, :where(.\*\:main) > *,
+    .main\), :where(.\*\:main\)) > * {
+      float: none;
+      margin-block-start: revert-layer;
+      width: revert-layer;
+    }
+
+    .main, :where(.\*\:main) > * {
+      clear: none;
+      margin-inline: var(--side) var(--side);
+    }
+
+    .main\), :where(.\*\:main\)) > * {
+      clear: inline-end;
+      grid-template-columns: 1fr var(--sidebar-width);
+      margin-inline: var(--side) var(--gutter);
+    }
+
+    .\), :where(.\*\:\)) > * {
+      clear: inline-end;
+      display: revert-layer;
+      float: inline-end;
+      grid-template-columns: 1fr;
+      margin-block-start: 0;
+      margin-inline: var(--margin) var(--gutter);
+      width: var(--sidebar-width);
+    }
+
+    .\(main\), :where(.\*\:\(main\)) > *,
+    .\(main, :where(.\*\:\(main) > * {
+      float: none;
+      margin-block-start: revert-layer;
+      width: revert-layer;
+    }
+
+    .\(main\), :where(.\*\:\(main\)) > * {
+      clear: both;
+      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
+      margin-inline: var(--gutter);
+    }
+
+    .\(main, :where(.\*\:\(main) > * {
+      clear: inline-start;
+      grid-template-columns: var(--sidebar-width) 1fr;
+      margin-inline: var(--gutter) var(--side);
+    }
+
+    .\(, :where(.\*\:\() > * {
+      clear: inline-start;
+      display: revert-layer;
+      float: inline-start;
+      grid-template-columns: 1fr;
+      margin-block-start: 0;
+      margin-inline: var(--gutter) var(--margin);
+      width: var(--sidebar-width);
+    }
+  }
+}
+
+@layer svelte {
+  /* Text */
+
+  .lead, .lede {
+    font-family: var(--header-font);
+    font-size: 1.25em;
+  }
+
+  .mono {
+    font-family: var(--mono-font);
+  }
+
+  .text {
+    max-width: 38rem;
+  }
+
+  .note > :where(blockquote, dl, menu, ol, p, ul) {
+    color: var(--fg-mute);
+    font-size: 0.875em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size\+2, .size\+\+) {
+    font-size: 1.25em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size\+1, .size\+) {
+    font-size: 1.125em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size-1, .size-) {
+    font-size: 0.875em;
+  }
+
+  :where(:not(.icon, .lucide)):is(.size-2, .size--) {
+    font-size: 0.75em;
+  }
+
+  /* Counters */
+
+  main {
+    counter-reset: section;
+  }
+
+  .section-number::before {
+    content: "§ " counter(section, decimal-leading-zero) " · ";
+    counter-increment: section;
+  }
+
+  .li-number::before {
+    color: var(--fg-tint);
+    content: counter(list-item, decimal-leading-zero);
+    font-family: var(--mono-font);
+    font-size: 0.875em;
+    margin-inline-end: 1em;
   }
 
   /* Icons */
@@ -650,62 +824,13 @@
     size: 0.75em;
   }
 
-  /* Counters */
+  /* Buttons */
 
-  main {
-    counter-reset: section;
+  .circle {
+    border-radius: calc(infinity * 1px);
   }
 
-  .section-number::before {
-    content: "§ " counter(section, decimal-leading-zero) " · ";
-    counter-increment: section;
-  }
-
-  .li-number::before {
-    color: var(--fg-tint);
-    content: counter(list-item, decimal-leading-zero);
-    font-family: var(--mono-font);
-    font-size: 0.875em;
-    margin-inline-end: 1em;
-  }
-
-  /* Typography */
-
-  .lead, .lede {
-    font-family: var(--header-font);
-    font-size: 1.25em;
-  }
-
-  .mono {
-    font-family: var(--mono-font);
-  }
-
-  .text {
-    max-width: 38rem;
-  }
-
-  .note > :where(blockquote, dl, menu, ol, p, ul) {
-    color: var(--fg-mute);
-    font-size: 0.875em;
-  }
-
-  :where(:not(.icon, .lucide)):is(.size\+2, .size\+\+) {
-    font-size: 1.25em;
-  }
-
-  :where(:not(.icon, .lucide)):is(.size\+1, .size\+) {
-    font-size: 1.125em;
-  }
-
-  :where(:not(.icon, .lucide)):is(.size-1, .size-) {
-    font-size: 0.875em;
-  }
-
-  :where(:not(.icon, .lucide)):is(.size-2, .size--) {
-    font-size: 0.75em;
-  }
-
-  /* Text Color */
+  /* Color */
 
   .mute {
     color: var(--fg-mute);
@@ -739,7 +864,7 @@
     --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
   }
 
-  /* Fill */
+  /* Areas */
 
   .area, .action-area, .notice-area, .insert-area, .delete-area {
     padding: var(--gap);
@@ -833,123 +958,5 @@
 
   .delete-edge {
     border-inline-start-color: var(--delete-fg);
-  }
-}
-
-@layer page-layout {
-  :root {
-    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
-    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
-    --sidebar-width: clamp(12rem, 25vw, 16rem);
-  }
-
-  .\(, .\) {
-    margin-inline: var(--gutter);
-  }
-
-  .\( {
-    @media (width >= 48rem) {
-      margin-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      clear: inline-start;
-      float: inline-start;
-      margin-block-start: 0;
-      margin-inline: var(--gutter) var(--margin);
-      width: var(--sidebar-width);
-    }
-  }
-
-  .\) {
-    @media (width >= 48rem) {
-      clear: inline-end;
-      float: inline-end;
-      margin-block-start: 0;
-      margin-inline: var(--margin) var(--gutter);
-      width: var(--sidebar-width);
-    }
-  }
-
-  .main, :where(.\*\:main) > *,
-  .\(main, .main\), .\(main\) {
-    margin-inline: var(--gutter);
-  }
-
-  .main, :where(.\*\:main) > * {
-    @media (width >= 48rem) {
-      margin-inline-end: var(--side);
-    }
-
-    @media (width >= 64rem) {
-      margin-inline-start: var(--side);
-    }
-  }
-
-  .\(main {
-    @media (width >= 48rem) {
-      clear: inline-start;
-      margin-inline-end: var(--side);
-    }
-  }
-
-  .main\) {
-    @media (width >= 64rem) {
-      clear: inline-end;
-      margin-inline-start: var(--side);
-    }
-  }
-
-  .\(main\) {
-    @media (width >= 48rem) {
-      clear: inline-start;
-    }
-
-    @media (width >= 64rem) {
-      clear: both;
-    }
-  }
-
-  .\(main.columnar {
-    @media (width >= 64rem) {
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: var(--sidebar-width) 1fr;
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-  }
-
-  .columnar.main\) {
-    @media (width >= 48rem) {
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-width);
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-  }
-
-  .\(main\).columnar {
-    @media (width >= 48rem) {
-      column-gap: var(--margin);
-      display: grid;
-      grid-template-columns: 1fr var(--sidebar-width);
-      row-gap: var(--gap);
-
-      > * {
-        margin-block: 0;
-      }
-    }
-
-    @media (width >= 64rem) {
-      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
-    }
   }
 }

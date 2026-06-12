@@ -67,7 +67,7 @@
 
 <hr class="section" />
 
-<nav class="( section-nav none@-64 note" aria-labelledby="about-the-conference">
+<nav class="( section-nav note" aria-labelledby="about-the-conference">
   <h2 id="about-the-conference" class="over">About the Conference</h2>
   <ul>
     <li>
@@ -79,7 +79,7 @@
   </ul>
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none@-48 note">
+<nav aria-labelledby="on-this-page" class=") note">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a class="li-number" href="#what">What PGConf.dev is</a></li>
@@ -88,7 +88,7 @@
   </ol>
 </nav>
 
-<aside class=") area border note" aria-labelledby="at-a-glance">
+<aside class="main ) area border note" aria-labelledby="at-a-glance">
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
@@ -257,8 +257,8 @@
   </div>
 </section>
 
-<section id="history">
-  <hgroup class="main">
+<section id="history" class="*:main">
+  <hgroup>
     <p class="section-number">History</p>
     <h2>Four years, four cities.</h2>
   </hgroup>
@@ -271,7 +271,7 @@
     </p>
   </aside>
 
-  <p class="main">
+  <p>
     The conference grew out of the long-running PGCon, held annually in Ottawa
     from 2007 to 2023. When PGCon wound down, the contributor community rebooted
     the format under a new name in Vancouver. Each spring since, the conference
@@ -280,7 +280,7 @@
   </p>
 
   <div class="main) columnar section timeline">
-    <div class="subgrid@48- margin-gap">
+    <div class="subgrid@48-">
       <figure class="column-2">
         <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -295,9 +295,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap" />
+    <hr aria-hidden="true" />
 
-    <div class="subgrid@48- margin-gap">
+    <div class="subgrid@48-">
       <figure class="column-2">
         <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
@@ -312,9 +312,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap" />
+    <hr aria-hidden="true" />
 
-    <div class="subgrid@48- margin-gap">
+    <div class="subgrid@48-">
       <figure class="column-2">
         <div class="action h2" style:margin-block="0">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -329,9 +329,9 @@
       </div>
     </div>
 
-    <hr aria-hidden="true" class="margin-gap" />
+    <hr aria-hidden="true" />
 
-    <div class="subgrid@48- margin-gap">
+    <div class="subgrid@48-">
       <figure class="column-2">
         <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>
