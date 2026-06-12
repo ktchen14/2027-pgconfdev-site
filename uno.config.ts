@@ -60,8 +60,16 @@ export default defineConfig({
   ],
   variants: [
     (matcher) => {
+      if (matcher.length <= 2) return;
+      const minimum = { "@(": 64, "@)": 48 }[matcher.slice(-2)];
+      if (!minimum) return;
+      const parent = `@media (width >= ${minimum}rem)`;
+      return { matcher: matcher.slice(0, -2), parent };
+    },
+    (matcher) => {
       const result = matcher.match(/^(.+)@(\d+)?-(\d+)?$/);
       if (!result) return;
+
       const [, rule, minimum, maximum] = result;
       const q = [];
       if (minimum) q.push(`(width >= ${minimum}rem)`);

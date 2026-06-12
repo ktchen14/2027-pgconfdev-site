@@ -280,7 +280,7 @@
   </p>
 
   <div class="main) columnar section timeline">
-    <div class="subgrid@48-">
+    <div class="subgrid@)">
       <figure class="column-2">
         <div class="action h2">2024</div>
         <figcaption class="over">Vancouver, BC</figcaption>
@@ -297,7 +297,7 @@
 
     <hr aria-hidden="true" />
 
-    <div class="subgrid@48-">
+    <div class="subgrid@)">
       <figure class="column-2">
         <div class="action h2">2025</div>
         <figcaption class="over">Montréal, QC</figcaption>
@@ -314,9 +314,9 @@
 
     <hr aria-hidden="true" />
 
-    <div class="subgrid@48-">
+    <div class="subgrid@)">
       <figure class="column-2">
-        <div class="action h2" style:margin-block="0">2026</div>
+        <div class="action h2">2026</div>
         <figcaption class="over">Vancouver, BC</figcaption>
       </figure>
 
@@ -331,7 +331,7 @@
 
     <hr aria-hidden="true" />
 
-    <div class="subgrid@48-">
+    <div class="subgrid@)">
       <figure class="column-2">
         <div class="action h2">2027</div>
         <figcaption class="over">Montréal, QC</figcaption>
