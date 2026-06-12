@@ -623,9 +623,22 @@
 
 @layer layout {
   :root {
-    --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
-    --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
-    --sidebar-width: clamp(12rem, 25vw, 16rem);
+    --page-margin: max(var(--margin), (100vw - 38rem) / 2);
+
+    @media (width >= 48rem) {
+      --page-margin: var(--margin);
+    }
+
+    @media (width >= 80rem) {
+      --page-margin: calc((100vw - 80rem) / 2 + var(--margin));
+    }
+
+    --side: clamp(12rem, 25vw, 16rem);
+    @media (width >= 64rem) {
+      --side: clamp(12rem, 25vw - 4rem, 16rem);
+    }
+
+    --side-margin: calc(var(--page-margin) + var(--side) + var(--margin));
   }
 
   .\(, :where(.\*\:\() > *, .\), :where(.\*\:\)) > * {
@@ -638,7 +651,7 @@
   .\(main, :where(.\*\:\(main) > *,
   .main\), :where(.\*\:main\)) > * {
     display: revert-layer;
-    margin-inline: var(--gutter);
+    margin-inline: var(--page-margin);
   }
 
   @media (width >= 48rem) {
@@ -654,14 +667,14 @@
     .main, :where(.\*\:main) > *,
     .\(main, :where(.\*\:\(main) > * {
       clear: none;
-      margin-inline: var(--gutter) var(--side);
+      margin-inline: var(--page-margin) var(--side-margin);
     }
 
     .\(main\), :where(.\*\:\(main\)) > *,
     .main\), :where(.\*\:main\)) > * {
       clear: inline-end;
-      grid-template-columns: 1fr var(--sidebar-width);
-      margin-inline: var(--gutter);
+      grid-template-columns: 1fr var(--side);
+      margin-inline: var(--page-margin);
     }
 
     .\), :where(.\*\:\)) > * {
@@ -669,8 +682,8 @@
       display: revert-layer;
       float: inline-end;
       margin-block-start: 0;
-      margin-inline: var(--margin) var(--gutter);
-      width: var(--sidebar-width);
+      margin-inline: var(--margin) var(--page-margin);
+      width: var(--side);
     }
   }
 
@@ -684,13 +697,13 @@
 
     .main, :where(.\*\:main) > * {
       clear: none;
-      margin-inline: var(--side) var(--side);
+      margin-inline: var(--side-margin);
     }
 
     .main\), :where(.\*\:main\)) > * {
       clear: inline-end;
-      grid-template-columns: 1fr var(--sidebar-width);
-      margin-inline: var(--side) var(--gutter);
+      grid-template-columns: 1fr var(--side);
+      margin-inline: var(--side-margin) var(--page-margin);
     }
 
     .\), :where(.\*\:\)) > * {
@@ -699,8 +712,8 @@
       float: inline-end;
       grid-template-columns: 1fr;
       margin-block-start: 0;
-      margin-inline: var(--margin) var(--gutter);
-      width: var(--sidebar-width);
+      margin-inline: var(--margin) var(--page-margin);
+      width: var(--side);
     }
 
     .\(main\), :where(.\*\:\(main\)) > *,
@@ -712,14 +725,14 @@
 
     .\(main\), :where(.\*\:\(main\)) > * {
       clear: both;
-      grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
-      margin-inline: var(--gutter);
+      grid-template-columns: var(--side) 1fr var(--side);
+      margin-inline: var(--page-margin);
     }
 
     .\(main, :where(.\*\:\(main) > * {
       clear: inline-start;
-      grid-template-columns: var(--sidebar-width) 1fr;
-      margin-inline: var(--gutter) var(--side);
+      grid-template-columns: var(--side) 1fr;
+      margin-inline: var(--page-margin) var(--side-margin);
     }
 
     .\(, :where(.\*\:\() > * {
@@ -728,8 +741,8 @@
       float: inline-start;
       grid-template-columns: 1fr;
       margin-block-start: 0;
-      margin-inline: var(--gutter) var(--margin);
-      width: var(--sidebar-width);
+      margin-inline: var(--page-margin) var(--margin);
+      width: var(--side);
     }
   }
 }
