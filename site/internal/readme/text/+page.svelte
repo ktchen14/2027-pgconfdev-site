@@ -130,7 +130,7 @@
   />
 </section>
 
-<section id="prose" class="main*">
+<section id="prose" class="*:main">
   <hgroup>
     <h2 class="section-number">Prose</h2>
     <p>Set the style and width of body text.</p>

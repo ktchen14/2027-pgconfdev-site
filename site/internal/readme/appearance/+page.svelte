@@ -41,7 +41,7 @@
   </p>
 </hgroup>
 
-<section id="color" class="main*">
+<section id="color" class="*:main">
   <hgroup>
     <h2 class="section-number">Color</h2>
     <p>Carry meaning with the color of text and elements.</p>
@@ -483,7 +483,7 @@
   />
 </section>
 
-<section id="accents" class="main*">
+<section id="accents" class="*:main">
   <hgroup>
     <h2 class="section-number">Accents</h2>
     <p>Mark a block with a rule along one edge.</p>
