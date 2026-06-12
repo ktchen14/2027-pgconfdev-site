@@ -114,28 +114,30 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class="(main) area grid/3@48-">
-  <hgroup>
-    <p>About the Conference</p>
-    <h2>Built by and for PostgreSQL contributors.</h2>
-  </hgroup>
+<section class=" area">
+  <div class="(main) grid/3@48-">
+    <hgroup>
+      <p>About the Conference</p>
+      <h2>Built by and for PostgreSQL contributors.</h2>
+    </hgroup>
 
-  <div class="column-span-2">
-    <p class="lede">
-      PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
-      extension authors, and the developers who work with them. Four days of
-      unconference sessions, hallway-track conversations, and talks that go
-      deeper than the conference circuit usually allows — written by the people
-      actually shipping the database.
-    </p>
+    <div class="column-span-2">
+      <p class="lede">
+        PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
+        extension authors, and the developers who work with them. Four days of
+        unconference sessions, hallway-track conversations, and talks that go
+        deeper than the conference circuit usually allows — written by the
+        people actually shipping the database.
+      </p>
 
-    <p>
-      Now in its fourth year, the conference moves between cities each spring to
-      keep the core team and contributor community in the same room at least
-      once a year.
-    </p>
+      <p>
+        Now in its fourth year, the conference moves between cities each spring
+        to keep the core team and contributor community in the same room at
+        least once a year.
+      </p>
 
-    <p><a href="/about">Read more about who we are →</a></p>
+      <p><a href="/about">Read more about who we are →</a></p>
+    </div>
   </div>
 </section>
 
@@ -168,19 +170,21 @@
   </div>
 </section>
 
-<section class="(main) area">
-  <hgroup class="margin-gap">
-    <p>Sponsors</p>
-    <h2>The companies underwriting 2027.</h2>
-    <p>
-      PGConf.dev is non-profit. Sponsors cover the venue, A/V, scholarships, and
-      the parts of the program that ticket revenue alone can't.
-    </p>
-  </hgroup>
+<section class=" area">
+  <div class="(main)">
+    <hgroup class="margin-gap">
+      <p>Sponsors</p>
+      <h2>The companies underwriting 2027.</h2>
+      <p>
+        PGConf.dev is non-profit. Sponsors cover the venue, A/V, scholarships,
+        and the parts of the program that ticket revenue alone can't.
+      </p>
+    </hgroup>
 
-  <p>
-    <a href="/sponsor">Sponsor PGConf.dev 2027 →</a>
-  </p>
+    <p>
+      <a href="/sponsor">Sponsor PGConf.dev 2027 →</a>
+    </p>
+  </div>
 </section>
 
 <section class="(main)">
@@ -229,37 +233,38 @@
 </section>
 
 <section
-  class="(main)"
   style:background-color="var(--action)"
   style:color="var(--bg)"
   style:padding-block="var(--margin)"
 >
-  <hgroup>
-    <p style:color="var(--bg)">Registration</p>
-    <h2 class="h1 text">Reserve your seat for the 2027 edition.</h2>
-  </hgroup>
+  <div class="(main)">
+    <hgroup>
+      <p style:color="var(--bg)">Registration</p>
+      <h2 class="h1 text">Reserve your seat for the 2027 edition.</h2>
+    </hgroup>
 
-  <p
-    class="margin-gap size-"
-    style="
+    <p
+      class="margin-gap size-"
+      style="
       font-family: var(--mono-font);
       letter-spacing: 0.05em;
       opacity: 0.85;
     "
-  >
-    <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
-    &nbsp;·&nbsp;
-    <strong style="font-weight: 500">Standard $640</strong>
-    &nbsp;·&nbsp;
-    <strong style="font-weight: 500">Student $120</strong>
-  </p>
+    >
+      <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
+      &nbsp;·&nbsp;
+      <strong style="font-weight: 500">Standard $640</strong>
+      &nbsp;·&nbsp;
+      <strong style="font-weight: 500">Student $120</strong>
+    </p>
 
-  <a
-    class="button circle"
-    href="#"
-    style:background-color="var(--bg)"
-    style:color="var(--delete-fg)"
-  >
-    Register now
-  </a>
+    <a
+      class="button circle"
+      href="#"
+      style:background-color="var(--bg)"
+      style:color="var(--delete-fg)"
+    >
+      Register now
+    </a>
+  </div>
 </section>

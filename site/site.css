@@ -834,9 +834,9 @@
   .delete-edge {
     border-inline-start-color: var(--delete-fg);
   }
+}
 
-  /* Page Layout */
-
+@layer page-layout {
   :root {
     --gutter: max(var(--margin), (100vw - 80rem + 6rem) / 2);
     --side: calc(var(--gutter) + var(--sidebar-width) + var(--margin));
@@ -871,34 +871,40 @@
     }
   }
 
-  .main, :where(.\*\:main) > * {
-    padding-inline: var(--gutter);
+  .main, :where(.\*\:main) > *,
+  .\[, :where(.\*\:\[) > *,
+  .\], :where(.\*\:\]) > *,
+  .\[\+main, :where(.\*\:\[\+main) > *,
+  .main\+\], :where(.\*\:main\+\]) > *,
+  .\[\+main\+\], :where(.\*\:\[\+main\+\]) > *
+  {
+    margin-inline: var(--gutter);
   }
 
   .main, .\(main, .main\), .\(main\), .\[main, .main\], .\[main\] {
-    padding-inline: var(--gutter);
+    margin-inline: var(--gutter);
   }
 
   .main, :where(.\*\:main) > * {
     @media (width >= 48rem) {
-      padding-inline-end: var(--side);
+      margin-inline-end: var(--side);
     }
 
     @media (width >= 64rem) {
-      padding-inline-start: var(--side);
+      margin-inline-start: var(--side);
     }
   }
 
   .\(main {
     @media (width >= 48rem) {
       clear: inline-start;
-      padding-inline-end: var(--side);
+      margin-inline-end: var(--side);
     }
   }
 
   .\[main {
     @media (width >= 48rem) {
-      padding-inline-end: var(--side);
+      margin-inline-end: var(--side);
     }
 
     @media (width >= 64rem) {
@@ -917,7 +923,7 @@
   .main\) {
     @media (width >= 64rem) {
       clear: inline-end;
-      padding-inline-start: var(--side);
+      margin-inline-start: var(--side);
     }
   }
 
@@ -935,7 +941,7 @@
     }
 
     @media (width >= 64rem) {
-      padding-inline-start: var(--side);
+      margin-inline-start: var(--side);
     }
   }
 
