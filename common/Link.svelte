@@ -1,3 +1,10 @@
+<!--
+  @component
+
+  An `<a>` that sets `aria-current="page"` when it targets the active page, and
+  sets `target="_blank"` when it targets an external origin.
+-->
+
 <script lang="ts">
   import { page } from "$app/state";
 
