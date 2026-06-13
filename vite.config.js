@@ -1,10 +1,11 @@
 import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
+import { playwright } from "@vitest/browser-playwright";
 import postcssPresetEnv from "postcss-preset-env";
 import postcssSize from "postcss-size";
 import UnoCSS from "unocss/vite";
-import { defineConfig } from "vite";
 import lucidePreprocess from "vite-plugin-lucide-preprocess";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   css: {
@@ -13,4 +14,12 @@ export default defineConfig({
     },
   },
   plugins: [UnoCSS(), enhancedImages(), lucidePreprocess(), sveltekit()],
+  test: {
+    browser: {
+      enabled: true,
+      headless: true,
+      instances: [{ browser: "webkit" }],
+      provider: playwright(),
+    },
+  },
 });
