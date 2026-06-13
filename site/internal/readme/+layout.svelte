@@ -16,7 +16,7 @@
 </style>
 
 <main>
-  <nav class="( none@-64 note" aria-label="CSS utilities">
+  <nav class="( main note" aria-label="CSS utilities">
     <p class="over">CSS Utilities</p>
     <ul>
       <li>

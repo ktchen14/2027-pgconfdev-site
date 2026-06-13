@@ -204,7 +204,7 @@
     </figcaption>
   </figure>
 
-  <figure class="margin-gap">
+  <figure>
     <div class="grid/4" style:gap="0.5rem">
       <div class="on"></div>
       <div class="on column-span-2"></div>

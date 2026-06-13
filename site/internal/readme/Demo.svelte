@@ -32,11 +32,9 @@
   }
 </style>
 
-<div class="p">
-  <figure>
-    <div {...rest}>
-      {#if children}{@render children()}{:else}{@html source}{/if}
-    </div>
-    {@html render(source)}
-  </figure>
-</div>
+<figure>
+  <div {...rest}>
+    {#if children}{@render children()}{:else}{@html source}{/if}
+  </div>
+  {@html render(source)}
+</figure>

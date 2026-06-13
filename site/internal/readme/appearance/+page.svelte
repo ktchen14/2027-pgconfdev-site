@@ -19,7 +19,7 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") none@-48 note" aria-labelledby="on-this-page">
+<nav class=") note" aria-labelledby="on-this-page">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a class="li-number" href="#color">Color</a></li>
@@ -55,7 +55,7 @@
     notes). It changes color only, leaving size and weight alone.
   </p>
 
-  <aside class="( note p">
+  <aside class="( main note p">
     <p class="over"><T>.note</T> / <T>&lt;small&gt;</T></p>
     <p>
       If you're combining <T>.mute</T> with <T>.size-</T>, you probably want
@@ -558,7 +558,7 @@
     <T>.notice-area</T> takes the area's color:
   </p>
 
-  <aside class="( note p">
+  <aside class="( main note p">
     <p class="over">Variants override</p>
     <p>
       A colored variant still wins: <T>.action-edge</T> stays action-colored inside

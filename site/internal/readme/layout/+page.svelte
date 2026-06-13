@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") none@-48 note" aria-labelledby="on-this-page">
+<nav class=") note" aria-labelledby="on-this-page">
   <h2 id="on-this-page" class="over">On this page</h2>
   <ol>
     <li><a class="li-number" href="#rule">Rule</a></li>
@@ -65,20 +65,19 @@ import Rule from "$lib/Rule.svelte";
     <code>&lt;hgroup&gt;</code>.
   </p>
 
-  <div class="p" style="counter-reset: section">
-    <Demo
-      source={`
+  <Demo
+    source={`
 <hgroup>
-  <p class="section-number">Introduction</p>
-  <h2>Getting started</h2>
+<p class="section-number">Introduction</p>
+<h2>Getting started</h2>
 </hgroup>
 
 <hgroup>
-  <p class="section-number">Background</p>
-  <h2>How it works</h2>
+<p class="section-number">Background</p>
+<h2>How it works</h2>
 </hgroup>`}
-    />
-  </div>
+    style="counter-reset: section"
+  />
 
   <p>
     <T>.li-number</T> prepends the list item's ordinal in monospace. Use it on navigation

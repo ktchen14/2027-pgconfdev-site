@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<OnThisPage class=") none@-48 note">
+<OnThisPage class=") note">
   <ol>
     <li>
       <OnThisPage.Link class="li-number" href="#headings">
@@ -207,27 +207,25 @@
   </div>
 </section>
 
-<section id="size">
-  <div class="main p">
-    <hgroup>
-      <h2 class="section-number">Size</h2>
-      <p>Scale text up or down relative to its surroundings.</p>
-    </hgroup>
+<section id="size" class="*:main">
+  <hgroup>
+    <h2 class="section-number">Size</h2>
+    <p>Scale text up or down relative to its surroundings.</p>
+  </hgroup>
 
-    <p>
-      The size scale changes how large text renders relative to its surroundings
-      without changing what the text means (a purely presentational adjustment).
-      Reach for it only when no semantic element like <T>.lead</T>, <T>.deck</T
-      >, or a heading already carries the meaning you want.
-    </p>
+  <p>
+    The size scale changes how large text renders relative to its surroundings
+    without changing what the text means (a purely presentational adjustment).
+    Reach for it only when no semantic element like <T>.lead</T>, <T>.deck</T
+    >, or a heading already carries the meaning you want.
+  </p>
 
-    <p>
-      It runs two steps each way: <T>.size+</T> and <T>.size++</T> enlarge,
-      <T>.size-</T> and <T>.size--</T> shrink.
-    </p>
-  </div>
+  <p>
+    It runs two steps each way: <T>.size+</T> and <T>.size++</T> enlarge,
+    <T>.size-</T> and <T>.size--</T> shrink.
+  </p>
 
-  <aside class="( note p">
+  <aside class="( main note p">
     <p class="over"><T>.note</T> / <T>&lt;small&gt;</T></p>
     <p>
       If you're combining <T>.size-</T> with <T>.mute</T>, you probably want
@@ -235,7 +233,7 @@
     </p>
   </aside>
 
-  <aside class="( note p">
+  <aside class="( main note p">
     <p class="over">Synonyms</p>
     <p>
       Each also has a numbered alias (<T>.size+1</T>, <T>.size+2</T>, <T
@@ -244,16 +242,14 @@
     </p>
   </aside>
 
-  <div class="main">
-    <Demo
-      source={`
+  <Demo
+    source={`
 <p class="size++">Two steps larger</p>
 <p class="size+">One step larger</p>
 <p>Default body size</p>
 <p class="size-">One step smaller</p>
 <p class="size--">Two steps smaller</p>`}
-    />
-  </div>
+  />
 </section>
 
 <section id="spacing" class="main">
