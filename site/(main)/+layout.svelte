@@ -1,6 +1,6 @@
 <script lang="ts">
   import { GitHub, Mastodon } from "$lib/icon";
-  import Link from "$lib/Link.svelte";
+  import Link from "$lib/Link";
   import Header from "./Header";
 
   const { children } = $props();
