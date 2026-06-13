@@ -1,8 +1,7 @@
 <script lang="ts">
   import { GitHub, Mastodon } from "$lib/icon";
+  import Link from "$lib/Link.svelte";
   import Header from "./Header";
-
-  const { Link, ToggleMenu } = Header;
 
   const { children } = $props();
 </script>
@@ -39,36 +38,36 @@
 
 <Header class="(main)">
   <li class="menu-single">
-    <ToggleMenu name="Program">
+    <Header.ToggleMenu name="Program">
       <ul>
         <li><Link href="/program">Schedule</Link></li>
         <li><Link href="/cfp">Call for proposals</Link></li>
       </ul>
-    </ToggleMenu>
+    </Header.ToggleMenu>
   </li>
 
   <li class="menu-single">
-    <ToggleMenu name="Attend">
+    <Header.ToggleMenu name="Attend">
       <ul>
         <li><Link href="/attend">Venue</Link></li>
         <li><Link href="/attend/travel">Travel &amp; hotels</Link></li>
         <li><Link href="/attend/social">Social events</Link></li>
         <li><Link href="/attend/volunteer">Volunteer</Link></li>
       </ul>
-    </ToggleMenu>
+    </Header.ToggleMenu>
   </li>
 
   <li><Link href="/sponsor">Sponsor</Link></li>
 
   <li class="menu-single">
-    <ToggleMenu name="About">
+    <Header.ToggleMenu name="About">
       <ul>
         <li><Link href="/about">About PGConf.dev</Link></li>
         <li><Link href="/team">Team</Link></li>
         <li><Link href="/conduct">Code of conduct</Link></li>
         <li><Link href="/policies">Policies &amp; privacy</Link></li>
       </ul>
-    </ToggleMenu>
+    </Header.ToggleMenu>
   </li>
 </Header>
 
