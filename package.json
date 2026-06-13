@@ -13,7 +13,8 @@
     "dev": "vite dev",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@csstools/normalize.css": "^12.1.1",
@@ -30,6 +31,7 @@
     "@types/node": "^25",
     "@unocss/extractor-svelte": "^66.7.0",
     "@vitest/browser": "^4.1.8",
+    "@vitest/browser-playwright": "^4.1.8",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.17.1",
