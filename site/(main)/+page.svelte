@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Circle } from "@lucide/svelte";
   import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
   import banner from "./banner.svg";
 
   const href =
@@ -106,7 +107,7 @@
 
   <div class="flex">
     <a href="#" class="button circle delete stroke">Register</a>
-    <a href="/cfp" class="button circle stroke">Submit a talk</a>
+    <Link href="/cfp" class="button circle stroke">Submit a talk</Link>
   </div>
 </section>
 
@@ -136,7 +137,7 @@
         least once a year.
       </p>
 
-      <p><a href="/about">Read more about who we are →</a></p>
+      <p><Link href="/about">Read more about who we are →</Link></p>
     </div>
   </div>
 </section>
@@ -164,9 +165,9 @@
       </p>
     </div>
 
-    <a class="button circle" href="/cfp" style:justify-self="end">
+    <Link class="button circle" href="/cfp" style="justify-self: end">
       Submit a proposal
-    </a>
+    </Link>
   </div>
 </section>
 
@@ -182,7 +183,7 @@
     </hgroup>
 
     <p>
-      <a href="/sponsor">Sponsor PGConf.dev 2027 →</a>
+      <Link href="/sponsor">Sponsor PGConf.dev 2027 →</Link>
     </p>
   </div>
 </section>

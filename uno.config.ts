@@ -1,21 +1,17 @@
-import { symbols } from "@unocss/core";
+import { symbols, withLayer } from "@unocss/core";
 import extractorSvelte from "@unocss/extractor-svelte";
 import { defineConfig } from "unocss";
 
 export default defineConfig({
   extractors: [extractorSvelte()],
   presets: [],
-  rules: [
+  rules: withLayer("layout", [
     ["none", { display: "none" }],
 
     [
       "flex",
       [
-        {
-          display: "flex",
-          "flex-wrap": "wrap",
-          gap: "1.5rem",
-        },
+        { display: "flex", "flex-wrap": "wrap", gap: "1.5rem" },
         {
           [symbols.selector]: (selector) => `${selector} > *`,
           "margin-block": 0,
@@ -57,7 +53,7 @@ export default defineConfig({
       /^column-span-(\d+)$/,
       ([, number]) => ({ "grid-column": `span ${number}` }),
     ],
-  ],
+  ]),
   variants: [
     (matcher) => {
       if (matcher.length <= 2) return;

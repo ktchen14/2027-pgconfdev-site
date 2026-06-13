@@ -1,5 +1,6 @@
 <script>
   import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
 </script>
 
 <style>
@@ -9,18 +10,19 @@
     line-height: 1;
   }
 
-  .section-nav a {
+  .section-nav :global(a) {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
     margin-inline: 0;
+  }
 
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-tint);
-    }
+  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
+    background-color: var(--action-bg-tint);
+  }
 
-    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
-      border-color: var(--action-fg);
-    }
+  .section-nav
+    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
+    border-color: var(--action-fg);
   }
 </style>
 
@@ -35,9 +37,9 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><a href={resolve("/attend")}>Attend</a></li>
+    <li><Link href={resolve("/attend")}>Attend</Link></li>
     <li aria-hidden="true">/</li>
-    <li><a href="/">Volunteer</a></li>
+    <li><Link href="/">Volunteer</Link></li>
   </ol>
 </nav>
 
@@ -59,12 +61,10 @@
 <nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
   <h2 id="attend-nav" class="over">Attend</h2>
   <ul>
-    <li><a href={resolve("/attend")}>Venue</a></li>
-    <li><a href={resolve("/attend/travel")}>Travel &amp; hotels</a></li>
-    <li><a href={resolve("/attend/social")}>Social events</a></li>
-    <li>
-      <a href={resolve("/attend/volunteer")} aria-current="page">Volunteer</a>
-    </li>
+    <li><Link href={resolve("/attend")}>Venue</Link></li>
+    <li><Link href={resolve("/attend/travel")}>Travel &amp; hotels</Link></li>
+    <li><Link href={resolve("/attend/social")}>Social events</Link></li>
+    <li><Link href={resolve("/attend/volunteer")}>Volunteer</Link></li>
   </ul>
 </nav>
 
@@ -230,7 +230,7 @@
   </p>
 
   <p>
-    Questions? Email <a href="/team#contact">info@pgconf.dev</a>.
+    Questions? Email <Link href="/team#contact">info@pgconf.dev</Link>.
   </p>
 
   <p class="section">

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Calendar, Check, Clock, MapPin } from "@lucide/svelte";
+  import Link from "$lib/Link";
   import Demo from "../Demo.svelte";
   import T from "../T.svelte";
 </script>
@@ -160,11 +161,11 @@
   <h3>Icon and label</h3>
 
   <p>
-    This project uses <a href="https://lucide.dev/" target="_blank">Lucide</a>
+    This project uses <Link href="https://lucide.dev/">Lucide</Link>
     icons. Find one in the
-    <a href="https://lucide.dev/icons/" target="_blank">gallery</a>, convert its
-    name to PascalCase (e.g. <code>map-pin</code> → <code>MapPin</code>), import
-    it from <code>"@lucide/svelte"</code>, and drop it in as a Svelte component.
+    <Link href="https://lucide.dev/icons/">gallery</Link>, convert its name to
+    PascalCase (e.g. <code>map-pin</code> → <code>MapPin</code>), import it from
+    <code>"@lucide/svelte"</code>, and drop it in as a Svelte component.
   </p>
 
   <Demo

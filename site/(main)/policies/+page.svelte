@@ -1,5 +1,6 @@
 <script>
   import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
 </script>
 
 <style>
@@ -9,18 +10,19 @@
     line-height: 1;
   }
 
-  .section-nav a {
+  .section-nav :global(a) {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
     margin-inline: 0;
+  }
 
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-tint);
-    }
+  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
+    background-color: var(--action-bg-tint);
+  }
 
-    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
-      border-color: var(--action-fg);
-    }
+  .section-nav
+    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
+    border-color: var(--action-fg);
   }
 </style>
 
@@ -35,9 +37,9 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><a href={resolve("/about")}>About</a></li>
+    <li><Link href={resolve("/about")}>About</Link></li>
     <li aria-hidden="true">/</li>
-    <li><a href="/">Policies &amp; privacy</a></li>
+    <li><Link href="/">Policies &amp; privacy</Link></li>
   </ol>
 </nav>
 
@@ -58,14 +60,10 @@
 <nav class="section-nav ( none@-64 note" aria-labelledby="about-nav">
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
-    <li><a href={resolve("/about")}>About PGConf.dev</a></li>
-    <li><a href={resolve("/team")}>Team</a></li>
-    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
-    <li>
-      <a href={resolve("/policies")} aria-current="page"
-        >Policies &amp; privacy</a
-      >
-    </li>
+    <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
+    <li><Link href={resolve("/team")}>Team</Link></li>
+    <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
+    <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
   </ul>
 </nav>
 
@@ -87,11 +85,11 @@
   <p>
     PGConf.dev is a recognised PostgreSQL Community Event and is run in
     accordance with the
-    <a href="https://www.postgresql.org/about/policies/conferences/">
-      PostgreSQL community conference policies</a
+    <Link href="https://www.postgresql.org/about/policies/conferences/">
+      PostgreSQL community conference policies</Link
     >. The
-    <a href={resolve("/conduct")}>code of conduct</a> applies at all conference venues
-    and conference-related social events.
+    <Link href={resolve("/conduct")}>code of conduct</Link> applies at all conference
+    venues and conference-related social events.
   </p>
 </section>
 
@@ -103,10 +101,10 @@
 
   <p>
     This site is hosted on GitHub Pages; see GitHub's
-    <a
+    <Link
       href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
     >
-      General Privacy Statement</a
+      General Privacy Statement</Link
     > for details on server-side logging.
   </p>
 
@@ -119,8 +117,9 @@
 
   <p>
     The conference is organised by Slonik Events Canada, which follows its own
-    <a href="https://www.pgevents.ca/about/privacypolicy/">Privacy Policy</a> for
-    registration and attendee data.
+    <Link href="https://www.pgevents.ca/about/privacypolicy/">
+      Privacy Policy
+    </Link> for registration and attendee data.
   </p>
 </section>
 
@@ -133,12 +132,12 @@
   <p>
     PGConf.dev is underwritten by <strong>Slonik Events Canada</strong>, a
     Canadian non-profit, with support from our
-    <a href={resolve("/sponsor")}>sponsors</a>. All proceeds support the
+    <Link href={resolve("/sponsor")}>sponsors</Link>. All proceeds support the
     PostgreSQL community as set out in the
-    <a
+    <Link
       href="https://www.pgevents.ca/media/local/pdf/slonik-events-bylaws-2023.pdf"
     >
-      Slonik Events bylaws</a
+      Slonik Events bylaws</Link
     >.
   </p>
 

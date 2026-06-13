@@ -1,8 +1,8 @@
 <script lang="ts">
   import newsreaderLatin400NormalWoff2 from "@fontsource/newsreader/files/newsreader-latin-400-normal.woff2?url";
   import newsreaderLatin500NormalWoff2 from "@fontsource/newsreader/files/newsreader-latin-500-normal.woff2?url";
-  import "virtual:uno.css";
   import "./site.css";
+  import "virtual:uno.css";
 
   let { children } = $props();
 </script>

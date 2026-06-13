@@ -1,5 +1,6 @@
 <script>
   import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
   import Rule from "$lib/Rule.svelte";
 </script>
 
@@ -10,18 +11,19 @@
     line-height: 1;
   }
 
-  .section-nav a {
+  .section-nav :global(a) {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
     margin-inline: 0;
+  }
 
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-tint);
-    }
+  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
+    background-color: var(--action-bg-tint);
+  }
 
-    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
-      border-color: var(--action-fg);
-    }
+  .section-nav
+    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
+    border-color: var(--action-fg);
   }
 </style>
 
@@ -36,9 +38,9 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><a href={resolve("/about")}>About</a></li>
+    <li><Link href={resolve("/about")}>About</Link></li>
     <li aria-hidden="true">/</li>
-    <li><a href="/">Team</a></li>
+    <li><Link href="/">Team</Link></li>
   </ol>
 </nav>
 
@@ -60,10 +62,10 @@
 <nav class="section-nav ( none@-64 note" aria-labelledby="about-nav">
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
-    <li><a href={resolve("/about")}>About PGConf.dev</a></li>
-    <li><a href={resolve("/team")} aria-current="page">Team</a></li>
-    <li><a href={resolve("/conduct")}>Code of conduct</a></li>
-    <li><a href={resolve("/policies")}>Policies &amp; privacy</a></li>
+    <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
+    <li><Link href={resolve("/team")}>Team</Link></li>
+    <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
+    <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
   </ul>
 </nav>
 
@@ -207,7 +209,9 @@
   </p>
 
   <p>
-    <a href={resolve("/attend/volunteer")}>Volunteer at PGConf.dev 2027 →</a>
+    <Link href={resolve("/attend/volunteer")}>
+      Volunteer at PGConf.dev 2027 →
+    </Link>
   </p>
 </section>
 

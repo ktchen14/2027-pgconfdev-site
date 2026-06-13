@@ -1,5 +1,6 @@
 <script>
   import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
 </script>
 
 <style>
@@ -9,18 +10,19 @@
     line-height: 1;
   }
 
-  .section-nav a {
+  .section-nav :global(a) {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
     margin-inline: 0;
+  }
 
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-tint);
-    }
+  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
+    background-color: var(--action-bg-tint);
+  }
 
-    &:is(:hover, [aria-current]:where(:not([aria-current="false"]))) {
-      border-color: var(--action-fg);
-    }
+  .section-nav
+    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
+    border-color: var(--action-fg);
   }
 
   /* Deadlines ledger — milestone left, date right; stacks when narrow.
@@ -60,7 +62,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><a href="/">Call for Proposals</a></li>
+    <li><Link href="/">Call for Proposals</Link></li>
   </ol>
 </nav>
 
@@ -82,10 +84,8 @@
 <nav class="section-nav ( none@-64 note" aria-labelledby="program-nav">
   <h2 id="program-nav" class="over">Program</h2>
   <ul>
-    <li><a href={resolve("/program")}>Schedule</a></li>
-    <li>
-      <a href={resolve("/cfp")} aria-current="page">Call for proposals</a>
-    </li>
+    <li><Link href={resolve("/program")}>Schedule</Link></li>
+    <li><Link href={resolve("/cfp")}>Call for proposals</Link></li>
   </ul>
 </nav>
 
@@ -133,7 +133,7 @@
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
       >. Submit via the proposal system linked below. Questions?
-      <a href="/team#contact">Contact the program committee.</a>
+      <Link href="/team#contact">Contact the program committee.</Link>
     </p>
   </div>
 </section>
@@ -313,7 +313,7 @@
   </p>
   <p>
     <small
-      >Questions? Email <a href="/team#contact">the program committee</a
+      >Questions? Email <Link href="/team#contact">the program committee</Link
       >.</small
     >
   </p>

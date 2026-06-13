@@ -1,3 +1,7 @@
+<script>
+  import Link from "$lib/Link";
+</script>
+
 <style>
   header h1 {
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
@@ -38,7 +42,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><a href="/">Sponsors</a></li>
+    <li><Link href="/">Sponsors</Link></li>
   </ol>
 </nav>
 
@@ -95,7 +99,8 @@
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
-      or <a href="/team#contact">contact the sponsorship team</a> for a full prospectus.
+      or <Link href="/team#contact">contact the sponsorship team</Link> for a full
+      prospectus.
     </p>
   </div>
 </section>
@@ -204,8 +209,8 @@
   </p>
 
   <p class="section">
-    <a href="/team#contact" class="button circle"
-      >Contact the sponsorship team</a
+    <Link href="/team#contact" class="button circle"
+      >Contact the sponsorship team</Link
     >
   </p>
 </section>
