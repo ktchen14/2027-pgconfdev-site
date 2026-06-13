@@ -27,10 +27,9 @@
     color: var(--fg-mute);
   }
 
-  /* Make the live demos legible: a labelled box with visible region cells. */
   .demo {
-    outline: 1px dashed var(--border-bold);
-    outline-offset: 0.25rem;
+    border: 1px dashed var(--border-bold);
+    padding: var(--gap);
   }
 
   .demo > .cell {
@@ -41,22 +40,16 @@
   }
 
   /* Footprint pictures: a mini three-column page with the used cells filled. */
-  .frame {
-    display: grid;
-    gap: 3px;
-    grid-template-columns: 1fr 2.5fr 1fr;
-  }
-
-  .frame > span {
+  .on, .off {
     block-size: 1.75rem;
     border-radius: 2px;
   }
 
-  .frame > .on {
+  .on {
     background-color: var(--action-fg);
   }
 
-  .frame > .off {
+  .off {
     border: 1px dashed var(--border);
   }
 </style>
@@ -67,6 +60,7 @@
     <li><a class="li-number" href="#regions">The three regions</a></li>
     <li><a class="li-number" href="#placements">A class is a placement</a></li>
     <li><a class="li-number" href="#workhorses">Two workhorses</a></li>
+    <li><a class="li-number" href="#boxes">Spanning one sidebar</a></li>
     <li><a class="li-number" href="#sidebars">Sidebars</a></li>
     <li><a class="li-number" href="#fallback">Listing fallbacks</a></li>
     <li><a class="li-number" href="#columnar">columnar</a></li>
@@ -93,7 +87,7 @@
 
 <section id="regions" class="main">
   <hgroup>
-    <h2 class="section-number">The page is up to three columns</h2>
+    <h2 class="section-number">The three regions</h2>
     <p>A centre column, with two sidebars that appear as the window widens.</p>
   </hgroup>
 
@@ -117,10 +111,14 @@
 
   <p>
     Because the left sidebar needs more room, the right one is always present
-    whenever the left is. So there are only three states: <strong>main alone</strong>
-    (phone), <strong>main + right</strong> (tablet), and <strong>all three</strong>
-    (desktop).
+    whenever the left is, so there are only three states:
   </p>
+
+  <ul>
+    <li><strong>Main alone</strong> on a phone</li>
+    <li><strong>Main and right</strong> on a tablet</li>
+    <li><strong>All three</strong> on a desktop</li>
+  </ul>
 
   <p class="note">
     You apply these classes to the direct children of a page's
@@ -134,64 +132,89 @@
     <p>Name the run of regions a block should cover, as a single class.</p>
   </hgroup>
 
-  <p>
-    Picture the regions in a row: <code>(</code> on the left, <code>main</code>
-    in the middle, <code>)</code> on the right. A placement class names a
-    <strong>run</strong> of adjacent regions, and the brackets are simply the
-    left and right ends of that run.
-  </p>
+  <div class="region-map note p">
+    <div><code class="size++">(</code><br /><small>left sidebar</small></div>
+    <div><code class="size++">main</code><br /><small>centre</small></div>
+    <div><code class="size++">)</code><br /><small>right sidebar</small></div>
+  </div>
 
   <p>
-    So <code>(main)</code> runs from the left bracket through main to the right
-    one: all three. <code>(main</code> opens on the left and stops at main.
-    <code>main)</code> covers main through the right. A lone <code>(</code>,
-    <code>main</code>, or <code>)</code> is a run of one. Those are every
+    A placement class names a <strong>run</strong> of adjacent regions, with the
+    brackets as its left and right ends. The six possible runs are every
     placement there is:
   </p>
 
-  <div class="grid+12">
-    <figure>
-      <div class="frame">
-        <span class="on"></span><span class="off"></span><span class="off"></span>
-      </div>
-      <figcaption><code>(</code>: the left sidebar alone.</figcaption>
-    </figure>
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <span class="on"></span>
+      <span class="off column-span-2"></span>
+      <span class="off"></span>
+    </div>
 
-    <figure>
-      <div class="frame">
-        <span class="off"></span><span class="on"></span><span class="off"></span>
-      </div>
-      <figcaption><code>main</code>: the centre column alone.</figcaption>
-    </figure>
+    <figcaption>
+      <T>(</T> &mdash; the left sidebar alone.
+    </figcaption>
+  </figure>
 
-    <figure>
-      <div class="frame">
-        <span class="off"></span><span class="off"></span><span class="on"></span>
-      </div>
-      <figcaption><code>)</code>: the right sidebar alone.</figcaption>
-    </figure>
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <div class="off"></div>
+      <div class="on column-span-2"></div>
+      <div class="off"></div>
+    </div>
 
-    <figure>
-      <div class="frame">
-        <span class="on"></span><span class="on"></span><span class="off"></span>
-      </div>
-      <figcaption><code>(main</code>: left through main.</figcaption>
-    </figure>
+    <figcaption style:text-align="center">
+      <T>main</T> &mdash; the centre column alone.
+    </figcaption>
+  </figure>
 
-    <figure>
-      <div class="frame">
-        <span class="off"></span><span class="on"></span><span class="on"></span>
-      </div>
-      <figcaption><code>main)</code>: main through right.</figcaption>
-    </figure>
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <div class="off"></div>
+      <div class="off column-span-2"></div>
+      <div class="on"></div>
+    </div>
 
-    <figure>
-      <div class="frame">
-        <span class="on"></span><span class="on"></span><span class="on"></span>
-      </div>
-      <figcaption><code>(main)</code>: all three.</figcaption>
-    </figure>
-  </div>
+    <figcaption style:text-align="right">
+      <T>)</T> &mdash; the right sidebar alone.
+    </figcaption>
+  </figure>
+
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <div class="on"></div>
+      <div class="on column-span-2"></div>
+      <div class="off"></div>
+    </div>
+
+    <figcaption>
+      <T>(main</T> &mdash; left through main.
+    </figcaption>
+  </figure>
+
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <div class="off"></div>
+      <div class="on column-span-2"></div>
+      <div class="on"></div>
+    </div>
+
+    <figcaption style:text-align="right">
+      <T>main)</T> &mdash; main through right.
+    </figcaption>
+  </figure>
+
+  <figure class="margin-gap">
+    <div class="grid/4" style:gap="0.5rem">
+      <div class="on"></div>
+      <div class="on column-span-2"></div>
+      <div class="on"></div>
+    </div>
+
+    <figcaption style:text-align="center">
+      <T>(main)</T> &mdash; all three.
+    </figcaption>
+  </figure>
 
   <p>
     A block fills the part of its run that <strong>exists at the current
@@ -227,23 +250,54 @@
     <T>main</T> keeps a block in the centre reading column and leaves the
     sidebars free. Use it for body copy, article sections, anything text-heavy.
   </p>
+</section>
 
+<div class="main demo">
+  <p class="over">class "main"</p>
+  <h3 class="h4">A working conference for the people building Postgres</h3>
+  <p>
+    PGConf.dev was founded in 2024 to fill a specific gap: a yearly room where
+    PostgreSQL contributors and the developers integrating Postgres into other
+    systems could spend four days together, without the conference circuit's
+    usual layer of polish.
+  </p>
+  <p style:margin-block-end="0">
+    The format borrows from academic conferences: proposals are reviewed by a
+    program committee, talks are technical, and a third of the schedule is
+    unconference.
+  </p>
+</div>
+
+<section class="main">
   <p>
     <T>(main)</T> is a box that spans the <em>whole</em> content area, soaking up
     the sidebars when they exist. Reach for it on headers, footers, heroes, and
-    full-bleed sections.
-  </p>
-
-  <p>
-    The two boxes below are live and styled so you can see their edges. Widen the
-    window past 64rem and watch <code>(main)</code> stretch out past
-    <code>main</code> into the sidebar space on both sides.
+    full-bleed sections. Both examples are live; widen past 64rem to watch
+    <code>(main)</code> reach past <code>main</code> into the sidebar space.
   </p>
 </section>
 
-<p class="main demo cell">main: the centre reading column</p>
-
-<p class="(main) demo cell">(main): spans every column that exists</p>
+<div class="(main) demo">
+  <p class="over" style:margin-block-start="0">class "(main)"</p>
+  <div class="grid+12">
+    <figure>
+      <div class="action h2">~600</div>
+      <figcaption class="over">Attendees</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">3</div>
+      <figcaption class="over">Parallel tracks</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">42</div>
+      <figcaption class="over">Talks &amp; tutorials</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">4</div>
+      <figcaption class="over">Days</figcaption>
+    </figure>
+  </div>
+</div>
 
 <section class="main">
   <p class="note">
@@ -253,6 +307,40 @@
     <a href="/">landing page</a> does for its sponsor and gallery sections.
   </p>
 </section>
+
+<section id="boxes" class="main">
+  <hgroup>
+    <h2 class="section-number">Spanning into one sidebar</h2>
+    <p><code>(main</code> and <code>main)</code> reach a box into just one side.</p>
+  </hgroup>
+
+  <p>
+    Between plain <code>main</code> and the full-width <code>(main)</code> sit the
+    two half-spans. <T>main)</T> runs from main through the right sidebar;
+    <T>(main</T> runs from the left through main. Each is one block that widens to
+    take in its sidebar where there is room and stays plain main where there
+    isn't. Reach for them when a band should lean into one margin but not both.
+  </p>
+</section>
+
+<div class="main) demo">
+  <p class="over">class "main)"</p>
+  <h3 class="h4">Call for proposals</h3>
+  <p style:margin-block-end="0">
+    Submit a talk, tutorial, or unconference topic by 14 February. This banner
+    runs from main into the right sidebar, so on a desktop it reaches wider than
+    the reading column.
+  </p>
+</div>
+
+<div class="(main demo">
+  <p class="over">class "(main"</p>
+  <h3 class="h4">Sponsors</h3>
+  <p style:margin-block-end="0">
+    PGConf.dev is non-profit; sponsors cover the venue, A/V, and scholarships.
+    The same band reaching the other way, from the left sidebar through main.
+  </p>
+</div>
 
 <section id="sidebars" class="main">
   <hgroup>
@@ -264,18 +352,6 @@
     The single-region runs <T>(</T> and <T>)</T> are how you put a block beside
     your content rather than in it: an "On this page" table of contents, a
     section navigation, a pull-quote, an at-a-glance box.
-  </p>
-
-  <p>
-    Being a run of one region, a sidebar block shows up only where that sidebar
-    exists and is absent otherwise, so nothing is needed to hide it on a phone.
-    <code>)</code> appears from 48rem, <code>(</code> from 64rem.
-  </p>
-
-  <p>
-    The usual companion is just <code>note</code>, for the muted, smaller sidebar
-    styling. The CSS-Utilities list on the left of this page is placed with
-    <code>(</code>; the "On this page" navs use <code>)</code>.
   </p>
 </section>
 
@@ -293,6 +369,20 @@
     A <code>(</code> aside. It appears in the left sidebar from 64rem up.
   </p>
 </aside>
+
+<section class="main">
+  <p>
+    Being a run of one region, a sidebar block shows up only where that sidebar
+    exists and is absent otherwise, so nothing is needed to hide it on a phone.
+    <code>)</code> appears from 48rem, <code>(</code> from 64rem.
+  </p>
+
+  <p>
+    The usual companion is just <code>note</code>, for the muted, smaller sidebar
+    styling. The CSS-Utilities list on the left of this page is placed with
+    <code>(</code>; the "On this page" navs use <code>)</code>.
+  </p>
+</section>
 
 <section id="fallback" class="main">
   <hgroup>
@@ -331,26 +421,59 @@
   <p>
     That second one is the useful "at a glance" pattern: a summary that sits
     inline under the heading on a phone, then moves up into the right sidebar
-    when there is room. The box below is a live <code>main )</code>; resize to
-    watch it move.
+    when there is room. The box here is a live <code>main )</code>.
   </p>
 </section>
 
 <aside class="main ) note area border">
-  <p class="over">At a glance</p>
+  <p class="over">At a glance · <code>main )</code></p>
+  <dl class="dedent" style:margin-block="0">
+    <div class="p">
+      <dt class="over">Dates</dt>
+      <dd>18–21 May 2027</dd>
+    </div>
+    <div class="p">
+      <dt class="over">Venue</dt>
+      <dd>Palais des congrès de Montréal</dd>
+    </div>
+    <div class="p" style:margin-block="0">
+      <dt class="over">Format</dt>
+      <dd>Tutorial day, two talk days, an unconference day</dd>
+    </div>
+  </dl>
+</aside>
+
+<section class="main">
+  <p>
+    The same works on the left. <code>( main</code> chooses the left sidebar when
+    it exists, else main, which makes a tidy margin note beside the text.
+  </p>
+</section>
+
+<aside class="( main note border">
+  <p class="over"><code>( main</code></p>
   <p style:margin-block="0">
-    <code>main )</code>: inline here on a narrow screen, up in the right sidebar
-    on a wide one.
+    PGCon ran in Ottawa from 2007 to 2023, sixteen editions before PGConf.dev
+    picked up the thread.
   </p>
 </aside>
 
 <section class="main">
   <p>
-    The same works on the left: <code>( main</code> chooses the left sidebar when
-    it exists, else main. List all three, <code>( main )</code>, for "left, else
-    right, else main".
+    List all three, <code>( main )</code>, for "left, else right, else main": it
+    prefers the left sidebar, accepts the right when the left is gone, and drops
+    inline on a phone.
   </p>
+</section>
 
+<aside class="( main ) note border">
+  <p class="over"><code>( main )</code></p>
+  <p style:margin-block="0">
+    Left sidebar on a desktop, right sidebar on a tablet, inline on a phone.
+  </p>
+</aside>
+
+<section class="main">
   <p class="note">
     When a layout looks wrong, check your spaces first: a stray space turns one
     spanning placement into two competing ones.
@@ -371,9 +494,12 @@
   </p>
 
   <p>
-    Use it for a wide band whose pieces sit in distinct columns, like the
-    timeline on the <a href="/about">About page</a>: a <code>main) columnar</code>
-    with a year in the right column and its description in main.
+    Use it for a wide band whose pieces sit in distinct columns. The
+    <a href="/about">About page</a> timeline does this with
+    <code>(main main) columnar</code>: a fallback between the boxes
+    <code>(main</code> and <code>main)</code>, so each row leans into the left
+    sidebar on a desktop and the right one on a tablet, with the year in one
+    column and its description in the other.
   </p>
 
   <p>
