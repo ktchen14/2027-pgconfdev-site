@@ -2,11 +2,6 @@
   import T from "../T.svelte";
 </script>
 
-<svelte:head>
-  <title>CSS utilities: page layout — PGConf.dev 2027</title>
-  <meta name="robots" content="noindex" />
-</svelte:head>
-
 <style>
   /* Schematic of the three regions; not the real layout, just a picture. */
   .region-map {
@@ -40,7 +35,8 @@
   }
 
   /* Footprint pictures: a mini three-column page with the used cells filled. */
-  .on, .off {
+  .on,
+  .off {
     block-size: 1.75rem;
     border-radius: 2px;
   }
@@ -53,6 +49,11 @@
     border: 1px dashed var(--border);
   }
 </style>
+
+<svelte:head>
+  <title>CSS utilities: page layout — PGConf.dev 2027</title>
+  <meta name="robots" content="noindex" />
+</svelte:head>
 
 <nav class=") note" aria-labelledby="on-this-page">
   <h2 id="on-this-page" class="over">On this page</h2>
@@ -139,9 +140,8 @@
   </div>
 
   <p>
-    A placement class names a <strong>run</strong> of adjacent regions, with the
-    brackets as its left and right ends. The six possible runs are every
-    placement there is:
+    A placement class names a <strong>run</strong> of adjacent regions, with the brackets
+    as its left and right ends. The six possible runs are every placement there is:
   </p>
 
   <figure class="margin-gap">
@@ -217,10 +217,11 @@
   </figure>
 
   <p>
-    A block fills the part of its run that <strong>exists at the current
-    width</strong>, and no more. You never set widths or breakpoints yourself.
-    Widen the window and a run can spread into a sidebar that has appeared;
-    narrow it and the run gives up the columns that have gone.
+    A block fills the part of its run that <strong
+      >exists at the current width</strong
+    >, and no more. You never set widths or breakpoints yourself. Widen the
+    window and a run can spread into a sidebar that has appeared; narrow it and
+    the run gives up the columns that have gone.
   </p>
 
   <p>
@@ -231,24 +232,26 @@
   </p>
 
   <p class="note">
-    You only ever write a single <code>(</code> and a single <code>)</code> on a
-    block. A run has one left end and one right end, and even the fallback lists
-    below keep to one of each, so two placements can never fight over the same
-    sidebar. There is no more syntax than that.
+    You only ever write a single <code>(</code> and a single <code>)</code> on a block.
+    A run has one left end and one right end, and even the fallback lists below keep
+    to one of each, so two placements can never fight over the same sidebar. There
+    is no more syntax than that.
   </p>
 </section>
 
 <section id="workhorses" class="main">
   <hgroup>
     <h2 class="section-number">Your two workhorses</h2>
-    <p><code>main</code> for the reading column, <code>(main)</code> for full width.</p>
+    <p>
+      <code>main</code> for the reading column, <code>(main)</code> for full width.
+    </p>
   </hgroup>
 
   <p>Two of the six runs cover most of a page.</p>
 
   <p>
-    <T>main</T> keeps a block in the centre reading column and leaves the
-    sidebars free. Use it for body copy, article sections, anything text-heavy.
+    <T>main</T> keeps a block in the centre reading column and leaves the sidebars
+    free. Use it for body copy, article sections, anything text-heavy.
   </p>
 </section>
 
@@ -270,9 +273,9 @@
 
 <section class="main">
   <p>
-    <T>(main)</T> is a box that spans the <em>whole</em> content area, soaking up
-    the sidebars when they exist. Reach for it on headers, footers, heroes, and
-    full-bleed sections. Both examples are live; widen past 64rem to watch
+    <T>(main)</T> is a box that spans the <em>whole</em> content area, soaking
+    up the sidebars when they exist. Reach for it on headers, footers, heroes,
+    and full-bleed sections. Both examples are live; widen past 64rem to watch
     <code>(main)</code> reach past <code>main</code> into the sidebar space.
   </p>
 </section>
@@ -302,8 +305,8 @@
 <section class="main">
   <p class="note">
     A <code>(main)</code> box is a single block by default. Put a grid inside it
-    (for example <code>grid+16</code> or <code>grid/3@)</code>) when you want its
-    contents laid out in cards or columns, exactly as the
+    (for example <code>grid+16</code> or <code>grid/3@)</code>) when you want
+    its contents laid out in cards or columns, exactly as the
     <a href="/">landing page</a> does for its sponsor and gallery sections.
   </p>
 </section>
@@ -311,15 +314,17 @@
 <section id="boxes" class="main">
   <hgroup>
     <h2 class="section-number">Spanning into one sidebar</h2>
-    <p><code>(main</code> and <code>main)</code> reach a box into just one side.</p>
+    <p>
+      <code>(main</code> and <code>main)</code> reach a box into just one side.
+    </p>
   </hgroup>
 
   <p>
-    Between plain <code>main</code> and the full-width <code>(main)</code> sit the
-    two half-spans. <T>main)</T> runs from main through the right sidebar;
+    Between plain <code>main</code> and the full-width <code>(main)</code> sit
+    the two half-spans. <T>main)</T> runs from main through the right sidebar;
     <T>(main</T> runs from the left through main. Each is one block that widens to
-    take in its sidebar where there is room and stays plain main where there
-    isn't. Reach for them when a band should lean into one margin but not both.
+    take in its sidebar where there is room and stays plain main where there isn't.
+    Reach for them when a band should lean into one margin but not both.
   </p>
 </section>
 
@@ -349,17 +354,17 @@
   </hgroup>
 
   <p>
-    The single-region runs <T>(</T> and <T>)</T> are how you put a block beside
-    your content rather than in it: an "On this page" table of contents, a
-    section navigation, a pull-quote, an at-a-glance box.
+    The single-region runs <T>(</T> and <T>)</T> are how you put a block beside your
+    content rather than in it: an "On this page" table of contents, a section navigation,
+    a pull-quote, an at-a-glance box.
   </p>
 </section>
 
 <aside class=") note border">
   <p class="over">On this page</p>
   <p style:margin-block="0">
-    A <code>)</code> aside. It rides in the right sidebar from 48rem up and is
-    hidden below it.
+    A <code>)</code> aside. It rides in the right sidebar from 48rem up and is hidden
+    below it.
   </p>
 </aside>
 
@@ -378,8 +383,9 @@
   </p>
 
   <p>
-    The usual companion is just <code>note</code>, for the muted, smaller sidebar
-    styling. The CSS-Utilities list on the left of this page is placed with
+    The usual companion is just <code>note</code>, for the muted, smaller
+    sidebar styling. The CSS-Utilities list on the left of this page is placed
+    with
     <code>(</code>; the "On this page" navs use <code>)</code>.
   </p>
 </section>
@@ -391,9 +397,9 @@
   </hgroup>
 
   <p>
-    Everything so far has been one placement. Put a space between two of them and
-    you have handed the block <strong>two placements</strong> to choose from: it
-    renders in the best one available at the current width, re-choosing as the
+    Everything so far has been one placement. Put a space between two of them
+    and you have handed the block <strong>two placements</strong> to choose from:
+    it renders in the best one available at the current width, re-choosing as the
     window changes.
   </p>
 
@@ -409,11 +415,15 @@
     <tbody>
       <tr>
         <td><code>main)</code> <small>(no space)</small></td>
-        <td>One placement: a run spanning main and the right sidebar at once</td>
+        <td>One placement: a run spanning main and the right sidebar at once</td
+        >
       </tr>
       <tr>
         <td><code>main )</code> <small>(a space)</small></td>
-        <td>Two placements, <code>main</code> and <code>)</code>: the block takes the right sidebar when it fits, else main</td>
+        <td
+          >Two placements, <code>main</code> and <code>)</code>: the block takes
+          the right sidebar when it fits, else main</td
+        >
       </tr>
     </tbody>
   </table>
@@ -482,15 +492,17 @@
 
 <section id="columnar" class="main">
   <hgroup>
-    <h2 class="section-number">Split a box into columns: <code>columnar</code></h2>
+    <h2 class="section-number">
+      Split a box into columns: <code>columnar</code>
+    </h2>
     <p>Turn a spanning box's regions into real grid columns.</p>
   </hgroup>
 
   <p>
     A run across more than one region, like <code>(main)</code> or
     <code>main)</code>, is one continuous block by default. Add <T>columnar</T>
-    and it becomes a grid with one column per region, so its children line up
-    with main and the sidebars.
+    and it becomes a grid with one column per region, so its children line up with
+    main and the sidebars.
   </p>
 
   <p>
@@ -531,13 +543,18 @@
     set a marginal note beside its history text:
   </p>
 
-  <pre><code>{`<section class="*:main">
+  <pre><code
+      >{`<section class="*:main">
   <hgroup>...</hgroup>
   <aside class="( note">...</aside>  <!-- floats into the left margin -->
   <p>...</p>                          <!-- stays in main -->
-</section>`}</code></pre>
+</section>`}</code
+    ></pre>
 
-  <p>The section below does exactly that. Widen past 64rem to see the note slide out.</p>
+  <p>
+    The section below does exactly that. Widen past 64rem to see the note slide
+    out.
+  </p>
 </section>
 
 <section class="*:main">
@@ -551,13 +568,15 @@
 
   <aside class="( note border">
     <p class="over">Aside</p>
-    <p style:margin-block="0">A <code>(</code> child of a <code>*:main</code> section.</p>
+    <p style:margin-block="0">
+      A <code>(</code> child of a <code>*:main</code> section.
+    </p>
   </aside>
 
   <p>
     Without <code>*:main</code> you would have to write <code>main</code> on
-    every paragraph and <code>div</code> in the section. The variant saves you
-    the repetition.
+    every paragraph and <code>div</code> in the section. The variant saves you the
+    repetition.
   </p>
 </section>
 
@@ -570,13 +589,13 @@
   <p>
     Any responsive variant (see the <a href="../layout">Layout</a> page) can be
     tied to the layout's own breakpoints. <code>@)</code> means "from 48rem",
-    where the right sidebar appears; <code>@(</code> means "from 64rem", where
-    the left one does.
+    where the right sidebar appears; <code>@(</code> means "from 64rem", where the
+    left one does.
   </p>
 
   <p>
     So <code>grid/3@)</code> becomes three columns exactly when the right sidebar
-    arrives. Reaching for these instead of raw rem values keeps a block tied to
-    the regions if the breakpoints ever move.
+    arrives. Reaching for these instead of raw rem values keeps a block tied to the
+    regions if the breakpoints ever move.
   </p>
 </section>

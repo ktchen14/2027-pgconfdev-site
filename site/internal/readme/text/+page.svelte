@@ -216,8 +216,8 @@
   <p>
     The size scale changes how large text renders relative to its surroundings
     without changing what the text means (a purely presentational adjustment).
-    Reach for it only when no semantic element like <T>.lead</T>, <T>.deck</T
-    >, or a heading already carries the meaning you want.
+    Reach for it only when no semantic element like <T>.lead</T>, <T>.deck</T>,
+    or a heading already carries the meaning you want.
   </p>
 
   <p>
