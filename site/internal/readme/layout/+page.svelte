@@ -16,7 +16,6 @@
     <li><a class="li-number" href="#counters">Counters</a></li>
     <li><a class="li-number" href="#layout">Layout</a></li>
     <li><a class="li-number" href="#dedent">Dedent</a></li>
-    <!-- <li><a class="li-number" href="#page-layout">Page layout</a></li> -->
   </ol>
 </nav>
 

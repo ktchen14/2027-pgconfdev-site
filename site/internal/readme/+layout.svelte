@@ -44,6 +44,15 @@
             : undefined}>Layout</a
         >
       </li>
+      <li>
+        <a
+          href={resolve("/internal/readme/page-layout")}
+          aria-current={page.url.pathname ===
+          resolve("/internal/readme/page-layout")
+            ? "page"
+            : undefined}>Page layout</a
+        >
+      </li>
     </ul>
   </nav>
 
