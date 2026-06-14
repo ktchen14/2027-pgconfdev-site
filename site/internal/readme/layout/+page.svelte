@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
+  import Link from "$lib/Link";
   import Rule from "$lib/Rule.svelte";
   import Demo from "../Demo.svelte";
   import T from "../T.svelte";
@@ -189,6 +191,25 @@ import Rule from "$lib/Rule.svelte";
   <p class="area">Gamma</p>
 </div>`}
   />
+
+  <h3>Columnar</h3>
+
+  <p>
+    <T>columnar</T> turns a page-layout span (one of the
+    <Link href="page-layout">Page layout</Link> classes that covers more than
+    one region, like <code>(main)</code> or <code>main)</code>) into a grid with
+    one column per region, so its children line up with main and the sidebars. On
+    its own it is a single-column grid; the span supplies the extra columns at
+    each breakpoint.
+  </p>
+
+  <p>
+    The <Link href={resolve("/about")}>About page</Link> timeline uses
+    <code>(main main) columnar</code>: a fallback between the boxes
+    <code>(main</code> and <code>main)</code>, so each row leans into the left
+    sidebar on a desktop and the right one on a tablet, with the year in one
+    column and its description in the other.
+  </p>
 
   <h3>Column placement</h3>
 
