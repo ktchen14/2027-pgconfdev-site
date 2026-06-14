@@ -23,5 +23,8 @@ export default {
       src: "source",
     },
     outDir: ".svelte",
+    paths: {
+      base: "/2027-pgconfdev-site",
+    },
   },
 };
