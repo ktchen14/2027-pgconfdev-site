@@ -113,6 +113,9 @@
   </div>
 
   <p>
+    <!-- X: Not true. The left sidebar and right sidebar have the same size. You
+    probably mean that the left sidebar requires a higher minimum viewport
+    width, but this way of phrasing it is confusing -->
     Because the left sidebar needs more room, the right one is always present
     whenever the left is, so there are only three states:
   </p>
@@ -135,6 +138,8 @@
     <p>Name the run of regions a block should cover, as a single class.</p>
   </hgroup>
 
+  <!-- X: This region map largely duplicates the one above. Can we merge them?
+  Or make them more different? -->
   <div class="region-map note p">
     <div><code class="size++">(</code><br /><small>left sidebar</small></div>
     <div><code class="size++">main</code><br /><small>centre</small></div>
@@ -146,6 +151,8 @@
     as its left and right ends. The six possible runs are every placement there is:
   </p>
 
+  <!-- X: rather than having all of these here, we should spread these out across
+  the document, to the section where its use is described -->
   <figure class="margin-gap">
     <div class="grid/4" style:gap="0.5rem">
       <span class="on"></span>
@@ -218,6 +225,7 @@
     </figcaption>
   </figure>
 
+  <!-- X: Next three paragraphs are a little long. Can we either break them up or shoten them? -->
   <p>
     A block fills the part of its run that <strong
       >exists at the current width</strong
@@ -241,7 +249,8 @@
   </p>
 </section>
 
-<section id="workhorses" class="main">
+<!-- X: ids should match the slug of the heading to be predictable -->
+<section id="workhorses" class="*:main">
   <hgroup>
     <h2 class="section-number">Your two workhorses</h2>
     <p>
@@ -249,62 +258,62 @@
     </p>
   </hgroup>
 
+  <!-- X: confusing sentence. Makes it sound like two runs will fill the entire page -->
   <p>Two of the six runs cover most of a page.</p>
 
   <p>
     <T>main</T> keeps a block in the centre reading column and leaves the sidebars
     free. Use it for body copy, article sections, anything text-heavy.
   </p>
-</section>
 
-<div class="main demo">
-  <p class="over">class "main"</p>
-  <h3 class="h4">A working conference for the people building Postgres</h3>
-  <p>
-    PGConf.dev was founded in 2024 to fill a specific gap: a yearly room where
-    PostgreSQL contributors and the developers integrating Postgres into other
-    systems could spend four days together, without the conference circuit's
-    usual layer of polish.
-  </p>
-  <p style:margin-block-end="0">
-    The format borrows from academic conferences: proposals are reviewed by a
-    program committee, talks are technical, and a third of the schedule is
-    unconference.
-  </p>
-</div>
+  <div class="demo p">
+    <p class="over">class "main"</p>
+    <h3 class="h4">A working conference for the people building Postgres</h3>
 
-<section class="main">
+    <p>
+      PGConf.dev was founded in 2024 to fill a specific gap: a yearly room where
+      PostgreSQL contributors and the developers integrating Postgres into other
+      systems could spend four days together, without the conference circuit's
+      usual layer of polish.
+    </p>
+
+    <p>
+      The format borrows from academic conferences: proposals are reviewed by a
+      program committee, talks are technical, and a third of the schedule is
+      unconference.
+    </p>
+  </div>
+
   <p>
     <T>(main)</T> is a box that spans the <em>whole</em> content area, soaking
     up the sidebars when they exist. Reach for it on headers, footers, heroes,
     and full-bleed sections. Both examples are live; widen past 64rem to watch
     <code>(main)</code> reach past <code>main</code> into the sidebar space.
   </p>
-</section>
 
-<div class="(main) demo">
-  <p class="over" style:margin-block-start="0">class "(main)"</p>
-  <div class="grid+12">
-    <figure>
-      <div class="action h2">~600</div>
-      <figcaption class="over">Attendees</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">3</div>
-      <figcaption class="over">Parallel tracks</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">42</div>
-      <figcaption class="over">Talks &amp; tutorials</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">4</div>
-      <figcaption class="over">Days</figcaption>
-    </figure>
+  <div class="(main) demo p">
+    <p class="over">class "(main)"</p>
+    <div class="grid+12">
+      <figure>
+        <div class="action h2">~600</div>
+        <figcaption class="over">Attendees</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">3</div>
+        <figcaption class="over">Parallel tracks</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">42</div>
+        <figcaption class="over">Talks &amp; tutorials</figcaption>
+      </figure>
+      <figure>
+        <div class="action h2">4</div>
+        <figcaption class="over">Days</figcaption>
+      </figure>
+    </div>
   </div>
-</div>
 
-<section class="main">
+  <!-- X: note class does nothing here. Should this be an aside? -->
   <p class="note">
     A <code>(main)</code> box is a single block by default. Put a grid inside it
     (for example <code>grid+16</code> or <code>grid/3@)</code>) when you want
@@ -314,7 +323,8 @@
   </p>
 </section>
 
-<section id="boxes" class="main">
+<!-- X: Rarer than the next section (single sidebar). Should be later. -->
+<section id="boxes" class="*:main">
   <hgroup>
     <h2 class="section-number">Spanning into one sidebar</h2>
     <p>
@@ -329,28 +339,35 @@
     take in its sidebar where there is room and stays plain main where there isn't.
     Reach for them when a band should lean into one margin but not both.
   </p>
+
+  <!-- X: explain when to use this. Often, this is used with .columnar to make a
+  grid aligned box -->
+
+  <!-- X: Provide a better example (like the timeline on the about page) -->
+
+  <!-- X: in this document, stop putting style:margin-block-end=0 everywhere.
+  It's almost never necessary -->
+  <div class="main) demo p">
+    <p class="over">class "main)"</p>
+    <h3 class="h4">Call for proposals</h3>
+    <p style:margin-block-end="0">
+      Submit a talk, tutorial, or unconference topic by 14 February. This banner
+      runs from main into the right sidebar, so on a desktop it reaches wider than
+      the reading column.
+    </p>
+  </div>
+
+  <div class="(main demo p">
+    <p class="over">class "(main"</p>
+    <h3 class="h4">Sponsors</h3>
+    <p style:margin-block-end="0">
+      PGConf.dev is non-profit; sponsors cover the venue, A/V, and scholarships.
+      The same band reaching the other way, from the left sidebar through main.
+    </p>
+  </div>
 </section>
 
-<div class="main) demo">
-  <p class="over">class "main)"</p>
-  <h3 class="h4">Call for proposals</h3>
-  <p style:margin-block-end="0">
-    Submit a talk, tutorial, or unconference topic by 14 February. This banner
-    runs from main into the right sidebar, so on a desktop it reaches wider than
-    the reading column.
-  </p>
-</div>
-
-<div class="(main demo">
-  <p class="over">class "(main"</p>
-  <h3 class="h4">Sponsors</h3>
-  <p style:margin-block-end="0">
-    PGConf.dev is non-profit; sponsors cover the venue, A/V, and scholarships.
-    The same band reaching the other way, from the left sidebar through main.
-  </p>
-</div>
-
-<section id="sidebars" class="main">
+<section id="sidebars" class="*:main">
   <hgroup>
     <h2 class="section-number">Sidebars: <code>(</code> and <code>)</code></h2>
     <p>Navigation and asides that ride alongside the main column.</p>
@@ -361,30 +378,33 @@
     content rather than in it: an "On this page" table of contents, a section navigation,
     a pull-quote, an at-a-glance box.
   </p>
-</section>
 
-<aside class=") note border">
-  <p class="over">On this page</p>
-  <p style:margin-block="0">
-    A <code>)</code> aside. It rides in the right sidebar from 48rem up and is hidden
-    below it.
-  </p>
-</aside>
+  <!-- X: are either of these asides? They seem to be main content -->
+  <aside class=") note border p">
+    <p class="over">On this page</p>
+    <p>
+      A <code>)</code> aside. It rides in the right sidebar from 48rem up and is hidden
+      below it.
+    </p>
+  </aside>
 
-<aside class="( note border">
-  <p class="over">Section nav</p>
-  <p style:margin-block="0">
-    A <code>(</code> aside. It appears in the left sidebar from 64rem up.
-  </p>
-</aside>
+  <aside class="( note border p">
+    <p class="over">Section nav</p>
+    <p>
+      A <code>(</code> aside. It appears in the left sidebar from 64rem up.
+    </p>
+  </aside>
 
-<section class="main">
+  <!-- X: Remind the reader to also add .main if they want it to appear in the
+  main section in a narrow viewport. Often, with the .p class (provide a link to
+  .p documentation if you mention it). Link to fallbacks for the additional .main -->
   <p>
     Being a run of one region, a sidebar block shows up only where that sidebar
     exists and is absent otherwise, so nothing is needed to hide it on a phone.
     <code>)</code> appears from 48rem, <code>(</code> from 64rem.
   </p>
 
+  <!-- X: link to .note docs -->
   <p>
     The usual companion is just <code>note</code>, for the muted, smaller
     sidebar styling. The CSS-Utilities list on the left of this page is placed
@@ -411,6 +431,8 @@
     between spanning and choosing:
   </p>
 
+  <!-- X: this doesn't really work as a table. The left column is tiny and the
+  right column is very long. -->
   <table class="stripe">
     <thead>
       <tr><th>You write</th><th>You get</th></tr>
@@ -437,6 +459,10 @@
     when there is room. The box here is a live <code>main )</code>.
   </p>
 </section>
+
+<!-- X: this isn't the right way to do this. Your <section>s are all over the
+place. Rather, simply use *:main in the section. Then, override in the children.
+-->
 
 <aside class="main ) note area border">
   <p class="over">At a glance · <code>main )</code></p>
@@ -486,6 +512,7 @@
   </p>
 </aside>
 
+<!-- X: this is an obvious <aside> -->
 <section class="main">
   <p class="note">
     When a layout looks wrong, check your spaces first: a stray space turns one
@@ -493,6 +520,8 @@
   </p>
 </section>
 
+<!-- X: let's move this to the layout page now that it's been moved into UnoCSS.
+It belongs with the grid options there anyway. -->
 <section id="columnar" class="main">
   <hgroup>
     <h2 class="section-number">
@@ -547,6 +576,7 @@
     > uses it to set a marginal note beside its history text:
   </p>
 
+  <!-- X: This example is too wide to render comfortably in 38rem -->
   <pre><code
       >{`<section class="*:main">
   <hgroup>...</hgroup>
