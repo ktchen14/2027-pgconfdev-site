@@ -12,12 +12,12 @@
 
   const to = $derived(new URL(href, page.url));
   const http = $derived(["http:", "https:"].includes(to.protocol));
-  const internal = $derived(to.origin === page.url.origin);
+  const auto = $derived(to.origin === page.url.origin);
 
   const ariaCurrent = $derived(
-    http && internal && to.pathname === page.url.pathname ? "page" : undefined,
+    http && auto && to.pathname === page.url.pathname ? "page" : undefined,
   );
-  const target = $derived(http && !internal ? "_blank" : undefined);
+  const target = $derived(http && !auto ? "_blank" : undefined);
 </script>
 
 <a aria-current={ariaCurrent} {href} {target} {...rest}>

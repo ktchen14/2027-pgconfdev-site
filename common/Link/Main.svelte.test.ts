@@ -39,4 +39,13 @@ describe("Link", () => {
     const link = screen.getByRole("link");
     await expect.element(link).toHaveAttribute("target", "_blank");
   });
+
+  it("omits target when it targets a non-http(s) scheme", async () => {
+    const screen = await render(Link, {
+      href: "mailto:hi@example.com",
+      children,
+    });
+    const link = screen.getByRole("link");
+    await expect.element(link).not.toHaveAttribute("target");
+  });
 });
