@@ -196,9 +196,9 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     <T>columnar</T> turns a page-layout span (one of the
-    <Link href="page-layout">Page layout</Link> classes that covers more than
-    one region, like <code>(main)</code> or <code>main)</code>) into a grid with
-    one column per region, so its children line up with main and the sidebars. On
+    <Link href="page-layout">Page layout</Link> classes that covers more than one
+    region, like <code>(main)</code> or <code>main)</code>) into a grid with one
+    column per region, so its children line up with main and the sidebars. On
     its own it is a single-column grid; the span supplies the extra columns at
     each breakpoint.
   </p>

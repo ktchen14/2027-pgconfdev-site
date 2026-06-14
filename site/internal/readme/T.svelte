@@ -1,7 +1,7 @@
 <script lang="ts">
-  let { children } = $props();
+  let { class: klass = undefined, children, ...rest } = $props();
 </script>
 
-<code class="action">
+<code class={["action", klass]} {...rest}>
   {@render children()}
 </code>
