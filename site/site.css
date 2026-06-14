@@ -1,4 +1,6 @@
-@import "@csstools/normalize.css" layer;
+@layer normalize, font, margin, appearance, layout, page-layout, site;
+
+@import "@csstools/normalize.css" layer(normalize);
 
 /* TODO: fonts */
 @import "@fontsource/newsreader/400-italic.css" layer(font);
@@ -588,19 +590,9 @@
   }
 }
 
-@layer {
-  .columnar, :where(.\*\:columnar) > * {
-    display: grid;
-    gap: var(--gap) var(--margin);
-    grid-template-columns: 1fr;
+@layer layout;
 
-    > * {
-      margin-block: 0;
-    }
-  }
-}
-
-@layer layout {
+@layer page-layout {
   :root {
     --page-margin: max(var(--margin), (100vw - 38rem) / 2);
 
@@ -726,7 +718,7 @@
   }
 }
 
-@layer svelte {
+@layer site {
   /* Text */
 
   .lead, .lede {

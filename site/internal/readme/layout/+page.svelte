@@ -194,7 +194,11 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     <T>column-N</T> positions a grid item in column <code>N</code>.
-    <T>column-span-N</T> stretches a grid item across <code>N</code> columns.
+    <T>column-span-N</T> stretches a grid item across <code>N</code> columns. To
+    set where an item both starts and ends, add a second value:
+    <T>column-2-span-3</T> starts at column 2 and spans 3 columns, while
+    <T>column-2-4</T> runs from the start of column 2 to the start of column 4 (covering
+    columns 2 and 3). <code>span</code> works in either position.
   </p>
 
   <Demo
@@ -204,6 +208,7 @@ import Rule from "$lib/Rule.svelte";
   <p class="area">Column 2</p>
   <p class="area column-1">Forced to column 1</p>
   <p class="area column-span-2">Spans columns 1–2</p>
+  <p class="area column-2-span-2">Starts at column 2, spans 2</p>
   <p class="area">Column 3</p>
 </div>`}
   />

@@ -2,6 +2,11 @@ import { symbols, withLayer } from "@unocss/core";
 import extractorSvelte from "@unocss/extractor-svelte";
 import { defineConfig } from "unocss";
 
+const childMarginBlock = {
+  [symbols.selector]: (selector: string) => `${selector} > *`,
+  "margin-block": 0,
+};
+
 export default defineConfig({
   extractors: [extractorSvelte()],
   presets: [],
@@ -11,29 +16,44 @@ export default defineConfig({
     [
       "flex",
       [
-        { display: "flex", "flex-wrap": "wrap", gap: "1.5rem" },
-        {
-          [symbols.selector]: (selector) => `${selector} > *`,
-          "margin-block": 0,
-        },
+        { display: "flex", "flex-wrap": "wrap", gap: "var(--gap)" },
+        childMarginBlock,
       ],
     ],
 
     [
-      /^grid([+/])(\d+)$/,
-      ([, operator, number]) => [
+      "columnar",
+      [
         {
           display: "grid",
-          gap: "1.5rem",
-          "grid-template-columns":
-            operator === "+"
-              ? `repeat(auto-fit, minmax(${number}rem, 1fr))`
-              : `repeat(${number}, 1fr)`,
+          gap: "var(--gap) var(--margin)",
+          "grid-template-columns": "1fr",
         },
+        childMarginBlock,
+      ],
+    ],
+
+    [
+      /^grid\+(\d+)$/,
+      ([, number]) => [
         {
-          [symbols.selector]: (selector) => `${selector} > *`,
-          "margin-block": 0,
+          display: "grid",
+          gap: "var(--gap)",
+          "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
         },
+        childMarginBlock,
+      ],
+    ],
+
+    [
+      /^grid\/(\d+)$/,
+      ([, number]) => [
+        {
+          display: "grid",
+          gap: "var(--gap)",
+          "grid-template-columns": `repeat(${number}, 1fr)`,
+        },
+        childMarginBlock,
       ],
     ],
 
@@ -41,17 +61,17 @@ export default defineConfig({
       "subgrid",
       [
         { display: "grid", "grid-template-columns": "subgrid" },
-        {
-          [symbols.selector]: (selector) => `${selector} > *`,
-          "margin-block": 0,
-        },
+        childMarginBlock,
       ],
     ],
 
-    [/^column-(\d+)$/, ([, number]) => ({ "grid-column": number })],
     [
-      /^column-span-(\d+)$/,
-      ([, number]) => ({ "grid-column": `span ${number}` }),
+      /^column-((?:span-)?\d+)(?:-((?:span-)?\d+))?$/,
+      ([, start, end]) => {
+        const name = (s: string) => s.replace("-", " ");
+        const value = end ? `${name(start)} / ${name(end)}` : name(start);
+        return { "grid-column": value };
+      },
     ],
   ]),
   variants: [
@@ -62,6 +82,7 @@ export default defineConfig({
       const parent = `@media (width >= ${minimum}rem)`;
       return { matcher: matcher.slice(0, -2), parent };
     },
+
     (matcher) => {
       const result = matcher.match(/^(.+)@(\d+)?-(\d+)?$/);
       if (!result) return;

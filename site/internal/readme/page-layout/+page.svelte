@@ -588,8 +588,8 @@
   </hgroup>
 
   <p>
-    Any responsive variant (see the <Link href="../layout">Layout</Link> page) can
-    be tied to the layout's own breakpoints. <code>@)</code> means "from 48rem",
+    Any responsive variant (see the <Link href="layout">Layout</Link> page) can be
+    tied to the layout's own breakpoints. <code>@)</code> means "from 48rem",
     where the right sidebar appears; <code>@(</code> means "from 64rem", where the
     left one does.
   </p>
