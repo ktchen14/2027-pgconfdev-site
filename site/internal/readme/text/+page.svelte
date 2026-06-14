@@ -299,27 +299,6 @@
 <p>A paragraph after the block.</p>`}
   />
 
-  <h3>Heading margin on containers</h3>
-
-  <p>
-    <T>.margin-h1</T> through <T>.margin-h6</T> apply the margin of the corresponding
-    heading to a container. When a heading is the first or last child of an element,
-    CSS collapses its margin against the container, and the container appears unspaced.
-    Adding <T>.margin-h2</T> to the container carries that margin up to the container
-    itself.
-  </p>
-
-  <Demo
-    source={`
-<p>A paragraph before the container.</p>
-
-<div class="margin-h2">
-  <h2>A heading inside a container</h2>
-</div>
-
-<p>A paragraph after the container.</p>`}
-  />
-
   <h3>Gap</h3>
 
   <p>

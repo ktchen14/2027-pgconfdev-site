@@ -131,37 +131,31 @@
     margin-block: 1.5em 0.5em;
   }
 
-  hgroup:has(> :where(h1)), .margin-h1 {
+  hgroup:has(> :where(h1)) {
     margin-block: calc(1.5 * var(--h1-size)) calc(0.5 * var(--h1-size));
   }
 
-  hgroup:has(> :where(h2)), .margin-h2 {
+  hgroup:has(> :where(h2)) {
     margin-block: calc(1.5 * var(--h2-size)) calc(0.5 * var(--h2-size));
   }
 
-  hgroup:has(> :where(h3)), .margin-h3 {
+  hgroup:has(> :where(h3)) {
     margin-block: calc(1.5 * var(--h3-size)) calc(0.5 * var(--h3-size));
   }
 
-  hgroup:has(> :where(h4)), .margin-h4 {
+  hgroup:has(> :where(h4)) {
     margin-block: calc(1.5 * var(--h4-size)) calc(0.5 * var(--h4-size));
   }
 
-  hgroup:has(> :where(h5)), .margin-h5 {
+  hgroup:has(> :where(h5)) {
     margin-block: calc(1.5 * var(--h5-size)) calc(0.5 * var(--h5-size));
   }
 
-  hgroup:has(> :where(h6)), .margin-h6 {
+  hgroup:has(> :where(h6)) {
     margin-block: calc(1.5 * var(--h6-size)) calc(0.5 * var(--h6-size));
   }
 
-  h1, .h1, .margin-h1,
-  h2, .h2, .margin-h2,
-  h3, .h3, .margin-h3,
-  h4, .h4, .margin-h4,
-  h5, .h5, .margin-h5,
-  h6, .h6, .margin-h6,
-  hgroup {
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, hgroup {
     &:where(:first-child) {
       margin-block-start: 0;
     }
@@ -171,54 +165,40 @@
     }
   }
 
-  :where(h1, .h1, .margin-h1, hgroup:has(> h1)) {
+  :where(h1, .h1, hgroup:has(> h1)) {
     + :is(h2, h3, h4, h5, h6),
     + hgroup:has(> :where(h2, h3, h4, h5, h6)),
-    + :is(.h2, .h3, .h4, .h5, .h6),
-    + .margin-h2,
-    + .margin-h3,
-    + .margin-h4,
-    + .margin-h5,
-    + .margin-h6 {
+    + :is(.h2, .h3, .h4, .h5, .h6) {
       margin-block-start: 0;
     }
   }
 
-  :where(h2, .h2, .margin-h2, hgroup:has(> h2)) {
+  :where(h2, .h2, hgroup:has(> h2)) {
     + :is(h3, h4, h5, h6),
     + hgroup:has(> :where(h3, h4, h5, h6)),
-    + :is(.h3, .h4, .h5, .h6),
-    + .margin-h3,
-    + .margin-h4,
-    + .margin-h5,
-    + .margin-h6 {
+    + :is(.h3, .h4, .h5, .h6) {
       margin-block-start: 0;
     }
   }
 
-  :where(h3, .h3, .margin-h3, hgroup:has(> h3)) {
+  :where(h3, .h3, hgroup:has(> h3)) {
     + :is(h4, h5, h6),
     + hgroup:has(> :where(h4, h5, h6)),
-    + :is(.h4, .h5, .h6),
-    + .margin-h4,
-    + .margin-h5,
-    + .margin-h6 {
+    + :is(.h4, .h5, .h6) {
       margin-block-start: 0;
     }
   }
 
-  :where(h4, .h4, .margin-h4, hgroup:has(> h4)) {
+  :where(h4, .h4, hgroup:has(> h4)) {
     + :is(h5, h6),
     + hgroup:has(> :where(h5, h6)),
-    + :is(.h5, .h6),
-    + .margin-h5,
-    + .margin-h6 {
+    + :is(.h5, .h6) {
       margin-block-start: 0;
     }
   }
 
-  :where(h5, .h5, .margin-h5, hgroup:has(> h5)) {
-    + h6, hgroup:has(> :where(h6)), + .h6, + .margin-h6 {
+  :where(h5, .h5, hgroup:has(> h5)) {
+    + h6, hgroup:has(> :where(h6)), + .h6 {
       margin-block-start: 0;
     }
   }
@@ -589,8 +569,6 @@
     color: var(--fg-mute);
   }
 }
-
-@layer layout;
 
 @layer page-layout {
   :root {
