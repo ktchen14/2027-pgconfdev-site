@@ -11,11 +11,13 @@
   const { href, children, ...rest } = $props();
 
   const to = $derived(new URL(href, page.url));
+  const http = $derived(["http:", "https:"].includes(to.protocol));
   const internal = $derived(to.origin === page.url.origin);
+
   const ariaCurrent = $derived(
-    internal && to.pathname === page.url.pathname ? "page" : undefined,
+    http && internal && to.pathname === page.url.pathname ? "page" : undefined,
   );
-  const target = $derived(internal ? undefined : "_blank");
+  const target = $derived(http && !internal ? "_blank" : undefined);
 </script>
 
 <a aria-current={ariaCurrent} {href} {target} {...rest}>
