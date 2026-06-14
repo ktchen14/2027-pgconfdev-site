@@ -1,9 +1,13 @@
 <script module lang="ts">
-  import { createHighlighter } from "shiki";
+  import html from "@shikijs/langs/html";
+  import catppuccinMacchiato from "@shikijs/themes/catppuccin-macchiato";
+  import { createHighlighterCore } from "shiki/core";
+  import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
-  const highlighter = await createHighlighter({
-    langs: ["html"],
-    themes: ["catppuccin-macchiato"],
+  const highlighter = await createHighlighterCore({
+    engine: createJavaScriptRegexEngine(),
+    langs: [html],
+    themes: [catppuccinMacchiato],
   });
 
   function render(source: string) {
@@ -21,20 +25,28 @@
 <style>
   figure {
     border: 1px solid var(--border);
+  }
 
-    > :global(*) {
-      padding: var(--gap);
-    }
+  div {
+    padding: var(--gap);
+  }
 
-    :global(pre) {
-      white-space: pre-wrap;
-    }
+  figcaption > :global(pre) {
+    padding: var(--gap);
+    white-space: pre-wrap;
   }
 </style>
 
 <figure>
   <div {...rest}>
-    {#if children}{@render children()}{:else}{@html source}{/if}
+    {#if children}
+      {@render children()}
+    {:else}
+      {@html source}
+    {/if}
   </div>
-  {@html render(source)}
+
+  <figcaption>
+    {@html render(source)}
+  </figcaption>
 </figure>
