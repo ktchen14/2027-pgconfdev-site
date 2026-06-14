@@ -20,6 +20,9 @@
     <p class="over">CSS Utilities</p>
     <ul>
       <li>
+        <Link href={resolve("/internal/readme/page-layout")}>Page layout</Link>
+      </li>
+      <li>
         <Link href={resolve("/internal/readme/text")}>Text</Link>
       </li>
       <li>
@@ -27,9 +30,6 @@
       </li>
       <li>
         <Link href={resolve("/internal/readme/layout")}>Layout</Link>
-      </li>
-      <li>
-        <Link href={resolve("/internal/readme/page-layout")}>Page layout</Link>
       </li>
     </ul>
   </nav>
