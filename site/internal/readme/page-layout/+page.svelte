@@ -199,8 +199,8 @@
   </figure>
 
   <p>
-    <T>main</T> keeps a block in the centre column and leaves the sidebars
-    free. Use it for body copy, article sections, anything text-heavy.
+    <T>main</T> keeps a block in the centre column and leaves the sidebars free. Use
+    it for body copy, article sections, anything text-heavy.
   </p>
 
   <div class="border dashed p">
@@ -291,9 +291,9 @@
   </hgroup>
 
   <p>
-    Use <T>(</T> and <T>)</T> to place a block beside your content, e.g. an "On
-    this page" table of contents, a section navigation, a pull quote, or an
-    at-a-glance box.
+    Use <T>(</T> and <T>)</T> to place a block beside your content, e.g. an "On this
+    page" table of contents, a section navigation, a pull quote, or an at-a-glance
+    box.
   </p>
 
   <aside class="( note border dashed p">
@@ -338,9 +338,9 @@
   <p>
     To keep a sidebar block visible when its sidebar is absent, add
     <code>main</code> as a second placement, usually with the
-    <Link href="text#spacing">p</Link> utility for spacing. These placements are
-    typically paired with <Link href="text#prose">note</Link>, for the
-    diminutive sidebar styling.
+    <Link href="text#spacing">p</Link> utility for spacing. These placements are typically
+    paired with <Link href="text#prose">note</Link>, for the diminutive sidebar
+    styling.
   </p>
 </section>
 
@@ -498,15 +498,15 @@
   </hgroup>
 
   <p>
-    Any responsive variant (see the <Link href="layout">Layout</Link> page) can
-    be tied to the page layout's breakpoints. <T>@)</T> means "when the right
-    sidebar is visible" and is identical to <code>@48-</code>. <T>@(</T> means
-    "when the left sidebar is visible" and is identical to <code>@64-</code>.
+    Any responsive variant (see the <Link href="layout">Layout</Link> page) can be
+    tied to the page layout's breakpoints. <T>@)</T> means "when the right sidebar
+    is visible" and is identical to <code>@48-</code>. <T>@(</T> means "when the left
+    sidebar is visible" and is identical to <code>@64-</code>.
   </p>
 
   <p>
     So <code>grid/3@)</code> becomes three columns exactly when the right sidebar
-    arrives. Using these instead of raw rem values keeps a block tied to the
-    page layout if the breakpoints ever move.
+    arrives. Using these instead of raw rem values keeps a block tied to the page
+    layout if the breakpoints ever move.
   </p>
 </section>

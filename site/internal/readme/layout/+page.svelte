@@ -143,6 +143,37 @@ import Rule from "$lib/Rule.svelte";
   <h3>Grid</h3>
 
   <p>
+    <T>grid-A:B:…</T> creates a fixed grid with one column per number, sized in
+    that ratio. So <code>grid-1:2:1</code> is three columns whose middle column
+    is twice as wide as those on either side. Use it to build a custom grid
+    layout.
+  </p>
+
+  <Demo
+    source={`
+<div class="grid-1:2:1">
+  <p class="area">1fr</p>
+  <p class="area">2fr</p>
+  <p class="area">1fr</p>
+</div>`}
+  />
+
+  <p>
+    <T>grid/N</T> is the equal-width special case: it divides children into
+    exactly <code>N</code> equal columns, the same as <code>grid-1:1:…</code>
+    repeated <code>N</code> times.
+  </p>
+
+  <Demo
+    source={`
+<div class="grid/3">
+  <p class="area">Column 1</p>
+  <p class="area">Column 2</p>
+  <p class="area">Column 3</p>
+</div>`}
+  />
+
+  <p>
     <T>grid+N</T> arranges children in a grid, with columns at least
     <code>N</code> rem wide, fitting as many as possible before wrapping. Use it for
     card grids where the number of columns should adapt to the available space.
@@ -155,20 +186,6 @@ import Rule from "$lib/Rule.svelte";
   <p class="area">Speaker B</p>
   <p class="area">Speaker C</p>
   <p class="area">Speaker D</p>
-</div>`}
-  />
-
-  <p>
-    <T>grid/N</T> divides children into exactly <code>N</code> equal columns. Use
-    it for a fixed column layout.
-  </p>
-
-  <Demo
-    source={`
-<div class="grid/3">
-  <p class="area">Column 1</p>
-  <p class="area">Column 2</p>
-  <p class="area">Column 3</p>
 </div>`}
   />
 

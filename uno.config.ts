@@ -34,6 +34,21 @@ export default defineConfig({
     ],
 
     [
+      /^grid-(\d+(?::\d+)*)$/,
+      ([, series]) => [
+        {
+          display: "grid",
+          gap: "var(--gap)",
+          "grid-template-columns": series
+            .split(":")
+            .map((n) => `${n}fr`)
+            .join(" "),
+        },
+        childMarginBlock,
+      ],
+    ],
+
+    [
       /^grid\+(\d+)$/,
       ([, number]) => [
         {
