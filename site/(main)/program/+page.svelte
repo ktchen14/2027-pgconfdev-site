@@ -893,7 +893,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Program</Link></li>
+    <li><Link href={resolve("/")}>Program</Link></li>
   </ol>
 </nav>
 

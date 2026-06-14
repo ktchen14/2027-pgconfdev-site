@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import { GitHub, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
   import Header from "./Header";
@@ -40,8 +41,8 @@
   <li class="menu-single">
     <Header.ToggleMenu name="Program">
       <ul>
-        <li><Link href="/program">Schedule</Link></li>
-        <li><Link href="/cfp">Call for proposals</Link></li>
+        <li><Link href={resolve("/program")}>Schedule</Link></li>
+        <li><Link href={resolve("/cfp")}>Call for proposals</Link></li>
       </ul>
     </Header.ToggleMenu>
   </li>
@@ -49,23 +50,25 @@
   <li class="menu-single">
     <Header.ToggleMenu name="Attend">
       <ul>
-        <li><Link href="/attend">Venue</Link></li>
-        <li><Link href="/attend/travel">Travel &amp; hotels</Link></li>
-        <li><Link href="/attend/social">Social events</Link></li>
-        <li><Link href="/attend/volunteer">Volunteer</Link></li>
+        <li><Link href={resolve("/attend")}>Venue</Link></li>
+        <li>
+          <Link href={resolve("/attend/travel")}>Travel &amp; hotels</Link>
+        </li>
+        <li><Link href={resolve("/attend/social")}>Social events</Link></li>
+        <li><Link href={resolve("/attend/volunteer")}>Volunteer</Link></li>
       </ul>
     </Header.ToggleMenu>
   </li>
 
-  <li><Link href="/sponsor">Sponsor</Link></li>
+  <li><Link href={resolve("/sponsor")}>Sponsor</Link></li>
 
   <li class="menu-single">
     <Header.ToggleMenu name="About">
       <ul>
-        <li><Link href="/about">About PGConf.dev</Link></li>
-        <li><Link href="/team">Team</Link></li>
-        <li><Link href="/conduct">Code of conduct</Link></li>
-        <li><Link href="/policies">Policies &amp; privacy</Link></li>
+        <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
+        <li><Link href={resolve("/team")}>Team</Link></li>
+        <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
+        <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
       </ul>
     </Header.ToggleMenu>
   </li>

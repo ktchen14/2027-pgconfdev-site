@@ -57,7 +57,7 @@
     <li aria-hidden="true">/</li>
     <li><Link href={resolve("/attend")}>Attend</Link></li>
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Social events</Link></li>
+    <li><Link href={resolve("/")}>Social events</Link></li>
   </ol>
 </nav>
 

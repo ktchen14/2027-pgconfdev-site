@@ -60,7 +60,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Attend</Link></li>
+    <li><Link href={resolve("/")}>Attend</Link></li>
   </ol>
 </nav>
 
@@ -215,7 +215,8 @@
 
   <p>
     If you have specific accessibility requirements, contact us in advance at
-    <Link href="/team#contact">info@pgconf.dev</Link> so we can make arrangements.
-    Captioning and hearing loop availability will be confirmed closer to the conference.
+    <Link href={`${resolve("/team")}#contact`}>info@pgconf.dev</Link> so we can make
+    arrangements. Captioning and hearing loop availability will be confirmed closer
+    to the conference.
   </p>
 </section>

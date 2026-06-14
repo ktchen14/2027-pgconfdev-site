@@ -1,5 +1,6 @@
 <script lang="ts">
   import { List, MapPin, User } from "@lucide/svelte";
+  import { resolve } from "$app/paths";
   import Link from "$lib/Link";
   import Menu from "./Menu.svelte";
   import Result from "./Result.svelte";
@@ -56,7 +57,7 @@
 
   <p style:color="var(--fg-tint)">
     <strong>
-      <Link class="action" href="/">See all results</Link>
+      <Link class="action" href={resolve("/")}>See all results</Link>
     </strong>
     for "{text?.trim() || "your search"}" ↵
   </p>

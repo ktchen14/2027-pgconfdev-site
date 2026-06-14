@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import Link from "$lib/Link";
   import T from "../T.svelte";
 </script>
@@ -308,7 +309,8 @@
     A <code>(main)</code> box is a single block by default. Put a grid inside it
     (for example <code>grid+16</code> or <code>grid/3@)</code>) when you want
     its contents laid out in cards or columns, exactly as the
-    <Link href="/">landing page</Link> does for its sponsor and gallery sections.
+    <Link href={resolve("/")}>landing page</Link> does for its sponsor and gallery
+    sections.
   </p>
 </section>
 
@@ -508,7 +510,7 @@
 
   <p>
     Use it for a wide band whose pieces sit in distinct columns. The
-    <Link href="/about">About page</Link> timeline does this with
+    <Link href={resolve("/about")}>About page</Link> timeline does this with
     <code>(main main) columnar</code>: a fallback between the boxes
     <code>(main</code> and <code>main)</code>, so each row leans into the left
     sidebar on a desktop and the right one on a tablet, with the year in one
@@ -540,8 +542,9 @@
   <p>
     <T>*:main</T> is the handy one. Wrap a section in it and every child lands in
     the main column; then drop a <code>(</code> or <code>)</code> on the asides
-    you want pushed into a margin. The <Link href="/about">About page</Link> uses
-    it to set a marginal note beside its history text:
+    you want pushed into a margin. The <Link href={resolve("/about")}
+      >About page</Link
+    > uses it to set a marginal note beside its history text:
   </p>
 
   <pre><code

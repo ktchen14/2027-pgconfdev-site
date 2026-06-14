@@ -1,4 +1,5 @@
 <script>
+  import { resolve } from "$app/paths";
   import Link from "$lib/Link";
 </script>
 
@@ -42,7 +43,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Sponsors</Link></li>
+    <li><Link href={resolve("/")}>Sponsors</Link></li>
   </ol>
 </nav>
 
@@ -99,8 +100,9 @@
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
-      or <Link href="/team#contact">contact the sponsorship team</Link> for a full
-      prospectus.
+      or <Link href={`${resolve("/team")}#contact`}
+        >contact the sponsorship team</Link
+      > for a full prospectus.
     </p>
   </div>
 </section>
@@ -209,7 +211,7 @@
   </p>
 
   <p class="section">
-    <Link href="/team#contact" class="button circle"
+    <Link href={`${resolve("/team")}#contact`} class="button circle"
       >Contact the sponsorship team</Link
     >
   </p>

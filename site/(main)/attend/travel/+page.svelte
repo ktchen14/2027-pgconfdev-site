@@ -39,7 +39,7 @@
     <li aria-hidden="true">/</li>
     <li><Link href={resolve("/attend")}>Attend</Link></li>
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Travel &amp; hotels</Link></li>
+    <li><Link href={resolve("/")}>Travel &amp; hotels</Link></li>
   </ol>
 </nav>
 
@@ -169,8 +169,8 @@
 
     <p>
       If you need a formal invitation letter for your visa application, email
-      <Link href="/team#contact">info@pgconf.dev</Link> with your full name and country
-      of citizenship.
+      <Link href={`${resolve("/team")}#contact`}>info@pgconf.dev</Link> with your
+      full name and country of citizenship.
     </p>
   </div>
 </section>

@@ -39,7 +39,7 @@
     <li aria-hidden="true">/</li>
     <li><Link href={resolve("/attend")}>Attend</Link></li>
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Volunteer</Link></li>
+    <li><Link href={resolve("/")}>Volunteer</Link></li>
   </ol>
 </nav>
 
@@ -230,7 +230,9 @@
   </p>
 
   <p>
-    Questions? Email <Link href="/team#contact">info@pgconf.dev</Link>.
+    Questions? Email <Link href={`${resolve("/team")}#contact`}
+      >info@pgconf.dev</Link
+    >.
   </p>
 
   <p class="section">

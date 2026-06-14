@@ -40,7 +40,7 @@
     <li aria-hidden="true">/</li>
     <li><Link href={resolve("/about")}>About</Link></li>
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Team</Link></li>
+    <li><Link href={resolve("/")}>Team</Link></li>
   </ol>
 </nav>
 

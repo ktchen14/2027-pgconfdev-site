@@ -107,7 +107,9 @@
 
   <div class="flex">
     <a href="#" class="button circle delete stroke">Register</a>
-    <Link href="/cfp" class="button circle stroke">Submit a talk</Link>
+    <Link href={resolve("/cfp")} class="button circle stroke"
+      >Submit a talk</Link
+    >
   </div>
 </section>
 
@@ -137,7 +139,7 @@
         least once a year.
       </p>
 
-      <p><Link href="/about">Read more about who we are →</Link></p>
+      <p><Link href={resolve("/about")}>Read more about who we are →</Link></p>
     </div>
   </div>
 </section>
@@ -165,7 +167,11 @@
       </p>
     </div>
 
-    <Link class="button circle" href="/cfp" style="justify-self: end">
+    <Link
+      class="button circle"
+      href={resolve("/cfp")}
+      style="justify-self: end"
+    >
       Submit a proposal
     </Link>
   </div>
@@ -183,7 +189,7 @@
     </hgroup>
 
     <p>
-      <Link href="/sponsor">Sponsor PGConf.dev 2027 →</Link>
+      <Link href={resolve("/sponsor")}>Sponsor PGConf.dev 2027 →</Link>
     </p>
   </div>
 </section>

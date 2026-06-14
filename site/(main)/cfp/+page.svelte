@@ -62,7 +62,7 @@
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
     <li aria-hidden="true">/</li>
-    <li><Link href="/">Call for Proposals</Link></li>
+    <li><Link href={resolve("/")}>Call for Proposals</Link></li>
   </ol>
 </nav>
 
@@ -133,7 +133,9 @@
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
       >. Submit via the proposal system linked below. Questions?
-      <Link href="/team#contact">Contact the program committee.</Link>
+      <Link href={`${resolve("/team")}#contact`}
+        >Contact the program committee.</Link
+      >
     </p>
   </div>
 </section>
@@ -313,7 +315,8 @@
   </p>
   <p>
     <small
-      >Questions? Email <Link href="/team#contact">the program committee</Link
+      >Questions? Email <Link href={`${resolve("/team")}#contact`}
+        >the program committee</Link
       >.</small
     >
   </p>
