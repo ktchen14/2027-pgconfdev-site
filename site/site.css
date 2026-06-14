@@ -16,6 +16,8 @@
     --normal-font: "Public Sans", system-ui, sans-serif;
 
     --gap: 1.5rem;
+
+    /* 1.5rem @ 20rem -> 3rem @ 80rem */
     --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
     --radius: 0.25rem;
 
@@ -309,8 +311,6 @@
     font-size: 0.875em;
   }
 
-  /* TODO */
-
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: var(--header-font);
     font-weight: 500;
@@ -321,35 +321,12 @@
     font-family: var(--normal-font);
   }
 
-  h1, .h1 {
-    font-size: var(--h1-size);
-    line-height: 1.1;
-  }
-
-  h2, .h2 {
-    font-size: var(--h2-size);
-    line-height: 1.15;
-  }
-
-  h3, .h3 {
-    font-size: var(--h3-size);
-    line-height: 1.2;
-  }
-
-  h4, .h4 {
-    font-size: 1.25em;
-    line-height: 1.25;
-  }
-
-  h5, .h5 {
-    font-size: var(--h5-size);
-    line-height: 1.3;
-  }
-
-  h6, .h6 {
-    font-size: var(--h6-size);
-    line-height: 1.3;
-  }
+  h1, .h1 { font-size: var(--h1-size); line-height: 1.1; }
+  h2, .h2 { font-size: var(--h2-size); line-height: 1.15; }
+  h3, .h3 { font-size: var(--h3-size); line-height: 1.2; }
+  h4, .h4 { font-size: var(--h4-size); line-height: 1.25; }
+  h5, .h5 { font-size: var(--h5-size); line-height: 1.3; }
+  h6, .h6 { font-size: var(--h6-size); line-height: 1.3; }
 
   /* Flow content except phrasing content */
 
@@ -462,16 +439,15 @@
 
   /* https://html.spec.whatwg.org/multipage/embedded-content.html */
 
+  audio:where([controls]), canvas, embed, iframe, img, object, picture, svg,
+  video {
+    width: stretch;
+  }
+
   iframe {
     border: 0;
     display: block;
     height: auto;
-    width: 100%;
-  }
-
-  embed, img, object, video {
-    display: block;
-    max-width: 100%;
   }
 
   /* Tabular data */
@@ -480,7 +456,7 @@
     border-collapse: collapse;
     caption-side: bottom;
     overflow: auto;
-    width: 100%;
+    width: stretch;
   }
 
   :where(thead) > tr:where(:last-child) {
