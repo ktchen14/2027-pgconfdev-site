@@ -22,12 +22,12 @@ export default defineConfig({
     ],
 
     [
-      "columnar",
-      [
+      /^grid\/(\d+)$/,
+      ([, number]) => [
         {
           display: "grid",
-          gap: "var(--gap) var(--margin)",
-          "grid-template-columns": "1fr",
+          gap: "var(--gap)",
+          "grid-template-columns": `repeat(${number}, 1fr)`,
         },
         childMarginBlock,
       ],
@@ -46,16 +46,17 @@ export default defineConfig({
     ],
 
     [
-      /^grid\/(\d+)$/,
-      ([, number]) => [
+      "columnar",
+      [
         {
           display: "grid",
-          gap: "var(--gap)",
-          "grid-template-columns": `repeat(${number}, 1fr)`,
+          gap: "var(--gap) var(--margin)",
+          "grid-template-columns": "1fr",
         },
         childMarginBlock,
       ],
     ],
+
 
     [
       "subgrid",
@@ -76,11 +77,15 @@ export default defineConfig({
   ]),
   variants: [
     (matcher) => {
-      if (matcher.length <= 2) return;
-      const minimum = { "@(": 64, "@)": 48 }[matcher.slice(-2)];
-      if (!minimum) return;
-      const parent = `@media (width >= ${minimum}rem)`;
-      return { matcher: matcher.slice(0, -2), parent };
+      if (!matcher.endsWith("@)")) return;
+      matcher = matcher.slice(0, -2);
+      return { matcher, parent: "@media (width >= 48rem)" };
+    },
+
+    (matcher) => {
+      if (!matcher.endsWith("@(")) return;
+      matcher = matcher.slice(0, -2);
+      return { matcher, parent: "@media (width >= 64rem)" };
     },
 
     (matcher) => {
