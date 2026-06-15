@@ -1,7 +1,10 @@
 <script>
   import { resolve } from "$app/paths";
+  import { getContext } from "$lib/layout";
   import Link from "$lib/Link";
   import attendanceHref from "./attendance.svg";
+
+  const { nav } = getContext();
 </script>
 
 <style>
@@ -9,21 +12,6 @@
     font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
     letter-spacing: -0.02em;
     line-height: 1;
-  }
-
-  .section-nav :global(a) {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
-  }
-
-  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
-    background-color: var(--action-bg-tint);
-  }
-
-  .section-nav
-    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
-    border-color: var(--action-fg);
   }
 
   blockquote {
@@ -89,15 +77,7 @@
   </div>
 </section>
 
-<nav class="( section-nav note" aria-labelledby="about-the-conference">
-  <h2 id="about-the-conference" class="over">About the Conference</h2>
-  <ul>
-    <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-    <li><Link href={resolve("/team")}>Team</Link></li>
-    <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
-    <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
-  </ul>
-</nav>
+{@render nav?.()}
 
 <nav aria-labelledby="on-this-page" class=") note">
   <h2 id="on-this-page" class="over">On this page</h2>

@@ -230,7 +230,7 @@
   </p>
 
   <p>
-    Questions? Email <Link href={`${resolve("/team")}#contact`}
+    Questions? Email <Link href={`${resolve("/about/team")}#contact`}
       >info@pgconf.dev</Link
     >.
   </p>

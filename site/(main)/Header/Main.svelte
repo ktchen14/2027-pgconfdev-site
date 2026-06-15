@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Menu, UserPlus } from "@lucide/svelte";
   import { resolve } from "$app/paths";
-  import { setHeaderContext } from "./context.ts";
+  import { setHeaderContext } from "./context";
   import Mark from "./Mark.svelte";
   import Search from "./Search.svelte";
 

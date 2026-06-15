@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronDown } from "@lucide/svelte";
   import { tick } from "svelte";
-  import { getHeaderContext } from "./context.ts";
+  import { getHeaderContext } from "./context";
   import Menu from "./Menu.svelte";
 
   const { name, children, ...rest } = $props();

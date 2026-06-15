@@ -61,9 +61,11 @@
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
     <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-    <li><Link href={resolve("/team")}>Team</Link></li>
-    <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
-    <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
+    <li><Link href={resolve("/about/team")}>Team</Link></li>
+    <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
+    <li>
+      <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
+    </li>
   </ul>
 </nav>
 
@@ -88,7 +90,7 @@
     <Link href="https://www.postgresql.org/about/policies/conferences/">
       PostgreSQL community conference policies</Link
     >. The
-    <Link href={resolve("/conduct")}>code of conduct</Link> applies at all conference
+    <Link href={resolve("/about/conduct")}>code of conduct</Link> applies at all conference
     venues and conference-related social events.
   </p>
 </section>

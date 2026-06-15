@@ -62,9 +62,11 @@
   <h2 id="about-nav" class="over">About the Conference</h2>
   <ul>
     <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-    <li><Link href={resolve("/team")}>Team</Link></li>
-    <li><Link href={resolve("/conduct")}>Code of conduct</Link></li>
-    <li><Link href={resolve("/policies")}>Policies &amp; privacy</Link></li>
+    <li><Link href={resolve("/about/team")}>Team</Link></li>
+    <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
+    <li>
+      <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
+    </li>
   </ul>
 </nav>
 

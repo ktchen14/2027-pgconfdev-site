@@ -215,8 +215,8 @@
 
   <p>
     If you have specific accessibility requirements, contact us in advance at
-    <Link href={`${resolve("/team")}#contact`}>info@pgconf.dev</Link> so we can make
-    arrangements. Captioning and hearing loop availability will be confirmed closer
-    to the conference.
+    <Link href={`${resolve("/about/team")}#contact`}>info@pgconf.dev</Link> so we
+    can make arrangements. Captioning and hearing loop availability will be confirmed
+    closer to the conference.
   </p>
 </section>

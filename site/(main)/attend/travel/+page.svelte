@@ -169,8 +169,8 @@
 
     <p>
       If you need a formal invitation letter for your visa application, email
-      <Link href={`${resolve("/team")}#contact`}>info@pgconf.dev</Link> with your
-      full name and country of citizenship.
+      <Link href={`${resolve("/about/team")}#contact`}>info@pgconf.dev</Link> with
+      your full name and country of citizenship.
     </p>
   </div>
 </section>

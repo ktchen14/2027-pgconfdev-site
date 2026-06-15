@@ -100,7 +100,7 @@
     <h3 class="h6">Sponsorships are open</h3>
     <p>
       We are actively seeking sponsors for the 2027 edition. See the tiers below
-      or <Link href={`${resolve("/team")}#contact`}
+      or <Link href={`${resolve("/about/team")}#contact`}
         >contact the sponsorship team</Link
       > for a full prospectus.
     </p>
@@ -211,7 +211,7 @@
   </p>
 
   <p class="section">
-    <Link href={`${resolve("/team")}#contact`} class="button circle"
+    <Link href={`${resolve("/about/team")}#contact`} class="button circle"
       >Contact the sponsorship team</Link
     >
   </p>

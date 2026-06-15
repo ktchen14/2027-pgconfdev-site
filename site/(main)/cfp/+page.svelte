@@ -133,7 +133,7 @@
     <p>
       Proposals are being accepted now through <strong>14 February 2027</strong
       >. Submit via the proposal system linked below. Questions?
-      <Link href={`${resolve("/team")}#contact`}
+      <Link href={`${resolve("/about/team")}#contact`}
         >Contact the program committee.</Link
       >
     </p>
@@ -315,7 +315,7 @@
   </p>
   <p>
     <small
-      >Questions? Email <Link href={`${resolve("/team")}#contact`}
+      >Questions? Email <Link href={`${resolve("/about/team")}#contact`}
         >the program committee</Link
       >.</small
     >
