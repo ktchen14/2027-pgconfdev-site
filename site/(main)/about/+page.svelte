@@ -1,6 +1,7 @@
 <script>
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import attendanceHref from "./attendance.svg";
 </script>
 
 <style>
@@ -67,7 +68,26 @@
   </p>
 </header>
 
-<hr class="section" />
+<section class="(main) section" aria-label="Statistics">
+  <div class="band grid+12">
+    <figure>
+      <div class="action h2">~600</div>
+      <figcaption class="over">Attendees</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">3</div>
+      <figcaption class="over">Parallel tracks</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">42</div>
+      <figcaption class="over">Talks &amp; tutorials</figcaption>
+    </figure>
+    <figure>
+      <div class="action h2">18</div>
+      <figcaption class="over">Unconference rooms</figcaption>
+    </figure>
+  </div>
+</section>
 
 <nav class="( section-nav note" aria-labelledby="about-the-conference">
   <h2 id="about-the-conference" class="over">About the Conference</h2>
@@ -185,76 +205,52 @@
   </figure>
 </section>
 
-<section id="who" class="main">
-  <div class="section">
-    <hgroup>
-      <p class="section-number">Who attends</p>
-      <h2>Roughly 600 people, two thirds of them contributors.</h2>
-    </hgroup>
+<section id="who" class="*:main">
+  <hgroup>
+    <p class="section-number">Who attends</p>
+    <h2>Roughly 600 people, two thirds of them contributors.</h2>
+  </hgroup>
 
-    <p>
-      The room is intentionally small. We cap attendance to keep the hallway
-      track real and the unconference sessions workable. Roughly:
-    </p>
+  <p>
+    The room is intentionally small. We cap attendance to keep the hallway track
+    real and the unconference sessions workable. Roughly:
+  </p>
 
-    <ul class="edge dedent">
-      <li>
-        <strong>Core contributors</strong> — committers, major patch authors, and
-        people who show up regularly on -hackers
-      </li>
-      <li>
-        <strong>Extension authors</strong> — people building TimescaleDB, Citus, pgvector,
-        AGE, the long tail of PGXN
-      </li>
-      <li>
-        <strong>Internals engineers from downstream products</strong>
-        — Crunchy, Citus/Microsoft, EDB, Tembo, Supabase, Neon, the cloud providers
-      </li>
-      <li>
-        <strong>Application engineers</strong> who work close enough to the database
-        that the contributor track is relevant to their day job
-      </li>
-    </ul>
+  <ul class="edge dedent">
+    <li>
+      <strong>Core contributors</strong> — committers, major patch authors, and people
+      who show up regularly on -hackers
+    </li>
+    <li>
+      <strong>Extension authors</strong> — people building TimescaleDB, Citus, pgvector,
+      AGE, the long tail of PGXN
+    </li>
+    <li>
+      <strong>Internals engineers from downstream products</strong>
+      — Crunchy, Citus/Microsoft, EDB, Tembo, Supabase, Neon, the cloud providers
+    </li>
+    <li>
+      <strong>Application engineers</strong> who work close enough to the database
+      that the contributor track is relevant to their day job
+    </li>
+  </ul>
 
-    <p>
-      If you've ever filed a bug report on -bugs, written an extension, or had
-      to read <code>postgres.c</code> to find an answer — this is the conference for
-      you.
-    </p>
-  </div>
-</section>
+  <p>
+    If you've ever filed a bug report on -bugs, written an extension, or had to
+    read <code>postgres.c</code> to find an answer — this is the conference for you.
+  </p>
 
-<section class="(main)" aria-label="Statistics">
-  <div class="band grid+12">
-    <figure>
-      <div class="action h2">~600</div>
-      <figcaption class="over">Attendees</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">3</div>
-      <figcaption class="over">Parallel tracks</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">42</div>
-      <figcaption class="over">Talks &amp; tutorials</figcaption>
-    </figure>
-    <figure>
-      <div class="action h2">18</div>
-      <figcaption class="over">Unconference rooms</figcaption>
-    </figure>
-  </div>
-</section>
+  <p>
+    The room is small, but it isn't local. In 2026, attendees travelled from 29
+    countries across six continents, from New Zealand to Kenya to Japan.
+  </p>
 
-<section class="main">
-  <div class="action-area edge">
-    <h3 class="h6">Format</h3>
-
-    <p>
-      The conference runs four days: a tutorial day, two days of talks, and a
-      final unconference day. No track ever has more than three parallel
-      sessions, so you can usually catch what you want.
-    </p>
-  </div>
+  <figure class="(main) section">
+    <img
+      src={attendanceHref}
+      alt="World map highlighting the 29 countries attendees travelled from in 2026"
+    />
+  </figure>
 </section>
 
 <section id="history" class="*:main">

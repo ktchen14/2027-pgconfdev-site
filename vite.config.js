@@ -14,12 +14,7 @@ export default defineConfig({
       plugins: [postcssSize(), postcssPresetEnv()],
     },
   },
-  plugins: [
-    enhancedImages(),
-    lucidePreprocess(),
-    UnoCSS(),
-    sveltekit(),
-  ],
+  plugins: [enhancedImages(), lucidePreprocess(), UnoCSS(), sveltekit()],
   test: {
     browser: {
       enabled: true,
