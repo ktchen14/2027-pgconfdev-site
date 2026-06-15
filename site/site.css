@@ -77,6 +77,10 @@
     --code-color: rgb(92 99 112);
   }
 
+  :target {
+    scroll-margin-block-start: var(--gap);
+  }
+
   *, ::before, ::after {
     box-sizing: border-box;
   }
