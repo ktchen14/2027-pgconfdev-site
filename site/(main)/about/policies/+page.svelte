@@ -1,30 +1,10 @@
 <script>
   import { resolve } from "$app/paths";
+  import { getContext } from "$lib/layout";
   import Link from "$lib/Link";
+
+  const { nav } = getContext();
 </script>
-
-<style>
-  header h1 {
-    font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .section-nav :global(a) {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
-  }
-
-  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
-    background-color: var(--action-bg-tint);
-  }
-
-  .section-nav
-    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
-    border-color: var(--action-fg);
-  }
-</style>
 
 <svelte:head>
   <title>Policies &amp; Privacy — PGConf.dev 2027</title>
@@ -57,20 +37,12 @@
 
 <hr class="section" />
 
-<nav class="section-nav ( none@-64 note" aria-labelledby="about-nav">
-  <h2 id="about-nav" class="over">About the Conference</h2>
-  <ul>
-    <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-    <li><Link href={resolve("/about/team")}>Team</Link></li>
-    <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
-    <li>
-      <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
-    </li>
-  </ul>
+<nav class="( note" aria-labelledby={nav.headerId}>
+  {@render nav()}
 </nav>
 
-<nav aria-labelledby="on-this-page" class=") none@-48 note">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<nav aria-labelledby="on-this-page" class=") note">
+  <h2 id="on-this-page" class="over">On This Page</h2>
   <ol>
     <li><a class="li-number" href="#policies">Policies</a></li>
     <li><a class="li-number" href="#privacy">Privacy</a></li>

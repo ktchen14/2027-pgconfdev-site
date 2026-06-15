@@ -2,8 +2,8 @@ import { createContext, type Snippet } from "svelte";
 import { SvelteSet } from "svelte/reactivity";
 
 interface NavSnippet extends Snippet {
-  headerId: string
-};
+  headerId: string;
+}
 
 interface Context {
   nav: NavSnippet;
