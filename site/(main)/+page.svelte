@@ -107,7 +107,7 @@
 
   <div class="flex">
     <a href="#" class="button circle delete stroke">Register</a>
-    <Link href={resolve("/cfp")} class="button circle stroke"
+    <Link href={resolve("/program")} class="button circle stroke"
       >Submit a talk</Link
     >
   </div>
@@ -169,7 +169,7 @@
 
     <Link
       class="button circle"
-      href={resolve("/cfp")}
+      href={resolve("/program")}
       style="justify-self: end"
     >
       Submit a proposal

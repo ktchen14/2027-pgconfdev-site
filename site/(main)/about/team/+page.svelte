@@ -4,7 +4,7 @@
   import Link from "$lib/Link";
   import Rule from "$lib/Rule.svelte";
 
-  const { BreadcrumbNav, nav } = getContext();
+  const { BreadcrumbNav, SectionNav } = getContext();
 </script>
 
 <svelte:head>
@@ -34,10 +34,7 @@
 
 <hr class="section" />
 
-<nav class="( note" aria-labelledby="about-the-conference">
-  <h2 id="about-the-conference" class="over">About the Conference</h2>
-  {@render nav()}
-</nav>
+<SectionNav />
 
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>

@@ -1,14 +1,13 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { GitHub, Mastodon } from "$lib/icon";
-  import { setContext } from "$lib/layout";
   import Link from "$lib/Link";
-  import BreadcrumbNav from "./BreadcrumbNav.svelte";
+  import { ul as aboutUl } from "./about/SectionNav.svelte";
+  import { ul as attendUl } from "./attend/SectionNav.svelte";
   import Header from "./Header";
+  import { ul as programUl } from "./program/SectionNav.svelte";
 
   const { children } = $props();
-
-  setContext({ BreadcrumbNav, nav });
 </script>
 
 <style>
@@ -41,43 +40,24 @@
   }
 </style>
 
-{#snippet nav()}{/snippet}
-
 <Header class="(main)">
   <li class="menu-single">
     <Header.ToggleMenu name="Program">
-      <ul>
-        <li><Link href={resolve("/program")}>Schedule</Link></li>
-        <li><Link href={resolve("/cfp")}>Call for proposals</Link></li>
-      </ul>
+      {@render programUl()}
     </Header.ToggleMenu>
   </li>
 
   <li class="menu-single">
     <Header.ToggleMenu name="Attend">
-      <ul>
-        <li><Link href={resolve("/attend")}>Venue</Link></li>
-        <li>
-          <Link href={resolve("/attend/travel")}>Travel &amp; hotels</Link>
-        </li>
-        <li><Link href={resolve("/attend/social")}>Social events</Link></li>
-        <li><Link href={resolve("/attend/volunteer")}>Volunteer</Link></li>
-      </ul>
+      {@render attendUl()}
     </Header.ToggleMenu>
   </li>
 
   <li><Link href={resolve("/sponsor")}>Sponsor</Link></li>
 
   <li class="menu-single">
-    <Header.ToggleMenu name="About">
-      <ul>
-        <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-        <li><Link href={resolve("/about/team")}>Team</Link></li>
-        <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
-        <li>
-          <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
-        </li>
-      </ul>
+    <Header.ToggleMenu name="About" class="size-">
+      {@render aboutUl()}
     </Header.ToggleMenu>
   </li>
 </Header>

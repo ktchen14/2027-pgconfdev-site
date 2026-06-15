@@ -1,5 +1,5 @@
 <!--
-  @component Breadcrumb `<nav>` component of the `/about` layout.
+  @component Breadcrumb `<nav>` component of the `/program` layout.
 -->
 
 <script lang="ts">
@@ -11,6 +11,6 @@
 </script>
 
 <BreadcrumbNav {...rest}>
-  <li><Link href={resolve("/about")}>About</Link></li>
+  <li><Link href={resolve("/program")}>Program</Link></li>
   {@render children?.()}
 </BreadcrumbNav>

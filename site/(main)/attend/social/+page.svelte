@@ -1,30 +1,10 @@
 <script>
-  import { resolve } from "$app/paths";
-  import Link from "$lib/Link";
+  import { getContext } from "$lib/layout";
+
+  const { BreadcrumbNav, SectionNav } = getContext();
 </script>
 
 <style>
-  header h1 {
-    font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .section-nav :global(a) {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
-  }
-
-  .section-nav :global(a[aria-current]:where(:not([aria-current="false"]))) {
-    background-color: var(--action-bg-tint);
-  }
-
-  .section-nav
-    :global(a:is(:hover, [aria-current]:where(:not([aria-current="false"])))) {
-    border-color: var(--action-fg);
-  }
-
   /* Photo placeholder — drop in real photography later. */
   .photo {
     align-items: center;
@@ -52,14 +32,9 @@
   />
 </svelte:head>
 
-<nav class="(main)" aria-label="Breadcrumb">
-  <ol class="iconic over" style:gap="1em">
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/attend")}>Attend</Link></li>
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/")}>Social events</Link></li>
-  </ol>
-</nav>
+<BreadcrumbNav>
+  <li>Social events</li>
+</BreadcrumbNav>
 
 <header class="(main)">
   <hgroup>
@@ -86,15 +61,7 @@
 
 <hr class="section" />
 
-<nav class="section-nav ( none@-64 note" aria-labelledby="attend-nav">
-  <h2 id="attend-nav" class="over">Attend</h2>
-  <ul>
-    <li><Link href={resolve("/attend")}>Venue</Link></li>
-    <li><Link href={resolve("/attend/travel")}>Travel &amp; hotels</Link></li>
-    <li><Link href={resolve("/attend/social")}>Social events</Link></li>
-    <li><Link href={resolve("/attend/volunteer")}>Volunteer</Link></li>
-  </ul>
-</nav>
+<SectionNav />
 
 <nav aria-labelledby="on-this-page" class=") none@-48 note">
   <h2 id="on-this-page" class="over">On this page</h2>

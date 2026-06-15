@@ -2,7 +2,7 @@
   import { getContext } from "$lib/layout";
   import attendance from "./attendance.svg";
 
-  const { BreadcrumbNav, nav } = getContext();
+  const { BreadcrumbNav, SectionNav } = getContext();
 </script>
 
 <style>
@@ -64,10 +64,7 @@
   </div>
 </section>
 
-<nav class="( note" aria-labelledby="about-the-conference">
-  <h2 id="about-the-conference" class="over">About the Conference</h2>
-  {@render nav()}
-</nav>
+<SectionNav />
 
 <nav class="main ) note" aria-labelledby="on-this-page">
   <h2 id="on-this-page" class="over">On This Page</h2>

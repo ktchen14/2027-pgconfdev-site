@@ -1,15 +1,10 @@
 <script>
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import BreadcrumbNav from "./BreadcrumbNav.svelte";
 </script>
 
 <style>
-  header h1 {
-    font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
   .tier-platinum {
     --tier-color: var(--action-fg);
   }
@@ -40,12 +35,7 @@
   />
 </svelte:head>
 
-<nav class="(main)" aria-label="Breadcrumb">
-  <ol class="iconic over" style:gap="1em">
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/")}>Sponsors</Link></li>
-  </ol>
-</nav>
+<BreadcrumbNav />
 
 <header class="(main)">
   <hgroup>

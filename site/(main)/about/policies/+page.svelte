@@ -3,7 +3,7 @@
   import { getContext } from "$lib/layout";
   import Link from "$lib/Link";
 
-  const { BreadcrumbNav, nav } = getContext();
+  const { BreadcrumbNav, SectionNav } = getContext();
 </script>
 
 <svelte:head>
@@ -32,10 +32,7 @@
 
 <hr class="section" />
 
-<nav class="( note" aria-labelledby="about-the-conference">
-  <h2 id="about-the-conference" class="over">About the Conference</h2>
-  {@render nav()}
-</nav>
+<SectionNav />
 
 <nav aria-labelledby="on-this-page" class=") note">
   <h2 id="on-this-page" class="over">On This Page</h2>
