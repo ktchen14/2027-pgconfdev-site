@@ -38,7 +38,8 @@
 
 <hr class="section" />
 
-<nav class="( note" aria-labelledby={nav.headerId}>
+<nav class="( note" aria-labelledby="about-the-conference">
+  <h2 id="about-the-conference" class="over">About the Conference</h2>
   {@render nav()}
 </nav>
 

@@ -1,3 +1,7 @@
+<script module>
+  export { nav };
+</script>
+
 <script>
   import { resolve } from "$app/paths";
   import { setContext } from "$lib/layout";
@@ -5,8 +9,7 @@
 
   const { children } = $props();
 
-  const headerId = "about-the-conference";
-  const context = $state({ nav: Object.assign(nav, { headerId }) });
+  const context = $state({ nav });
   setContext(context);
 </script>
 
@@ -34,8 +37,6 @@
 </style>
 
 {#snippet nav()}
-  <h2 id={headerId} class="over">About the Conference</h2>
-
   <ul>
     <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
     <li><Link href={resolve("/about/team")}>Team</Link></li>

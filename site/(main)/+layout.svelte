@@ -84,7 +84,7 @@
 
 <hr class="margin-gap" />
 
-<footer class="flex@48- (main) margin-gap note">
+<footer class="(main) flex@48- margin-gap note">
   <p>Follow us on <Mastodon /> for the latest news on PGConf.dev 2027</p>
   <p>Fork this site on <GitHub /></p>
 </footer>
