@@ -396,11 +396,12 @@
     :where(nav, search) & {
       border-radius: var(--radius);
       color: inherit;
-      display: block;
+      display: inline-block;
       margin-inline: -0.75em;
       padding-block: 0.5em;
       padding-inline: 0.75em;
       text-decoration: none;
+      width: stretch;
 
       &:hover {
         background-color: var(--bg-tint);

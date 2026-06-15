@@ -1,7 +1,11 @@
-import { createContext, type Snippet } from "svelte";
+import { createContext, type Component, type Snippet } from "svelte";
+import type { HTMLAttributes } from "svelte/elements";
 
-export interface Context {
-  crumbs: Snippet[];
+interface Context {
+  /** Breadcrumb `<nav>` component of the layout. */
+  BreadcrumbNav: Component<HTMLAttributes<HTMLElement>>;
+
+  /** Section navigation link list of the layout. */
   nav: Snippet;
 }
 

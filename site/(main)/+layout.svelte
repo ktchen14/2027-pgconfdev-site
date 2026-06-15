@@ -1,14 +1,14 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { GitHub, Mastodon } from "$lib/icon";
+  import { setContext } from "$lib/layout";
   import Link from "$lib/Link";
-  import { type Context, setContext } from "$lib/layout";
+  import BreadcrumbNav from "./BreadcrumbNav.svelte";
   import Header from "./Header";
 
   const { children } = $props();
 
-  const context = $state<Context>({ crumbs: [], nav });
-  setContext(context);
+  setContext({ BreadcrumbNav, nav });
 </script>
 
 <style>

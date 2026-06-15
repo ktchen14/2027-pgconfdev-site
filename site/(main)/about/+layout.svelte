@@ -4,14 +4,13 @@
 
 <script>
   import { resolve } from "$app/paths";
-  import { getContext } from "$lib/layout";
+  import { getContext, setContext } from "$lib/layout";
   import Link from "$lib/Link";
+  import BreadcrumbNav from "./BreadcrumbNav.svelte";
 
   const { children } = $props();
 
-  const context = getContext();
-  context.nav = nav;
-  context.crumbs.push(crumb);
+  setContext({ ...getContext(), BreadcrumbNav, nav });
 </script>
 
 <style>
@@ -36,11 +35,6 @@
     }
   }
 </style>
-
-{#snippet crumb()}
-  <li aria-hidden="true">/</li>
-  <li><Link href={resolve("/about")}>About</Link></li>
-{/snippet}
 
 {#snippet nav()}
   <ul>

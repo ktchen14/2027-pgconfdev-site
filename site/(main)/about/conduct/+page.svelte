@@ -1,9 +1,7 @@
 <script>
-  import { resolve } from "$app/paths";
   import { getContext } from "$lib/layout";
-  import Link from "$lib/Link";
 
-  const { nav } = getContext();
+  const { BreadcrumbNav, nav } = getContext();
 </script>
 
 <svelte:head>
@@ -14,14 +12,9 @@
   />
 </svelte:head>
 
-<nav class="(main)" aria-label="Breadcrumb">
-  <ol class="iconic over" style:gap="1em">
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/about")}>About</Link></li>
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/")}>Code of conduct</Link></li>
-  </ol>
-</nav>
+<BreadcrumbNav>
+  <li>Code of conduct</li>
+</BreadcrumbNav>
 
 <header class="(main)">
   <hgroup>
