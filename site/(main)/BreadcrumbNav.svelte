@@ -3,7 +3,7 @@
 -->
 
 <script lang="ts">
-  const { children = undefined, ...rest } = $props();
+  const { class: klass = undefined, children = undefined, ...rest } = $props();
 </script>
 
 <style>
@@ -27,7 +27,7 @@
   }
 </style>
 
-<nav class="(main)" aria-label="Breadcrumb" {...rest}>
+<nav class={["(main)", klass]} aria-label="Breadcrumb" {...rest}>
   <ol class="iconic over" style:gap="1em">
     {@render children?.()}
   </ol>

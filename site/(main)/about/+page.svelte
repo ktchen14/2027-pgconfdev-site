@@ -1,6 +1,6 @@
 <script>
   import { getContext } from "$lib/layout";
-  import attendanceHref from "./attendance.svg";
+  import attendance from "./attendance.svg";
 
   const { BreadcrumbNav, nav } = getContext();
 </script>
@@ -217,7 +217,7 @@
 
   <figure class="(main) section">
     <img
-      src={attendanceHref}
+      src={attendance}
       alt="World map highlighting the 29 countries attendees travelled from in 2026"
     />
   </figure>
