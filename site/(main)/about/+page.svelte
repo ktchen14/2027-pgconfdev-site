@@ -8,12 +8,6 @@
 </script>
 
 <style>
-  header h1 {
-    font-size: clamp(2.5rem, 4vw + 1rem, 4.5rem);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
   blockquote {
     font-family: var(--header-font);
     font-size: clamp(1.25rem, 2vw + 0.75rem, 1.75rem);
@@ -77,10 +71,12 @@
   </div>
 </section>
 
-{@render nav?.()}
+<nav class="( note" aria-labelledby={nav.headerId}>
+  {@render nav()}
+</nav>
 
-<nav aria-labelledby="on-this-page" class=") note">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<nav class="main ) note" aria-labelledby="on-this-page">
+  <h2 id="on-this-page" class="over">On This Page</h2>
   <ol>
     <li><a class="li-number" href="#what">What PGConf.dev is</a></li>
     <li><a class="li-number" href="#who">Who attends</a></li>

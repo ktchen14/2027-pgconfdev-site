@@ -5,7 +5,8 @@
 
   const { children } = $props();
 
-  const context = $state({ nav });
+  const headerId = "about-the-conference";
+  const context = $state({ nav: Object.assign(nav, { headerId }) });
   setContext(context);
 </script>
 
@@ -33,17 +34,16 @@
 </style>
 
 {#snippet nav()}
-  <nav class="( note" aria-labelledby="about-the-conference">
-    <h2 id="about-the-conference" class="over">About the Conference</h2>
-    <ul>
-      <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
-      <li><Link href={resolve("/about/team")}>Team</Link></li>
-      <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
-      <li>
-        <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
-      </li>
-    </ul>
-  </nav>
+  <h2 id={headerId} class="over">About the Conference</h2>
+
+  <ul>
+    <li><Link href={resolve("/about")}>About PGConf.dev</Link></li>
+    <li><Link href={resolve("/about/team")}>Team</Link></li>
+    <li><Link href={resolve("/about/conduct")}>Code of conduct</Link></li>
+    <li>
+      <Link href={resolve("/about/policies")}>Policies &amp; privacy</Link>
+    </li>
+  </ul>
 {/snippet}
 
 {@render children()}
