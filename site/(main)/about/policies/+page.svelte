@@ -60,8 +60,8 @@
     PGConf.dev is a recognised PostgreSQL Community Event and is run in
     accordance with the
     <Link href="https://www.postgresql.org/about/policies/conferences/">
-      PostgreSQL community conference policies</Link
-    >. The
+      PostgreSQL community conference policies
+    </Link>. The
     <Link href={resolve("/about/conduct")}>code of conduct</Link> applies at all conference
     venues and conference-related social events.
   </p>

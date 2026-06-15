@@ -42,7 +42,7 @@
     divider needs a visible label.
   </p>
 
-  <Demo source={`<hr />`} />
+  <Demo source="<hr />" />
 
   <Demo
     source={`
