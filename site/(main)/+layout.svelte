@@ -2,9 +2,13 @@
   import { resolve } from "$app/paths";
   import { GitHub, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
+  import { type Context, setContext } from "$lib/layout";
   import Header from "./Header";
 
   const { children } = $props();
+
+  const context = $state<Context>({ crumbs: [], nav });
+  setContext(context);
 </script>
 
 <style>
@@ -36,6 +40,8 @@
     justify-content: space-between;
   }
 </style>
+
+{#snippet nav()}{/snippet}
 
 <Header class="(main)">
   <li class="menu-single">

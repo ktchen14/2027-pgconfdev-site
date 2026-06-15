@@ -1,7 +1,7 @@
 import { createContext, type Snippet } from "svelte";
-import { SvelteSet } from "svelte/reactivity";
 
-interface Context {
+export interface Context {
+  crumbs: Snippet[];
   nav: Snippet;
 }
 

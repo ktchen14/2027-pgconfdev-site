@@ -4,7 +4,7 @@
   import Link from "$lib/Link";
   import Rule from "$lib/Rule.svelte";
 
-  const { nav } = getContext();
+  const { crumbs, nav } = getContext();
 </script>
 
 <svelte:head>
@@ -17,8 +17,9 @@
 
 <nav class="(main)" aria-label="Breadcrumb">
   <ol class="iconic over" style:gap="1em">
-    <li aria-hidden="true">/</li>
-    <li><Link href={resolve("/about")}>About</Link></li>
+    {#each crumbs as crumb}
+      {@render crumb()}
+    {/each}
     <li aria-hidden="true">/</li>
     <li><Link href={resolve("/")}>Team</Link></li>
   </ol>

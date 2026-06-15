@@ -4,13 +4,14 @@
 
 <script>
   import { resolve } from "$app/paths";
-  import { setContext } from "$lib/layout";
+  import { getContext } from "$lib/layout";
   import Link from "$lib/Link";
 
   const { children } = $props();
 
-  const context = $state({ nav });
-  setContext(context);
+  const context = getContext();
+  context.nav = nav;
+  context.crumbs.push(crumb);
 </script>
 
 <style>
@@ -20,7 +21,7 @@
     line-height: 1;
   }
 
-  li > :global(a) {
+  ul :global(a) {
     border-inline-start: 2px solid var(--border);
     border-radius: 0;
     margin-inline: 0;
@@ -35,6 +36,11 @@
     }
   }
 </style>
+
+{#snippet crumb()}
+  <li aria-hidden="true">/</li>
+  <li><Link href={resolve("/about")}>About</Link></li>
+{/snippet}
 
 {#snippet nav()}
   <ul>
