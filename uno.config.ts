@@ -1,94 +1,75 @@
-import { symbols, withLayer } from "@unocss/core";
+import { symbols, withLayer, type CSSObject, type Rule } from "@unocss/core";
 import extractorSvelte from "@unocss/extractor-svelte";
 import { defineConfig } from "unocss";
 
+type RuleObject = CSSObject | ((...args: string[]) => CSSObject);
+
+function rule(matcher: RegExp, ...rest: RuleObject[]): Rule {
+  function handler(args: string[]) {
+    return rest.map((it) => (typeof it === "function" ? it(...args) : it));
+  }
+  return [matcher, handler];
+}
+
+// Just: > * { margin-block: 0; }
 const childMarginBlock = {
   [symbols.selector]: (selector: string) => `${selector} > *`,
   "margin-block": 0,
 };
 
+const layout = withLayer("layout", [
+  rule(/^none$/, () => ({ display: "none" })),
+
+  rule(/^flex$/, childMarginBlock, () => ({
+    display: "flex",
+    "flex-wrap": "wrap",
+    gap: "var(--gap)",
+  })),
+
+  rule(/^grid\/(\d+)$/, childMarginBlock, (_, number) => ({
+    display: "grid",
+    gap: "var(--gap)",
+    "grid-template-columns": `repeat(${number}, 1fr)`,
+  })),
+
+  rule(/^grid-(\d+(?::\d+)*)$/, childMarginBlock, (_, series) => ({
+    display: "grid",
+    gap: "var(--gap)",
+    "grid-template-columns": series
+      .split(":")
+      .map((n) => `${n}fr`)
+      .join(" "),
+  })),
+
+  rule(/^grid\+(\d+)$/, childMarginBlock, (_, number) => ({
+    display: "grid",
+    gap: "var(--gap)",
+    "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
+  })),
+
+  rule(/^columnar$/, childMarginBlock, {
+    display: "grid",
+    gap: "var(--gap) var(--margin)",
+    "grid-template-columns": "1fr",
+  }),
+
+  rule(/^subgrid$/, childMarginBlock, {
+    display: "grid",
+    "grid-template-columns": "subgrid",
+  }),
+
+  rule(/^column-((?:span-)?\d+)(?:-((?:span-)?\d+))?$/, ([, ...i]) => {
+    const name = (string: string) => string.replace("-", " ");
+    const column = i[1] ? `${name(i[0])} / ${name(i[1])}` : name(i[0]);
+    return { "grid-column": column };
+  }),
+]);
+
 export default defineConfig({
   extractors: [extractorSvelte()],
+  outputToCssLayers: true,
   presets: [],
-  rules: withLayer("layout", [
-    ["none", { display: "none" }],
-
-    [
-      "flex",
-      [
-        { display: "flex", "flex-wrap": "wrap", gap: "var(--gap)" },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      /^grid\/(\d+)$/,
-      ([, number]) => [
-        {
-          display: "grid",
-          gap: "var(--gap)",
-          "grid-template-columns": `repeat(${number}, 1fr)`,
-        },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      /^grid-(\d+(?::\d+)*)$/,
-      ([, series]) => [
-        {
-          display: "grid",
-          gap: "var(--gap)",
-          "grid-template-columns": series
-            .split(":")
-            .map((n) => `${n}fr`)
-            .join(" "),
-        },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      /^grid\+(\d+)$/,
-      ([, number]) => [
-        {
-          display: "grid",
-          gap: "var(--gap)",
-          "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
-        },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      "columnar",
-      [
-        {
-          display: "grid",
-          gap: "var(--gap) var(--margin)",
-          "grid-template-columns": "1fr",
-        },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      "subgrid",
-      [
-        { display: "grid", "grid-template-columns": "subgrid" },
-        childMarginBlock,
-      ],
-    ],
-
-    [
-      /^column-((?:span-)?\d+)(?:-((?:span-)?\d+))?$/,
-      ([, start, end]) => {
-        const name = (s: string) => s.replace("-", " ");
-        const value = end ? `${name(start)} / ${name(end)}` : name(start);
-        return { "grid-column": value };
-      },
-    ],
-  ]),
+  rules: layout,
   variants: [
     (matcher) => {
       if (!matcher.endsWith("@)")) return;

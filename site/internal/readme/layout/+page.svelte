@@ -143,10 +143,9 @@ import Rule from "$lib/Rule.svelte";
   <h3>Grid</h3>
 
   <p>
-    <T>grid-A:B:…</T> creates a fixed grid with one column per number, sized in
-    that ratio. So <code>grid-1:2:1</code> is three columns whose middle column
-    is twice as wide as those on either side. Use it to build a custom grid
-    layout.
+    <T>grid-A:B:…</T> creates a fixed grid with one column per number, sized in that
+    ratio. So <code>grid-1:2:1</code> is three columns whose middle column is twice
+    as wide as those on either side. Use it to build a custom grid layout.
   </p>
 
   <Demo
@@ -159,8 +158,9 @@ import Rule from "$lib/Rule.svelte";
   />
 
   <p>
-    <T>grid/N</T> is the equal-width special case: it divides children into
-    exactly <code>N</code> equal columns, the same as <code>grid-1:1:…</code>
+    <T>grid/N</T> is the equal-width special case: it divides children into exactly
+    <code>N</code>
+    equal columns, the same as <code>grid-1:1:…</code>
     repeated <code>N</code> times.
   </p>
 

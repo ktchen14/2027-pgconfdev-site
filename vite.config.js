@@ -15,9 +15,9 @@ export default defineConfig({
     },
   },
   plugins: [
-    UnoCSS({ outputToCssLayers: true }),
     enhancedImages(),
     lucidePreprocess(),
+    UnoCSS(),
     sveltekit(),
   ],
   test: {
