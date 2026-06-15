@@ -58,7 +58,7 @@ const layout = withLayer("layout", [
     "grid-template-columns": "subgrid",
   }),
 
-  rule(/^column-((?:span-)?\d+)(?:-((?:span-)?\d+))?$/, ([, ...i]) => {
+  rule(/^column-((?:span-)?\d+)(?:-((?:span-)?\d+))?$/, (_, ...i) => {
     const name = (string: string) => string.replace("-", " ");
     const column = i[1] ? `${name(i[0])} / ${name(i[1])}` : name(i[0]);
     return { "grid-column": column };
