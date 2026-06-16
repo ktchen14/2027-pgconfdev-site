@@ -1,9 +1,9 @@
 /* TODO: fonts */
-@import "@fontsource/newsreader/400-italic.css" layer(font);
-@import "@fontsource/newsreader/400.css" layer(font);
-@import "@fontsource/newsreader/500-italic.css" layer(font);
-@import "@fontsource/newsreader/500.css" layer(font);
-@import "@fontsource/newsreader/700.css" layer(font);
+@import "@fontsource/newsreader/400-italic.css";
+@import "@fontsource/newsreader/400.css";
+@import "@fontsource/newsreader/500-italic.css";
+@import "@fontsource/newsreader/500.css";
+@import "@fontsource/newsreader/700.css";
 
 :root {
   --header-font: "Newsreader", Georgia, serif;
