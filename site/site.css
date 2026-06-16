@@ -188,9 +188,6 @@
 
 @layer appearance {
   body {
-    /* Remove the grey highlight on links in iOS (opinionated) */
-    -webkit-tap-highlight-color: transparent;
-
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--normal-font);
