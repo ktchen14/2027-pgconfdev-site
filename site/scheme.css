@@ -1,0 +1,71 @@
+/* TODO: fonts */
+@import "@fontsource/newsreader/400-italic.css" layer(font);
+@import "@fontsource/newsreader/400.css" layer(font);
+@import "@fontsource/newsreader/500-italic.css" layer(font);
+@import "@fontsource/newsreader/500.css" layer(font);
+@import "@fontsource/newsreader/700.css" layer(font);
+
+:root {
+  --header-font: "Newsreader", Georgia, serif;
+  --mono-font: "JetBrains Mono", ui-monospace, monospace;
+  --normal-font: "Public Sans", system-ui, sans-serif;
+
+  --gap: 1.5rem;
+
+  /* 1.5rem @ 20rem -> 3rem @ 80rem */
+  --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
+  --radius: 0.25rem;
+
+  --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
+
+  --h1-size: clamp(2.25rem, 3vw + 1rem, 3.75rem);
+  --h2-size: clamp(1.625rem, 1.5vw + 1rem, 2.25rem);
+  --h3-size: 1.375rem;
+  --h4-size: 1.25em;
+  --h5-size: 1em;
+  --h6-size: 1em;
+
+  --static: oklch(0.15 0.01 245.25);
+  --static-fg: color-mix(in oklch, var(--static) 80%, white);
+  --static-bg: white;
+
+  --action: oklch(0.4973 0.12 245.25);
+  --action-fg: var(--action);
+  --action-fg-active: color-mix(in oklch, var(--action-fg), black 12%);
+  --action-bg-tint: color-mix(in oklch, var(--action) 6%, white);
+
+  --notice: oklch(0.8 0.14 80.25);
+  --notice-fg: color-mix(in oklch, var(--notice), black 35%);
+
+  --insert: oklch(0.58 0.14 142.14);
+  --insert-fg: var(--insert);
+
+  --delete: oklch(0.58 0.14 28.82);
+  --delete-fg: var(--delete);
+
+  /* Text */
+  --fg: var(--static-fg);
+
+  /* Secondary text, i.e. <figcaption>, <small>, .deck, .mute, .note */
+  --fg-mute: color-mix(in oklch, var(--static) 65%, white);
+
+  /* Tertiary text, i.e. .over */
+  --fg-tint: color-mix(in oklch, var(--static) 40%, white);
+
+  /* Fill */
+  --bg: var(--static-bg);
+
+  /* Secondary fill, i.e. :hover, .stripe, .area */
+  --bg-tint: color-mix(in oklch, var(--static) 4%, white);
+
+  /* Separation, i.e. <hr>, <tr>, .border */
+  --border: color-mix(in oklch, var(--static) 20%, white);
+
+  /* Accent rule, i.e. <blockquote>, .acme, .edge */
+  --border-bold: color-mix(in oklch, var(--static) 50%, white);
+
+  /* Miscellaneous */
+  --code-bg: color-mix(in oklch, var(--action) 6%, white);
+  /* TODO: legacy */
+  --code-color: rgb(92 99 112);
+}
