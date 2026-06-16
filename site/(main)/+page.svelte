@@ -33,7 +33,6 @@
   h1 {
     font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
     font-weight: 700;
-    letter-spacing: -2%;
     line-height: 1;
   }
 
@@ -45,10 +44,6 @@
 
   .button.circle {
     padding-inline: 1.5em;
-  }
-
-  h2 {
-    letter-spacing: -0.015em;
   }
 </style>
 

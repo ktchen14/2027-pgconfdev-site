@@ -16,6 +16,10 @@
 }
 
 @layer margin {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
   :target {
     scroll-margin-block: var(--gap);
   }
@@ -217,8 +221,10 @@
     font-family: var(--header-font);
     font-size: var(--size);
     font-weight: 500;
-    /* Equivalent to line-height: clamp(1, 1 + exp(1 - 1em / 1rem) / 2, 1.5) */
-    line-height: clamp(1, 1 + exp(1 - tan(atan2(var(--size), var(--unit)))) / 2, 1.5);
+    /* Just line-height: clamp(1, 1 + 0.5 * exp(1 - 1em / 1rem), 1.5) */
+    line-height: clamp(1, 1 + 0.5 * exp(1 - tan(atan2(var(--size), var(--unit)))), 1.5);
+    /* Just letter-spacing: min(-2% * (1 - exp(1 - 1em / 1rem)), 0%) */
+    letter-spacing: min(-2% * (1 - exp(1 - tan(atan2(var(--size), var(--unit))))), 0%);
     text-wrap: balance;
   }
 
