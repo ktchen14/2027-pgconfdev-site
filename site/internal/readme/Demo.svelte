@@ -31,6 +31,10 @@
     padding: var(--gap);
   }
 
+  figcaption {
+    margin-block: 0;
+  }
+
   figcaption > :global(pre) {
     padding: var(--gap);
     white-space: pre-wrap;
