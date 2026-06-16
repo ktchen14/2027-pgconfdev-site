@@ -7,10 +7,8 @@
 
 <style>
   blockquote {
-    font-family: var(--header-font);
-    font-size: clamp(1.25rem, 2vw + 0.75rem, 1.75rem);
     font-style: italic;
-    line-height: 1.35;
+    font-weight: 400;
     padding-inline: 0;
   }
 
@@ -149,7 +147,7 @@
   </p>
 
   <figure class="section">
-    <blockquote class="action-acme mute">
+    <blockquote class="action-acme h2 mute">
       <q>
         The only conference where I leave with a code review queue instead of a
         swag bag.
