@@ -626,8 +626,8 @@
 
     .\(main\), :where(.\*\:\(main\)) > *,
     .main\), :where(.\*\:main\)) > * {
+      --pagegrid-template: 1fr var(--side);
       clear: inline-end;
-      grid-template-columns: 1fr var(--side);
       margin-inline: var(--page-margin);
     }
 
@@ -655,16 +655,16 @@
     }
 
     .main\), :where(.\*\:main\)) > * {
+      --pagegrid-template: 1fr var(--side);
       clear: inline-end;
-      grid-template-columns: 1fr var(--side);
       margin-inline: var(--side-margin) var(--page-margin);
     }
 
     .\), :where(.\*\:\)) > * {
+      --pagegrid-template: 1fr;
       clear: inline-end;
       display: revert-layer;
       float: inline-end;
-      grid-template-columns: 1fr;
       margin-block-start: 0;
       margin-inline: var(--margin) var(--page-margin);
       width: var(--side);
@@ -678,22 +678,22 @@
     }
 
     .\(main\), :where(.\*\:\(main\)) > * {
+      --pagegrid-template: var(--side) 1fr var(--side);
       clear: both;
-      grid-template-columns: var(--side) 1fr var(--side);
       margin-inline: var(--page-margin);
     }
 
     .\(main, :where(.\*\:\(main) > * {
+      --pagegrid-template: var(--side) 1fr;
       clear: inline-start;
-      grid-template-columns: var(--side) 1fr;
       margin-inline: var(--page-margin) var(--side-margin);
     }
 
     .\(, :where(.\*\:\() > * {
+      --pagegrid-template: 1fr;
       clear: inline-start;
       display: revert-layer;
       float: inline-start;
-      grid-template-columns: 1fr;
       margin-block-start: 0;
       margin-inline: var(--page-margin) var(--margin);
       width: var(--side);

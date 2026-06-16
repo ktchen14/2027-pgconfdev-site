@@ -50,7 +50,7 @@ const layout = withLayer("layout", [
   rule(/^columnar$/, childMarginBlock, {
     display: "grid",
     gap: "var(--gap) var(--margin)",
-    "grid-template-columns": "1fr",
+    "grid-template-columns": "var(--pagegrid-template, 1fr)",
   }),
 
   rule(/^subgrid$/, childMarginBlock, {
