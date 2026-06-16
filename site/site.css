@@ -648,19 +648,19 @@
     font-size: 0.875em;
   }
 
-  :where(:not(.icon, .lucide)):is(.size\+2, .size\+\+) {
+  :is(.size\+2, .size\+\+) {
     font-size: 1.25em;
   }
 
-  :where(:not(.icon, .lucide)):is(.size\+1, .size\+) {
+  :is(.size\+1, .size\+) {
     font-size: 1.125em;
   }
 
-  :where(:not(.icon, .lucide)):is(.size-1, .size-) {
+  :is(.size-1, .size-) {
     font-size: 0.875em;
   }
 
-  :where(:not(.icon, .lucide)):is(.size-2, .size--) {
+  :is(.size-2, .size--) {
     font-size: 0.75em;
   }
 
@@ -699,22 +699,6 @@
 
   .icon, .lucide {
     size: 1em;
-  }
-
-  :where(.icon, .lucide):is(.size\+2, .size\+\+) {
-    size: 1.25em;
-  }
-
-  :where(.icon, .lucide):is(.size\+1, .size\+) {
-    size: 1.125em;
-  }
-
-  :where(.icon, .lucide):is(.size-1, .size-) {
-    size: 0.875em;
-  }
-
-  :where(.icon, .lucide):is(.size-2, .size--) {
-    size: 0.75em;
   }
 
   /* Buttons */
