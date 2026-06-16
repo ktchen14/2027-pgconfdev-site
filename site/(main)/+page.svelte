@@ -118,13 +118,13 @@
 </section>
 
 <section class="tint">
-  <div class="(main) grid/3@48-">
+  <div class="(main) grid/3@48-" style:gap="var(--margin)">
     <hgroup>
       <p>About the Conference</p>
       <h2>Built by and for PostgreSQL contributors.</h2>
     </hgroup>
 
-    <div class="column-span-2">
+    <div class="column-span-2 text">
       <p class="lede">
         PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
         extension authors, and the developers who work with them. Four days of
@@ -150,7 +150,7 @@
     style:align-items="center"
     style:padding="var(--margin)"
   >
-    <div class="column-span-2 margin-gap note">
+    <div class="column-span-2 margin-gap note text">
       <hgroup>
         <p class="iconic insert">
           <Circle class="size--" style="fill: currentColor" />
@@ -159,7 +159,7 @@
         <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
       </hgroup>
 
-      <p class="text">
+      <p>
         We're looking for technical talks from contributors at every level —
         your first commit, your hardest debug, the extension you wish existed.
         Three formats: 45-minute talks, 90-minute tutorials, and ad-hoc
@@ -179,7 +179,7 @@
 
 <section class="tint">
   <div class="(main)">
-    <hgroup class="margin-gap">
+    <hgroup class="margin-gap text">
       <p>Sponsors</p>
       <h2>The companies underwriting 2027.</h2>
       <p>
@@ -195,7 +195,7 @@
 </section>
 
 <section class="(main)">
-  <hgroup class="margin-gap">
+  <hgroup class="margin-gap text">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
     <p>
