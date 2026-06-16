@@ -31,10 +31,6 @@
     }
   }
 
-  ul {
-    font-size: 0.875em;
-  }
-
   footer {
     justify-content: space-between;
   }
@@ -42,13 +38,13 @@
 
 <Header class="(main)">
   <li class="menu-single">
-    <Header.ToggleMenu name="Program">
+    <Header.ToggleMenu name="Program" class="size-">
       {@render programUl()}
     </Header.ToggleMenu>
   </li>
 
   <li class="menu-single">
-    <Header.ToggleMenu name="Attend">
+    <Header.ToggleMenu name="Attend" class="size-">
       {@render attendUl()}
     </Header.ToggleMenu>
   </li>
