@@ -11,11 +11,19 @@
 </script>
 
 <style>
-  :global(#root) {
+  :global :where(#root) {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     min-height: 100vh;
+  }
+
+  :where(main) {
+    margin-block-end: var(--margin);
+  }
+
+  :where(footer) {
+    justify-content: space-between;
   }
 
   .menu-single {
@@ -29,10 +37,6 @@
       right: calc(-1.5rem - 1px);
       width: 15rem;
     }
-  }
-
-  footer {
-    justify-content: space-between;
   }
 </style>
 

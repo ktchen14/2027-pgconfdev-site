@@ -30,7 +30,7 @@
 
 <BreadcrumbNav />
 
-<header class="(main)">
+<header class="(main) section">
   <hgroup>
     <p class="action">About PGConf.dev</p>
     <h1>The PostgreSQL Developer Conference.</h1>

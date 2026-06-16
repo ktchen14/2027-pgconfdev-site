@@ -9,6 +9,14 @@
 </script>
 
 <style>
+  :global main + hr {
+    display: none;
+  }
+
+  :global main {
+    margin-block-end: var(--gap);
+  }
+
   section.area {
     padding-block: var(--margin);
   }
@@ -36,10 +44,6 @@
 
   .button.circle {
     padding-inline: 1.5em;
-  }
-
-  :global(main + hr) {
-    display: none;
   }
 
   h2 {
