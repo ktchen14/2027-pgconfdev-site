@@ -17,16 +17,17 @@
     margin-block-end: var(--gap);
   }
 
-  section.area {
-    padding-block: var(--margin);
-  }
-
   .hero {
     margin-block: calc(2 * var(--margin));
 
     dd {
       line-height: 1.2;
     }
+  }
+
+  .tint {
+    background-color: var(--bg-tint);
+    padding-block: var(--margin);
   }
 
   h1 {
@@ -121,7 +122,7 @@
   <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
 </section>
 
-<section class=" area">
+<section class="tint">
   <div class="(main) grid/3@48-">
     <hgroup>
       <p>About the Conference</p>
@@ -181,7 +182,7 @@
   </div>
 </section>
 
-<section class=" area">
+<section class="tint">
   <div class="(main)">
     <hgroup class="margin-gap">
       <p>Sponsors</p>
