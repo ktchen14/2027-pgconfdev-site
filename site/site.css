@@ -353,14 +353,13 @@
 
   /* https://html.spec.whatwg.org/multipage/embedded-content.html */
 
-  audio:where([controls]), canvas, embed, iframe, img, object, picture, svg,
-  video {
+  audio:where([controls]), canvas, embed, iframe, img, object, picture, video {
+    display: block;
     width: stretch;
   }
 
   iframe {
     border: 0;
-    display: block;
     height: auto;
   }
 
