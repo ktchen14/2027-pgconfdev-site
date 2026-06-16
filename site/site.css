@@ -3,17 +3,25 @@
 @import "@csstools/normalize.css" layer(normalize);
 @import "scheme.css" layer(scheme);
 
+@property --size {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 16px;
+}
+
+@property --unit {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 16px;
+}
+
 @layer margin {
   :target {
-    scroll-margin-block-start: var(--gap);
-  }
-
-  *, ::before, ::after {
-    box-sizing: border-box;
+    scroll-margin-block: var(--gap);
   }
 
   body {
-    margin: 0;
+    margin-block: 0;
   }
 
   .margin-gap {
@@ -95,42 +103,20 @@
     }
   }
 
-  :where(h1, .h1, hgroup:has(> h1)) {
-    + :is(h2, h3, h4, h5, h6),
-    + hgroup:has(> :where(h2, h3, h4, h5, h6)),
-    + :is(.h2, .h3, .h4, .h5, .h6) {
-      margin-block-start: 0;
-    }
-  }
-
-  :where(h2, .h2, hgroup:has(> h2)) {
-    + :is(h3, h4, h5, h6),
-    + hgroup:has(> :where(h3, h4, h5, h6)),
-    + :is(.h3, .h4, .h5, .h6) {
-      margin-block-start: 0;
-    }
-  }
-
-  :where(h3, .h3, hgroup:has(> h3)) {
-    + :is(h4, h5, h6),
-    + hgroup:has(> :where(h4, h5, h6)),
-    + :is(.h4, .h5, .h6) {
-      margin-block-start: 0;
-    }
-  }
-
-  :where(h4, .h4, hgroup:has(> h4)) {
-    + :is(h5, h6),
-    + hgroup:has(> :where(h5, h6)),
-    + :is(.h5, .h6) {
-      margin-block-start: 0;
-    }
-  }
-
-  :where(h5, .h5, hgroup:has(> h5)) {
-    + h6, hgroup:has(> :where(h6)), + .h6 {
-      margin-block-start: 0;
-    }
+  :where(h1, .h1, hgroup:has(> h1)) + :is(h2, h3, h4, h5, h6),
+  :where(h1, .h1, hgroup:has(> h1)) + hgroup:has(> :where(h2, h3, h4, h5, h6)),
+  :where(h1, .h1, hgroup:has(> h1)) + :is(.h2, .h3, .h4, .h5, .h6),
+  :where(h2, .h2, hgroup:has(> h2)) + :is(h3, h4, h5, h6),
+  :where(h2, .h2, hgroup:has(> h2)) + hgroup:has(> :where(h3, h4, h5, h6)),
+  :where(h2, .h2, hgroup:has(> h2)) + :is(.h3, .h4, .h5, .h6),
+  :where(h3, .h3, hgroup:has(> h3)) + :is(h4, h5, h6),
+  :where(h3, .h3, hgroup:has(> h3)) + hgroup:has(> :where(h4, h5, h6)),
+  :where(h3, .h3, hgroup:has(> h3)) + :is(.h4, .h5, .h6),
+  :where(h4, .h4, hgroup:has(> h4)) + :is(h5, h6, hgroup:has(> :where(h5, h6))),
+  :where(h4, .h4, hgroup:has(> h4)) + :is(.h5, .h6),
+  :where(h5, .h5, hgroup:has(> h5)) + :is(h6, hgroup:has(> :where(h6))),
+  :where(h5, .h5, hgroup:has(> h5)) + .h6 {
+    margin-block-start: 0;
   }
 
   :where(hgroup) > :is(h1, h2, h3, h4, h5, h6, p, ._) {
@@ -160,24 +146,24 @@
     margin-block: calc(2em / 3) 0;
   }
 
+  figcaption, .over {
+    margin-block: calc(2em / 3);
+
+    &:where(:first-child) {
+      margin-block-start: 0;
+    }
+
+    &:where(:last-child) {
+      margin-block-end: 0;
+    }
+  }
+
   *:has(+ figcaption), *:has(+ .over) {
     margin-block-end: 0;
   }
 
   figcaption + *, .over + * {
     margin-block-start: 0;
-  }
-
-  figcaption, .over {
-    margin-block: 0;
-  }
-
-  * + figcaption, * + .over {
-    margin-block-start: calc(2em / 3);
-  }
-
-  figcaption:has(+ *), .over:has(+ *) {
-    margin-block-end: calc(2em / 3);
   }
 
   /* Summary elements */
@@ -187,16 +173,22 @@
 }
 
 @layer appearance {
+  :root {
+    --unit: 1rem;
+  }
+
   body {
     background-color: var(--bg);
     color: var(--fg);
     font-family: var(--normal-font);
     line-height: 1.5;
+    margin-inline: 0;
     min-width: 20rem;
     overflow-wrap: break-word;
   }
 
   *, ::before, ::after {
+    box-sizing: border-box;
     transition-duration: 0.15s;
     transition-property: none;
     transition-timing-function: ease-in-out;
@@ -223,7 +215,10 @@
 
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: var(--header-font);
+    font-size: var(--size);
     font-weight: 500;
+    /* Equivalent to line-height: clamp(1, 1 + exp(1 - 1em / 1rem) / 2, 1.5) */
+    line-height: clamp(1, 1 + exp(1 - tan(atan2(var(--size), var(--unit)))) / 2, 1.5);
     text-wrap: balance;
   }
 
@@ -231,12 +226,12 @@
     font-family: var(--normal-font);
   }
 
-  h1, .h1 { font-size: var(--h1-size); line-height: 1.1; }
-  h2, .h2 { font-size: var(--h2-size); line-height: 1.15; }
-  h3, .h3 { font-size: var(--h3-size); line-height: 1.2; }
-  h4, .h4 { font-size: var(--h4-size); line-height: 1.25; }
-  h5, .h5 { font-size: var(--h5-size); line-height: 1.3; }
-  h6, .h6 { font-size: var(--h6-size); line-height: 1.3; }
+  h1, .h1 { --size: var(--h1-size); }
+  h2, .h2 { --size: var(--h2-size); }
+  h3, .h3 { --size: var(--h3-size); }
+  h4, .h4 { --size: var(--h4-size); }
+  h5, .h5 { --size: var(--h5-size); }
+  h6, .h6 { --size: var(--h6-size); }
 
   /* Flow content except phrasing content */
 
@@ -266,7 +261,7 @@
     margin-inline: 0;
   }
 
-  :is(menu, ol, ul) {
+  menu, ol, ul {
     padding-inline-start: 2em;
 
     :where(nav, search) &, &.dedent {
@@ -281,7 +276,7 @@
 
   /* https://html.spec.whatwg.org/multipage/text-level-semantics.html */
 
-  :is(code, kbd, pre, samp) {
+  code, kbd, pre, samp {
     font-family: var(--mono-font);
     font-size: 0.875em;
 
