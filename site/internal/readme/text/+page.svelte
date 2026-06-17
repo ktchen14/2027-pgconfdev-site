@@ -182,11 +182,9 @@
   />
 
   <p>
-    <T>.note</T> marks a block as supplementary, i.e. an aside, caveat, or footnote
-    that supports the main content without being part of its main line of argument.
-    It diminishes the prose within (paragraphs, lists, and
-    <code>&lt;blockquote&gt;</code>s), while leaving headings and other elements
-    untouched.
+    <T>.note</T> marks content as supplementary, i.e. an aside, caveat, or footnote
+    that supports the main text without being part of its main line of argument. It
+    sets the text a step smaller and in a muted tone, while headings keep their size.
   </p>
 
   <Demo

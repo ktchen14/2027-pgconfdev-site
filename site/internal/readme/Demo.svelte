@@ -32,6 +32,7 @@
   }
 
   figcaption {
+    font-size: inherit;
     margin-block: 0;
   }
 

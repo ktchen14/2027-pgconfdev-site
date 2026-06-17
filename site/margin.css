@@ -76,6 +76,14 @@ caption, figcaption, .over {
   margin-block: calc(2em / 3);
 }
 
+figcaption + *, .over + * {
+  margin-block-start: 0;
+}
+
+*:has(+ figcaption), *:has(+ .over) {
+  margin-block-end: 0;
+}
+
 /* Margin trim */
 
 .margin-gap, h1, h2, h3, h4, h5, h6, hgroup, .h1, .h2, .h3, .h4, .h5, .h6,
