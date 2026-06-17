@@ -63,8 +63,11 @@ hgroup > p:has(~ :where(:heading)), .over {
   color: var(--fg-tint);
   font-family: var(--mono-font);
   font-size: 0.75rem;
+  font-weight: unset;
   letter-spacing: 0.1em;
+  line-height: unset;
   text-transform: uppercase;
+  text-wrap: unset;
 }
 
 hgroup > :where(:heading) ~ p, caption, figcaption, small, .note {
