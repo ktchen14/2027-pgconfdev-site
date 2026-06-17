@@ -30,12 +30,6 @@
     padding-block: var(--margin);
   }
 
-  h1 {
-    font-size: clamp(3rem, 6vw + 1rem, 6.5rem);
-    font-weight: 700;
-    line-height: 1;
-  }
-
   .banner > img {
     max-height: calc(200vh / 3);
     min-height: calc(100vh / 3);
@@ -60,7 +54,7 @@
   <hgroup>
     <p class="action">The PostgreSQL Developer Conference</p>
 
-    <h1>
+    <h1 style:--size="var(--h0-size)">
       <span class="action">PGConf</span>.dev
       <br />
       <span class="mute">2027</span>

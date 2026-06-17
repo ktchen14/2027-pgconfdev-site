@@ -6,10 +6,6 @@
 </script>
 
 <style>
-  :target {
-    scroll-margin-block-start: var(--gap);
-  }
-
   main {
     padding-block: var(--margin);
   }

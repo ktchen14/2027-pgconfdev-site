@@ -25,7 +25,7 @@ body {
 h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
   font-family: var(--header-font);
   font-size: calc(1rem * var(--size));
-  font-weight: 500;
+  font-weight: 550;
   letter-spacing: min(-2% * (1 - exp(1 - var(--size))), 0%);
   line-height: clamp(1, 1 + 0.5 * exp(1 - var(--size)), 1.5);
   text-wrap: balance;
