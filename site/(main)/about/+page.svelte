@@ -88,17 +88,17 @@
 
     <div class="p">
       <dt class="over">Dates</dt>
-      <dd>18 — 21 May 2027</dd>
+      <dd>May 18 – 21, 2027</dd>
     </div>
 
     <div class="p">
       <dt class="over">Venue</dt>
-      <dd>Palais des congrès de Montréal</dd>
+      <dd>Plaza Centre-Ville, Montréal</dd>
     </div>
 
     <div class="p">
-      <dt class="over">Capacity</dt>
-      <dd>~600 attendees</dd>
+      <dt class="over">Attendance</dt>
+      <dd>~300 attendees</dd>
     </div>
 
     <div class="p">
@@ -107,13 +107,13 @@
     </div>
 
     <div class="p">
-      <dt class="over">Languages</dt>
+      <dt class="over">Language</dt>
       <dd>English</dd>
     </div>
 
     <div class="p">
       <dt class="over">Organizer</dt>
-      <dd>PostgreSQL Community Association of Canada</dd>
+      <dd>Slonik Events Canada</dd>
     </div>
   </dl>
 </aside>
