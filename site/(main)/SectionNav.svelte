@@ -21,6 +21,10 @@
       border-color: var(--action-fg);
     }
   }
+
+  nav :global li {
+    margin-block: 0;
+  }
 </style>
 
 <nav class={["(", "note", klass]} {...rest}>

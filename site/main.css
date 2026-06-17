@@ -140,7 +140,6 @@ sub, sup {
 
 a:where(:not(.button, [role="button"])) {
   color: var(--action-fg);
-  text-decoration: underline rgb(from currentColor r g b / 50%);
 
   &:hover {
     color: var(--action-fg-active);
@@ -163,7 +162,6 @@ a:where(:not(.button, [role="button"])) {
 }
 
 a:is(.button, [role="button"]) {
-  display: inline-block;
   text-decoration: none;
 }
 
