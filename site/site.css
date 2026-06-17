@@ -64,8 +64,11 @@ main {
   flex-wrap: nowrap;
   gap: 0.5em;
 
-  > * {
+  > :is(.icon, .lucide) {
     flex: none;
+  }
+
+  > * {
     margin-block: 0;
   }
 }
