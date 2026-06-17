@@ -28,7 +28,7 @@
 :root {
   --header-font: "Newsreader Variable", Georgia, serif;
   --mono-font: "JetBrains Mono Variable", ui-monospace, monospace;
-  --normal-font: "Public Sans Variable", system-ui, sans-serif;
+  --sans-font: "Public Sans Variable", system-ui, sans-serif;
 
   --gap: 1.5rem;
 

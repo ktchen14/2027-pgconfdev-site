@@ -3,7 +3,7 @@
 body {
   background-color: var(--bg);
   color: var(--fg);
-  font-family: var(--normal-font);
+  font-family: var(--sans-font);
   line-height: 1.5;
   margin-inline: 0;
   min-width: 20rem;
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
 }
 
 h6, .h6 {
-  font-family: var(--normal-font);
+  font-family: var(--sans-font);
 }
 
 h1, hgroup:has(> :where(h1)), .h1, :where(hgroup).h1 > :where(:heading) {
