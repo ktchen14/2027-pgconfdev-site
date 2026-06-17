@@ -3,18 +3,6 @@
 @import "@csstools/normalize.css" layer(normalize);
 @import "scheme.css" layer(scheme);
 
-@property --size {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: 16px;
-}
-
-@property --unit {
-  syntax: "<length>";
-  inherits: true;
-  initial-value: 16px;
-}
-
 @layer margin {
   *, ::before, ::after {
     box-sizing: border-box;
@@ -177,10 +165,6 @@
 }
 
 @layer appearance {
-  :root {
-    --unit: 1rem;
-  }
-
   body {
     background-color: var(--bg);
     color: var(--fg);
@@ -219,12 +203,10 @@
 
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     font-family: var(--header-font);
-    font-size: var(--size);
+    font-size: calc(1rem * var(--header-size));
     font-weight: 500;
-    /* Just line-height: clamp(1, 1 + 0.5 * exp(1 - 1em / 1rem), 1.5) */
-    line-height: clamp(1, 1 + 0.5 * exp(1 - tan(atan2(var(--size), var(--unit)))), 1.5);
-    /* Just letter-spacing: min(-2% * (1 - exp(1 - 1em / 1rem)), 0%) */
-    letter-spacing: min(-2% * (1 - exp(1 - tan(atan2(var(--size), var(--unit))))), 0%);
+    letter-spacing: min(-2% * (1 - exp(1 - var(--header-size))), 0%);
+    line-height: clamp(1, 1 + 0.5 * exp(1 - var(--header-size)), 1.5);
     text-wrap: balance;
   }
 
@@ -232,12 +214,15 @@
     font-family: var(--normal-font);
   }
 
-  h1, .h1 { --size: var(--h1-size); }
-  h2, .h2 { --size: var(--h2-size); }
-  h3, .h3 { --size: var(--h3-size); }
-  h4, .h4 { --size: var(--h4-size); }
-  h5, .h5 { --size: var(--h5-size); }
-  h6, .h6 { --size: var(--h6-size); }
+  h1, .h1, hgroup:has(> :where(h1, .h1)) {
+    --header-size: var(--h1-size);
+  }
+
+  h2, .h2 { --header-size: var(--h2-size); }
+  h3, .h3 { --header-size: var(--h3-size); }
+  h4, .h4 { --header-size: var(--h4-size); }
+  h5, .h5 { --header-size: var(--h5-size); }
+  h6, .h6 { --header-size: var(--h6-size); }
 
   /* Flow content except phrasing content */
 
