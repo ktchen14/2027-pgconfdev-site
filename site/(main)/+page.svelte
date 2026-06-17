@@ -151,12 +151,12 @@
     style:padding="var(--margin)"
   >
     <div class="column-span-2 margin-gap note text">
-      <hgroup>
+      <hgroup class="h3">
         <p class="iconic insert">
           <Circle class="size--" style="fill: currentColor" />
           Call for Proposals — open through 14 Feb 2027
         </p>
-        <h2 class="h3">Submit a talk, unconference topic, or tutorial.</h2>
+        <h2>Submit a talk, unconference topic, or tutorial.</h2>
       </hgroup>
 
       <p>
@@ -245,9 +245,9 @@
   style:padding-block="var(--margin)"
 >
   <div class="(main)">
-    <hgroup>
+    <hgroup class="h1">
       <p style:color="var(--bg)">Registration</p>
-      <h2 class="h1 text">Reserve your seat for the 2027 edition.</h2>
+      <h2 class="text">Reserve your seat for the 2027 edition.</h2>
     </hgroup>
 
     <p

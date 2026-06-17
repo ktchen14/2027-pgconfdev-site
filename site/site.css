@@ -1,822 +1,211 @@
-@layer normalize, scheme, margin, appearance, layout, page-layout, site;
+@layer normalize, main, layout, page;
 
 @import "@csstools/normalize.css" layer(normalize);
-@import "scheme.css" layer(scheme);
+@import "scheme.css" layer(main);
+@import "margin.css" layer(main);
+@import "main.css" layer(main);
+@import "page.css" layer(page);
 
-@layer margin {
-  *, ::before, ::after {
-    box-sizing: border-box;
-  }
+/* Text */
 
-  :target {
-    scroll-margin-block: var(--gap);
-  }
+.lead, .lede {
+  font-family: var(--header-font);
+  font-size: 1.25em;
+}
 
-  body {
+.mono {
+  font-family: var(--mono-font);
+}
+
+.text {
+  max-width: 38rem;
+}
+
+:is(.size\+2, .size\+\+) {
+  font-size: 1.25em;
+}
+
+:is(.size\+1, .size\+) {
+  font-size: 1.125em;
+}
+
+:is(.size-1, .size-) {
+  font-size: 0.875em;
+}
+
+:is(.size-2, .size--) {
+  font-size: 0.75em;
+}
+
+/* Counters */
+
+main {
+  counter-reset: section;
+}
+
+.section-number::before {
+  content: "§ " counter(section, decimal-leading-zero) " · ";
+  counter-increment: section;
+}
+
+.li-number::before {
+  color: var(--fg-tint);
+  content: counter(list-item, decimal-leading-zero);
+  font-family: var(--mono-font);
+  font-size: 0.875em;
+  margin-inline-end: 1em;
+}
+
+/* Icons */
+
+.iconic {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+
+  > * {
+    flex: none;
     margin-block: 0;
   }
-
-  .margin-gap {
-    margin-block: 0 var(--gap);
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-  }
-
-  /* Sectioning content */
-  article, aside, nav, section, .section {
-    margin-block: var(--margin);
-
-    &:where(:first-child) {
-      margin-block-start: 0;
-    }
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-  }
-
-  /* Flow content except heading content, phrasing content, sectioning content,
-   * <dialog>, and <div>. */
-  address, blockquote, details, dl, fieldset, figure, footer, form, header, hr,
-  main, menu, ol, p, pre, search, table, ul, .p {
-    margin-block: 0 1em;
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-  }
-
-  :where(dd, li) > :is(dl, menu, ol, ul) {
-    margin-block: 0.25em 0;
-
-    &:where(:first-child) {
-      margin-block: 0;
-    }
-  }
-
-  /* Heading content */
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    margin-block: 1.5em 0.5em;
-  }
-
-  hgroup:has(> :where(h1)) {
-    margin-block: calc(1.5 * var(--h1-size)) calc(0.5 * var(--h1-size));
-  }
-
-  hgroup:has(> :where(h2)) {
-    margin-block: calc(1.5 * var(--h2-size)) calc(0.5 * var(--h2-size));
-  }
-
-  hgroup:has(> :where(h3)) {
-    margin-block: calc(1.5 * var(--h3-size)) calc(0.5 * var(--h3-size));
-  }
-
-  hgroup:has(> :where(h4)) {
-    margin-block: calc(1.5 * var(--h4-size)) calc(0.5 * var(--h4-size));
-  }
-
-  hgroup:has(> :where(h5)) {
-    margin-block: calc(1.5 * var(--h5-size)) calc(0.5 * var(--h5-size));
-  }
-
-  hgroup:has(> :where(h6)) {
-    margin-block: calc(1.5 * var(--h6-size)) calc(0.5 * var(--h6-size));
-  }
-
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, hgroup {
-    &:where(:first-child) {
-      margin-block-start: 0;
-    }
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-  }
-
-  :where(h1, .h1, hgroup:has(> h1)) + :is(h2, h3, h4, h5, h6),
-  :where(h1, .h1, hgroup:has(> h1)) + hgroup:has(> :where(h2, h3, h4, h5, h6)),
-  :where(h1, .h1, hgroup:has(> h1)) + :is(.h2, .h3, .h4, .h5, .h6),
-  :where(h2, .h2, hgroup:has(> h2)) + :is(h3, h4, h5, h6),
-  :where(h2, .h2, hgroup:has(> h2)) + hgroup:has(> :where(h3, h4, h5, h6)),
-  :where(h2, .h2, hgroup:has(> h2)) + :is(.h3, .h4, .h5, .h6),
-  :where(h3, .h3, hgroup:has(> h3)) + :is(h4, h5, h6),
-  :where(h3, .h3, hgroup:has(> h3)) + hgroup:has(> :where(h4, h5, h6)),
-  :where(h3, .h3, hgroup:has(> h3)) + :is(.h4, .h5, .h6),
-  :where(h4, .h4, hgroup:has(> h4)) + :is(h5, h6, hgroup:has(> :where(h5, h6))),
-  :where(h4, .h4, hgroup:has(> h4)) + :is(.h5, .h6),
-  :where(h5, .h5, hgroup:has(> h5)) + :is(h6, hgroup:has(> :where(h6))),
-  :where(h5, .h5, hgroup:has(> h5)) + .h6 {
-    margin-block-start: 0;
-  }
-
-  :where(hgroup) > :is(h1, h2, h3, h4, h5, h6, p, ._) {
-    margin-block: 0;
-  }
-
-  :where(hgroup > p):has(+ :is(h1, h2, h3, h4, h5, h6, ._)) {
-    margin-block: 0 calc(2em / 3);
-  }
-
-  /* List elements */
-  dd, li {
-    margin-block: 0 0.25em;
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-
-    :where(nav, search) & {
-      margin-block-end: 0;
-    }
-  }
-
-  /* Caption elements */
-
-  :where(table:has(tr)) > caption {
-    margin-block: calc(2em / 3) 0;
-  }
-
-  figcaption, .over {
-    margin-block: calc(2em / 3);
-
-    &:where(:first-child) {
-      margin-block-start: 0;
-    }
-
-    &:where(:last-child) {
-      margin-block-end: 0;
-    }
-  }
-
-  *:has(+ figcaption), *:has(+ .over) {
-    margin-block-end: 0;
-  }
-
-  figcaption + *, .over + * {
-    margin-block-start: 0;
-  }
-
-  /* Summary elements */
-  [open] > summary {
-    margin-block-end: 1em;
-  }
 }
 
-@layer appearance {
-  body {
-    background-color: var(--bg);
-    color: var(--fg);
-    font-family: var(--normal-font);
-    line-height: 1.5;
-    margin-inline: 0;
-    min-width: 20rem;
-    overflow-wrap: break-word;
-  }
-
-  *, ::before, ::after {
-    box-sizing: border-box;
-    transition-duration: 0.15s;
-    transition-property: none;
-    transition-timing-function: ease-in-out;
-  }
-
-  :is(.action, .notice, .insert, .delete) {
-    color: var(--fg);
-  }
-
-  /* Heading content */
-
-  hgroup > p:has(~ :where(h1, h2, h3, h4, h5, h6)), .over {
-    color: var(--fg-tint);
-    font-family: var(--mono-font);
-    font-size: 0.75em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  hgroup > :where(h1, h2, h3, h4, h5, h6) ~ p, .deck {
-    color: var(--fg-mute);
-    font-size: 0.875em;
-  }
-
-  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    font-family: var(--header-font);
-    font-size: calc(1rem * var(--header-size));
-    font-weight: 500;
-    letter-spacing: min(-2% * (1 - exp(1 - var(--header-size))), 0%);
-    line-height: clamp(1, 1 + 0.5 * exp(1 - var(--header-size)), 1.5);
-    text-wrap: balance;
-  }
-
-  h6, .h6 {
-    font-family: var(--normal-font);
-  }
-
-  h1, .h1, hgroup:has(> :where(h1, .h1)) {
-    --header-size: var(--h1-size);
-  }
-
-  h2, .h2 { --header-size: var(--h2-size); }
-  h3, .h3 { --header-size: var(--h3-size); }
-  h4, .h4 { --header-size: var(--h4-size); }
-  h5, .h5 { --header-size: var(--h5-size); }
-  h6, .h6 { --header-size: var(--h6-size); }
-
-  /* Flow content except phrasing content */
-
-  blockquote {
-    margin-inline: 0;
-    padding-inline-start: var(--gap);
-  }
-
-  dd {
-    margin-inline-start: 2em;
-
-    :where(nav, search) &,
-    &.dedent,
-    :where(dl).dedent > :where(div) > &,
-    :where(dl).dedent > & {
-      margin-inline-start: 0;
-    }
-  }
-
-  figure {
-    margin-inline: 0;
-  }
-
-  hr {
-    border: 0;
-    border-bottom: 1px solid var(--border);
-    margin-inline: 0;
-  }
-
-  menu, ol, ul {
-    padding-inline-start: 2em;
-
-    :where(nav, search) &, &.dedent {
-      list-style-type: none;
-      padding-inline-start: 0;
-    }
-  }
-
-  pre {
-    overflow: auto;
-  }
-
-  /* https://html.spec.whatwg.org/multipage/text-level-semantics.html */
-
-  code, kbd, pre, samp {
-    font-family: var(--mono-font);
-    font-size: 0.875em;
-
-    :where(&) & {
-      font-size: inherit;
-    }
-  }
-
-  code {
-    color: var(--code-color);
-  }
-
-  mark {
-    background-color: color-mix(in oklch, var(--notice) 50%, white);
-  }
-
-  small {
-    color: var(--fg-mute);
-    font-size: 0.875em;
-  }
-
-  :is(sub, sup) {
-    font-size: 0.75em;
-  }
-
-  /* https://html.spec.whatwg.org/multipage/links.html */
-
-  a:where(:not(.button, [role="button"])) {
-    color: var(--action-fg);
-    text-decoration: underline rgb(from currentColor r g b / 50%);
-
-    &:hover {
-      color: var(--action-fg-active);
-    }
-
-    :where(nav, search) & {
-      border-radius: var(--radius);
-      color: inherit;
-      display: inline-block;
-      margin-inline: -0.75em;
-      padding-block: 0.5em;
-      padding-inline: 0.75em;
-      text-decoration: none;
-      width: stretch;
-
-      &:hover {
-        background-color: var(--bg-tint);
-      }
-    }
-  }
-
-  a:is(.button, [role="button"]) {
-    display: inline-block;
-    text-decoration: none;
-  }
-
-  /* https://html.spec.whatwg.org/multipage/edits.html */
-
-  del {
-    color: var(--delete-fg);
-  }
-
-  ins {
-    color: var(--insert-fg);
-  }
-
-  /* https://html.spec.whatwg.org/multipage/embedded-content.html */
-
-  audio:where([controls]), canvas, embed, iframe, img, object, picture, video {
-    display: block;
-    width: stretch;
-  }
-
-  iframe {
-    border: 0;
-    height: auto;
-  }
-
-  /* Tabular data */
-
-  table {
-    border-collapse: collapse;
-    caption-side: bottom;
-    overflow: auto;
-    width: stretch;
-  }
-
-  :where(thead) > tr:where(:last-child) {
-    border-block-end: 3px solid var(--border);
-  }
-
-  :where(tbody) > tr {
-    border-block-end: 1px solid var(--border);
-  }
-
-  .stripe > :where(tbody) > tr:where(:nth-child(odd)) {
-    background-color: var(--bg-tint);
-  }
-
-  :where(tfoot) > tr:where(:first-child) {
-    border-block-start: 3px solid var(--border);
-  }
-
-  th, td {
-    padding: 0.5em;
-  }
-
-  th {
-    text-align: inherit;
-  }
-
-  /* https://html.spec.whatwg.org/multipage/forms.html */
-
-  button, .button,
-  ::file-selector-button,
-  [role="button"],
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    --accent-bg: var(--bg);
-    --accent-fg: var(--fg);
-    --bg-tint: var(--action-bg-tint);
-    --fg-active: var(--action-fg-active);
-    --fg: var(--action-fg);
-
-    border-radius: var(--radius);
-    border: 0;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: inherit;
-    justify-content: center;
-    line-height: inherit;
-    padding-block: 0.5em;
-    padding-inline: 1em;
-    text-align: center;
-    user-select: none;
-
-    &:hover {
-      --accent-bg: var(--bg-tint);
-      --accent-fg: var(--fg-active);
-    }
-
-    &:active {
-      --accent-fg: color-mix(in oklch, var(--fg-active), black 12%);
-      translate: 0 1px;
-    }
-
-    &:where(:not(.stroke)) {
-      background-color: var(--accent-fg);
-      color: var(--static-bg);
-    }
-
-    &.stroke {
-      background-color: var(--accent-bg);
-      box-shadow: inset 0 0 0 1px currentColor;
-      color: var(--accent-fg);
-    }
-  }
-
-  /* https://html.spec.whatwg.org/multipage/interactive-elements.html */
-
-  summary {
-    --marker-size: 0.5em;
-
-    list-style-type: none;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-
-    &::before {
-      content: "◀";
-      float: inline-end;
-      margin-inline-end: calc(-1em - var(--marker-size));
-      transition-property: transform;
-    }
-
-    [open] > &::before {
-      transform: rotate(-90deg);
-    }
-  }
-
-  summary:where(:not(.button, [role="button"])) {
-    border-radius: var(--radius);
-    cursor: pointer;
-    margin-block: -0.5em;
-    margin-inline: -1em;
-    padding-block: 0.5em;
-    padding-inline: 1em calc(2em + var(--marker-size));
-
-    [open] > & {
-      margin-block-end: 0.625em;
-    }
-
-    &:hover {
-      background-color: var(--bg-tint);
-      color: var(--action-fg-active);
-    }
-  }
-
-  summary:is(.button, [role="button"]) {
-    padding-inline-end: calc(2em + var(--marker-size));
-    text-align: start;
-
-    [open] > & {
-      margin-block-end: revert-layer;
-    }
-  }
-
-  /* Caption elements */
-
-  caption, figcaption {
-    color: var(--fg-mute);
-  }
+.icon, .lucide {
+  size: 1em;
 }
 
-@layer page-layout {
-  :root {
-    --page-margin: max(var(--margin), (100vw - 38rem) / 2);
+/* Buttons */
 
-    @media (width >= 48rem) {
-      --page-margin: var(--margin);
-    }
-
-    @media (width >= 80rem) {
-      --page-margin: calc((100vw - 80rem) / 2 + var(--margin));
-    }
-
-    --side: clamp(12rem, 25vw, 16rem);
-    @media (width >= 64rem) {
-      --side: clamp(12rem, 25vw - 4rem, 16rem);
-    }
-
-    --side-margin: calc(var(--page-margin) + var(--side) + var(--margin));
-  }
-
-  .\(, :where(.\*\:\() > *, .\), :where(.\*\:\)) > * {
-    display: none;
-    margin-inline: revert-layer;
-  }
-
-  .main, :where(.\*\:main) > *,
-  .\(main\), :where(.\*\:\(main\)) > *,
-  .\(main, :where(.\*\:\(main) > *,
-  .main\), :where(.\*\:main\)) > * {
-    display: revert-layer;
-    margin-inline: var(--page-margin);
-  }
-
-  @media (width >= 48rem) {
-    .main, :where(.\*\:main) > *,
-    .\(main\), :where(.\*\:\(main\)) > *,
-    .\(main, :where(.\*\:\(main) > *,
-    .main\), :where(.\*\:main\)) > * {
-      float: none;
-      margin-block-start: revert-layer;
-      width: revert-layer;
-    }
-
-    .main, :where(.\*\:main) > *,
-    .\(main, :where(.\*\:\(main) > * {
-      clear: none;
-      margin-inline: var(--page-margin) var(--side-margin);
-    }
-
-    .\(main\), :where(.\*\:\(main\)) > *,
-    .main\), :where(.\*\:main\)) > * {
-      --pagegrid-template: 1fr var(--side);
-      clear: inline-end;
-      margin-inline: var(--page-margin);
-    }
-
-    .\), :where(.\*\:\)) > * {
-      clear: inline-end;
-      display: revert-layer;
-      float: inline-end;
-      margin-block-start: 0;
-      margin-inline: var(--margin) var(--page-margin);
-      width: var(--side);
-    }
-  }
-
-  @media (width >= 64rem) {
-    .main, :where(.\*\:main) > *,
-    .main\), :where(.\*\:main\)) > * {
-      float: none;
-      margin-block-start: revert-layer;
-      width: revert-layer;
-    }
-
-    .main, :where(.\*\:main) > * {
-      clear: none;
-      margin-inline: var(--side-margin);
-    }
-
-    .main\), :where(.\*\:main\)) > * {
-      --pagegrid-template: 1fr var(--side);
-      clear: inline-end;
-      margin-inline: var(--side-margin) var(--page-margin);
-    }
-
-    .\), :where(.\*\:\)) > * {
-      --pagegrid-template: 1fr;
-      clear: inline-end;
-      display: revert-layer;
-      float: inline-end;
-      margin-block-start: 0;
-      margin-inline: var(--margin) var(--page-margin);
-      width: var(--side);
-    }
-
-    .\(main\), :where(.\*\:\(main\)) > *,
-    .\(main, :where(.\*\:\(main) > * {
-      float: none;
-      margin-block-start: revert-layer;
-      width: revert-layer;
-    }
-
-    .\(main\), :where(.\*\:\(main\)) > * {
-      --pagegrid-template: var(--side) 1fr var(--side);
-      clear: both;
-      margin-inline: var(--page-margin);
-    }
-
-    .\(main, :where(.\*\:\(main) > * {
-      --pagegrid-template: var(--side) 1fr;
-      clear: inline-start;
-      margin-inline: var(--page-margin) var(--side-margin);
-    }
-
-    .\(, :where(.\*\:\() > * {
-      --pagegrid-template: 1fr;
-      clear: inline-start;
-      display: revert-layer;
-      float: inline-start;
-      margin-block-start: 0;
-      margin-inline: var(--page-margin) var(--margin);
-      width: var(--side);
-    }
-  }
+.circle {
+  border-radius: calc(infinity * 1px);
 }
 
-@layer site {
-  /* Text */
+/* Color */
 
-  .lead, .lede {
-    font-family: var(--header-font);
-    font-size: 1.25em;
-  }
+.mute {
+  color: var(--fg-mute);
+}
 
-  .mono {
-    font-family: var(--mono-font);
-  }
+.action {
+  --fg: var(--action-fg);
+  --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
+}
 
-  .text {
-    max-width: 38rem;
-  }
+.notice {
+  --fg: var(--notice-fg);
+  --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
+}
 
-  .note > :where(blockquote, dl, menu, ol, p, ul) {
-    color: var(--fg-mute);
-    font-size: 0.875em;
-  }
+.insert {
+  --fg: var(--insert-fg);
+  --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
+}
 
-  :is(.size\+2, .size\+\+) {
-    font-size: 1.25em;
-  }
+.delete {
+  --fg: var(--delete-fg);
+  --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
+}
 
-  :is(.size\+1, .size\+) {
-    font-size: 1.125em;
-  }
+/* Areas */
 
-  :is(.size-1, .size-) {
-    font-size: 0.875em;
-  }
+.area, .action-area, .notice-area, .insert-area, .delete-area {
+  padding: var(--gap);
+}
 
-  :is(.size-2, .size--) {
-    font-size: 0.75em;
-  }
+.area {
+  background-color: var(--bg-tint);
+}
 
-  /* Counters */
+.action-area {
+  --bg: color-mix(in oklch, var(--action) 12%, white);
+  --bg-tint: color-mix(in oklch, var(--action) 6%, white);
+  --border: color-mix(in oklch, var(--action) 40%, white);
+  --border-bold: var(--action);
+  background-color: var(--bg);
+}
 
-  main {
-    counter-reset: section;
-  }
+.notice-area {
+  --bg: color-mix(in oklch, var(--notice) 18%, white);
+  --bg-tint: color-mix(in oklch, var(--notice) 9%, white);
+  --border: color-mix(in oklch, var(--notice) 40%, white);
+  --border-bold: var(--notice);
+  background-color: var(--bg);
+}
 
-  .section-number::before {
-    content: "§ " counter(section, decimal-leading-zero) " · ";
-    counter-increment: section;
-  }
+.insert-area {
+  --bg-tint: color-mix(in oklch, var(--insert) 8%, white);
+  --bg: color-mix(in oklch, var(--insert) 15%, white);
+  --border: color-mix(in oklch, var(--insert) 40%, white);
+  --border-bold: var(--insert);
+  background-color: var(--bg);
+}
 
-  .li-number::before {
-    color: var(--fg-tint);
-    content: counter(list-item, decimal-leading-zero);
-    font-family: var(--mono-font);
-    font-size: 0.875em;
-    margin-inline-end: 1em;
-  }
+.delete-area {
+  --bg-tint: color-mix(in oklch, var(--delete) 8%, white);
+  --bg: color-mix(in oklch, var(--delete) 15%, white);
+  --border: color-mix(in oklch, var(--delete) 40%, white);
+  --border-bold: var(--delete);
+  background-color: var(--bg);
+}
 
-  /* Icons */
+/* Accents */
 
-  .iconic {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 0.5em;
+.band {
+  border-block: 1px solid var(--border);
+  padding-block: var(--gap);
+}
 
-    > * {
-      flex: none;
-      margin-block: 0;
-    }
-  }
+.border {
+  border: 1px solid var(--border);
+  padding: var(--gap);
+}
 
-  .icon, .lucide {
-    size: 1em;
-  }
+.acme, .action-acme, .notice-acme, .insert-acme, .delete-acme {
+  border-block-start: 3px solid var(--border-bold);
+  padding-block-start: var(--gap);
+}
 
-  /* Buttons */
+.action-acme {
+  border-block-start-color: var(--action-fg);
+}
 
-  .circle {
-    border-radius: calc(infinity * 1px);
-  }
+.notice-acme {
+  border-block-start-color: var(--notice-fg);
+}
 
-  /* Color */
+.insert-acme {
+  border-block-start-color: var(--insert-fg);
+}
 
-  .mute {
-    color: var(--fg-mute);
-  }
+.delete-acme {
+  border-block-start-color: var(--delete-fg);
+}
 
-  .action {
-    --fg: var(--action-fg);
-    --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
-    --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
-    --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
-  }
+.edge, .action-edge, .notice-edge, .insert-edge, .delete-edge {
+  border-inline-start: 3px solid var(--border-bold);
+  padding-inline-start: var(--gap);
+}
 
-  .notice {
-    --fg: var(--notice-fg);
-    --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
-    --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
-    --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
-  }
+.action-edge {
+  border-inline-start-color: var(--action-fg);
+}
 
-  .insert {
-    --fg: var(--insert-fg);
-    --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
-    --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
-    --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
-  }
+.notice-edge {
+  border-inline-start-color: var(--notice-fg);
+}
 
-  .delete {
-    --fg: var(--delete-fg);
-    --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
-    --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
-    --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
-  }
+.insert-edge {
+  border-inline-start-color: var(--insert-fg);
+}
 
-  /* Areas */
-
-  .area, .action-area, .notice-area, .insert-area, .delete-area {
-    padding: var(--gap);
-  }
-
-  .area {
-    background-color: var(--bg-tint);
-  }
-
-  .action-area {
-    --bg: color-mix(in oklch, var(--action) 12%, white);
-    --bg-tint: color-mix(in oklch, var(--action) 6%, white);
-    --border: color-mix(in oklch, var(--action) 40%, white);
-    --border-bold: var(--action);
-    background-color: var(--bg);
-  }
-
-  .notice-area {
-    --bg: color-mix(in oklch, var(--notice) 18%, white);
-    --bg-tint: color-mix(in oklch, var(--notice) 9%, white);
-    --border: color-mix(in oklch, var(--notice) 40%, white);
-    --border-bold: var(--notice);
-    background-color: var(--bg);
-  }
-
-  .insert-area {
-    --bg-tint: color-mix(in oklch, var(--insert) 8%, white);
-    --bg: color-mix(in oklch, var(--insert) 15%, white);
-    --border: color-mix(in oklch, var(--insert) 40%, white);
-    --border-bold: var(--insert);
-    background-color: var(--bg);
-  }
-
-  .delete-area {
-    --bg-tint: color-mix(in oklch, var(--delete) 8%, white);
-    --bg: color-mix(in oklch, var(--delete) 15%, white);
-    --border: color-mix(in oklch, var(--delete) 40%, white);
-    --border-bold: var(--delete);
-    background-color: var(--bg);
-  }
-
-  /* Accents */
-
-  .band {
-    border-block: 1px solid var(--border);
-    padding-block: var(--gap);
-  }
-
-  .border {
-    border: 1px solid var(--border);
-    padding: var(--gap);
-  }
-
-  .acme, .action-acme, .notice-acme, .insert-acme, .delete-acme {
-    border-block-start: 3px solid var(--border-bold);
-    padding-block-start: var(--gap);
-  }
-
-  .action-acme {
-    border-block-start-color: var(--action-fg);
-  }
-
-  .notice-acme {
-    border-block-start-color: var(--notice-fg);
-  }
-
-  .insert-acme {
-    border-block-start-color: var(--insert-fg);
-  }
-
-  .delete-acme {
-    border-block-start-color: var(--delete-fg);
-  }
-
-  .edge, .action-edge, .notice-edge, .insert-edge, .delete-edge {
-    border-inline-start: 3px solid var(--border-bold);
-    padding-inline-start: var(--gap);
-  }
-
-  .action-edge {
-    border-inline-start-color: var(--action-fg);
-  }
-
-  .notice-edge {
-    border-inline-start-color: var(--notice-fg);
-  }
-
-  .insert-edge {
-    border-inline-start-color: var(--insert-fg);
-  }
-
-  .delete-edge {
-    border-inline-start-color: var(--delete-fg);
-  }
+.delete-edge {
+  border-inline-start-color: var(--delete-fg);
 }

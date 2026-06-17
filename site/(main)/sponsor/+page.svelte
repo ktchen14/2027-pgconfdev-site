@@ -148,8 +148,8 @@
 
   <div class="grid+16 (main)">
     <div class="note border edge tier tier-platinum">
-      <hgroup>
-        <h3 class="h4">Platinum</h3>
+      <hgroup class="h4">
+        <h3>Platinum</h3>
         <p class="mono price">CAD $25,000</p>
       </hgroup>
       <p>
@@ -160,8 +160,8 @@
     </div>
 
     <div class="note border edge tier tier-gold">
-      <hgroup>
-        <h3 class="h4">Gold</h3>
+      <hgroup class="h4">
+        <h3>Gold</h3>
         <p class="mono price">CAD $15,000</p>
       </hgroup>
       <p>
@@ -171,8 +171,8 @@
     </div>
 
     <div class="note border edge tier tier-silver">
-      <hgroup>
-        <h3 class="h4">Silver</h3>
+      <hgroup class="h4">
+        <h3>Silver</h3>
         <p class="mono price">CAD $7,500</p>
       </hgroup>
       <p>
@@ -182,8 +182,8 @@
     </div>
 
     <div class="note border edge tier tier-bronze">
-      <hgroup>
-        <h3 class="h4">Bronze</h3>
+      <hgroup class="h4">
+        <h3>Bronze</h3>
         <p class="mono price">CAD $3,000</p>
       </hgroup>
       <p>Logo on website. One complimentary registration.</p>
@@ -213,9 +213,9 @@
   style:color="var(--bg)"
   style:padding-block="var(--margin)"
 >
-  <hgroup>
+  <hgroup class="h1">
     <p style:color="var(--bg)">Past editions</p>
-    <h2 class="h1" style:color="var(--bg)" style:max-width="38rem">
+    <h2 style:color="var(--bg)" style:max-width="38rem">
       Thank you to our 2026 sponsors.
     </h2>
   </hgroup>

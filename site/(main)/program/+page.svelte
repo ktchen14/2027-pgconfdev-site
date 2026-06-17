@@ -171,9 +171,9 @@
 
   <div class="grid+16 (main)">
     <div class="note border edge">
-      <hgroup>
+      <hgroup class="h4">
         <p>45 min · 3 tracks</p>
-        <h3 class="h4">Talk</h3>
+        <h3>Talk</h3>
       </hgroup>
       <p>
         The main format. Slide-driven or live-demo, with Q&amp;A in the final
@@ -182,9 +182,9 @@
     </div>
 
     <div class="note border insert-edge">
-      <hgroup>
+      <hgroup class="h4">
         <p>90 min · Day 1</p>
-        <h3 class="h4">Tutorial</h3>
+        <h3>Tutorial</h3>
       </hgroup>
       <p>
         Hands-on, laptop-required session on the tutorial day. Max 40 attendees
@@ -193,9 +193,9 @@
     </div>
 
     <div class="note border notice-edge">
-      <hgroup>
+      <hgroup class="h4">
         <p>30 min · Friday</p>
-        <h3 class="h4">Unconference</h3>
+        <h3>Unconference</h3>
       </hgroup>
       <p>
         Proposed and voted on the day of. Submit a topic idea in advance to seed

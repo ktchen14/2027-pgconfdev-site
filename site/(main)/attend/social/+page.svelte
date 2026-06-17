@@ -91,9 +91,9 @@
     <figure id="reception">
       <div class="photo border">[ Photo · evening reception ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h4">
           <p>Wednesday · 18:00 · Near conference</p>
-          <h3 class="h4">Evening Reception</h3>
+          <h3>Evening Reception</h3>
         </hgroup>
         <p>
           Appetizers and two complimentary drinks included with your
@@ -106,9 +106,9 @@
     <figure id="dinner">
       <div class="photo border">[ Photo · community dinner ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h4">
           <p>Thursday · 19:30 · Old Montréal</p>
-          <h3 class="h4">Community Dinner</h3>
+          <h3>Community Dinner</h3>
         </hgroup>
         <p>
           The traditional conference dinner at a venue in Old Montréal. Separate
@@ -130,9 +130,9 @@
     <figure id="breakfast">
       <div class="photo border">[ Photo · welcome breakfast ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Tuesday · 07:30 · Registration</p>
-          <h3 class="h5">Newcomer Welcome Breakfast</h3>
+          <h3>Newcomer Welcome Breakfast</h3>
         </hgroup>
         <p>
           Meet other newcomers alongside experienced community members before
@@ -144,9 +144,9 @@
     <figure id="run">
       <div class="photo border">[ Photo · social run ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Tuesday · 17:30 · Main entrance</p>
-          <h3 class="h5">Social Run</h3>
+          <h3>Social Run</h3>
         </hgroup>
         <p>
           A recreational 5–10 km run through Montréal and along the waterfront.
@@ -158,9 +158,9 @@
     <figure id="pub">
       <div class="photo border">[ Photo · hallway pub ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Evenings · all week · Near conference</p>
-          <h3 class="h5">Hallway Pub</h3>
+          <h3>Hallway Pub</h3>
         </hgroup>
         <p>
           An informal after-hours spot near the venue. No signup, no agenda —
@@ -173,9 +173,9 @@
     <figure>
       <div class="photo border">[ Photo · small-group dinner ]</div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Tue &amp; Thu · Various restaurants</p>
-          <h3 class="h5">Meet &amp; Eat</h3>
+          <h3>Meet &amp; Eat</h3>
         </hgroup>
         <p>
           Self-organized dinners in groups of 8. Sign up at registration, get a

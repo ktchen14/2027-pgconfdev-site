@@ -1,0 +1,92 @@
+/* Universal elements */
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+:target {
+  scroll-margin-block: var(--gap);
+}
+
+body {
+  margin-block: 0;
+}
+
+.margin-gap {
+  margin-block: 0 var(--gap);
+}
+
+/* Sectioning content */
+
+article, aside, nav, section, .section {
+  margin-block: var(--margin);
+}
+
+/* Heading content */
+
+h1, h2, h3, h4, h5, h6, hgroup, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-block: calc(1.5rem * var(--size)) calc(0.5rem * var(--size));
+}
+
+hgroup > :is(h1, h2, h3, h4, h5, h6, p) {
+  margin-block: 0;
+}
+
+hgroup > p:has(+ :where(:heading)) {
+  margin-block-end: calc(2em / 3);
+}
+
+:where(h1, .h1, hgroup:has(> h1)) + :is(h2, h3, h4, h5, h6),
+:where(h1, .h1, hgroup:has(> h1)) + hgroup:has(> :where(h2, h3, h4, h5, h6)),
+:where(h1, .h1, hgroup:has(> h1)) + :is(.h2, .h3, .h4, .h5, .h6),
+:where(h2, .h2, hgroup:has(> h2)) + :is(h3, h4, h5, h6),
+:where(h2, .h2, hgroup:has(> h2)) + hgroup:has(> :where(h3, h4, h5, h6)),
+:where(h2, .h2, hgroup:has(> h2)) + :is(.h3, .h4, .h5, .h6),
+:where(h3, .h3, hgroup:has(> h3)) + :is(h4, h5, h6),
+:where(h3, .h3, hgroup:has(> h3)) + hgroup:has(> :where(h4, h5, h6)),
+:where(h3, .h3, hgroup:has(> h3)) + :is(.h4, .h5, .h6),
+:where(h4, .h4, hgroup:has(> h4)) + :is(h5, h6, hgroup:has(> :where(h5, h6))),
+:where(h4, .h4, hgroup:has(> h4)) + :is(.h5, .h6),
+:where(h5, .h5, hgroup:has(> h5)) + :is(h6, hgroup:has(> :where(h6))),
+:where(h5, .h5, hgroup:has(> h5)) + .h6 {
+  margin-block-start: 0;
+}
+
+/* Flow content except heading content, phrasing content, sectioning content,
+ * <dialog>, and <div>. */
+
+address, blockquote, details, dl, fieldset, figure, footer, form, header, hr,
+main, menu, ol, p, pre, search, table, ul, .p {
+  margin-block: 0 1em;
+}
+
+:where(dd, li) > :is(dl, menu, ol, ul) {
+  margin-block: 0.25em 0;
+}
+
+/* List elements */
+
+dd, li {
+  margin-block: 0 0.25em;
+}
+
+/* Caption elements */
+
+caption, figcaption, .over {
+  margin-block: calc(2em / 3);
+}
+
+/* Margin trim */
+
+.margin-gap, h1, h2, h3, h4, h5, h6, hgroup, .h1, .h2, .h3, .h4, .h5, .h6,
+article, aside, nav, section, .section, address, blockquote, details, dl,
+fieldset, figure, footer, form, header, hr, main, menu, ol, p, pre, search,
+table, ul, .p, dd, li, caption, figcaption, .over {
+  :where(&):first-child {
+    margin-block-start: 0;
+  }
+
+  :where(&):last-child {
+    margin-block-end: 0;
+  }
+}

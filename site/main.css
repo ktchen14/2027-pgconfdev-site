@@ -1,0 +1,270 @@
+/* Universal elements */
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--normal-font);
+  line-height: 1.5;
+  margin-inline: 0;
+  min-width: 20rem;
+  overflow-wrap: break-word;
+}
+
+*, ::before, ::after {
+  transition-duration: 0.15s;
+  transition-property: none;
+  transition-timing-function: ease-in-out;
+}
+
+:is(.action, .notice, .insert, .delete) {
+  color: var(--fg);
+}
+
+/* Heading content */
+
+h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
+  font-family: var(--header-font);
+  font-size: calc(1rem * var(--size));
+  font-weight: 500;
+  letter-spacing: min(-2% * (1 - exp(1 - var(--size))), 0%);
+  line-height: clamp(1, 1 + 0.5 * exp(1 - var(--size)), 1.5);
+  text-wrap: balance;
+}
+
+h6, .h6 {
+  font-family: var(--normal-font);
+}
+
+h1, hgroup:has(> :where(h1)), .h1, :where(hgroup).h1 > :where(:heading) {
+  --size: var(--h1-size);
+}
+
+h2, hgroup:has(> :where(h2)), .h2, :where(hgroup).h2 > :where(:heading) {
+  --size: var(--h2-size);
+}
+
+h3, hgroup:has(> :where(h3)), .h3, :where(hgroup).h3 > :where(:heading) {
+  --size: var(--h3-size);
+}
+
+h4, hgroup:has(> :where(h4)), .h4, :where(hgroup).h4 > :where(:heading) {
+  --size: var(--h4-size);
+}
+
+h5, hgroup:has(> :where(h5)), .h5, :where(hgroup).h5 > :where(:heading) {
+  --size: var(--h5-size);
+}
+
+h6, hgroup:has(> :where(h6)), .h6, :where(hgroup).h6 > :where(:heading) {
+  --size: var(--h6-size);
+}
+
+hgroup > p:has(~ :where(:heading)), .over {
+  color: var(--fg-tint);
+  font-family: var(--mono-font);
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+hgroup > :where(:heading) ~ p, caption, figcaption, small, .note {
+  color: var(--fg-mute);
+  font-size: 0.875em;
+}
+
+/* Flow content */
+
+blockquote {
+  margin-inline: 0;
+  padding-inline-start: var(--gap);
+}
+
+dd {
+  margin-inline-start: var(--gap);
+
+  :where(nav, search) &,
+  &.dedent,
+  :where(dl).dedent > :where(div) > &,
+  :where(dl).dedent > & {
+    margin-inline-start: 0;
+  }
+}
+
+figure {
+  margin-inline: 0;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  margin-inline: 0;
+}
+
+menu, ol, ul {
+  padding-inline-start: var(--gap);
+
+  :where(nav, search) &, &.dedent {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+}
+
+pre {
+  overflow: auto;
+}
+
+/* Text-level semantics */
+
+code, kbd, pre, samp {
+  font-family: var(--mono-font);
+  font-size: 0.875em;
+
+  :where(&) & {
+    font-size: inherit;
+  }
+}
+
+code {
+  color: var(--code-color);
+}
+
+mark {
+  background-color: color-mix(in oklch, var(--notice) 50%, white);
+}
+
+sub, sup {
+  font-size: 0.75em;
+}
+
+/* Links */
+
+a:where(:not(.button, [role="button"])) {
+  color: var(--action-fg);
+  text-decoration: underline rgb(from currentColor r g b / 50%);
+
+  &:hover {
+    color: var(--action-fg-active);
+  }
+
+  :where(nav, search) & {
+    border-radius: var(--radius);
+    color: inherit;
+    display: inline-block;
+    margin-inline: -0.75em;
+    padding-block: 0.5em;
+    padding-inline: 0.75em;
+    text-decoration: none;
+    width: stretch;
+
+    &:hover {
+      background-color: var(--bg-tint);
+    }
+  }
+}
+
+a:is(.button, [role="button"]) {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Edits */
+
+del {
+  color: var(--delete-fg);
+}
+
+ins {
+  color: var(--insert-fg);
+}
+
+/* Embedded content */
+
+audio:where([controls]), canvas, embed, iframe, img, object, picture, video {
+  display: block;
+  width: stretch;
+}
+
+iframe {
+  border: 0;
+  height: auto;
+}
+
+/* Tabular data */
+
+table {
+  border-collapse: collapse;
+  overflow: auto;
+  width: stretch;
+}
+
+.stripe > :where(tbody) > tr:where(:nth-child(odd)) {
+  background-color: var(--bg-tint);
+}
+
+:where(thead) > tr:where(:last-child) {
+  border-block-end: 3px solid var(--border);
+}
+
+:where(tbody) > tr {
+  border-block-end: 1px solid var(--border);
+}
+
+:where(tfoot) > tr:where(:first-child) {
+  border-block-start: 3px solid var(--border);
+}
+
+th, td {
+  padding: 0.5em;
+}
+
+th {
+  text-align: inherit;
+}
+
+/* Forms */
+
+button, .button,
+::file-selector-button,
+[role="button"],
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  --accent-bg: var(--bg);
+  --accent-fg: var(--fg);
+  --bg-tint: var(--action-bg-tint);
+  --fg-active: var(--action-fg-active);
+  --fg: var(--action-fg);
+
+  border-radius: var(--radius);
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  justify-content: center;
+  line-height: inherit;
+  padding-block: 0.5em;
+  padding-inline: 1em;
+  text-align: center;
+  user-select: none;
+
+  &:hover {
+    --accent-bg: var(--bg-tint);
+    --accent-fg: var(--fg-active);
+  }
+
+  &:active {
+    --accent-fg: color-mix(in oklch, var(--fg-active), black 12%);
+    translate: 0 1px;
+  }
+
+  &:where(:not(.stroke)) {
+    background-color: var(--accent-fg);
+    color: var(--static-bg);
+  }
+
+  &.stroke {
+    background-color: var(--accent-bg);
+    box-shadow: inset 0 0 0 1px currentColor;
+    color: var(--accent-fg);
+  }
+}

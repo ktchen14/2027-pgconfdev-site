@@ -64,9 +64,9 @@
     <figure>
       <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Conference chair</p>
-          <h3 class="h5">Committee member name</h3>
+          <h3>Committee member name</h3>
         </hgroup>
 
         <p>
@@ -79,9 +79,9 @@
     <figure>
       <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Program chair</p>
-          <h3 class="h5">Committee member name</h3>
+          <h3>Committee member name</h3>
         </hgroup>
 
         <p>
@@ -94,9 +94,9 @@
     <figure>
       <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Logistics chair</p>
-          <h3 class="h5">Committee member name</h3>
+          <h3>Committee member name</h3>
         </hgroup>
 
         <p>
@@ -109,9 +109,9 @@
     <figure>
       <div class="border" style:aspect-ratio="4 / 5"></div>
       <figcaption class="note">
-        <hgroup>
+        <hgroup class="h5">
           <p>Sponsorship</p>
-          <h3 class="h5">Committee member name</h3>
+          <h3>Committee member name</h3>
         </hgroup>
 
         <p>
@@ -197,8 +197,8 @@
 
   <div class="grid+14 (main)">
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Program</h3>
+      <hgroup class="h4">
+        <h3>Program</h3>
         <p>CFP questions, schedule, talk logistics.</p>
       </hgroup>
       <p class="mono">
@@ -207,8 +207,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Sponsorship</h3>
+      <hgroup class="h4">
+        <h3>Sponsorship</h3>
         <p>Sponsorship inquiries, partner program, invoicing.</p>
       </hgroup>
       <p class="mono">
@@ -217,8 +217,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Press &amp; media</h3>
+      <hgroup class="h4">
+        <h3>Press &amp; media</h3>
         <p>Press passes, interview requests, photo policy.</p>
       </hgroup>
       <p class="mono">
@@ -227,8 +227,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Code of conduct</h3>
+      <hgroup class="h4">
+        <h3>Code of conduct</h3>
         <p>Confidential channel monitored by the CoC committee.</p>
       </hgroup>
       <p class="mono">
@@ -237,8 +237,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">General</h3>
+      <hgroup class="h4">
+        <h3>General</h3>
         <p>Anything else.</p>
       </hgroup>
       <p class="mono">
@@ -247,8 +247,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Mailing list</h3>
+      <hgroup class="h4">
+        <h3>Mailing list</h3>
         <p>Announcements only — about one email a month.</p>
       </hgroup>
       <p class="mono">

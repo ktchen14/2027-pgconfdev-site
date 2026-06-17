@@ -72,7 +72,7 @@
   /* Text */
   --fg: var(--static-fg);
 
-  /* Secondary text, i.e. <figcaption>, <small>, .deck, .mute, .note */
+  /* Secondary text, i.e. <figcaption>, <small>, .mute, .note */
   --fg-mute: color-mix(in oklch, var(--static) 65%, white);
 
   /* Tertiary text, i.e. .over */

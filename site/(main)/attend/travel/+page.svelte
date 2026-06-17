@@ -158,22 +158,22 @@
 <section aria-label="Partner hotels" class="(main)">
   <div class="grid+14">
     <div class="note border">
-      <hgroup>
-        <h3 class="h5">Hotel details to be confirmed</h3>
+      <hgroup class="h5">
+        <h3>Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
-      <hgroup>
-        <h3 class="h5">Hotel details to be confirmed</h3>
+      <hgroup class="h5">
+        <h3>Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>
     </div>
     <div class="note border">
-      <hgroup>
-        <h3 class="h5">Hotel details to be confirmed</h3>
+      <hgroup class="h5">
+        <h3>Hotel details to be confirmed</h3>
         <p class="mono action">Rate TBD · Deadline TBD</p>
       </hgroup>
       <p>Partner hotel details will be posted by March 2027.</p>

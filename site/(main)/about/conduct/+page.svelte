@@ -150,8 +150,8 @@
 <section aria-label="Reporting channels" class="(main)">
   <div class="grid+16">
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">Code of Conduct committee</h3>
+      <hgroup class="h4">
+        <h3>Code of Conduct committee</h3>
         <p>Confidential. Monitored by the CoC committee only.</p>
       </hgroup>
       <p class="mono">
@@ -160,8 +160,8 @@
     </div>
 
     <div class="note area border">
-      <hgroup>
-        <h3 class="h4">On-site staff</h3>
+      <hgroup class="h4">
+        <h3>On-site staff</h3>
         <p>Identify any staff member at the registration desk or venue.</p>
       </hgroup>
       <p class="mono">Staff badge · blue lanyard</p>

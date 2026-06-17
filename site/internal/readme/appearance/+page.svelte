@@ -26,7 +26,6 @@
     <li><a class="li-number" href="#color">Color</a></li>
     <li><a class="li-number" href="#icons">Icons</a></li>
     <li><a class="li-number" href="#buttons">Buttons</a></li>
-    <li><a class="li-number" href="#details">Details</a></li>
     <li><a class="li-number" href="#areas">Areas</a></li>
     <li><a class="li-number" href="#accents">Accents</a></li>
     <li><a class="li-number" href="#tables">Tables</a></li>
@@ -343,49 +342,6 @@
   </Demo>
 </section>
 
-<section id="details" class="main">
-  <hgroup>
-    <h2 class="section-number">Details</h2>
-    <p>Collapsible disclosure widget.</p>
-  </hgroup>
-
-  <p>
-    A <code class="action">&lt;details&gt;</code> element is styled
-    automatically. The <code class="action">&lt;summary&gt;</code> replaces the browser's
-    default triangle with a custom rotating marker and a hover treatment.
-  </p>
-
-  <Demo
-    source={`
-<details>
-  <summary>Venue directions</summary>
-
-  <p>
-    The conference is held at the Vancouver Convention Centre, 1055 Canada Place, Vancouver, BC.
-  </p>
-</details>`}
-  />
-
-  <p>
-    Add <T>.button</T> or <T>role="button"</T> to a
-    <code>&lt;summary&gt;</code> to render it as a button. The semantic color
-    classes and <T>.stroke</T> apply as they do to any button.
-  </p>
-
-  <Demo
-    source={`
-<details>
-  <summary class="button stroke">
-    Venue directions
-  </summary>
-
-  <p>
-    The conference is held at the Vancouver Convention Centre, 1055 Canada Place, Vancouver, BC.
-  </p>
-</details>`}
-  />
-</section>
-
 <section id="areas" class="main">
   <hgroup>
     <h2 class="section-number">Areas</h2>
@@ -597,8 +553,7 @@
   <p>
     A plain <code class="action">&lt;table&gt;</code> gets full-width layout, a
     heavy rule below <code>&lt;thead&gt;</code>, and a hairline between each
-    <code>&lt;tbody&gt;</code> row. A <code>&lt;caption&gt;</code> renders below the
-    table, not above it.
+    <code>&lt;tbody&gt;</code> row.
   </p>
 
   <Demo

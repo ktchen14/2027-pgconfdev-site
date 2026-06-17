@@ -105,8 +105,8 @@
 
   <div class="grid+16 (main)">
     <div class="note border">
-      <hgroup>
-        <h3 class="h4">Registration desk</h3>
+      <hgroup class="h4">
+        <h3>Registration desk</h3>
         <p class="mono action">3–4 hr shifts · All days</p>
       </hgroup>
       <p>
@@ -117,8 +117,8 @@
     </div>
 
     <div class="note border">
-      <hgroup>
-        <h3 class="h4">Room host (speaker intro)</h3>
+      <hgroup class="h4">
+        <h3>Room host (speaker intro)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
       </hgroup>
       <p>
@@ -129,8 +129,8 @@
     </div>
 
     <div class="note border">
-      <hgroup>
-        <h3 class="h4">Room host (operations)</h3>
+      <hgroup class="h4">
+        <h3>Room host (operations)</h3>
         <p class="mono action">Half-day blocks · Talk days</p>
       </hgroup>
       <p>
@@ -141,8 +141,8 @@
     </div>
 
     <div class="note border">
-      <hgroup>
-        <h3 class="h4">A/V support</h3>
+      <hgroup class="h4">
+        <h3>A/V support</h3>
         <p class="mono action">Full day · As needed</p>
       </hgroup>
       <p>
