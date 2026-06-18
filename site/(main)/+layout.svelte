@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import { GitHub, LinkedIn, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
   import { ul as aboutUl } from "./about/SectionNav.svelte";
   import { ul as attendUl } from "./attend/SectionNav.svelte";
-  import Footer from "./Footer";
   import Header from "./Header";
   import { ul as programUl } from "./program/SectionNav.svelte";
 
@@ -32,6 +32,14 @@
       padding-block: 1em;
       right: calc(-1.5rem - 1px);
       width: 15rem;
+    }
+  }
+
+  footer {
+    justify-content: space-between;
+
+    :global(.icon) {
+      margin-inline-start: 0.25em;
     }
   }
 </style>
@@ -66,4 +74,21 @@
 
 <hr class="margin-gap" />
 
-<Footer />
+<footer class="(main) flex@48- margin-gap note">
+  <p>
+    Follow us on
+    <Link href={Mastodon.href} aria-label="Mastodon">
+      Mastodon<Mastodon class="size-" />
+    </Link> or
+    <Link href={LinkedIn.href} aria-label="LinkedIn">
+      LinkedIn<LinkedIn class="size-" />
+    </Link> for the latest news on PGConf.dev 2027
+  </p>
+
+  <p>
+    Edit this site on
+    <Link href={GitHub.href} aria-label="GitHub">
+      GitHub<GitHub class="size-" />
+    </Link>
+  </p>
+</footer>

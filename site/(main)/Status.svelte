@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { ClassValue, HTMLAttributes } from "svelte/elements";
+  import { MessageCircle, Repeat2, Star } from "@lucide/svelte";
+  import type { HTMLAttributes } from "svelte/elements";
   import type { JSON as Mastodon } from "tsl-mastodon-api";
 
   type Props = HTMLAttributes<HTMLElement> & {
-    class?: ClassValue;
     status: Mastodon.Status;
   };
   const { class: klass, status, ...rest }: Props = $props();
@@ -67,8 +67,8 @@
   <hr aria-hidden="true" />
 
   <footer class="flex">
-    <span>↺ {status.replies_count}</span>
-    <span>↺ {status.reblogs_count}</span>
-    <span>★ {status.favourites_count}</span>
+    <span class="iconic"><MessageCircle /> {status.replies_count}</span>
+    <span class="iconic"><Repeat2 /> {status.reblogs_count}</span>
+    <span class="iconic"><Star /> {status.favourites_count}</span>
   </footer>
 </article>

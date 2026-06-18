@@ -1,9 +1,10 @@
-<script module>
+<script module lang="ts">
   export const href = "https://github.com/slonikevents/2027-pgconfdev-site";
 </script>
 
 <script lang="ts">
   import type { SVGAttributes } from "svelte/elements";
+
   type Props = SVGAttributes<SVGSVGElement>;
   const { class: klass, ...rest }: Props = $props();
 </script>

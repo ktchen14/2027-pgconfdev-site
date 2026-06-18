@@ -250,7 +250,7 @@
       </hgroup>
 
       <div class="grid+18">
-        {#each statuses as status (status.id)}
+        {#each statuses.slice(0, 3) as status (status.id)}
           <Status {status} />
         {/each}
       </div>
