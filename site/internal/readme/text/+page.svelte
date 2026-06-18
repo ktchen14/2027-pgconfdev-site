@@ -131,8 +131,8 @@
 
   <p>
     To resize an actual heading inside an <T>&lt;hgroup&gt;</T>, put the class
-    on the <T>&lt;hgroup&gt;</T> rather than the heading. It resizes the heading
-    within, and the group's spacing follows the new size.
+    on the <T>&lt;hgroup&gt;</T> rather than the heading. It resizes the heading within,
+    and the group's spacing follows the new size.
   </p>
 
   <Demo
