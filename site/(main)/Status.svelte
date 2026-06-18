@@ -9,11 +9,9 @@
   };
   const { class: klass, status, ...rest }: Props = $props();
 
-  const [attachment] = $derived(status.media_attachments);
-
-  // mastodon.social has no remote-interaction intent URLs, so every action
-  // just opens the status page, where reply/boost/favourite buttons live.
+  const username = $derived(status.account.username);
   const href = $derived(status.url ?? undefined);
+  const [attachment] = $derived(status.media_attachments);
 </script>
 
 <style>
@@ -55,8 +53,6 @@
   data-attachment={attachment !== undefined}
   {...rest}
 >
-  {const username = status.account.username}
-
   {#if status.pinned}
     <p class="hint iconic"><Pin /> Pinned</p>
   {/if}
