@@ -47,6 +47,7 @@
     "svelte": "^5.55.9",
     "svelte-check": "^4.4.8",
     "temporal-polyfill": "latest",
+    "tsl-mastodon-api": "^0.5.2",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.4",
     "unocss": "^66.7.0",
