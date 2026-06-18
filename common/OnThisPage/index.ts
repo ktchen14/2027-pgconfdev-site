@@ -1,4 +1,4 @@
 import Link from "./Link.svelte";
-import Main from "./Main.svelte";
+import Root from "./Root.svelte";
 
-export default Object.assign(Main, { Link });
+export default Object.assign(Root, { Link });

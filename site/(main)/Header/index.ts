@@ -1,4 +1,4 @@
-import Main from "./Main.svelte";
+import Root from "./Root.svelte";
 import ToggleMenu from "./ToggleMenu.svelte";
 
-export default Object.assign(Main, { ToggleMenu });
+export default Object.assign(Root, { ToggleMenu });

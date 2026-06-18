@@ -1,9 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { GitHub, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
   import { ul as aboutUl } from "./about/SectionNav.svelte";
   import { ul as attendUl } from "./attend/SectionNav.svelte";
+  import Footer from "./Footer";
   import Header from "./Header";
   import { ul as programUl } from "./program/SectionNav.svelte";
 
@@ -20,10 +20,6 @@
 
   :where(main) {
     margin-block-end: var(--margin);
-  }
-
-  :where(footer) {
-    justify-content: space-between;
   }
 
   .menu-single {
@@ -70,7 +66,4 @@
 
 <hr class="margin-gap" />
 
-<footer class="(main) flex@48- margin-gap note">
-  <p>Follow us on <Mastodon /> for the latest news on PGConf.dev 2027</p>
-  <p>Fork this site on <GitHub /></p>
-</footer>
+<Footer />

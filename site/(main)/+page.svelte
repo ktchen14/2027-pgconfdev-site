@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Circle } from "@lucide/svelte";
   import { resolve } from "$app/paths";
+  import { Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
   import banner from "./banner.svg";
   import Status from "./Status.svelte";
@@ -50,7 +51,7 @@
     name="description"
     content="PGConf.dev 2027 will be held on May 11–14 in Montreal, QC to bring users, developers, and organizers together to advance PostgreSQL development."
   />
-  <link href="https://mastodon.social/@pgconfdev" rel="me" />
+  <link href={Mastodon.href} rel="me" />
 </svelte:head>
 
 <section class="(main) hero">

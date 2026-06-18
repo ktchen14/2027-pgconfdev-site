@@ -1,7 +1,7 @@
 import { createRawSnippet } from "svelte";
 import { describe, expect, it, vi } from "vitest";
 import { render } from "vitest-browser-svelte";
-import Link from "./Main.svelte";
+import Link from "./Root.svelte";
 
 // $app/state has no actual `page.url` in a component test
 vi.mock("$app/state", () => ({
