@@ -1,5 +1,4 @@
 README.md
-site.css
 site.html
 
 *.yaml
@@ -11,6 +10,11 @@ pnpm-lock.yaml
 yarn.lock
 bun.lock
 bun.lockb
+
+/site/main.css
+/site/margin.css
+/site/page.css
+/site/site.css
 
 # Miscellaneous
 /static/
