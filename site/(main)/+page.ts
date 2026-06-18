@@ -24,8 +24,7 @@ export const load: PageLoad = ({ fetch }) => {
       for (const response of responses) {
         if (!response.ok)
           throw new Error(`Failed to load statuses: ${response.status}`);
-        for (const status of (await response.json()))
-          byId.set(status.id, status);
+        for (const status of await response.json()) byId.set(status.id, status);
       }
       return [...byId.values()].slice(0, 6);
     },

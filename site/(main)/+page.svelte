@@ -3,6 +3,9 @@
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
   import banner from "./banner.svg";
+  import Status from "./Status.svelte";
+
+  const { data } = $props();
 
   const href =
     "https://2026.pgconf.dev/svelte/immutable/assets/butcher.BRs9V-uj.avif";
@@ -232,6 +235,27 @@
     </figure>
   </div>
 </section>
+
+{#await data.statuses then statuses}
+  <section class="tint">
+    <div class="(main)">
+      <hgroup class="margin-gap text">
+        <p>Latest</p>
+        <h2>News from the organizers</h2>
+        <p>
+          Schedule drops, deadlines, and travel notes — posted to @pgconfdev on
+          Mastodon as they happen.
+        </p>
+      </hgroup>
+
+      <div class="grid+18">
+        {#each statuses as status (status.id)}
+          <Status {status} />
+        {/each}
+      </div>
+    </div>
+  </section>
+{/await}
 
 <section
   style:background-color="var(--action)"
