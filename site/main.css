@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
   text-wrap: balance;
 }
 
-h6, .h6 {
+h6, .h6, :where(hgroup).h6 > :where(:heading) {
   font-family: var(--sans-font);
 }
 
