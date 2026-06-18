@@ -4,8 +4,12 @@
 </script>
 
 <style>
-  :where(footer) {
+  footer {
     justify-content: space-between;
+
+    :global(.icon) {
+      margin-inline-start: 0.25em;
+    }
   }
 </style>
 
@@ -13,11 +17,14 @@
   <p>
     Follow us on
     <Link href={Mastodon.href} aria-label="Mastodon">
-      Mastodon<Mastodon
-        class="size"
-        style="margin-left: 0.25em; vertical-align: middle;"
-      />
+      Mastodon<Mastodon class="size-" />
     </Link> for the latest news on PGConf.dev 2027
   </p>
-  <p>Fork this site on <GitHub /></p>
+
+  <p>
+    Fork this site on
+    <Link href={GitHub.href} aria-label="GitHub">
+      GitHub<GitHub class="size-" />
+    </Link>
+  </p>
 </footer>
