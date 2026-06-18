@@ -3,7 +3,6 @@
   import { resolve } from "$app/paths";
   import { Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
-  import banner from "./banner.svg";
   import Status from "./Status.svelte";
 
   const { data } = $props();
@@ -13,7 +12,7 @@
 </script>
 
 <style>
-  :global main + hr {
+  :global #root > hr {
     display: none;
   }
 
@@ -21,23 +20,35 @@
     margin-block-end: var(--gap);
   }
 
-  .hero {
-    margin-block: calc(2 * var(--margin));
-
-    dd {
-      line-height: 1.2;
-    }
-  }
-
-  .tint {
-    background-color: var(--bg-tint);
+  header {
     padding-block: var(--margin);
   }
 
-  .banner > img {
-    max-height: calc(200vh / 3);
-    min-height: calc(100vh / 3);
-    object-fit: cover;
+  @media (width >= 48rem) {
+    header {
+      background: url("./banner.svg") center bottom / cover no-repeat;
+    }
+  }
+
+  @media (width < 48rem) {
+    header > hgroup {
+      background: url("./banner.svg") center bottom / cover no-repeat;
+      padding-block-end: var(--margin);
+    }
+  }
+
+  header dd {
+    line-height: 1.2;
+  }
+
+  section.border {
+    padding: var(--margin);
+  }
+
+  section.area {
+    margin-block: 0;
+    padding-block: var(--margin);
+    padding-inline: 0;
   }
 
   .button.circle {
@@ -54,24 +65,20 @@
   <link href={Mastodon.href} rel="me" />
 </svelte:head>
 
-<section class="(main) hero">
-  <hgroup>
+<header>
+  <hgroup class="*:(main)">
     <p class="action">The PostgreSQL Developer Conference</p>
 
-    <h1 style:--size="var(--h0-size)">
-      <span class="action">PGConf</span>.dev
-      <br />
-      <span class="mute">2027</span>
+    <h1 class="text" style:--size="var(--h0-size)">
+      <span class="action">PGConf</span>.dev <span class="mute">2027</span>
     </h1>
 
     <p class="h2" style:font-weight="400">
-      Where PostgreSQL is <em>made</em>
+      Where PostgreSQL <em>comes together</em>
     </p>
   </hgroup>
 
-  <hr class="section" />
-
-  <dl class="grid+16 dedent section">
+  <dl class="(main) grid+16 dedent section">
     <div>
       <dt class="over">Time</dt>
       <dd class="lede">
@@ -103,26 +110,22 @@
     </div>
   </dl>
 
-  <div class="flex">
+  <div class="(main) flex section">
     <a href="#" class="button circle delete stroke">Register</a>
-    <Link href={resolve("/program")} class="button circle stroke"
-      >Submit a talk</Link
-    >
+    <Link href={resolve("/program")} class="button circle stroke">
+      Submit a talk
+    </Link>
   </div>
-</section>
+</header>
 
-<section class="(main) banner">
-  <img src={banner} fetchpriority="high" alt="Banner with Montreal Skyline" />
-</section>
-
-<section class="tint">
-  <div class="(main) grid/3@48-" style:gap="var(--margin)">
+<section>
+  <div class="(main) grid-1:2@48-" style:gap="var(--margin)">
     <hgroup>
       <p>About the Conference</p>
       <h2>Built by and for PostgreSQL contributors.</h2>
     </hgroup>
 
-    <div class="column-span-2 text">
+    <div>
       <p class="lede">
         PGConf.dev is the annual gathering of PostgreSQL hackers, committers,
         extension authors, and the developers who work with them. Four days of
@@ -142,40 +145,37 @@
   </div>
 </section>
 
-<section class="(main)">
-  <div
-    class="border insert-edge grid/3@48-"
-    style:align-items="center"
-    style:padding="var(--margin)"
-  >
-    <div class="column-span-2 margin-gap note text">
-      <hgroup class="h3">
-        <p class="iconic insert">
-          <Circle class="size--" style="fill: currentColor" />
-          Call for Proposals — open through 14 Feb 2027
-        </p>
-        <h2>Submit a talk, unconference topic, or tutorial.</h2>
-      </hgroup>
-
-      <p>
-        We're looking for technical talks from contributors at every level —
-        your first commit, your hardest debug, the extension you wish existed.
-        Three formats: 45-minute talks, 90-minute tutorials, and ad-hoc
-        unconference sessions.
+<section
+  class="(main) border insert-edge grid-2:1@48-"
+  style:align-items="center"
+>
+  <div class="margin-gap note text">
+    <hgroup class="h3">
+      <p class="iconic insert">
+        <Circle class="size--" style="fill: currentColor" />
+        Call for Proposals — open through 14 Feb 2027
       </p>
-    </div>
+      <h2>Submit a talk, unconference topic, or tutorial.</h2>
+    </hgroup>
 
-    <Link
-      class="button circle"
-      href={resolve("/program")}
-      style="justify-self: end"
-    >
-      Submit a proposal
-    </Link>
+    <p>
+      We're looking for technical talks from contributors at every level — your
+      first commit, your hardest debug, the extension you wish existed. Three
+      formats: 45-minute talks, 90-minute tutorials, and ad-hoc unconference
+      sessions.
+    </p>
   </div>
+
+  <Link
+    class="button circle"
+    href={resolve("/program")}
+    style="justify-self: end"
+  >
+    Submit a proposal
+  </Link>
 </section>
 
-<section class="tint">
+<section class="area">
   <div class="(main)">
     <hgroup class="margin-gap text">
       <p>Sponsors</p>
@@ -238,7 +238,7 @@
 </section>
 
 {#await data.statuses then statuses}
-  <section class="tint">
+  <section class="area">
     <div class="(main)">
       <hgroup class="margin-gap text">
         <p>Latest</p>
@@ -259,29 +259,27 @@
 {/await}
 
 <section
+  class="area"
+  style:--fg-tint="var(--bg)"
   style:background-color="var(--action)"
   style:color="var(--bg)"
-  style:padding-block="var(--margin)"
 >
   <div class="(main)">
     <hgroup class="h1">
-      <p style:color="var(--bg)">Registration</p>
+      <p>Registration</p>
       <h2 class="text">Reserve your seat for the 2027 edition.</h2>
     </hgroup>
 
     <p
-      class="margin-gap size-"
-      style="
-      font-family: var(--mono-font);
-      letter-spacing: 0.05em;
-      opacity: 0.85;
-    "
+      class="margin-gap mono size-"
+      style:letter-spacing="0.05em"
+      style:opacity="0.85"
     >
-      <strong style="font-weight: 500">Early-bird $480</strong> through 31 Jan
+      <strong style="font-weight: 550">Early-bird $480</strong> through 31 Jan
       &nbsp;·&nbsp;
-      <strong style="font-weight: 500">Standard $640</strong>
+      <strong style="font-weight: 550">Standard $640</strong>
       &nbsp;·&nbsp;
-      <strong style="font-weight: 500">Student $120</strong>
+      <strong style="font-weight: 550">Student $120</strong>
     </p>
 
     <a
