@@ -240,7 +240,7 @@
 
 {#await data.statuses then statuses}
   <section class="area">
-    <div class="(main)">
+    <div class="(main) margin-gap grid-2:1@48-">
       <hgroup class="margin-gap text">
         <p>Latest</p>
         <h2>News from the organizers</h2>
@@ -250,11 +250,19 @@
         </p>
       </hgroup>
 
-      <div class="grid+18">
-        {#each statuses.slice(0, 3) as status (status.id)}
-          <Status {status} />
-        {/each}
-      </div>
+      <Link
+        class="button circle iconic stroke"
+        href={Mastodon.href}
+        style="align-self: center; justify-self: end;"
+      >
+        <Mastodon /> Follow @pgconfdev
+      </Link>
+    </div>
+
+    <div class="(main) grid+18">
+      {#each statuses.slice(0, 3) as status (status.id)}
+        <Status class="size-" {status} />
+      {/each}
     </div>
   </section>
 {/await}

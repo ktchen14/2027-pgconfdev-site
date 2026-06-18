@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { MessageCircle, Repeat2, Star } from "@lucide/svelte";
+  import { MessageCircle, Pin, Repeat2, Star } from "@lucide/svelte";
+  import Link from "$lib/Link";
   import type { SvelteHTMLElements } from "svelte/elements";
   import type { JSON as Mastodon } from "tsl-mastodon-api";
 
@@ -9,6 +10,10 @@
   const { class: klass, status, ...rest }: Props = $props();
 
   const [attachment] = $derived(status.media_attachments);
+
+  // mastodon.social has no remote-interaction intent URLs, so every action
+  // just opens the status page, where reply/boost/favourite buttons live.
+  const href = $derived(status.url ?? undefined);
 </script>
 
 <style>
@@ -16,6 +21,10 @@
     background-color: var(--static-bg);
     flex-flow: column;
     gap: 1rem;
+  }
+
+  [data-attachment] {
+    grid-row: span 2;
   }
 
   .hint {
@@ -31,32 +40,41 @@
     overflow-wrap: anywhere;
   }
 
-  [data-attachment] {
-    grid-row: span 2;
+  footer :global a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--action-fg-active);
+    }
   }
 </style>
 
 <article
-  class={["flex", "border", "size-", klass]}
+  class={["flex", "border", { "action-acme": status.pinned }, klass]}
   data-attachment={attachment !== undefined}
   {...rest}
 >
+  {const username = status.account.username}
+
+  {#if status.pinned}
+    <p class="hint iconic"><Pin /> Pinned</p>
+  {/if}
+
   <header class="iconic" style:gap="1em">
-    <img
-      class="icon"
-      src={status.account.avatar}
-      alt="Avatar of {status.account.username}"
-    />
+    <img class="icon" src={status.account.avatar} alt="Avatar of {username}" />
 
     <hgroup class="h6">
       <h3>{status.account.display_name}</h3>
-      <p class="hint mono">@{status.account.username}</p>
+      <p class="hint mono">@{username}</p>
     </hgroup>
 
-    <time class="hint">5d</time>
+    <a class="hint" {href} target="_blank" rel="noreferrer">
+      <time>5d</time>
+    </a>
   </header>
 
-  <div class="p" style:margin-block-end="auto">
+  <div class="p" style:flex="auto">
     {@html status.content}
 
     {#if attachment !== undefined}
@@ -67,8 +85,8 @@
   <hr aria-hidden="true" />
 
   <footer class="flex">
-    <span class="iconic"><MessageCircle /> {status.replies_count}</span>
-    <span class="iconic"><Repeat2 /> {status.reblogs_count}</span>
-    <span class="iconic"><Star /> {status.favourites_count}</span>
+    <Link class="iconic" {href}><MessageCircle /> {status.replies_count}</Link>
+    <Link class="iconic" {href}><Repeat2 /> {status.reblogs_count}</Link>
+    <Link class="iconic" {href}><Star /> {status.favourites_count}</Link>
   </footer>
 </article>
