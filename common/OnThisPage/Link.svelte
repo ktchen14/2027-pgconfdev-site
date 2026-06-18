@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { HTMLAnchorAttributes } from "svelte/elements";
   import { getContext } from "./context.ts";
 
-  const { href, children, ...rest } = $props();
+  type Props = HTMLAnchorAttributes & { href: string };
+  const { href, children, ...rest }: Props = $props();
   const context = getContext();
 
   let target = $state<HTMLElement | null>(null);
@@ -32,5 +34,5 @@
   {...rest}
   {@attach attachment}
 >
-  {@render children()}
+  {@render children?.()}
 </a>

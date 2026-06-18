@@ -5,9 +5,11 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import type { ComponentProps } from "svelte";
   import BreadcrumbNav from "../BreadcrumbNav.svelte";
 
-  const { children = undefined, ...rest } = $props();
+  type Props = ComponentProps<typeof BreadcrumbNav>;
+  const { children, ...rest }: Props = $props();
 </script>
 
 <BreadcrumbNav {...rest}>

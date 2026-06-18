@@ -19,7 +19,10 @@
 </script>
 
 <script lang="ts">
-  const { source, children = undefined, ...rest } = $props();
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  type Props = SvelteHTMLElements["div"] & { source: string };
+  const { source, children, ...rest }: Props = $props();
 </script>
 
 <style>

@@ -3,9 +3,10 @@
   import { resolve } from "$app/paths";
   import { Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
+  import type { PageProps } from "./$types";
   import Status from "./Status.svelte";
 
-  const { data } = $props();
+  const { data }: PageProps = $props();
 
   const href =
     "https://2026.pgconf.dev/svelte/immutable/assets/butcher.BRs9V-uj.avif";

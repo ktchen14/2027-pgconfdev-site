@@ -1,8 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import type { LayoutProps } from "./$types";
 
-  let { children } = $props();
+  const { children }: LayoutProps = $props();
 </script>
 
 <style>

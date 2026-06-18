@@ -1,11 +1,13 @@
 <script lang="ts">
   import { Menu, UserPlus } from "@lucide/svelte";
   import { resolve } from "$app/paths";
+  import type { SvelteHTMLElements } from "svelte/elements";
   import { setHeaderContext } from "./context";
   import Mark from "./Mark.svelte";
   import Search from "./Search.svelte";
 
-  const { class: klass = undefined, children, ...rest } = $props();
+  type Props = SvelteHTMLElements["header"];
+  const { class: klass, children, ...rest }: Props = $props();
   const id = $props.id();
 
   let root: HTMLElement;
@@ -125,7 +127,7 @@
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
   <nav {id} aria-label="Main" data-expose={expose} style:order="2">
-    <menu class="flex@48-">{@render children()}</menu>
+    <menu class="flex@48-">{@render children?.()}</menu>
   </nav>
 
   <a

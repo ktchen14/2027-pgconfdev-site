@@ -1,10 +1,12 @@
 <script lang="ts">
   import { ChevronDown } from "@lucide/svelte";
-  import { tick } from "svelte";
+  import { tick, type ComponentProps } from "svelte";
   import { getHeaderContext } from "./context";
   import Menu from "./Menu.svelte";
 
-  const { name, children, ...rest } = $props();
+  type Props = ComponentProps<typeof Menu> & { name: string };
+
+  const { name, children, ...rest }: Props = $props();
   const id = $props.id();
 
   const header = getHeaderContext();
@@ -78,6 +80,6 @@
   </button>
 
   <Menu {id} data-open={open} {...rest}>
-    {@render children()}
+    {@render children?.()}
   </Menu>
 </div>

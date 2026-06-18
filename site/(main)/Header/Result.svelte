@@ -1,5 +1,9 @@
 <script lang="ts">
-  const { icon: Icon, class: klass = undefined, children, ...rest } = $props();
+  import type { Component } from "svelte";
+  import type { HTMLAnchorAttributes } from "svelte/elements";
+
+  type Props = HTMLAnchorAttributes & { icon: Component<{}> };
+  const { icon: Icon, class: klass, children, ...rest }: Props = $props();
 </script>
 
 <style>
@@ -32,6 +36,6 @@
 <a class={["iconic", klass]} {...rest}>
   <Icon />
   <p>
-    {@render children()}
+    {@render children?.()}
   </p>
 </a>

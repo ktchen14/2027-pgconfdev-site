@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { SvelteHTMLElements } from "svelte/elements";
   import { Context, setContext } from "./context.ts";
 
-  const { children, ...rest } = $props();
+  type Props = SvelteHTMLElements["nav"];
+  const { children, ...rest }: Props = $props();
 
   setContext(new Context());
 </script>
@@ -17,5 +19,5 @@
 
 <nav aria-labelledby="on-this-page" {...rest}>
   <h2 id="on-this-page" class="over">On This Page</h2>
-  {@render children()}
+  {@render children?.()}
 </nav>

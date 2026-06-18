@@ -1,7 +1,10 @@
 <script lang="ts">
-  let { class: klass = undefined, children, ...rest } = $props();
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  type Props = SvelteHTMLElements["code"];
+  const { class: klass, children, ...rest }: Props = $props();
 </script>
 
 <code class={["action", klass]} {...rest}>
-  {@render children()}
+  {@render children?.()}
 </code>

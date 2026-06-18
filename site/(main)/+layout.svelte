@@ -2,12 +2,13 @@
   import { resolve } from "$app/paths";
   import { GitHub, LinkedIn, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
+  import type { LayoutProps } from "./$types";
   import { ul as aboutUl } from "./about/SectionNav.svelte";
   import { ul as attendUl } from "./attend/SectionNav.svelte";
   import Header from "./Header";
   import { ul as programUl } from "./program/SectionNav.svelte";
 
-  const { children } = $props();
+  const { children }: LayoutProps = $props();
 </script>
 
 <style>

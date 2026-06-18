@@ -1,8 +1,10 @@
 <script lang="ts">
   import { Search as SearchIcon } from "@lucide/svelte";
+  import type { SvelteHTMLElements } from "svelte/elements";
   import SearchMenu from "./SearchMenu.svelte";
 
-  let { text = $bindable(), ...rest } = $props();
+  type Props = SvelteHTMLElements["search"] & { text: string };
+  let { text = $bindable(), ...rest }: Props = $props();
 
   let node: HTMLInputElement;
 </script>

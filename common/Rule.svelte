@@ -1,5 +1,8 @@
 <script lang="ts">
-  const { class: klass = undefined, children, ...rest } = $props();
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  type Props = SvelteHTMLElements["div"];
+  const { class: klass, children, ...rest }: Props = $props();
   const id = $props.id();
 </script>
 
@@ -13,6 +16,6 @@
 
 <div aria-labelledby={id} class={["flex", klass]} role="separator" {...rest}>
   <hr aria-hidden="true" style:flex="auto" />
-  <span class="over" {id}>{@render children()}</span>
+  <span class="over" {id}>{@render children?.()}</span>
   <hr aria-hidden="true" style:flex="auto" />
 </div>

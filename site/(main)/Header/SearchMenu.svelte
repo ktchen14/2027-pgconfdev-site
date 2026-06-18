@@ -2,10 +2,12 @@
   import { List, MapPin, User } from "@lucide/svelte";
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import type { ComponentProps } from "svelte";
   import Menu from "./Menu.svelte";
   import Result from "./Result.svelte";
 
-  const { text, ...rest } = $props();
+  type Props = ComponentProps<typeof Menu> & { text: string };
+  const { text, ...rest }: Props = $props();
 </script>
 
 <style>

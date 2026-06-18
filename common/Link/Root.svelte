@@ -7,8 +7,10 @@
 
 <script lang="ts">
   import { page } from "$app/state";
+  import type { HTMLAnchorAttributes } from "svelte/elements";
 
-  const { href, children, ...rest } = $props();
+  type Props = HTMLAnchorAttributes & { href: string };
+  const { href, children, ...rest }: Props = $props();
 
   const to = $derived(new URL(href, page.url));
   const http = $derived(["http:", "https:"].includes(to.protocol));
@@ -21,5 +23,5 @@
 </script>
 
 <a aria-current={ariaCurrent} {href} {target} {...rest}>
-  {@render children()}
+  {@render children?.()}
 </a>

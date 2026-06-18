@@ -3,7 +3,10 @@
 -->
 
 <script lang="ts">
-  const { class: klass = undefined, children = undefined, ...rest } = $props();
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  type Props = SvelteHTMLElements["nav"];
+  const { class: klass, children, ...rest }: Props = $props();
 </script>
 
 <style>

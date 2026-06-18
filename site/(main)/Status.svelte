@@ -1,9 +1,9 @@
 <script lang="ts">
   import { MessageCircle, Repeat2, Star } from "@lucide/svelte";
-  import type { HTMLAttributes } from "svelte/elements";
+  import type { SvelteHTMLElements } from "svelte/elements";
   import type { JSON as Mastodon } from "tsl-mastodon-api";
 
-  type Props = HTMLAttributes<HTMLElement> & {
+  type Props = SvelteHTMLElements["article"] & {
     status: Mastodon.Status;
   };
   const { class: klass, status, ...rest }: Props = $props();

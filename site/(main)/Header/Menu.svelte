@@ -1,5 +1,8 @@
 <script lang="ts">
-  const { children, ...rest } = $props();
+  import type { SvelteHTMLElements } from "svelte/elements";
+
+  type Props = SvelteHTMLElements["div"];
+  const { children, ...rest }: Props = $props();
 </script>
 
 <style>
