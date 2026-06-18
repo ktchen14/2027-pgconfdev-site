@@ -1,34 +1,44 @@
 import type { JSON as Mastodon } from "tsl-mastodon-api";
 import type { PageLoad } from "./$types";
 
-const STATUSES =
-  "https://mastodon.social/api/v1/accounts/111687888257105600/statuses";
-
-const URLS = [
-  Object.assign(new URL(STATUSES), {
-    search: new URLSearchParams({ pinned: "true", limit: "6" }),
-  }),
-  Object.assign(new URL(STATUSES), {
-    search: new URLSearchParams({
-      exclude_reblogs: "true",
-      exclude_replies: "true",
-      limit: "6",
-    }),
-  }),
-];
+const limit = 6;
 
 export const load: PageLoad = ({ fetch }) => {
-  const statuses = Promise.all(URLS.map((u) => fetch(u))).then(
-    async (responses) => {
-      const byId = new Map<string, Mastodon.Status>();
-      for (const response of responses) {
-        if (!response.ok)
-          throw new Error(`Failed to load statuses: ${response.status}`);
-        for (const status of await response.json()) byId.set(status.id, status);
-      }
-      return [...byId.values()].slice(0, 6);
-    },
-  );
+  async function retrieve(
+    ...args: ConstructorParameters<typeof URLSearchParams>
+  ): Promise<Mastodon.Status[]> {
+    const origin =
+      "https://mastodon.social/api/v1/accounts/111687888257105600/statuses";
+    const search = new URLSearchParams(...args);
+    const source = Object.assign(new URL(origin), { search });
+
+    const response = await fetch(source);
+    if (!response.ok)
+      throw new Error(`Failed to load statuses: ${response.status}`);
+    return await response.json();
+  }
+
+  const statuses = Promise.all([
+    retrieve({ pinned: "true", limit: String(limit) }),
+    retrieve({
+      exclude_reblogs: "true",
+      exclude_replies: "true",
+      limit: String(limit),
+    }),
+  ]).then(([pinnedStatuses, recentStatuses]) => {
+    const result = new Map<string, Mastodon.Status>();
+
+    // Pinned is stupidly unset on anonymous requests
+    for (const status of pinnedStatuses)
+      result.set(status.id, Object.assign(status, { pinned: true }));
+
+    // Don't clobber pinned with a more recent status
+    for (const status of recentStatuses) {
+      if (!result.has(status.id)) result.set(status.id, status);
+    }
+
+    return [...result.values()].slice(0, limit);
+  });
 
   return { statuses };
 };
