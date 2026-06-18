@@ -21,6 +21,11 @@
   max-width: 38rem;
 }
 
+.note > :where(blockquote, dl, menu, ol, p, ul) {
+  color: var(--fg-mute);
+  font-size: 0.875em;
+}
+
 :is(.size\+2, .size\+\+) {
   font-size: 1.25em;
 }

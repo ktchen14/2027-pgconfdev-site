@@ -77,20 +77,20 @@
   <p>
     The same two roles are available as classes for framing content that isn't a
     heading, such as a figure or statistic. <T>.over</T> is a label that introduces
-    what follows, and <T>.note</T> is a summary subordinate to the text above it.
+    what follows, and <T>.deck</T> is a summary subordinate to the text above it.
   </p>
 
   <p>
     When the thing being titled is an actual heading, use an
     <T>&lt;hgroup&gt;</T> instead; its spacing is tuned for headings, while
-    <T>.over</T> and <T>.note</T> are not.
+    <T>.over</T> and <T>.deck</T> are not.
   </p>
 
   <Demo
     source={`
 <p class="over">Total raised</p>
 <p class="lead" style="margin-block-end: 0;">$48,000</p>
-<p class="note">From 320 backers in the first week.</p>`}
+<p class="deck">From 320 backers in the first week.</p>`}
   />
 
   <h3>Adjacent headings</h3>
@@ -228,7 +228,7 @@
   <p>
     The size scale changes how large text renders relative to its surroundings
     without changing what the text means (a purely presentational adjustment).
-    Reach for it only when no semantic element like <T>.lead</T>, <T>.note</T>,
+    Reach for it only when no semantic element like <T>.lead</T>, <T>.deck</T>,
     or a heading already carries the meaning you want.
   </p>
 

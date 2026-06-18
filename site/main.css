@@ -70,7 +70,7 @@ hgroup > p:has(~ :where(:heading)), .over {
   text-wrap: unset;
 }
 
-hgroup > :where(:heading) ~ p, caption, figcaption, small, .note {
+hgroup > :where(:heading) ~ p, caption, figcaption, small, .deck {
   color: var(--fg-mute);
   font-size: 0.875em;
 }
