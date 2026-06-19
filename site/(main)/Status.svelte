@@ -1,9 +1,8 @@
 <script lang="ts">
   import { MessageCircle, Pin, Repeat2, Star } from "@lucide/svelte";
+  import type { JSON as Mastodon } from "tsl-mastodon-api";
   import Link from "$lib/Link";
   import type { SvelteHTMLElements } from "svelte/elements";
-  import type { JSON as Mastodon } from "tsl-mastodon-api";
-
   type Props = SvelteHTMLElements["article"] & {
     status: Mastodon.Status;
   };
