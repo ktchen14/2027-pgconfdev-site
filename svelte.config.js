@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-static";
+import adapter from "./adapter-pagefind.js";
 
 export default {
   compilerOptions: {

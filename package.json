@@ -8,7 +8,7 @@
     "Firefox ESR"
   ],
   "scripts": {
-    "build": "vite build && pagefind --site build",
+    "build": "vite build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "dev": "vite dev",
     "format": "prettier --write .",
