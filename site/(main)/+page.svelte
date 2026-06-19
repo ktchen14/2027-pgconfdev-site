@@ -150,7 +150,7 @@
   class="(main) border insert-edge grid-2:1@48-"
   style:align-items="center"
 >
-  <div class="margin-gap note text">
+  <div class="margin-gap note">
     <hgroup class="h3">
       <p class="iconic insert">
         <Circle class="size--" style="fill: currentColor" />
@@ -178,10 +178,10 @@
 
 <section class="area">
   <div class="(main)">
-    <hgroup class="margin-gap text">
+    <hgroup class="margin-gap">
       <p>Sponsors</p>
       <h2>The companies underwriting 2027.</h2>
-      <p>
+      <p class="text">
         PGConf.dev is non-profit. Sponsors cover the venue, A/V, scholarships,
         and the parts of the program that ticket revenue alone can't.
       </p>
@@ -194,10 +194,10 @@
 </section>
 
 <section class="(main)">
-  <hgroup class="margin-gap text">
+  <hgroup class="margin-gap">
     <p>From past editions</p>
     <h2>Three years of contributor conversation.</h2>
-    <p>
+    <p class="text">
       A look at the rooms, the hallway track, and the people who keep showing
       up.
     </p>
@@ -241,10 +241,10 @@
 {#await data.statuses then statuses}
   <section class="area">
     <div class="(main) margin-gap grid-2:1@48-">
-      <hgroup class="margin-gap text">
+      <hgroup class="margin-gap">
         <p>Latest</p>
         <h2>News from the organizers</h2>
-        <p>
+        <p class="text">
           Schedule drops, deadlines, and travel notes — posted to @pgconfdev on
           Mastodon as they happen.
         </p>
