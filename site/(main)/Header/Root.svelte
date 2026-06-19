@@ -4,6 +4,7 @@
   import type { SvelteHTMLElements } from "svelte/elements";
   import { setHeaderContext } from "./context";
   import Mark from "./Mark.svelte";
+  import PagefindSearch from "./PagefindSearch.svelte";
   import Search from "./Search.svelte";
 
   type Props = SvelteHTMLElements["header"];
@@ -123,6 +124,8 @@
   >
     <Menu class="size++" />
   </button>
+
+  <PagefindSearch />
 
   <Search bind:text={search} data-expose={expose} style="order: 1;" />
 
