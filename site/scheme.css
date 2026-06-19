@@ -42,8 +42,6 @@
   --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
   --radius: 0.25rem;
 
-  --t-display: clamp(3rem, 6vw + 1rem, 6.5rem);
-
   /* Work around the absence of unit division in CSS */
   --view-size: 100vw;
   --unit-size: 1rem;

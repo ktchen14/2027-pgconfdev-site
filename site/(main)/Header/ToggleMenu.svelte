@@ -30,7 +30,6 @@
     color: inherit;
     justify-content: space-between;
     margin-inline: -0.75em;
-    padding-inline: 0.75em;
     width: stretch;
 
     &:hover {

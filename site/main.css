@@ -142,15 +142,17 @@ a {
   }
 
   :where(nav, search) & {
-    border-radius: var(--radius);
+    --size: 0.375;
+
     color: inherit;
     display: inline-block;
-    margin-inline: -0.75em;
-    padding-block: 0.375em;
-    padding-inline: 0.75em;
+    margin-inline: calc(-2em * var(--size));
+    padding-block: calc(1em * var(--size));
+    padding-inline: calc(2em * var(--size));
     text-decoration: none;
     width: stretch;
 
+    /* border-radius: var(--radius); */
     &:hover {
       background-color: var(--bg-tint);
     }
@@ -251,6 +253,10 @@ button,
     padding-inline: calc(3em * var(--size));
   }
 
+  &.square {
+    padding-inline: calc(1em * var(--size));
+  }
+
   &:where(:not(.stroke)), &:where(:not(.stroke)):hover {
     background-color: var(--accent-fg);
     color: var(--static-bg);
@@ -277,4 +283,25 @@ button,
 
 .button-- {
   --size: 0.125;
+}
+
+/* Icons */
+
+.iconic {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5em;
+
+  > :is(.icon, .lucide) {
+    flex: none;
+  }
+
+  > * {
+    margin-block: 0;
+  }
+}
+
+.icon, .lucide {
+  size: 1em;
 }

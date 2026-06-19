@@ -6,6 +6,7 @@
   import Mark from "./Mark.svelte";
   import PagefindSearch from "./PagefindSearch.svelte";
   import Search from "./Search.svelte";
+  import { Search as SearchIcon } from "@lucide/svelte";
 
   type Props = SvelteHTMLElements["header"];
   const { class: klass, children, ...rest }: Props = $props();
@@ -45,8 +46,6 @@
 
   .button {
     box-sizing: content-box;
-    height: 1lh;
-    min-width: 1lh;
 
     @media (width < 48rem) {
       width: 100%;
@@ -61,20 +60,12 @@
     }
 
     @media (48rem <= width < 64rem) {
-      padding-inline: 0.5em;
+      padding-inline: calc(1em * var(--size));
     }
   }
 
-  button {
-    background-color: initial;
-    color: inherit;
-    margin: -0.5em;
-    padding: 0.5em;
-
-    &:hover {
-      background-color: var(--bg-tint);
-      color: var(--action);
-    }
+  [aria-label=Menu] {
+    box-shadow: none;
 
     @media (width < 30rem) {
       order: 1;
@@ -86,10 +77,6 @@
       [data-search] > & {
         display: none;
       }
-    }
-
-    @media (width >= 48rem) {
-      display: none;
     }
   }
 </style>
@@ -119,15 +106,15 @@
     aria-controls={id}
     aria-expanded={expose === true}
     aria-label="Menu"
-    class="iconic"
+    class="button+ iconic none@48- stroke"
     onclick={() => (expose = expose ? undefined : true)}
   >
     <Menu class="size++" />
   </button>
 
-  <PagefindSearch />
+  <!-- <PagefindSearch /> -->
 
-  <Search bind:text={search} data-expose={expose} style="order: 1;" />
+  <!-- <Search bind:text={search} data-expose={expose} style="order: 1;" /> -->
 
   <nav {id} aria-label="Main" data-expose={expose} style:order="2">
     <menu class="flex@48-">{@render children?.()}</menu>
@@ -135,7 +122,7 @@
 
   <a
     aria-label="Register"
-    class="button circle iconic delete"
+    class="button++ circle iconic delete square"
     data-expose={expose}
     href="#"
     style:order="3"
@@ -143,4 +130,8 @@
     <span class="none@48-64">Register</span>
     <UserPlus class="size+" />
   </a>
+
+  <button class="button++ circle iconic square stroke" style:order="2">
+    <SearchIcon />
+  </button>
 </header>

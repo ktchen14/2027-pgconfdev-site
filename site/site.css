@@ -61,27 +61,6 @@ main {
   margin-inline-end: 1em;
 }
 
-/* Icons */
-
-.iconic {
-  align-items: center;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0.5em;
-
-  > :is(.icon, .lucide) {
-    flex: none;
-  }
-
-  > * {
-    margin-block: 0;
-  }
-}
-
-.icon, .lucide {
-  size: 1em;
-}
-
 /* Color */
 
 .mute {
