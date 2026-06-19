@@ -134,7 +134,7 @@ sub, sup {
 
 /* Links */
 
-a:where(:not(.button, [role="button"])) {
+a:where(:not(.button)) {
   color: var(--action-fg);
 
   &:hover {
@@ -157,7 +157,7 @@ a:where(:not(.button, [role="button"])) {
   }
 }
 
-a:is(.button, [role="button"]) {
+a.button {
   text-decoration: none;
 }
 
@@ -215,7 +215,6 @@ th {
 
 button, .button,
 ::file-selector-button,
-[role="button"],
 [type="button"],
 [type="reset"],
 [type="submit"] {
