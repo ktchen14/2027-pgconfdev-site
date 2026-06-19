@@ -9,7 +9,7 @@
 }
 
 body {
-  margin-block: 0;
+  margin: 0;
 }
 
 .margin-gap {
@@ -24,16 +24,20 @@ article, aside, nav, section, .section {
 
 /* Heading content */
 
-h1, h2, h3, h4, h5, h6, hgroup, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-block: 1.5em 0.5em;
+}
+
+hgroup {
   margin-block: calc(1.5rem * var(--size)) calc(0.5rem * var(--size));
-}
 
-hgroup > :is(h1, h2, h3, h4, h5, h6, p) {
-  margin-block: 0;
-}
+  > :is(h1, h2, h3, h4, h5, h6, p) {
+    margin-block: 0;
+  }
 
-hgroup > p:has(+ :where(:heading)) {
-  margin-block-end: calc(2em / 3);
+  > p:has(+ :where(:heading)) {
+    margin-block-end: calc(2em / 3);
+  }
 }
 
 :where(h1, .h1, hgroup:has(> h1)) + :is(h2, h3, h4, h5, h6),
@@ -60,14 +64,18 @@ main, menu, ol, p, pre, search, table, ul, .p {
   margin-block: 0 1em;
 }
 
-:where(dd, li) > :is(dl, menu, ol, ul) {
-  margin-block: 0.25em 0;
+blockquote, figure, hr {
+  margin-inline: 0;
 }
 
 /* List elements */
 
 dd, li {
   margin-block: 0 0.25em;
+}
+
+:where(dd, li) > :is(dl, menu, ol, ul) {
+  margin-block: 0.25em 0;
 }
 
 /* Caption elements */
