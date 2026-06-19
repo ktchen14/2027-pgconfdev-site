@@ -8,7 +8,7 @@
     "Firefox ESR"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && pagefind --site build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "dev": "vite dev",
     "format": "prettier --write .",
@@ -37,6 +37,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.19.0",
     "globals": "^17.6.0",
+    "pagefind": "^1.5.2",
     "playwright": "^1.61.0",
     "postcss-heading": "^0.1.0",
     "postcss-preset-env": "^11.3.1",
