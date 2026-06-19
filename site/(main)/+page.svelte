@@ -51,10 +51,6 @@
     padding-block: var(--margin);
     padding-inline: 0;
   }
-
-  .button.circle {
-    padding-inline: 1.5em;
-  }
 </style>
 
 <svelte:head>

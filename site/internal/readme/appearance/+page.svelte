@@ -251,7 +251,7 @@
 
   <p>
     A <T>&lt;button&gt;</T> element is styled automatically. To make any other element
-    look like a button, add <T>.button</T> or <T>role="button"</T>.
+    look like a button, add <T>.button</T>.
   </p>
 
   <Demo
@@ -285,6 +285,35 @@
 <button class="circle">Register</button>
 <button class="circle stroke">Register</button>`}
   />
+
+  <h3>Size</h3>
+
+  <p>
+    The size scale grows or shrinks a button relative to the default, changing
+    its padding without changing the size of its text.
+  </p>
+
+  <p>
+    It runs two steps each way: <T>.button+</T> and <T>.button++</T> enlarge,
+    <T>.button-</T> and <T>.button--</T> shrink.
+  </p>
+
+  <Demo
+    class="flex"
+    style="align-items: center"
+    source={`
+<button class="button++">Register</button>
+<button class="button+">Register</button>
+<button>Register</button>
+<button class="button-">Register</button>
+<button class="button--">Register</button>`}
+  >
+    <button class="button++">Register</button>
+    <button class="button+">Register</button>
+    <button>Register</button>
+    <button class="button-">Register</button>
+    <button class="button--">Register</button>
+  </Demo>
 
   <h3>Color roles</h3>
 

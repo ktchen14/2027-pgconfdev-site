@@ -245,15 +245,6 @@
     </p>
   </aside>
 
-  <aside class="( main note p">
-    <p class="over">Synonyms</p>
-    <p>
-      Each also has a numbered alias (<T>.size+1</T>, <T>.size+2</T>, <T
-        >.size-1</T
-      >, <T>.size-2</T>) if you prefer that form.
-    </p>
-  </aside>
-
   <Demo
     source={`
 <p class="size++">Two steps larger</p>

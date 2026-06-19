@@ -26,19 +26,19 @@
   font-size: 0.875em;
 }
 
-:is(.size\+2, .size\+\+) {
-  font-size: 1.25em;
-}
-
-:is(.size\+1, .size\+) {
+.size\+ {
   font-size: 1.125em;
 }
 
-:is(.size-1, .size-) {
+.size\+\+ {
+  font-size: 1.25em;
+}
+
+.size- {
   font-size: 0.875em;
 }
 
-:is(.size-2, .size--) {
+.size-- {
   font-size: 0.75em;
 }
 
@@ -80,12 +80,6 @@ main {
 
 .icon, .lucide {
   size: 1em;
-}
-
-/* Buttons */
-
-.circle {
-  border-radius: calc(infinity * 1px);
 }
 
 /* Color */
