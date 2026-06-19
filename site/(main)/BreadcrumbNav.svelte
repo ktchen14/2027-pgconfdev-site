@@ -10,6 +10,10 @@
 </script>
 
 <style>
+  nav :global a:hover {
+    text-decoration: underline;
+  }
+
   ol :global > li {
     align-items: center;
     display: flex;
@@ -18,10 +22,6 @@
 
     &::before {
       content: "/";
-    }
-
-    a {
-      width: auto;
     }
 
     > * {
