@@ -122,6 +122,15 @@
     documentation — they want to hear what the documentation doesn't say.
   </p>
 
+  <aside class=") main note p">
+    <h3 class="over">Not a fit</h3>
+    <p>
+      Introductory talks are a poor match for this audience. If your proposal
+      could run verbatim at a general PostgreSQL conference, it probably belongs
+      at one.
+    </p>
+  </aside>
+
   <p>
     The best talks here are war stories, deep dives, and design walks that only
     the person who built or broke the thing could give. We especially welcome:
@@ -149,12 +158,6 @@
       committer model works, how new contributors find their footing
     </li>
   </ul>
-
-  <p>
-    Introductory talks are a poor fit for this audience. If your proposal could
-    run verbatim at a general PostgreSQL conference, it's probably not the right
-    match for PGConf.dev.
-  </p>
 </section>
 
 <section id="formats">

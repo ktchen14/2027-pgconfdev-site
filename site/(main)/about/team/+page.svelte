@@ -123,11 +123,19 @@
   </div>
 </section>
 
-<section id="program" class="main">
+<section id="program" class="*:main">
   <hgroup>
     <p class="section-number">Program committee</p>
     <h2>Who reviews the talks.</h2>
   </hgroup>
+
+  <aside class=") note">
+    <h3 class="over">Membership</h3>
+    <p>
+      Committee membership rotates each year.
+      <a href="#" class="delete">Read about how we pick reviewers →</a>
+    </p>
+  </aside>
 
   <p>
     The program committee reviews every proposal at least twice, with conflicts
@@ -143,13 +151,6 @@
     <li>Committee member · academic researcher</li>
     <li>Committee member · DevRel from a sponsor (non-voting)</li>
   </ul>
-
-  <p>
-    <small>
-      Committee membership rotates each year.
-      <a href="#" class="delete">Read about how we pick reviewers →</a>
-    </small>
-  </p>
 
   <div class="notice-area edge">
     <h3 class="h6">Working with the committee</h3>

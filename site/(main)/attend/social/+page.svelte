@@ -184,5 +184,50 @@
         </p>
       </figcaption>
     </figure>
+
+    <figure id="office-hours">
+      <div class="photo border">[ Photo · community office hours ]</div>
+      <figcaption class="note">
+        <hgroup class="h5">
+          <p>Wed &amp; Thu · Daytime · Foyer</p>
+          <h3>Community Office Hours</h3>
+        </hgroup>
+        <p>
+          Book focused time with a project maintainer to walk through a patch, a
+          design question, or a contribution you're stuck on. Sign up at the
+          registration desk — slots fill fast.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure id="posters">
+      <div class="photo border">[ Photo · poster session ]</div>
+      <figcaption class="note">
+        <hgroup class="h5">
+          <p>Thursday · Lunch · Foyer</p>
+          <h3>Poster Session</h3>
+        </hgroup>
+        <p>
+          Over lunch, browse posters from PostgreSQL projects and the people
+          building them. A relaxed way to see what's in flight and corner a
+          maintainer with questions.
+        </p>
+      </figcaption>
+    </figure>
+
+    <figure id="karaoke">
+      <div class="photo border">[ Photo · karaoke night ]</div>
+      <figcaption class="note">
+        <hgroup class="h5">
+          <p>Wednesday · 22:00 · Nearby venue</p>
+          <h3>Karaoke</h3>
+        </hgroup>
+        <p>
+          The PGConf.dev tradition. After the reception winds down, the night
+          migrates to karaoke. No talent required; enthusiasm encouraged. Venue
+          announced at registration.
+        </p>
+      </figcaption>
+    </figure>
   </div>
 </section>
