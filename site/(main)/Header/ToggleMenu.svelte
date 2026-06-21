@@ -26,25 +26,19 @@
 
 <style>
   button {
-    background-color: initial;
-    color: inherit;
+    --bg-tint: var(--static-bg-tint);
+    --fg: inherit;
+
+    box-shadow: none;
     justify-content: space-between;
-    margin-inline: -0.75em;
+    margin-inline: calc(-2em * var(--size));
     width: stretch;
 
-    &:hover {
-      background-color: var(--bg-tint);
-    }
-
-    &:is(:hover, [aria-expanded="true"]) {
-      color: var(--action);
-    }
-
-    :global(> svg) {
+    :global(> :is(.icon, .lucide)) {
       transition-property: transform;
     }
 
-    :global(&[aria-expanded="true"] > svg) {
+    :global(&[aria-expanded="true"] > :is(.icon, .lucide)) {
       transform: rotate(180deg);
     }
   }
@@ -71,7 +65,7 @@
   <button
     aria-controls={id}
     aria-expanded={open === true}
-    class="iconic"
+    class="iconic stroke"
     onclick={(e) => toggle(e.currentTarget)}
   >
     {name}

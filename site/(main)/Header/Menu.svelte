@@ -6,6 +6,10 @@
 </script>
 
 <style>
+  div :global a[aria-current]:where(:not([aria-current="false"])) {
+    background-color: var(--action-bg-tint);
+  }
+
   div {
     @media (width >= 48rem) {
       background-color: var(--bg);
@@ -20,6 +24,26 @@
 
     &:not([data-open]) {
       display: none !important;
+    }
+  }
+
+  @media (width < 48rem) {
+    div :global a {
+      border-inline-start: 2px solid var(--border);
+      border-radius: 0;
+      margin-inline: 0;
+
+      &:hover {
+        border-color: var(--action-fg);
+      }
+
+      &[aria-current]:where(:not([aria-current="false"])) {
+        border-color: var(--action-fg);
+      }
+    }
+
+    div :global li {
+      margin-block: 0;
     }
   }
 </style>

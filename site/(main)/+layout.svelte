@@ -19,6 +19,10 @@
     min-height: 100vh;
   }
 
+  :global .page-extent {
+    padding-inline: max(var(--margin), (100vw - 74rem) / 2);
+  }
+
   :where(main) {
     margin-block-end: var(--margin);
   }
@@ -45,7 +49,7 @@
   }
 </style>
 
-<Header class="(main)">
+<Header class="page-extent">
   <li class="menu-single">
     <Header.ToggleMenu name="Program" class="size-">
       {@render programUl()}
@@ -75,7 +79,7 @@
 
 <hr class="margin-gap" />
 
-<footer class="(main) flex@48- margin-gap note">
+<footer class="page-extent flex@48- margin-gap note">
   <p>
     Follow us on
     <Link href={Mastodon.href} aria-label="Mastodon">

@@ -1,12 +1,9 @@
 <script lang="ts">
-  import { Menu, UserPlus } from "@lucide/svelte";
+  import { Menu, Search, UserPlus } from "@lucide/svelte";
   import { resolve } from "$app/paths";
   import type { SvelteHTMLElements } from "svelte/elements";
   import { setHeaderContext } from "./context";
   import Mark from "./Mark.svelte";
-  import PagefindSearch from "./PagefindSearch.svelte";
-  import Search from "./Search.svelte";
-  import { Search as SearchIcon } from "@lucide/svelte";
 
   type Props = SvelteHTMLElements["header"];
   const { class: klass, children, ...rest }: Props = $props();
@@ -17,121 +14,124 @@
   const header = $state({ menu: null });
   setHeaderContext(header);
 
-  let expose = $state<true | undefined>();
-  let search = $state("");
+  let expose = $state(false);
 </script>
 
 <style>
   header {
     align-items: center;
-    justify-content: space-between;
     margin-block: 0;
     padding-block: var(--gap);
-    position: relative;
   }
 
-  nav {
+  .circle {
+    padding-inline: calc(2em * var(--size));
+  }
+
+  [data-expose] {
     @media (width < 48rem) {
       width: 100%;
 
-      &:not([data-expose]) {
+      &[data-expose="false"] {
         display: none;
       }
-    }
-
-    [data-search] > & {
-      display: none;
     }
   }
 
-  .button {
-    box-sizing: content-box;
-
-    @media (width < 48rem) {
-      width: 100%;
-
-      &:not([data-expose]) {
-        display: none;
-      }
-
-      [data-search] > & {
-        display: none;
-      }
-    }
-
-    @media (48rem <= width < 64rem) {
-      padding-inline: calc(1em * var(--size));
-    }
-  }
-
-  [aria-label=Menu] {
+  [aria-label="PGConf.dev"] {
     box-shadow: none;
+    margin: calc(-1.25em * var(--size));
+    margin-inline-end: auto;
+    padding: calc(1.25em * var(--size));
+  }
 
-    @media (width < 30rem) {
-      order: 1;
+  [aria-label="Search"] {
+    @media (width < 48rem) {
+      border-radius: var(--radius);
     }
 
-    @media (width >= 30rem) and (width < 48rem) {
-      order: 2;
+    @media (width < 64rem) {
+      box-shadow: none;
+      margin: calc(-1.25em * var(--size));
+      padding: calc(1.25em * var(--size));
+    }
+  }
 
-      [data-search] > & {
-        display: none;
-      }
+  [aria-label="Menu"] {
+    box-shadow: none;
+    margin: calc(-1.25em * var(--size));
+    padding: calc(1.25em * var(--size));
+  }
+
+  menu {
+    align-items: center;
+  }
+
+  [aria-label="Register"] {
+    margin-inline: calc(-1.25em * var(--size));
+
+    @media (width < 48rem) {
+      margin-block-start: 0.625em;
+    }
+
+    @media (48rem <= width < 56rem) {
+      margin-inline: 0;
+      padding: calc(1.25em * var(--size));
+    }
+
+    @media (width >= 56rem) {
+      margin-inline: 0;
     }
   }
 </style>
 
 <svelte:window
   onclick={(e) => {
-    if (!expose || search || root.contains(e.target as Node)) return;
-    expose = undefined;
+    if (!expose || root.contains(e.target as Node)) return;
+    expose = false;
   }}
 />
 
 <header
   bind:this={root}
   class={["flex", klass]}
-  data-search={search ? true : undefined}
   onkeydown={(e) => {
     if (!expose || e.key !== "Escape") return;
-    expose = undefined;
+    expose = false;
     e.currentTarget.querySelector("button")?.focus();
     e.stopPropagation();
   }}
   {...rest}
 >
-  <Mark href={resolve("/")} aria-label="PGConf.dev" />
+  <a aria-label="PGConf.dev" class="button+ iconic stroke" href={resolve("/")}>
+    <Mark style="height: 2.5rem;" />
+  </a>
+
+  <button aria-label="Search" class="button+ circle iconic stroke">
+    <span class="none@-64">Search</span>
+    <Search class="size++" />
+  </button>
 
   <button
-    aria-controls={id}
-    aria-expanded={expose === true}
+    aria-controls="nav-{id}"
+    aria-expanded={expose}
     aria-label="Menu"
-    class="button+ iconic none@48- stroke"
-    onclick={() => (expose = expose ? undefined : true)}
+    class="none@48- button+ iconic stroke"
+    onclick={() => (expose = !expose)}
   >
     <Menu class="size++" />
   </button>
 
-  <!-- <PagefindSearch /> -->
+  <nav id="nav-{id}" aria-label="Main" data-expose={expose}>
+    <menu class="flex@48-">
+      {@render children?.()}
 
-  <!-- <Search bind:text={search} data-expose={expose} style="order: 1;" /> -->
-
-  <nav {id} aria-label="Main" data-expose={expose} style:order="2">
-    <menu class="flex@48-">{@render children?.()}</menu>
+      <li>
+        <a aria-label="Register" class="button+ circle iconic" href="#">
+          <span class="none@48-56">Register</span>
+          <UserPlus class="size++" />
+        </a>
+      </li>
+    </menu>
   </nav>
-
-  <a
-    aria-label="Register"
-    class="button++ circle iconic delete square"
-    data-expose={expose}
-    href="#"
-    style:order="3"
-  >
-    <span class="none@48-64">Register</span>
-    <UserPlus class="size+" />
-  </a>
-
-  <button class="button++ circle iconic square stroke" style:order="2">
-    <SearchIcon />
-  </button>
 </header>
