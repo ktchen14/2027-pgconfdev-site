@@ -28,17 +28,16 @@
   button {
     --bg-tint: var(--static-bg-tint);
     --fg: inherit;
-
     box-shadow: none;
     justify-content: space-between;
     margin-inline: calc(-2em * var(--size));
     width: stretch;
 
-    :global(> :is(.icon, .lucide)) {
+    :global(> .lucide-chevron-down) {
       transition-property: transform;
     }
 
-    :global(&[aria-expanded="true"] > :is(.icon, .lucide)) {
+    :global(&[aria-expanded="true"] > .lucide-chevron-down) {
       transform: rotate(180deg);
     }
   }
