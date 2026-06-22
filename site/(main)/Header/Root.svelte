@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Menu, Search, UserPlus, X } from "@lucide/svelte";
+  import { Menu, Search, UserPlus } from "@lucide/svelte";
   import { resolve } from "$app/paths";
   import type { SvelteHTMLElements } from "svelte/elements";
   import { setContext } from "./context";
@@ -20,12 +20,13 @@
 <style>
   header {
     align-items: center;
+    column-gap: 0;
     margin-block: 0;
     padding-block: var(--gap);
   }
 
   .circle {
-    padding-inline: calc(2em * var(--size));
+    padding-inline: calc(2em * var(--button-size));
   }
 
   .stroke {
@@ -34,26 +35,23 @@
 
   [aria-label="PGConf.dev"] {
     --bg-tint: var(--static-bg-tint);
-    margin: calc(-1.25em * var(--size));
-    margin-inline-end: auto;
-    padding: calc(1.25em * var(--size));
+    margin: -0.75em;
+    padding: 0.75em;
   }
 
   .search-button {
-    margin: calc(-1.25em * var(--size));
-
     @media (width < 48rem) {
       border-radius: var(--radius);
     }
 
     @media (width < 64rem) {
-      padding: calc(1.25em * var(--size));
+      padding-inline: calc(1em * var(--button-size));
     }
   }
 
   .toggle-button {
-    margin: calc(-1.25em * var(--size));
-    padding: calc(1.25em * var(--size));
+    margin-inline-end: calc(-1em * var(--button-size) - 0.125em);
+    padding-inline: calc(1em * var(--button-size));
 
     @media (width < 48rem) {
       ~ * {
@@ -64,34 +62,24 @@
         display: none;
       }
     }
-
-    &[aria-expanded="true"] > :global(.lucide-menu) {
-      display: none;
-    }
-
-    &[aria-expanded="false"] > :global(.lucide-x) {
-      display: none;
-    }
   }
 
   menu {
     align-items: center;
+    gap: 0;
+
+    @media (width < 48rem) {
+      margin-inline: -0.75em;
+    }
+
+    :global ul {
+      margin-inline: calc(0.75rem);
+    }
   }
 
   .signin-button {
-    margin-inline: calc(-1.25em * var(--size));
-
-    @media (width < 48rem) {
-      margin-block-start: 0.625em;
-    }
-
     @media (48rem <= width < 56rem) {
-      margin-inline: 0;
-      padding: calc(1.25em * var(--size));
-    }
-
-    @media (width >= 56rem) {
-      margin-inline: 0;
+      padding-inline: calc(1em * var(--button-size));
     }
   }
 </style>
@@ -114,13 +102,15 @@
   }}
   {...rest}
 >
-  <a aria-label="PGConf.dev" class="button+ iconic stroke" href={resolve("/")}>
+  <a aria-label="PGConf.dev" class="button iconic stroke" href={resolve("/")}>
     <Mark style="height: 2.5rem;" />
   </a>
 
+  <div style:flex="auto"></div>
+
   <button
     aria-labelledby="search-{id}"
-    class="button+ circle iconic stroke search-button"
+    class="button+ circle iconic square@-64 stroke search-button"
   >
     <span id="search-{id}" class="none@-64">Search</span>
     <Search class="size++" />
@@ -134,12 +124,19 @@
     onclick={() => (expose = !expose)}
   >
     <Menu class="size++" />
-    <X class="size++" />
   </button>
 
   <nav id="nav-{id}" aria-label="Main">
     <menu class="flex@48-">
       {@render children?.()}
+
+      <li
+        aria-hidden="true"
+        style:flex="0 0 calc(var(--gap) / 2)"
+        style:height="1em"
+      >
+        <!-- Spacer -->
+      </li>
 
       <li>
         <a

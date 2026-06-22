@@ -11,6 +11,7 @@
 
 <style>
   nav :global a:hover {
+    background-color: unset;
     text-decoration: underline;
   }
 

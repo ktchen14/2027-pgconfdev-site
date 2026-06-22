@@ -30,7 +30,6 @@
     --fg: inherit;
     box-shadow: none;
     justify-content: space-between;
-    margin-inline: calc(-2em * var(--size));
     width: stretch;
 
     :global(> .lucide-chevron-down) {
