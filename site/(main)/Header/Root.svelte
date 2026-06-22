@@ -2,7 +2,7 @@
   import { Menu, Search, UserPlus, X } from "@lucide/svelte";
   import { resolve } from "$app/paths";
   import type { SvelteHTMLElements } from "svelte/elements";
-  import { setHeaderContext } from "./context";
+  import { setContext } from "./context";
   import Mark from "./Mark.svelte";
 
   type Props = SvelteHTMLElements["header"];
@@ -11,8 +11,8 @@
 
   let root: HTMLElement;
 
-  const header = $state({ menu: null });
-  setHeaderContext(header);
+  const context = $state({ menu: null });
+  setContext(context);
 
   let expose = $state(false);
 </script>

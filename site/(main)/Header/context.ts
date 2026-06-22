@@ -1,7 +1,7 @@
 import { createContext } from "svelte";
 
-interface Header {
+interface Context {
   menu: string | null;
 }
 
-export const [getHeaderContext, setHeaderContext] = createContext<Header>();
+export const [getContext, setContext] = createContext<Context>();

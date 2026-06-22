@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronDown } from "@lucide/svelte";
   import { tick, type ComponentProps } from "svelte";
-  import { getHeaderContext } from "./context";
+  import { getContext } from "./context";
   import Menu from "./Menu.svelte";
 
   type Props = ComponentProps<typeof Menu> & { name: string };
@@ -9,13 +9,13 @@
   const { name, children, ...rest }: Props = $props();
   const id = $props.id();
 
-  const header = getHeaderContext();
-  const open = $derived(header.menu === id ? true : undefined);
+  const context = getContext();
+  const open = $derived(context.menu === id ? true : undefined);
 
   let root: HTMLElement;
 
   async function toggle(button: HTMLButtonElement) {
-    header.menu = header.menu === id ? null : id;
+    context.menu = context.menu === id ? null : id;
 
     const source = button.getBoundingClientRect().top;
     await tick();
@@ -46,7 +46,7 @@
 <svelte:window
   onclick={(e) => {
     if (!open || root.contains(e.target as Node)) return;
-    header.menu = null;
+    context.menu = null;
   }}
 />
 
@@ -56,7 +56,7 @@
   style:display="contents"
   onkeydown={(e) => {
     if (!open || e.key !== "Escape") return;
-    header.menu = null;
+    context.menu = null;
     e.currentTarget.querySelector("button")?.focus();
     e.stopPropagation();
   }}
