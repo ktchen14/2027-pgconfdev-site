@@ -19,14 +19,7 @@
 
 <style>
   header {
-    align-items: center;
-    column-gap: 0;
-    margin-block: 0;
-    padding-block: var(--gap);
-  }
-
-  @mixin --button-square() {
-    padding-inline: calc(1em * var(--button-size));
+    column-gap: 0.25rem;
   }
 
   .circle {
@@ -38,52 +31,35 @@
   }
 
   [aria-label="PGConf.dev"] {
-    --bg-tint: var(--static-bg-tint);
-    margin: calc(-0.5 * var(--gap));
-    padding: calc(0.5 * var(--gap));
+    margin: calc(-1em * var(--button-size));
+    padding: calc(1em * var(--button-size));
   }
 
   .search-button {
-    @media (width < 48rem) {
-      border-radius: var(--radius);
-    }
-
     @media (width < 64rem) {
-      @apply --button-square;
+      padding: calc(1em * var(--button-size));
     }
   }
 
   .toggle-button {
-    @apply --button-square;
-    margin-inline-end: calc(-1em * var(--button-size) - 0.125em);
-
-    @media (width < 48rem) {
-      ~ * {
-        width: 100%;
-      }
-
-      &[aria-expanded="false"] ~ * {
-        display: none;
-      }
-    }
-  }
-
-  menu {
-    align-items: center;
-    gap: 0;
-
-    @media (width < 48rem) {
-      margin-inline: -0.75em;
-    }
-
-    :global ul {
-      margin-inline: calc(0.75rem);
-    }
+    padding: calc(1em * var(--button-size));
   }
 
   .signin-button {
     @media (48rem <= width < 56rem) {
-      @apply --button-square;
+      padding: calc(1em * var(--button-size));
+    }
+  }
+
+  nav {
+    @media (width < 48rem) {
+      width: 100%;
+    }
+  }
+
+  menu {
+    @media (width < 48rem) {
+      margin-inline: -0.75em;
     }
   }
 </style>
@@ -97,7 +73,7 @@
 
 <header
   bind:this={root}
-  class={["flex", klass]}
+  class={["flex-center", klass]}
   onkeydown={(e) => {
     if (!expose || e.key !== "Escape") return;
     expose = false;
@@ -106,7 +82,7 @@
   }}
   {...rest}
 >
-  <a aria-label="PGConf.dev" class="button iconic stroke" href={resolve("/")}>
+  <a aria-label="PGConf.dev" class="button+ iconic stroke" href={resolve("/")}>
     <Mark style="height: 2.5rem;" />
   </a>
 
@@ -126,21 +102,14 @@
     aria-label={!expose ? "Open Menu" : "Close Menu"}
     class="none@48- button+ iconic stroke toggle-button"
     onclick={() => (expose = !expose)}
+    style:margin-inline-end="-0.625em"
   >
     <Menu class="size++" />
   </button>
 
-  <nav id="nav-{id}" aria-label="Main">
-    <menu class="flex@48-">
+  <nav aria-label="Main" id="nav-{id}" class={{"none@-48": !expose}}>
+    <menu class="flex-center@48-" style:gap="0.25rem">
       {@render children?.()}
-
-      <li
-        aria-hidden="true"
-        style:flex="0 0 calc(var(--gap) / 2)"
-        style:height="1em"
-      >
-        <!-- Spacer -->
-      </li>
 
       <li>
         <a

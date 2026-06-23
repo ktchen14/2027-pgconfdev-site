@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    margin-block: var(--gap);
     min-height: 100vh;
   }
 
@@ -50,7 +51,7 @@
   }
 </style>
 
-<Header class="page-extent">
+<Header class="page-extent margin-gap">
   <li class="menu-single">
     <Header.ToggleMenu name="Program" class="size-">
       {@render programUl()}

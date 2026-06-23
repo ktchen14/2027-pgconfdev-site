@@ -20,7 +20,8 @@ const childMarginBlock = {
 const layout = withLayer("layout", [
   rule(/^none$/, () => ({ display: "none" })),
 
-  rule(/^flex$/, childMarginBlock, () => ({
+  rule(/^flex(?:-(.*))?$/, childMarginBlock, (_, align) => ({
+    "align-items": align ? align : undefined,
     display: "flex",
     "flex-wrap": "wrap",
     gap: "var(--gap)",
