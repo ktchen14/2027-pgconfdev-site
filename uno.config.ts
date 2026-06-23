@@ -66,11 +66,49 @@ const layout = withLayer("layout", [
   }),
 ]);
 
+const accent = withLayer("layout", [
+  rule(/^band$/, {
+    "border-block": "1px solid var(--border)",
+    "padding-block": "var(--gap)",
+  }),
+
+  rule(/^border$/, {
+    border: "1px solid var(--border)",
+    padding: "var(--gap)",
+  }),
+
+  rule(/^area$/, {
+    "background-color": "var(--bg-tint)",
+    padding: "var(--gap)",
+  }),
+
+  rule(/^(action|notice|insert|delete)-area$/, (_, role) => ({
+    "--bg": `var(--${role}-bg)`,
+    "--bg-tint": `var(--${role}-bg-tint)`,
+    "--border": `var(--${role}-border)`,
+    "--edge": `var(--${role})`,
+    "background-color": "var(--bg)",
+    padding: "var(--gap)",
+  })),
+
+  rule(/^(?:(action|notice|insert|delete)-)?acme$/, (_, role) => ({
+    "border-block-start": "3px solid var(--edge)",
+    "border-block-start-color": role ? `var(--${role}-fg)` : undefined,
+    "padding-block-start": "var(--gap)",
+  })),
+
+  rule(/^(?:(action|notice|insert|delete)-)?edge$/, (_, role) => ({
+    "border-inline-start": "3px solid var(--edge)",
+    "border-inline-start-color": role ? `var(--${role}-fg)` : undefined,
+    "padding-inline-start": "var(--gap)",
+  })),
+]);
+
 export default defineConfig({
   extractors: [extractorSvelte()],
   outputToCssLayers: true,
   presets: [],
-  rules: layout,
+  rules: [...layout, ...accent],
   variants: [
     (matcher) => {
       if (!matcher.endsWith("@)")) return;
