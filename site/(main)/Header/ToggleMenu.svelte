@@ -30,6 +30,7 @@
     --fg: inherit;
     box-shadow: none;
     justify-content: space-between;
+    margin-inline: calc(-2em * var(--button-size));
     width: stretch;
 
     > :global(.icon) {

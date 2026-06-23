@@ -19,7 +19,7 @@
 
 <style>
   header {
-    column-gap: 0.25rem;
+    column-gap: calc(0.5 * var(--gap) + 0.25rem);
   }
 
   .circle {
@@ -56,12 +56,6 @@
       width: 100%;
     }
   }
-
-  menu {
-    @media (width < 48rem) {
-      margin-inline: -0.75em;
-    }
-  }
 </style>
 
 <svelte:window
@@ -86,36 +80,43 @@
     <Mark style="height: 2.5rem;" />
   </a>
 
-  <div style:flex="auto"></div>
+  <div style:flex="auto"><!-- Spacer --></div>
 
-  <button
-    aria-labelledby="search-{id}"
-    class="button+ circle iconic stroke search-button"
-  >
-    <span id="search-{id}" class="none@-64">Search</span>
-    <Search class="size++" />
-  </button>
+  <div class="flex-center" style:gap="0.25rem">
+    <button
+      aria-labelledby="search-{id}"
+      class="button+ circle iconic stroke search-button"
+    >
+      <span id="search-{id}" class="none@-64">Search</span>
+      <Search class="size++" />
+    </button>
 
-  <button
-    aria-controls="nav-{id}"
-    aria-expanded={open}
-    aria-label={!open ? "Open Menu" : "Close Menu"}
-    class="none@48- button+ iconic stroke toggle-button"
-    onclick={() => (open = !open)}
-    style:margin-inline-end="-0.625em"
-  >
-    <Menu class="size++" />
-  </button>
+    <button
+      aria-controls="nav-{id}"
+      aria-expanded={open}
+      aria-label={!open ? "Open Menu" : "Close Menu"}
+      class="none@48- button+ iconic stroke toggle-button"
+      onclick={() => (open = !open)}
+      style:margin-inline-end="-0.625em"
+    >
+      <Menu class="size++" />
+    </button>
+  </div>
 
-  <nav aria-label="Main" id="nav-{id}" class={{"none@-48": !open}}>
-    <menu class="flex-center@48-" style:gap="0.25rem">
+  <nav aria-label="Main" id="nav-{id}" class={{ "none@-48": !open }}>
+    <menu class="flex-center@48-" style:gap="1.75rem">
       {@render children?.()}
+
+      <li aria-hidden="true" class="none@48-" style:height="0.5em">
+        <!-- Spacer -->
+      </li>
 
       <li>
         <a
           aria-labelledby="signin-{id}"
           class="button+ circle iconic signin-button"
           href="#"
+          style:margin-inline="0"
         >
           <span id="signin-{id}" class="none@48-56">Register</span>
           <UserPlus class="size++" />

@@ -21,7 +21,7 @@
   }
 
   :global .page-extent {
-    padding-inline: max(var(--margin), (100vw - 74rem) / 2);
+    --page-margin: max(var(--margin), (100vw - 74rem) / 2);
   }
 
   :where(main) {
@@ -35,8 +35,7 @@
   .menu-single :global([data-open]) {
     @media (width >= 48rem) {
       margin-block-start: 1em;
-      padding-block: 1em;
-      padding-inline: 0;
+      padding-block: 1.125em;
       right: calc(-1.5rem - 1px);
       width: 15rem;
     }
@@ -51,7 +50,7 @@
   }
 </style>
 
-<Header class="page-extent margin-gap">
+<Header class="(main) page-extent margin-gap">
   <li class="menu-single">
     <Header.ToggleMenu name="Program" class="size-">
       {@render programUl()}
@@ -81,7 +80,7 @@
 
 <hr class="margin-gap" />
 
-<footer class="page-extent flex@48- margin-gap note">
+<footer class="(main) flex@48- margin-gap note">
   <p>
     Follow us on
     <Link href={Mastodon.href} aria-label="Mastodon">

@@ -145,6 +145,7 @@ a {
 :where(nav, search) a {
   color: inherit;
   display: inline-block;
+  margin-inline: -0.75em;
   padding-block: 0.375em;
   padding-inline: 0.75em;
   text-decoration: none;
