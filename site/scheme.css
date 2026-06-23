@@ -63,6 +63,7 @@
   --static-fg: color-mix(in oklch, var(--static) 80%, white);
   --static-bg: white;
   --static-bg-tint: color-mix(in oklch, var(--static) 4%, white);
+  --static-border: color-mix(in oklch, var(--static) 20%, white);
 
   --action: oklch(0.4973 0.12 245.25);
   --action-fg: var(--action);
@@ -105,7 +106,7 @@
   --bg-tint: var(--static-bg-tint);
 
   /* Separation, i.e. <hr>, <tr>, .border */
-  --border: color-mix(in oklch, var(--static) 20%, white);
+  --border: var(--static-border);
 
   /* Accent rule, i.e. <blockquote>, .acme, .edge */
   --edge: color-mix(in oklch, var(--static) 50%, white);

@@ -6,16 +6,9 @@
 </script>
 
 <style>
-  div :global a[aria-current]:where(:not([aria-current="false"])) {
-    background-color: var(--action-bg-tint);
-  }
-
   div {
     @media (width >= 48rem) {
       background-color: var(--bg);
-      border: 1px solid var(--border);
-      border-block-start: 3px solid var(--action);
-      padding: var(--gap);
 
       box-shadow: 0 1.5rem 3rem -1.5rem
         color-mix(in oklch, var(--static-fg) 40%, transparent);
@@ -49,4 +42,4 @@
   /* } */
 </style>
 
-<div {...rest}>{@render children?.()}</div>
+<div class="border@48- action-acme@48-" {...rest}>{@render children?.()}</div>

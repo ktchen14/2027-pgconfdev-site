@@ -82,7 +82,7 @@ const accent = withLayer("layout", [
     padding: "var(--gap)",
   }),
 
-  rule(/^(action|notice|insert|delete)-area$/, (_, role) => ({
+  rule(/^(static|action|notice|insert|delete)-area$/, (_, role) => ({
     "--bg": `var(--${role}-bg)`,
     "--bg-tint": `var(--${role}-bg-tint)`,
     "--border": `var(--${role}-border)`,
@@ -91,13 +91,13 @@ const accent = withLayer("layout", [
     padding: "var(--gap)",
   })),
 
-  rule(/^(?:(action|notice|insert|delete)-)?acme$/, (_, role) => ({
+  rule(/^(?:(static|action|notice|insert|delete)-)?acme$/, (_, role) => ({
     "border-block-start": "3px solid var(--edge)",
     "border-block-start-color": role ? `var(--${role}-fg)` : undefined,
     "padding-block-start": "var(--gap)",
   })),
 
-  rule(/^(?:(action|notice|insert|delete)-)?edge$/, (_, role) => ({
+  rule(/^(?:(static|action|notice|insert|delete)-)?edge$/, (_, role) => ({
     "border-inline-start": "3px solid var(--edge)",
     "border-inline-start-color": role ? `var(--${role}-fg)` : undefined,
     "padding-inline-start": "var(--gap)",

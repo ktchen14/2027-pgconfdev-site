@@ -28,19 +28,6 @@
     margin-block-end: var(--margin);
   }
 
-  .menu-single {
-    position: relative;
-  }
-
-  .menu-single :global([data-open]) {
-    @media (width >= 48rem) {
-      margin-block-start: 1em;
-      padding-block: 1.125em;
-      right: calc(-1.5rem - 1px);
-      width: 15rem;
-    }
-  }
-
   footer {
     justify-content: space-between;
 

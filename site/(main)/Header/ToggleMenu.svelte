@@ -1,10 +1,11 @@
 <script lang="ts">
   import { ChevronDown } from "@lucide/svelte";
-  import { tick, type ComponentProps } from "svelte";
+  import { tick } from "svelte";
   import { getContext } from "./context";
-  import Menu from "./Menu.svelte";
+  import type { SvelteHTMLElements } from "svelte/elements";
 
-  type Props = ComponentProps<typeof Menu> & { name: string };
+  // type Props = ComponentProps<typeof Menu> & { name: string };
+  type Props = SvelteHTMLElements["ul"] & { name: string };
 
   const { name, children, ...rest }: Props = $props();
   const id = $props.id();
@@ -25,6 +26,10 @@
 </script>
 
 <style>
+  div {
+    position: relative;
+  }
+
   button {
     --bg-tint: var(--static-bg-tint);
     --fg: inherit;
@@ -41,11 +46,31 @@
       transform: rotate(180deg);
     }
   }
+
+  ul {
+    @media (width >= 48rem) {
+      box-shadow: 0 1.5rem 3rem -1.5rem
+        color-mix(in oklch, var(--static-fg) 40%, transparent);
+      overflow: auto;
+      position: absolute;
+
+      margin-block-start: 1em;
+      padding-block: 1.125em;
+      right: calc(-0.5 * var(--gap));
+      width: 15rem;
+    }
+  }
+
+  [aria-expanded="false"] + * {
+    display: none;
+  }
 </style>
 
 <svelte:window
   onclick={(e) => {
-    if (!open || root.contains(e.target as Node)) return;
+    const target = e.target as Element;
+    if (!open) return;
+    if (target.closest(`#button-${id}, #menu-${id}`) !== null) return;
     context.menu = null;
   }}
 />
@@ -53,7 +78,6 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   bind:this={root}
-  style:display="contents"
   onkeydown={(e) => {
     if (!open || e.key !== "Escape") return;
     context.menu = null;
@@ -62,16 +86,17 @@
   }}
 >
   <button
-    aria-controls={id}
+    aria-controls="menu-{id}"
     aria-expanded={open === true}
     class="iconic stroke"
+    id="button-{id}"
     onclick={(e) => toggle(e.currentTarget)}
   >
     {name}
     <ChevronDown />
   </button>
 
-  <Menu {id} data-open={open} {...rest}>
+  <ul class="action-acme@48- border@48- static-area@48- size-" id="menu-{id}">
     {@render children?.()}
-  </Menu>
+  </ul>
 </div>
