@@ -9,8 +9,8 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import SectionNav from "$lib/SectionNav.svelte";
   import type { ComponentProps } from "svelte";
-  import SectionNav from "../SectionNav.svelte";
 
   type Props = ComponentProps<typeof SectionNav>;
   const { children, ...rest }: Props = $props();

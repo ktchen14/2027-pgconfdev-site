@@ -1,5 +1,5 @@
 <!--
-  @component Section `<nav>` component of the `/` layout.
+  @component Section `<nav>` component common to each layout.
 -->
 
 <script lang="ts">
