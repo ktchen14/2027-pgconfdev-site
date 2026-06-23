@@ -1,11 +1,14 @@
 <script lang="ts">
+  import { setLucideProps } from "@lucide/svelte";
   import newsreaderLatinOpszNormalWoff2 from "@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url";
   import publicSansLatinWghtNormalWoff2 from "@fontsource-variable/public-sans/files/public-sans-latin-wght-normal.woff2?url";
   import type { LayoutProps } from "./$types";
   import "./site.css";
   import "virtual:uno.css";
 
-  let { children }: LayoutProps = $props();
+  const { children }: LayoutProps = $props();
+
+  setLucideProps({ class: "icon" });
 </script>
 
 <svelte:head>

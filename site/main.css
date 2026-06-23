@@ -287,7 +287,7 @@ button,
   gap: 0.5em;
   min-size: 1lh;
 
-  > :is(.icon, .lucide) {
+  > .icon {
     flex: none;
   }
 
@@ -296,6 +296,6 @@ button,
   }
 }
 
-.icon, .lucide {
+.icon {
   size: 1em;
 }

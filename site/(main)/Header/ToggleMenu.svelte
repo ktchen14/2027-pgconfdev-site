@@ -32,11 +32,11 @@
     justify-content: space-between;
     width: stretch;
 
-    :global(> .lucide-chevron-down) {
+    > :global(.icon) {
       transition-property: transform;
     }
 
-    :global(&[aria-expanded="true"] > .lucide-chevron-down) {
+    &[aria-expanded="true"] > :global(.icon) {
       transform: rotate(180deg);
     }
   }
