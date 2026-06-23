@@ -3,7 +3,7 @@
 -->
 
 <script module lang="ts">
-  export { ul };
+  export { list };
 </script>
 
 <script lang="ts">
@@ -16,15 +16,15 @@
   const { children, ...rest }: Props = $props();
 </script>
 
-{#snippet ul()}
-  <ul>
-    <li><Link href={resolve("/program")}>Call for proposals</Link></li>
-    <li><Link href={resolve("/program/schedule")}>Schedule</Link></li>
-  </ul>
+{#snippet list()}
+  <li><Link href={resolve("/program")}>Call for proposals</Link></li>
+  <li><Link href={resolve("/program/schedule")}>Schedule</Link></li>
 {/snippet}
 
 <SectionNav aria-labelledby="program-nav" {...rest}>
   <h2 id="program-nav" class="over">Program</h2>
-  {@render ul()}
+  <ul>
+    {@render list()}
+  </ul>
   {@render children?.()}
 </SectionNav>

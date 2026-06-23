@@ -3,10 +3,10 @@
   import { GitHub, LinkedIn, Mastodon } from "$lib/icon";
   import Link from "$lib/Link";
   import type { LayoutProps } from "./$types";
-  import { ul as aboutUl } from "./about/SectionNav.svelte";
-  import { ul as attendUl } from "./attend/SectionNav.svelte";
+  import { list as aboutList } from "./about/SectionNav.svelte";
+  import { list as attendList } from "./attend/SectionNav.svelte";
   import Header from "./Header";
-  import { ul as programUl } from "./program/SectionNav.svelte";
+  import { list as programList } from "./program/SectionNav.svelte";
 
   const { children }: LayoutProps = $props();
 </script>
@@ -38,24 +38,24 @@
 </style>
 
 <Header class="(main) page-extent margin-gap">
-  <li class="menu-single">
-    <Header.ToggleMenu name="Program" class="size-">
-      {@render programUl()}
-    </Header.ToggleMenu>
+  <li>
+    <Header.Menu name="Program">
+      {@render programList()}
+    </Header.Menu>
   </li>
 
-  <li class="menu-single">
-    <Header.ToggleMenu name="Attend" class="size-">
-      {@render attendUl()}
-    </Header.ToggleMenu>
+  <li>
+    <Header.Menu name="Attend">
+      {@render attendList()}
+    </Header.Menu>
   </li>
 
   <li><Link href={resolve("/sponsor")}>Sponsor</Link></li>
 
-  <li class="menu-single">
-    <Header.ToggleMenu name="About" class="size-">
-      {@render aboutUl()}
-    </Header.ToggleMenu>
+  <li>
+    <Header.Menu name="About">
+      {@render aboutList()}
+    </Header.Menu>
   </li>
 </Header>
 
