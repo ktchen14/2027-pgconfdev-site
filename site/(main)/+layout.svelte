@@ -35,6 +35,7 @@
     @media (width >= 48rem) {
       margin-block-start: 1em;
       padding-block: 1em;
+      padding-inline: 0;
       right: calc(-1.5rem - 1px);
       width: 15rem;
     }

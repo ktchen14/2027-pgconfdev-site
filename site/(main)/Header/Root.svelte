@@ -25,6 +25,10 @@
     padding-block: var(--gap);
   }
 
+  @mixin --button-square() {
+    padding-inline: calc(1em * var(--button-size));
+  }
+
   .circle {
     padding-inline: calc(2em * var(--button-size));
   }
@@ -35,8 +39,8 @@
 
   [aria-label="PGConf.dev"] {
     --bg-tint: var(--static-bg-tint);
-    margin: -0.75em;
-    padding: 0.75em;
+    margin: calc(-0.5 * var(--gap));
+    padding: calc(0.5 * var(--gap));
   }
 
   .search-button {
@@ -45,13 +49,13 @@
     }
 
     @media (width < 64rem) {
-      padding-inline: calc(1em * var(--button-size));
+      @apply --button-square;
     }
   }
 
   .toggle-button {
+    @apply --button-square;
     margin-inline-end: calc(-1em * var(--button-size) - 0.125em);
-    padding-inline: calc(1em * var(--button-size));
 
     @media (width < 48rem) {
       ~ * {
@@ -79,7 +83,7 @@
 
   .signin-button {
     @media (48rem <= width < 56rem) {
-      padding-inline: calc(1em * var(--button-size));
+      @apply --button-square;
     }
   }
 </style>
@@ -110,7 +114,7 @@
 
   <button
     aria-labelledby="search-{id}"
-    class="button+ circle iconic square@-64 stroke search-button"
+    class="button+ circle iconic stroke search-button"
   >
     <span id="search-{id}" class="none@-64">Search</span>
     <Search class="size++" />
