@@ -14,7 +14,7 @@
   const context = $state({ menu: null });
   setContext(context);
 
-  let expose = $state(false);
+  let open = $state(false);
 </script>
 
 <style>
@@ -66,8 +66,8 @@
 
 <svelte:window
   onclick={(e) => {
-    if (!expose || root.contains(e.target as Node)) return;
-    expose = false;
+    if (!open || root.contains(e.target as Node)) return;
+    open = false;
   }}
 />
 
@@ -75,8 +75,8 @@
   bind:this={root}
   class={["flex-center", klass]}
   onkeydown={(e) => {
-    if (!expose || e.key !== "Escape") return;
-    expose = false;
+    if (!open || e.key !== "Escape") return;
+    open = false;
     e.currentTarget.querySelector("button")?.focus();
     e.stopPropagation();
   }}
@@ -98,16 +98,16 @@
 
   <button
     aria-controls="nav-{id}"
-    aria-expanded={expose}
-    aria-label={!expose ? "Open Menu" : "Close Menu"}
+    aria-expanded={open}
+    aria-label={!open ? "Open Menu" : "Close Menu"}
     class="none@48- button+ iconic stroke toggle-button"
-    onclick={() => (expose = !expose)}
+    onclick={() => (open = !open)}
     style:margin-inline-end="-0.625em"
   >
     <Menu class="size++" />
   </button>
 
-  <nav aria-label="Main" id="nav-{id}" class={{"none@-48": !expose}}>
+  <nav aria-label="Main" id="nav-{id}" class={{"none@-48": !open}}>
     <menu class="flex-center@48-" style:gap="0.25rem">
       {@render children?.()}
 
