@@ -1,7 +1,7 @@
-@layer normalize, system, layout, page;
+@layer normalize, scheme, system, layout, page;
 
 @import "@csstools/normalize.css" layer(normalize);
-@import "scheme.css" layer(system);
+@import "scheme.css" layer(scheme);
 @import "system.css" layer(system);
 @import "page.css" layer(page);
 

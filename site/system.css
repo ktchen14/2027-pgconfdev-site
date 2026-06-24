@@ -221,10 +221,6 @@ sub, sup {
   font-size: 1.25em;
 }
 
-.mono {
-  font-family: var(--mono-font);
-}
-
 .text {
   max-width: 38rem;
 }
@@ -232,6 +228,14 @@ sub, sup {
 .note > :where(blockquote, dl, menu, ol, p, ul) {
   color: var(--fg-mute);
   font-size: 0.875em;
+}
+
+.mono {
+  font-family: var(--mono-font);
+}
+
+.mute {
+  color: var(--fg-mute);
 }
 
 .size\+ {
@@ -398,44 +402,6 @@ button,
 
 .button-- {
   --button-size: 0.125;
-}
-
-/* Color */
-
-.mute {
-  color: var(--fg-mute);
-}
-
-:where(.action, .notice, .insert, .delete) {
-  color: var(--fg);
-}
-
-.action {
-  --fg: var(--action-fg);
-  --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
-}
-
-.notice {
-  --fg: var(--notice-fg);
-  --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
-}
-
-.insert {
-  --fg: var(--insert-fg);
-  --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
-}
-
-.delete {
-  --fg: var(--delete-fg);
-  --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
 }
 
 /* Icons */

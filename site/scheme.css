@@ -116,3 +116,35 @@
   /* TODO: legacy */
   --code-color: rgb(92 99 112);
 }
+
+:where(.action, .notice, .insert, .delete) {
+  color: var(--fg);
+}
+
+.action {
+  --fg: var(--action-fg);
+  --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
+}
+
+.notice {
+  --fg: var(--notice-fg);
+  --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
+}
+
+.insert {
+  --fg: var(--insert-fg);
+  --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
+}
+
+.delete {
+  --fg: var(--delete-fg);
+  --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
+}
