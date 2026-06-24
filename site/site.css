@@ -1,46 +1,9 @@
-@layer normalize, main, layout, page;
+@layer normalize, system, layout, page;
 
 @import "@csstools/normalize.css" layer(normalize);
-@import "scheme.css" layer(main);
-@import "margin.css" layer(main);
-@import "main.css" layer(main);
+@import "scheme.css" layer(system);
+@import "system.css" layer(system);
 @import "page.css" layer(page);
-
-/* Text */
-
-.lead, .lede {
-  font-family: var(--header-font);
-  font-size: 1.25em;
-}
-
-.mono {
-  font-family: var(--mono-font);
-}
-
-.text {
-  max-width: 38rem;
-}
-
-.note > :where(blockquote, dl, menu, ol, p, ul) {
-  color: var(--fg-mute);
-  font-size: 0.875em;
-}
-
-.size\+ {
-  font-size: 1.125em;
-}
-
-.size\+\+ {
-  font-size: 1.25em;
-}
-
-.size- {
-  font-size: 0.875em;
-}
-
-.size-- {
-  font-size: 0.75em;
-}
 
 /* Counters */
 
@@ -59,38 +22,4 @@ main {
   font-family: var(--mono-font);
   font-size: 0.875em;
   margin-inline-end: 1em;
-}
-
-/* Color */
-
-.mute {
-  color: var(--fg-mute);
-}
-
-.action {
-  --fg: var(--action-fg);
-  --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
-}
-
-.notice {
-  --fg: var(--notice-fg);
-  --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
-}
-
-.insert {
-  --fg: var(--insert-fg);
-  --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
-}
-
-.delete {
-  --fg: var(--delete-fg);
-  --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
-  --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
-  --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
 }

@@ -11,10 +11,8 @@ yarn.lock
 bun.lock
 bun.lockb
 
-/site/main.css
-/site/margin.css
 /site/page.css
-/site/site.css
+/site/system.css
 
 # Miscellaneous
 /static/

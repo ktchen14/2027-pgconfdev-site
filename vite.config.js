@@ -13,11 +13,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   css: {
     postcss: {
-      plugins: [
-        postcssHeading(),
-        postcssSize(),
-        postcssPresetEnv({ features: { "custom-selectors": true } }),
-      ],
+      plugins: [postcssHeading(), postcssSize(), postcssPresetEnv()],
     },
   },
   plugins: [enhancedImages(), lucidePreprocess(), UnoCSS(), sveltekit()],

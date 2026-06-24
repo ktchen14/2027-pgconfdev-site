@@ -1,37 +1,48 @@
 /* Universal elements */
 
-body {
-  background-color: var(--bg);
-  color: var(--fg);
-  font-family: var(--sans-font);
-  line-height: 1.5;
-  min-width: 20rem;
-  overflow-wrap: break-word;
-}
-
 *, ::before, ::after {
+  box-sizing: border-box;
   transition-duration: 0.15s;
   transition-property: none;
   transition-timing-function: ease-in-out;
 }
 
-:is(.action, .notice, .insert, .delete) {
+:target {
+  scroll-margin-block: var(--gap);
+}
+
+body {
+  background-color: var(--bg);
   color: var(--fg);
+  font-family: var(--sans-font);
+  line-height: 1.5;
+  margin: 0;
+  min-width: 20rem;
+  overflow-wrap: break-word;
+}
+
+/* Sectioning content */
+
+article, aside, nav, section, .section {
+  margin-block: var(--margin);
 }
 
 /* Heading content */
 
 h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
-  font-family: var(--header-font);
-  font-size: calc(1rem * var(--size));
-  font-weight: 550;
-  letter-spacing: min(-2% * (1 - exp(1 - var(--size))), 0%);
-  line-height: clamp(1, 1 + 0.5 * exp(1 - var(--size)), 1.5);
+  font: 550 calc(1rem * var(--size)) var(--header-font);
+  letter-spacing: calc(1 - exp(1 - var(--size)));
+  line-height: calc(1 + 0.5 * exp(1 - var(--size)));
+  margin-block: 1.5em 0.5em;
   text-wrap: balance;
 }
 
 h6, .h6, :where(hgroup).h6 > :where(:heading) {
   font-family: var(--sans-font);
+}
+
+hgroup {
+  margin-block: calc(1.5rem * var(--size)) calc(0.5rem * var(--size));
 }
 
 h1, hgroup:has(> :where(h1)), .h1, :where(hgroup).h1 > :where(:heading) {
@@ -58,15 +69,35 @@ h6, hgroup:has(> :where(h6)), .h6, :where(hgroup).h6 > :where(:heading) {
   --size: var(--h6-size);
 }
 
+:where(h1, .h1, hgroup:has(> h1)) + :is(h2, h3, h4, h5, h6),
+:where(h1, .h1, hgroup:has(> h1)) + hgroup:has(> :where(h2, h3, h4, h5, h6)),
+:where(h1, .h1, hgroup:has(> h1)) + :is(.h2, .h3, .h4, .h5, .h6),
+:where(h2, .h2, hgroup:has(> h2)) + :is(h3, h4, h5, h6),
+:where(h2, .h2, hgroup:has(> h2)) + hgroup:has(> :where(h3, h4, h5, h6)),
+:where(h2, .h2, hgroup:has(> h2)) + :is(.h3, .h4, .h5, .h6),
+:where(h3, .h3, hgroup:has(> h3)) + :is(h4, h5, h6),
+:where(h3, .h3, hgroup:has(> h3)) + hgroup:has(> :where(h4, h5, h6)),
+:where(h3, .h3, hgroup:has(> h3)) + :is(.h4, .h5, .h6),
+:where(h4, .h4, hgroup:has(> h4)) + :is(h5, h6, hgroup:has(> :where(h5, h6))),
+:where(h4, .h4, hgroup:has(> h4)) + :is(.h5, .h6),
+:where(h5, .h5, hgroup:has(> h5)) + :is(h6, hgroup:has(> :where(h6))),
+:where(h5, .h5, hgroup:has(> h5)) + .h6 {
+  margin-block-start: 0;
+}
+
+hgroup > :is(h1, h2, h3, h4, h5, h6, p) {
+  margin-block: 0;
+}
+
 hgroup > p:has(~ :where(:heading)), .over {
   color: var(--fg-tint);
-  font-family: var(--mono-font);
-  font-size: 0.75rem;
-  font-weight: unset;
+  font: 0.75rem var(--mono-font);
   letter-spacing: 0.1em;
-  line-height: unset;
   text-transform: uppercase;
-  text-wrap: unset;
+}
+
+hgroup > p:has(+ :where(:heading)) {
+  margin-block-end: calc(2em / 3);
 }
 
 hgroup > :where(:heading) ~ p, caption, figcaption, small, .deck {
@@ -74,10 +105,48 @@ hgroup > :where(:heading) ~ p, caption, figcaption, small, .deck {
   font-size: 0.875em;
 }
 
-/* Flow content */
+/* Flow content except heading content, phrasing content, sectioning content,
+ * <dialog>, and <div>. */
 
-blockquote {
-  padding-inline: var(--gap);
+address, blockquote, details, dl, fieldset, figure, footer, form, header, hr,
+main, menu, ol, p, pre, search, table, ul, .p {
+  margin-block: 0 1em;
+}
+
+.margin-gap {
+  margin-block: 0 var(--gap);
+}
+
+blockquote, figure, hr {
+  margin-inline: 0;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+pre {
+  overflow: auto;
+}
+
+/* List elements */
+
+:where(dd, li) > :is(dl, menu, ol, ul) {
+  margin-block: 0.25em 0;
+}
+
+menu, ol, ul {
+  padding-inline-start: var(--gap);
+
+  :where(nav, search) &, &.dedent {
+    list-style-type: none;
+    padding-inline-start: 0;
+  }
+}
+
+dd, li {
+  margin-block: 0 0.25em;
 }
 
 dd {
@@ -91,22 +160,37 @@ dd {
   }
 }
 
-hr {
-  border: 0;
-  border-bottom: 1px solid var(--border);
+/* Caption elements */
+
+caption, figcaption, .over {
+  margin-block: calc(2em / 3);
 }
 
-menu, ol, ul {
-  padding-inline-start: var(--gap);
+figcaption + *, .over + * {
+  margin-block-start: 0;
+}
 
-  :where(nav, search) &, &.dedent {
-    list-style-type: none;
-    padding-inline-start: 0;
+*:has(+ figcaption), *:has(+ .over) {
+  margin-block-end: 0;
+}
+
+/* Margin trim */
+
+.margin-gap, h1, h2, h3, h4, h5, h6, hgroup, .h1, .h2, .h3, .h4, .h5, .h6,
+article, aside, nav, section, .section, address, blockquote, details, dl,
+fieldset, figure, footer, form, header, hr, main, menu, ol, p, pre, search,
+table, ul, .p, dd, li, caption, figcaption, .over {
+  :where(&):first-child {
+    margin-block-start: 0;
   }
-}
 
-pre {
-  overflow: auto;
+  :where(&):last-child {
+    margin-block-end: 0;
+  }
+
+  :where(&):has(+ #svelte-announcer) {
+    margin-block-end: 0;
+  }
 }
 
 /* Text-level semantics */
@@ -129,6 +213,40 @@ mark {
 }
 
 sub, sup {
+  font-size: 0.75em;
+}
+
+.lead, .lede {
+  font-family: var(--header-font);
+  font-size: 1.25em;
+}
+
+.mono {
+  font-family: var(--mono-font);
+}
+
+.text {
+  max-width: 38rem;
+}
+
+.note > :where(blockquote, dl, menu, ol, p, ul) {
+  color: var(--fg-mute);
+  font-size: 0.875em;
+}
+
+.size\+ {
+  font-size: 1.125em;
+}
+
+.size\+\+ {
+  font-size: 1.25em;
+}
+
+.size- {
+  font-size: 0.875em;
+}
+
+.size-- {
   font-size: 0.75em;
 }
 
@@ -280,6 +398,44 @@ button,
 
 .button-- {
   --button-size: 0.125;
+}
+
+/* Color */
+
+.mute {
+  color: var(--fg-mute);
+}
+
+:where(.action, .notice, .insert, .delete) {
+  color: var(--fg);
+}
+
+.action {
+  --fg: var(--action-fg);
+  --fg-active: color-mix(in oklch, var(--action-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--action-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--action-fg) 40%, white);
+}
+
+.notice {
+  --fg: var(--notice-fg);
+  --fg-active: color-mix(in oklch, var(--notice-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--notice-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--notice-fg) 40%, white);
+}
+
+.insert {
+  --fg: var(--insert-fg);
+  --fg-active: color-mix(in oklch, var(--insert-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--insert-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--insert-fg) 40%, white);
+}
+
+.delete {
+  --fg: var(--delete-fg);
+  --fg-active: color-mix(in oklch, var(--delete-fg), black 12%);
+  --fg-mute: color-mix(in oklch, var(--delete-fg) 65%, white);
+  --fg-tint: color-mix(in oklch, var(--delete-fg) 40%, white);
 }
 
 /* Icons */

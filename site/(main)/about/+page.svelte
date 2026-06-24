@@ -9,7 +9,6 @@
   blockquote {
     font-style: italic;
     font-weight: 400;
-    padding-inline: 0;
   }
 
   .timeline > * {
