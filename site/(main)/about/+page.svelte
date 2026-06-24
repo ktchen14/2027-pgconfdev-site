@@ -72,7 +72,7 @@
   </ol>
 </nav>
 
-<aside class="main ) area border note" aria-labelledby="at-a-glance">
+<aside class="main ) area@-48 border@-48 note" aria-labelledby="at-a-glance">
   <h2 id="at-a-glance" class="over">At a Glance</h2>
 
   <hr />
