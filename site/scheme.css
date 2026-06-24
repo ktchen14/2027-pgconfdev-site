@@ -49,6 +49,7 @@
   --radius: 0.25rem;
 
   /* Each --h*-size is a size, in rem, as a "dimensionless" number */
+  --button-size: 0.375;
   --h0-size: calc(3.5 + 2.75 * var(--view));
   --h1-size: calc(2.5 + 0.75 * var(--view));
   --h2-size: calc(1.75 + 0.5 * var(--view));

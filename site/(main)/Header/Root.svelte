@@ -22,6 +22,10 @@
     column-gap: calc(0.5 * var(--gap) + 0.25rem);
   }
 
+  button, .button {
+    --button-size: 0.5;
+  }
+
   .circle {
     padding-inline: calc(2em * var(--button-size));
   }
@@ -76,7 +80,7 @@
   }}
   {...rest}
 >
-  <a aria-label="PGConf.dev" class="button+ iconic stroke" href={resolve("/")}>
+  <a aria-label="PGConf.dev" class="button iconic stroke" href={resolve("/")}>
     <Mark style="height: 2.5rem;" />
   </a>
 
@@ -85,7 +89,7 @@
   <div class="flex-center" style:gap="0.25rem">
     <button
       aria-labelledby="search-{id}"
-      class="button+ circle iconic stroke search-button"
+      class="button circle iconic stroke search-button"
     >
       <span id="search-{id}" class="none@-64">Search</span>
       <Search class="size++" />
@@ -95,7 +99,7 @@
       aria-controls="nav-{id}"
       aria-expanded={open}
       aria-label={!open ? "Open Menu" : "Close Menu"}
-      class="none@48- button+ iconic stroke toggle-button"
+      class="none@48- button iconic stroke toggle-button"
       onclick={() => (open = !open)}
       style:margin-inline-end="-0.625em"
     >
@@ -114,7 +118,7 @@
       <li>
         <a
           aria-labelledby="signin-{id}"
-          class="button+ circle iconic signin-button"
+          class="button circle iconic signin-button"
           href="#"
           style:margin-inline="0"
         >
