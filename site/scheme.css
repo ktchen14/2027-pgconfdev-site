@@ -36,12 +36,6 @@
   --mono-font: "JetBrains Mono Variable", ui-monospace, monospace;
   --sans-font: "Public Sans Variable", system-ui, sans-serif;
 
-  --gap: 1.5rem;
-
-  /* 1.5rem @ 20rem -> 3rem @ 80rem */
-  --margin: clamp(1.5rem, 2.5vw + 1rem, 3rem);
-  --radius: 0.25rem;
-
   /* Work around the absence of unit division in CSS */
   --view-size: 100vw;
   --unit-size: 1rem;
@@ -49,6 +43,10 @@
 
   /* 0 @ 22.5rem -> 1 @ 80rem */
   --view: clamp(0, (var(--view-unit) - 22.5) / 57.5, 1);
+
+  --gap: 1.5rem;
+  --margin: calc(1.5rem + 1.5rem * var(--view));
+  --radius: 0.25rem;
 
   /* Each --h*-size is a size, in rem, as a "dimensionless" number */
   --h0-size: calc(3.5 + 2.75 * var(--view));
