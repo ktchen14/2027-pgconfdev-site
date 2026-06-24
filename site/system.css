@@ -31,7 +31,7 @@ article, aside, nav, section, .section {
 
 h1, h2, h3, h4, h5, h6, :where(:not(hgroup)):is(.h1, .h2, .h3, .h4, .h5, .h6) {
   font: 550 calc(1rem * var(--size)) var(--header-font);
-  letter-spacing: calc(1 - exp(1 - var(--size)));
+  letter-spacing: calc(-2% * (1 - exp(1 - var(--size))));
   line-height: calc(1 + 0.5 * exp(1 - var(--size)));
   margin-block: 1.5em 0.5em;
   text-wrap: balance;
@@ -92,7 +92,7 @@ hgroup > :is(h1, h2, h3, h4, h5, h6, p) {
 hgroup > p:has(~ :where(:heading)), .over {
   color: var(--fg-tint);
   font: 0.75rem var(--mono-font);
-  letter-spacing: 0.1em;
+  letter-spacing: 7.5%;
   text-transform: uppercase;
 }
 
