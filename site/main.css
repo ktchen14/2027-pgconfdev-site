@@ -140,6 +140,10 @@ a {
   &:hover {
     color: var(--action-fg-active);
   }
+
+  &:active {
+    color: color-mix(in oklch, var(--action-fg-active), black 12%);
+  }
 }
 
 :where(nav, search) a {
@@ -246,7 +250,7 @@ button,
   }
 
   &.circle {
-    border-radius: calc(infinity * 1px);
+    border-radius: calc(1px * infinity);
     padding-inline: calc(3em * var(--button-size));
   }
 

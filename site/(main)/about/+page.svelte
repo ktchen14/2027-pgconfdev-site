@@ -62,7 +62,7 @@
   </div>
 </section>
 
-<SectionNav />
+<SectionNav class="( main" />
 
 <nav class="main ) note" aria-labelledby="on-this-page">
   <h2 id="on-this-page" class="over">On This Page</h2>

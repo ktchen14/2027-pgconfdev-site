@@ -10,23 +10,45 @@
 </script>
 
 <style>
-  nav :global a {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
+  nav {
+    container: section-nav / inline-size;
+  }
 
-    &:hover {
-      border-color: var(--action-fg);
-    }
-
-    &[aria-current]:where(:not([aria-current="false"])) {
-      background-color: var(--action-bg-tint);
-      border-color: var(--action-fg);
+  nav :global ul {
+    @container section-nav (width > 28rem) {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
     }
   }
 
   nav :global li {
     margin-block: 0;
+  }
+
+  nav :global a {
+    border-inline-start: 2px solid var(--border);
+    border-radius: 0;
+    margin-inline: 0;
+
+    @container section-nav (width >= 28rem) {
+      border-radius: calc(1px * infinity);
+      border: 1px solid var(--border);
+
+      &:active {
+        translate: 0 1px;
+      }
+    }
+
+    &:hover {
+      border-color: var(--action-fg);
+    }
+
+    &[aria-current="page"] {
+      background-color: var(--action-bg-tint);
+      border-color: var(--action-fg);
+    }
   }
 </style>
 
