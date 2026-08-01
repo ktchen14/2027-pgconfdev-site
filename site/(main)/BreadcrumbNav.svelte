@@ -10,29 +10,32 @@
 </script>
 
 <style>
-  nav :global a:hover {
-    background-color: unset;
-    text-decoration: underline;
+  nav :global a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      background-color: revert;
+      text-decoration: revert;
+    }
   }
 
   ol :global > li {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 1em;
-
     &::before {
-      content: "/";
+      content: "/ ";
+      white-space: pre;
     }
 
-    > * {
-      margin-block: 0;
+    &::after {
+      content: " ";
+      white-space: pre;
     }
   }
 </style>
 
 <nav class={["(main)", klass]} aria-label="Breadcrumb" {...rest}>
-  <ol class="iconic over" style:gap="1em">
+  <ol class="flex-center over" style:gap="0">
     {@render children?.()}
   </ol>
 </nav>
