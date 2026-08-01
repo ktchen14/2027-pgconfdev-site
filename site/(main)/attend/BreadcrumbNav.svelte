@@ -4,6 +4,7 @@
 
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import { page } from "$app/state";
   import Link from "$lib/Link";
   import type { ComponentProps } from "svelte";
   import BreadcrumbNav from "../BreadcrumbNav.svelte";
@@ -13,6 +14,12 @@
 </script>
 
 <BreadcrumbNav {...rest}>
-  <li><Link href={resolve("/attend")}>Attend</Link></li>
+  <li>
+    {#if page.url.pathname !== resolve("/attend")}
+      <Link href={resolve("/attend")}>Attend</Link>
+    {:else}
+      Attend
+    {/if}
+  </li>
   {@render children?.()}
 </BreadcrumbNav>
