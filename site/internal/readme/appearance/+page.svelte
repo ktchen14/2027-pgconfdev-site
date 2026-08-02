@@ -2,6 +2,7 @@
   import { Calendar, Check, Clock, MapPin } from "@lucide/svelte";
   import Link from "$lib/Link";
   import Demo from "../Demo.svelte";
+  import OnThisPage from "../OnThisPage";
   import T from "../T.svelte";
 </script>
 
@@ -20,17 +21,29 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") note" aria-labelledby="on-this-page">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<OnThisPage class=") note">
+  {@const { Link } = OnThisPage}
   <ol>
-    <li><a class="li-number" href="#color">Color</a></li>
-    <li><a class="li-number" href="#icons">Icons</a></li>
-    <li><a class="li-number" href="#buttons">Buttons</a></li>
-    <li><a class="li-number" href="#areas">Areas</a></li>
-    <li><a class="li-number" href="#accents">Accents</a></li>
-    <li><a class="li-number" href="#tables">Tables</a></li>
+    <li>
+      <Link class="li-number" href="#color">Color</Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#icons">Icons</Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#buttons">Buttons</Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#areas">Areas</Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#accents">Accents</Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#tables">Tables</Link>
+    </li>
   </ol>
-</nav>
+</OnThisPage>
 
 <hgroup class="main" style:margin-block-start="0">
   <p>Internal</p>

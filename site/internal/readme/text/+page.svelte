@@ -1,6 +1,6 @@
 <script lang="ts">
-  import OnThisPage from "$lib/OnThisPage";
   import Demo from "../Demo.svelte";
+  import OnThisPage from "../OnThisPage";
   import T from "../T.svelte";
 </script>
 
@@ -10,22 +10,19 @@
 </svelte:head>
 
 <OnThisPage class=") note">
+  {@const { Link } = OnThisPage}
   <ol>
     <li>
-      <OnThisPage.Link class="li-number" href="#headings">
-        Headings
-      </OnThisPage.Link>
+      <Link class="li-number" href="#headings">Headings</Link>
     </li>
     <li>
-      <OnThisPage.Link class="li-number" href="#prose">Prose</OnThisPage.Link>
+      <Link class="li-number" href="#prose">Prose</Link>
     </li>
     <li>
-      <OnThisPage.Link class="li-number" href="#size">Size</OnThisPage.Link>
+      <Link class="li-number" href="#size">Size</Link>
     </li>
     <li>
-      <OnThisPage.Link class="li-number" href="#spacing">
-        Spacing
-      </OnThisPage.Link>
+      <Link class="li-number" href="#spacing">Spacing</Link>
     </li>
   </ol>
 </OnThisPage>
