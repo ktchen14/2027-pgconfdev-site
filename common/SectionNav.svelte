@@ -12,42 +12,38 @@
 <style>
   nav {
     container: section-nav / inline-size;
-  }
 
-  nav :global ul {
-    @container section-nav (width > 28rem) {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5em;
+    :global li {
+      margin-block: 0;
     }
-  }
 
-  nav :global li {
-    margin-block: 0;
-  }
+    :global a {
+      border-inline-start: 2px solid var(--border);
+      border-radius: 0;
+      margin-inline: 0;
 
-  nav :global a {
-    border-inline-start: 2px solid var(--border);
-    border-radius: 0;
-    margin-inline: 0;
+      &:hover {
+        border-color: var(--action-fg);
+      }
 
-    @container section-nav (width >= 28rem) {
-      border-radius: calc(1px * infinity);
-      border: 1px solid var(--border);
-
-      &:active {
-        translate: 0 1px;
+      &[aria-current="page"] {
+        background-color: var(--action-bg-tint);
+        border-color: var(--action-fg);
       }
     }
 
-    &:hover {
-      border-color: var(--action-fg);
-    }
+    @container section-nav (width >= 28rem) {
+      :global ul {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+      }
 
-    &[aria-current="page"] {
-      background-color: var(--action-bg-tint);
-      border-color: var(--action-fg);
+      :global a {
+        border-radius: calc(1px * infinity);
+        border: 1px solid var(--border);
+      }
     }
   }
 </style>

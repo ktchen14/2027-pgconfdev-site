@@ -277,6 +277,10 @@ a {
   text-decoration: none;
   width: stretch;
 
+  &:active {
+    translate: 0 1px;
+  }
+
   &:hover {
     background-color: var(--bg-tint);
   }
