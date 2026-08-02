@@ -11,7 +11,7 @@
 <style>
   nav {
     background-color: var(--bg);
-    padding: calc(0.75rem * 0.875);
+    box-shadow: 0 0 0 0.75em var(--bg);
     position: sticky;
     top: var(--gap);
   }
