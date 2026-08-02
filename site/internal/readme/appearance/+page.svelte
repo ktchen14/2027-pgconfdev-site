@@ -7,10 +7,10 @@
 </script>
 
 <style>
-  :global(.\*\:margin-gap > *) {
+  :global .\*\:margin-gap > * {
     margin-block: 0 var(--gap);
 
-    &:global(:where(:last-child)) {
+    &:where(:last-child) {
       margin-block-end: 0;
     }
   }
@@ -24,24 +24,12 @@
 <OnThisPage class=") note">
   {@const { Link } = OnThisPage}
   <ol>
-    <li>
-      <Link class="li-number" href="#color">Color</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#icons">Icons</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#buttons">Buttons</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#areas">Areas</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#accents">Accents</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#tables">Tables</Link>
-    </li>
+    <li><Link class="li-number" href="#color">Color</Link></li>
+    <li><Link class="li-number" href="#icons">Icons</Link></li>
+    <li><Link class="li-number" href="#buttons">Buttons</Link></li>
+    <li><Link class="li-number" href="#areas">Areas</Link></li>
+    <li><Link class="li-number" href="#accents">Accents</Link></li>
+    <li><Link class="li-number" href="#tables">Tables</Link></li>
   </ol>
 </OnThisPage>
 

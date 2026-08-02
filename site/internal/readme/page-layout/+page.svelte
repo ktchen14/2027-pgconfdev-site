@@ -1,6 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import Link from "$lib/Link";
+  import OnThisPage from "../OnThisPage";
   import T from "../T.svelte";
 </script>
 
@@ -34,35 +35,37 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") note" aria-labelledby="on-this-page">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<OnThisPage class=") note">
+  {@const { Link } = OnThisPage}
   <ol>
     <li>
-      <a class="li-number" href="#the-three-regions">The three regions</a>
+      <Link class="li-number" href="#the-three-regions">The three regions</Link>
     </li>
     <li>
-      <a class="li-number" href="#placing-a-block">Placing a block</a>
+      <Link class="li-number" href="#placing-a-block">Placing a block</Link>
     </li>
     <li>
-      <a class="li-number" href="#the-centre-column">The centre column</a>
+      <Link class="li-number" href="#the-centre-column">The centre column</Link>
     </li>
-    <li><a class="li-number" href="#full-width">Full width</a></li>
-    <li><a class="li-number" href="#sidebars">Sidebars</a></li>
+    <li><Link class="li-number" href="#full-width">Full width</Link></li>
+    <li><Link class="li-number" href="#sidebars">Sidebars</Link></li>
     <li>
-      <a class="li-number" href="#spanning-into-one-sidebar"
-        >Spanning one sidebar</a
-      >
-    </li>
-    <li>
-      <a class="li-number" href="#place-a-blocks-children">The *: variant</a>
+      <Link class="li-number" href="#spanning-into-one-sidebar">
+        Spanning one sidebar
+      </Link>
     </li>
     <li>
-      <a class="li-number" href="#matching-other-classes-to-the-bands">
+      <Link class="li-number" href="#place-a-blocks-children">
+        The <code>*:</code> variant
+      </Link>
+    </li>
+    <li>
+      <Link class="li-number" href="#matching-other-classes-to-the-bands">
         Breakpoint aliases
-      </a>
+      </Link>
     </li>
   </ol>
-</nav>
+</OnThisPage>
 
 <hgroup class="main" style:margin-block-start="0">
   <p>Internal</p>

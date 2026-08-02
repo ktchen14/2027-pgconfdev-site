@@ -3,6 +3,7 @@
   import Link from "$lib/Link";
   import Rule from "$lib/Rule.svelte";
   import Demo from "../Demo.svelte";
+  import OnThisPage from "../OnThisPage";
   import T from "../T.svelte";
 </script>
 
@@ -11,15 +12,15 @@
   <meta name="robots" content="noindex" />
 </svelte:head>
 
-<nav class=") note" aria-labelledby="on-this-page">
-  <h2 id="on-this-page" class="over">On this page</h2>
+<OnThisPage class=") note">
+  {@const { Link } = OnThisPage}
   <ol>
-    <li><a class="li-number" href="#rule">Rule</a></li>
-    <li><a class="li-number" href="#counters">Counters</a></li>
-    <li><a class="li-number" href="#layout">Layout</a></li>
-    <li><a class="li-number" href="#dedent">Dedent</a></li>
+    <li><Link class="li-number" href="#rule">Rule</Link></li>
+    <li><Link class="li-number" href="#counters">Counters</Link></li>
+    <li><Link class="li-number" href="#layout">Layout</Link></li>
+    <li><Link class="li-number" href="#dedent">Dedent</Link></li>
   </ol>
-</nav>
+</OnThisPage>
 
 <hgroup class="main" style:margin-block-start="0">
   <p>Internal</p>

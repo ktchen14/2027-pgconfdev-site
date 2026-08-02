@@ -12,18 +12,10 @@
 <OnThisPage class=") note">
   {@const { Link } = OnThisPage}
   <ol>
-    <li>
-      <Link class="li-number" href="#headings">Headings</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#prose">Prose</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#size">Size</Link>
-    </li>
-    <li>
-      <Link class="li-number" href="#spacing">Spacing</Link>
-    </li>
+    <li><Link class="li-number" href="#headings">Headings</Link></li>
+    <li><Link class="li-number" href="#prose">Prose</Link></li>
+    <li><Link class="li-number" href="#size">Size</Link></li>
+    <li><Link class="li-number" href="#spacing">Spacing</Link></li>
   </ol>
 </OnThisPage>
 
