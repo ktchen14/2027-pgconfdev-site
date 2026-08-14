@@ -48,7 +48,7 @@ const layout = withLayer("layout", [
     "grid-template-columns": `repeat(auto-fit, minmax(${number}rem, 1fr))`,
   })),
 
-  rule(/^columnar$/, childMarginBlock, {
+  rule(/^pagegrid$/, childMarginBlock, {
     display: "grid",
     gap: "var(--gap) var(--margin)",
     "grid-template-columns": "var(--pagegrid-template, 1fr)",

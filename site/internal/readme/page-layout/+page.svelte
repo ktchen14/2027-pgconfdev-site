@@ -413,14 +413,14 @@
   </div>
 
   <p>
-    A half-span is most useful paired with <Link href="layout">columnar</Link>,
+    A half-span is most useful paired with <Link href="layout">pagegrid</Link>,
     which turns its regions into aligned grid columns. The timeline below,
     lifted from the <Link href={resolve("/about")}>About page</Link>, is a
-    <code>(main main) columnar</code> band: each row lines its year up in one column
+    <code>(main main) pagegrid</code> band: each row lines its year up in one column
     and its description in the next. Widen past 48rem to see the columns split.
   </p>
 
-  <div class="(main main) columnar timeline">
+  <div class="(main main) pagegrid timeline">
     <figure class="column-1@( column-2@) border dashed">
       <div class="action h2">2024</div>
       <figcaption class="over">Vancouver, BC</figcaption>
@@ -437,7 +437,7 @@
 
   <hr aria-hidden="true" class="(main main)" style:margin-block="var(--gap)" />
 
-  <div class="(main main) columnar timeline">
+  <div class="(main main) pagegrid timeline">
     <figure class="column-1@( column-2@) border dashed">
       <div class="action h2">2025</div>
       <figcaption class="over">Montréal, QC</figcaption>

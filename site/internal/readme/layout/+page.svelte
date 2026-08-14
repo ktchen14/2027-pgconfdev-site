@@ -210,10 +210,10 @@ import Rule from "$lib/Rule.svelte";
 </div>`}
   />
 
-  <h3>Columnar</h3>
+  <h3>Page Grid</h3>
 
   <p>
-    <T>columnar</T> turns a page-layout span (one of the
+    <T>pagegrid</T> turns a page-layout span (one of the
     <Link href="page-layout">Page layout</Link> classes that covers more than one
     region, like <code>(main)</code> or <code>main)</code>) into a grid with one
     column per region, so its children line up with main and the sidebars. On
@@ -223,7 +223,7 @@ import Rule from "$lib/Rule.svelte";
 
   <p>
     The <Link href={resolve("/about")}>About page</Link> timeline uses
-    <code>(main main) columnar</code>: a fallback between the boxes
+    <code>(main main) pagegrid</code>: a fallback between the boxes
     <code>(main</code> and <code>main)</code>, so each row leans into the left
     sidebar on a desktop and the right one on a tablet, with the year in one
     column and its description in the other.

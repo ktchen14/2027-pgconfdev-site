@@ -239,7 +239,7 @@
     community.
   </p>
 
-  <div class="(main main) columnar section timeline">
+  <div class="(main main) pagegrid section timeline">
     <div class="subgrid@)">
       <figure class="column-1@( column-2@)">
         <div class="action h2">2024</div>
