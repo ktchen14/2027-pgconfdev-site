@@ -40,5 +40,6 @@ export const load: PageLoad = ({ fetch }) => {
     return [...result.values()].slice(0, limit);
   });
 
-  return { statuses };
+  // See https://svelte.dev/docs/kit/load#Streaming-with-promises
+  return { statuses: statuses.catch(() => {}) };
 };
